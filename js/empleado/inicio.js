@@ -19,7 +19,7 @@ $(document).ready(function(){
                 vision = '<h5>'+value.vision+'</h5>';
                 politica_calidad = '<h5>'+value.politica_calidad+'</h5>';
                 objetivos_calidad = '<h5>'+value.objetivos_calidad+'</h5>';
-                $("#organigrama").attr('src','../componente/img/globales/organigrama/'+value.organigrama); 
+                $("#organigrama").attr('src','../documentos/empresa/organigrama/'+value.organigrama); 
             })
         
         $('#mision').html(mision);
@@ -34,5 +34,7 @@ $(document).ready(function(){
         $('#organigrama').html(error);
         })
     }
+
+
 
 })

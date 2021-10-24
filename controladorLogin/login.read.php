@@ -27,11 +27,14 @@
 			$_SESSION['img_empleado']=$retorno[0]['img_empleado'];
 			$_SESSION['cargo']=$retorno[0]['cargo'];
 			$_SESSION['id_cargo']=$retorno[0]['id_cargo'];
+			$_SESSION['manual_funciones']=$retorno[0]['manual_funciones'];
+			$_SESSION['nombre_empresa']=$retorno[0]['nombre_empresa'];
+			$_SESSION['logo']=$retorno[0]['logo'];
 		}
-		
 	}
 
 	unset($loginE);
 	unset($loginM);
+	
 	echo json_encode($retorno);
 ?>

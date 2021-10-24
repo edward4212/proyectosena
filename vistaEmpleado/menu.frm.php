@@ -1,39 +1,54 @@
-
 <!-- Inicio Menu -->
-<div class="head-model  ">
-	<nav class="navbar navbar-expand-lg  ">
-		<div class="container-fluid justify-content-end">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-			</button>
-			<div class="collapse navbar-collapse "  id="navbarNavDropdown">
-				<ul class="navbar-nav ">
-					<li class="nav-item">
-					    <a class="nav-link active" aria-current="page" href="inicio.frm.php"><i class="fas fa-home"></i> Inicio</a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link active " href="documento.frm.php"><i class="fas fa-file"></i> Documentos</a>
-					</li>
-					<li class="nav-item">	
-					    <a class="nav-link active" href="solicitudes.frm.php"><i class="far fa-address-book"></i> Solicitudes</a>
-					</li>
-                    <li class="nav-item">
-					    <a class="nav-link active" href="tareas.frm.php"><i class="far fa-address-book"></i> Tareas</a>
-					</li>
-                    <li class="nav-item">
-					    <a class="nav-link active" href="perfil.frm.php"><i class="fas fa-user-circle"></i> Perfil</a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link active" href=""></a>
-					</li>
-					<br>
-					<li>
-                        <button class="btn btn-primary"  id="btnCerrar"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</button>
-                        <script src="../js/Login/logueo.js"></script>
+<header class="navbar navbar-expand-md  head-model ">
+    <nav class=" navbar  bg-light container-xxl flex-wrap flex-md-nowrap fixed-top" aria-label="Main navigation">
+        <div class="container-fluid ">
+            <a class="navbar-brand">
+                <img src="../documentos/empresa/logo/<?php $logo= $_SESSION['logo']; echo $logo;?>" alt="" width="50"
+                    height="24">
+            </a>
+            <!-- <a class="navbar-brand p-0 me-2" href="#" aria-label="Bootstrap">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="far fa-caret-square-down"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class=" navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0  ">
+                    <li class="nav-item col-6 col-md-auto">
+                        <a class="nav-link p-2" aria-current="page" href="inicio.frm.php"><i class="fas fa-home"></i>
+                            Inicio</a>
                     </li>
-			    </ul>
-			</div>
-		</div>
-	</nav>
-</div>
+                    <li class="nav-item col-6 col-md-auto">
+                        <a class="nav-link p-2 " href="documento.frm.php"><i class="fas fa-file"></i> Documentos</a>
+                    </li>
+                    <li class="nav-item col-6 col-md-auto">
+                        <a class="nav-link p-2" href="solicitudes.frm.php"><i class="far fa-address-book"></i>
+                            Solicitudes</a>
+                    </li>
+                    <li class="nav-item col-6 col-md-auto">
+                        <a class="nav-link p-2" href="tareas.frm.php"><i class="far fa-address-book"></i> Tareas</a>
+                    </li>
+                    <li class="nav-item col-6 col-md-auto">
+                        <a class="nav-link p-2" href="perfil.frm.php"><i class="fas fa-user-circle"></i> Perfil</a>
+                    </li>
+                    <li class="nav-item col-6 col-md-auto">
+                        <a class="nav-link p-2" href=""></a>
+                    </li>
+                    <li>
+                        <a href="perfil.frm.php" class="d-block text-decoration-none" aria-expanded="false">
+                            <img src="../documentos/usuarios/<?php $usuario= $_SESSION['usuario']; echo $usuario;?>/imagen/<?php $img_empleado= $_SESSION['img_empleado']; echo $img_empleado; ?>"
+                                alt="mdo" width="32" height="32" class="rounded-circle">
+                            <?php $usuario= $_SESSION['usuario']; echo $usuario;?>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <form class="d-flex">
+                <a class="btn btn-primary" id="btnCerrar"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
+                <script src="../js/Login/logueo.js"></script>
+            </form>
+        </div>
+    </nav>
+    
+</header>
+
 <!-- --Fin Menu -->

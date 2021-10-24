@@ -3,6 +3,7 @@
 include_once "../entidadEmpleado/solicitudes.entidad.php";
 include_once "../modeloEmpleado/solicitudes.modelo.php";
 
+
 $idsolicitud = $_POST['numIdSolicitud'];  
 
 $solicitudesE = new \entidad\Solicitudes();

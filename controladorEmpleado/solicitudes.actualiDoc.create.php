@@ -5,6 +5,7 @@ include_once "../modeloEmpleado/solicitudes.modelo.php";
 include_once "../controladorLogin/logueo.read.php";
 
 $id_empleado = $_SESSION['id_empleado'];
+$usuario = $_SESSION['usuario'];
 $codigo = $_POST['codigo'];
 $id_tipoDocumento = $_POST['idTipoDoc1'];
 $id_prioridad = $_POST['prioridad1'];
@@ -17,7 +18,7 @@ if (isset($_FILES["fileActualizacion"]))
     $tipo =$_FILES['fileActualizacion']['type'];
     $tamaño =$_FILES['fileActualizacion']['size'];
     
-    $directorio = "../documentos/solicitudes/$id_empleado/$fechaActual/";
+    $directorio = "../documentos/usuarios/$usuario/solicitudes/$fechaActual/";
    
     if(!file_exists($directorio)){
         mkdir($directorio,0777,true);
@@ -49,7 +50,23 @@ $resultado = $solicitudesM->solicitudActualizacion();
 unset($solicitudesE);
 unset($solicitudesM);
 
-echo "<script>  alert('Solcitud de Actualización de Documento creada con Exito');</script>";
-echo "<script> window.location.href = '../vistaEmpleado/solicitudes.frm.php'</script>";
+
+echo '
+    <link rel="stylesheet" href="../componente/css/globales/sweetalert2.min.css"> 
+    <script src="../componente/libreria/globales/sweetalert2.all.min.js"></script> 
+    <script type="text/javascript" src="../componente/libreria/globales/jquery-3.6.0.js"></script>
+    <script>    
+    jQuery(function(){
+        Swal.fire({
+            icon: "success",
+            title: "Solcitud de Actualización de Documento creada con Exito",
+            showConfirmButton: false,
+            timer: 2000
+            }).then(function() {
+            window.location.href = "../vistaEmpleado/solicitudes.frm.php";
+        });
+    });
+    </script>';
+
 
 ?>  
