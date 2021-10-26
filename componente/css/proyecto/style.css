@@ -6,6 +6,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+header{
+    margin-bottom: 60px;
+}
+
 /**
 * Se estilo a las etiquetas form
 */
@@ -40,6 +44,9 @@
   border-radius: 0.3rem;
 }
 
+nav-tabs{
+  border-radius: 50%  !important;
+}
 /**
 * Se estilo a los botones
 */

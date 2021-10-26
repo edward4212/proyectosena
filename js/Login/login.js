@@ -54,7 +54,16 @@ $(document).ready(function () {
                               }).then((result) => {
                                 window.location.href = "../vistaEmpleado/inicio.frm.php";
                               })
-                        }
+                        }else if (obj[0].id_rol == 3) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Bienvenido '+obj[0].nombre_completo , 
+                                showConfirmButton: false,
+                                timer: 3000
+                              }).then((result) => {
+                                window.location.href = "../vistaVisitante/inicio.frm.php";
+                              })
+                            }
                     }else if(obj[0].esUsuario == "C"){
                         Swal.fire({
                             icon: 'error',
@@ -87,10 +96,8 @@ $(document).ready(function () {
                 title: '¡Usuario o Contraseña Incorrecto!',
                 showConfirmButton: false,
                 timer: 2000
-              })
+            })
         })
-
-
 
     })
 

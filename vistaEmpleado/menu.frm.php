@@ -1,6 +1,6 @@
 <!-- Inicio Menu -->
-<header class="navbar navbar-expand-md  head-model ">
-    <nav class=" navbar  bg-light container-xxl flex-wrap flex-md-nowrap fixed-top" aria-label="Main navigation">
+<header class="navbar navbar-expand-md">
+    <nav class=" navbar  bg-light container-lg flex-wrap flex-md-nowrap fixed-top head-model border" aria-label="Main navigation">
         <div class="container-fluid ">
             <a class="navbar-brand">
                 <img src="../documentos/empresa/logo/<?php $logo= $_SESSION['logo']; echo $logo;?>" alt="" width="50"
@@ -30,19 +30,12 @@
                     <li class="nav-item col-6 col-md-auto">
                         <a class="nav-link p-2" href="perfil.frm.php"><i class="fas fa-user-circle"></i> Perfil</a>
                     </li>
-                    <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href=""></a>
-                    </li>
-                    <li>
-                        <a href="perfil.frm.php" class="d-block text-decoration-none" aria-expanded="false">
-                            <img src="../documentos/usuarios/<?php $usuario= $_SESSION['usuario']; echo $usuario;?>/imagen/<?php $img_empleado= $_SESSION['img_empleado']; echo $img_empleado; ?>"
-                                alt="mdo" width="32" height="32" class="rounded-circle">
-                            <?php $usuario= $_SESSION['usuario']; echo $usuario;?>
-                        </a>
-                    </li>
                 </ul>
             </div>
             <form class="d-flex">
+            <label  href="perfil.frm.php" class="nav-link p-2" ><?php $usuario= $_SESSION['usuario']; echo $usuario;?></label>
+                <img href="perfil.frm.php"  src="../documentos/usuarios/<?php $usuario= $_SESSION['usuario']; echo $usuario;?>/imagen/<?php $img_empleado= $_SESSION['img_empleado']; echo $img_empleado; ?>"
+                alt="mdo" width="32" height="32" class="rounded-circle">
                 <a class="btn btn-primary" id="btnCerrar"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
                 <script src="../js/Login/logueo.js"></script>
             </form>

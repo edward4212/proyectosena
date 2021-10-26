@@ -12,16 +12,16 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active " id="nav-tareas-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-tareas" type="button" role="tab" aria-controls="nav-tareas"
-                        aria-selected="false">Mis Tarea</button>
+                        aria-selected="false">Tarea Registradas</button>
                     <button class="nav-link " id="nav-asignar-tab" data-bs-toggle="tab" data-bs-target="#nav-asignar"
-                        type="button" role="tab" aria-controls="nav-asignar" aria-selected="true">Asignar
-                        Tareas</button>
+                        type="button" role="tab" aria-controls="nav-asignar" aria-selected="true">
+                        Mis Tareas</button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade  show active" id="nav-tareas" role="tabpanel"
                     aria-labelledby="nav-tareas-tab">
-                    
+                    <br>
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="card">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-asignar" role="tabpanel" aria-labelledby="nav-asignar-tab">
-                    
+                    <br>
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="card">

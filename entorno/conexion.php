@@ -9,7 +9,7 @@ class conexion
 
     public function __construct()
     {
-    $this->conn =new PDO('mysql:dbname=proyecto_final;host=localhost','root','');
+    $this->conn =new PDO('mysql:dbname=proyecto1;host=localhost','root','');
     $this->conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
     }

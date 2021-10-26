@@ -50,6 +50,10 @@ $(document).ready(function(){
                 "searching": true,
                 "info":     true,
                 "ordering": true,
+                order: [[0, 'asc']],
+                rowGroup: {
+                    dataSrc: 0
+                },
                 "colReorder": true,
                 "sZeroRecords": true,
                 "keys": true,
@@ -59,6 +63,10 @@ $(document).ready(function(){
                 "language": {"url": "../componente/libreria/idioma/es-mx.json"},
                 dom:  'Qfrtip',
                 dom:  'Bfrtip',
+                order: [[2, 'asc']],
+                rowGroup: {
+                    dataSrc: 2
+                },
                 buttons: [
                     {
                         extend: 'pdfHtml5',

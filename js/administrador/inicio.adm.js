@@ -52,7 +52,13 @@ $(document).ready(function(){
             organigrama ='';
             logos ='';
             $.each(json, function(key, value){
-
+                if(value.mision == 'null'){
+                   mision='Debe ingrsar la mision';
+                }
+                
+                mision = '<h5>'+value.mision+'</h5>';
+                mision += '<button type="button" style="width:270px" class="btn btn-primary text-center" onclick="misions('+value.id_empresa+',\''+value.mision+'\')" data-bs-toggle="modal" data-bs-target="#exampleModalmis"><i class="far fa-edit"></i> Modificar </button>';
+              
                 empresas += '<h5>'+value.nombre_empresa+'</h5>';
                 empresas += '<button type="button" style="width:270px" class="btn btn-primary text-center" onclick="empresa('+value.id_empresa+',\''+value.nombre_empresa+'\')" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-edit"></i> Modificar </button>';
                 mision = '<h5>'+value.mision+'</h5>';

@@ -72,7 +72,7 @@
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form class="row g-3 form-group" action="../controladorEmpleado/imagen.update.php"
+                                    <form class="row g-3 form-group" action="../controladorAdministrador/imagen.update.php"
                                         method="POST" enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="row">
@@ -81,7 +81,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Nueva Imagen</h5>
                                                     <input class="form-control" type="file" name="fileImagenPerfilUs"
-                                                        id="fileImagenPerfilUs" class="file " accept="image/*">
+                                                        id="fileImagenPerfilUs" class="file" accept="image/*">
                                                 </div>
                                                 <br>
                                             </div>
@@ -140,5 +140,5 @@
     </main>
     <?php include_once "footer.frm.php" ?>
 </body>
-<script src=""></script>
+<script src="../js/administrador/perfil.js"></script>
 </html>

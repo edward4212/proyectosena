@@ -12,7 +12,7 @@ $(document).ready(function(){
             }).done(function(json){
                 Swal.fire({                  
                     icon: 'success',
-                    title: 'Contraseña Actualizada con Exito... Por Favor Iniie Sesion Nuevamente',
+                    title: 'Contraseña Actualizada con Exito... Por Favor Inicie Sesión Nuevamente',
                     showConfirmButton: false,
                     timer: 2000
                     }).then((result) => {

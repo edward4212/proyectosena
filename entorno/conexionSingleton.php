@@ -7,7 +7,7 @@ class Conexion extends PDO
     
     private function __construct()
     {
-        parent::__construct('mysql:dbname=proyecto_final;host=localhost','root','');
+        parent::__construct('mysql:dbname=proyecto1;host=localhost','root','');
     }
 
     public function ultimoId()

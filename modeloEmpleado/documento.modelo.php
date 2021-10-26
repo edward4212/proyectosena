@@ -72,7 +72,7 @@ class Documento{
                FROM documento AS doc
                INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
                INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
-               INNER JOIN versionamiento AS vr ON  doc.`id_versionamiento` = vr.`id_versionamiento` 
+               INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`  
                WHERE vr.`estado`='v'
                ORDER BY codigo  ASC";
           $this->result = $this->conexion->query($this->sql);

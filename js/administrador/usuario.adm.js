@@ -272,7 +272,7 @@ $(document).ready(function(){
                             datos += '<tr class="align-middle" >';
                                 datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.id_cargo+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.cargo+'</td>';   
-                                if(value.manual_funciones == ""){
+                                if(value.manual_funciones == "null"){
                                     datos += '<td class=" border border-primary text-wrap align-middle">No ha cargado manual de funciones</td>'; 
                                 }else{
                                     datos += '<td class=" border border-primary text-wrap align-middle"><a class="btn btn-primary" href="../documentos/cargos/'+value.cargo+'/'+value.manual_funciones+'"><i class="fas fa-download"></i></a></td>'; 
@@ -428,6 +428,42 @@ $(document).ready(function(){
             dataType: 'json',
             data: $('#usuario').serialize(),
         }).done(function (json) {
+            // if (json[0].proceso == "OK") {
+            //     Swal.fire({
+            //         icon: 'success',
+            //         title: 'Usuario Creado con Exito',
+            //         showConfirmButton: false,
+            //         timer: 2000
+            //       }).then((result) => {
+            //         window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+            //       })
+
+            // }else{
+
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'No se pudo crear el usuario!.. Favor Verifique los datos ingresado!',
+            //         showConfirmButton: false,
+            //         timer: 2000
+            //       }).then((result) => {
+            //         window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+            //       })
+            // }
+        }).fail(function (xhr, status, error) {
+            $('#respuesta').html(error);
+        })
+
+    })
+
+    /// ENVIAR EMAIL USUARIO///
+    $(document).on('click', '#btnRegistrarUsuario', function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '../controladorAdministrador/usuario.create.email.php',
+            type: 'POST',
+            dataType: 'json',
+            data: $('#usuario').serialize(),
+        }).done(function (json) {
             if (json[0].proceso == "OK") {
                 Swal.fire({
                     icon: 'success',
@@ -452,7 +488,6 @@ $(document).ready(function(){
         }).fail(function (xhr, status, error) {
             $('#respuesta').html(error);
         })
-
     })
 
     /// MOSTRAR LOS USUARIOS REGISTRADOS///

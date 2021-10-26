@@ -8,8 +8,8 @@
     <!-- se Inicia Pagina Inicio  -->
     <main class="flex-shrink-0">
         <div class="container">
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <nav class=""> 
+                <div class="nav nav-tabs " id="nav-tab" role="tablist">
                     <button class="nav-link active " id="nav-usuarios-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-usuarios" type="button" role="tab" aria-controls="nav-usuarios"
                         aria-selected="false">Usuarios</button>
