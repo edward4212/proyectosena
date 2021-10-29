@@ -86,6 +86,7 @@
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <h5>Subir Documento</h5>
                                     <input type="file" class="form-control redondeado" id="fileSolicitud" name="fileSolicitud" multiple>
+                                    <p class="text-muted">Si se agrega mas de un archivo, anexarlos en carpeta comprimida .zip</p>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12 align-items-center">
                                     <button type="submit" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Crear
@@ -134,7 +135,11 @@
                                             <h5>Descripcion</h5>
                                             <textarea type="text" class="form-control redondeado" rows="8" cols="55" id="solicitud1" name="solicitud1"
                                                 required></textarea>
-                                            <input type="file" class="form-control redondeado" id="fileActualizacion" name="fileActualizacion" multiple>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Subir Documento</h5>
+                                                <input type="file" class="form-control redondeado" id="fileActualizacion" name="fileActualizacion" multiple>
+                                                <p class="text-muted">Si se agrega mas de un archivo, anexarlos en carpeta comprimida .zip</p>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i>
@@ -157,7 +162,7 @@
                             </div>
                         </div>
                         <!-- Modal para solicitar eliminacion-->
-                        <div class="modal fade bd-example-modal-lg" id="exampleModal2" tabindex="-1"
+                        <div class="modal fade bd-example-modal-lg " id="exampleModal2" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -182,7 +187,11 @@
                                             <h5>Descripcion</h5>
                                             <textarea type="text" class="form-control redondeado" rows="8" cols="55" id="solicitud2" name="solicitud2"
                                                 required></textarea>
-                                            <input type="file"class="form-control redondeado" id="fileEliminacion" name="fileEliminacion" multiple>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Subir Documento</h5>
+                                                <input type="file"class="form-control redondeado" id="fileEliminacion" name="fileEliminacion" multiple>
+                                                <p class="text-muted">Si se agrega mas de un archivo, anexarlos en carpeta comprimida .zip</p>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i>

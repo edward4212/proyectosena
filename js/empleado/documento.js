@@ -16,7 +16,7 @@ $(document).ready(function(){
              * Se crea la tabla para mostrar los datos consultados
              */
             var datos = '';
-            datos += "<table id='tableConsulta'  class='table  table-striped table-bordered table-responsive '   >";
+            datos += "<table id='tableDocumentoVigentesEmp'  class='table  table-striped table-bordered table-responsive '   >";
                datos += '<thead >';
                     datos += '<tr class="table-light border-primary ">';
                         datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
@@ -32,18 +32,18 @@ $(document).ready(function(){
                     $.each(json, function(key, value){
                         datos += '<tr class="align-middle" >';
                             datos += '<td class=" border border-primary  text-wrap">'+value.proceso+'</td>'; 
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.sigla_proceso+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.tipo_documento+'</td>';
                             datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo+'</td>';
-                            datos += '<td class=" border border-primary text-wrap">'+value.nombre+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.version+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.fecha+'</td>';
+                            datos += '<td class=" border border-primary text-wrap">'+value.nombre_documento+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.numero_version+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.fecha_aprobacion+'</td>';
                             datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/'+value.sigla_proceso+'/'+value.documento+'"><i class="fas fa-download"></i></a></td>';
                         datos += '</tr>';
                     })
                 datos += '</tbody>';
             datos += '</table>';
             $('#consulta').html(datos);
-            $('#tableConsulta').DataTable({
+            $('#tableDocumentoVigentesEmp').DataTable({
                 "destroy" : true,
                 "autoWidth": true,
                 "responsive": true,
@@ -59,6 +59,10 @@ $(document).ready(function(){
                 "language": {"url": "../componente/libreria/idioma/es-mx.json"},
                 dom:  'Qfrtip',
                 dom:  'Bfrtip',
+                order: [[0, 'asc'],[2, 'asc']],
+                rowGroup: {
+                    dataSrc: 0
+                },
                 buttons: [
                     {
                         extend: 'pdfHtml5',
@@ -108,8 +112,8 @@ $(document).ready(function(){
                 ]
             });
         }).fail(function(xhr, status, error){
-            $('#mision').html(error);
+            $('#consulta').html(error);
         })
-    }
+        }
 
 })

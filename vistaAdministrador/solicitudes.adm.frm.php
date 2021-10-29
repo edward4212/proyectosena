@@ -1,10 +1,10 @@
 <!-- Se agrega Head -->
-<?php include_once "head.adm.frm.php" ?>
+<?php include_once "head.Adm.frm.php" ?>
 <title>Solicitudes</title>
 
 <body class="bg-light d-flex flex-column h-100">
     <!-- se agrega Menu -->
-    <?php include_once "menu.adm.frm.php" ?>
+    <?php include_once "menu.Adm.frm.php" ?>
     <!-- se Inicia Pagina Inicio  -->
     <main class="flex-shrink-0">
         <div class="container">
@@ -27,10 +27,36 @@
                             <div>
                                 <form action="" class="form-group" id="buscar">
                                     <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
-                                    <h5 id="solicitudes"></h5>
+                                    <h5 id="solicitudesAdmn"></h5>
                                 </form>
                             </div>
                             
+                        </div>
+                        <!-- Modal Asignar Funcionario-->
+                        <div class="modal fade" id="asignarFuncionarioSol" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Asignar Funcionario Encargado de la Solicitud</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="col-md-12 col-xs-12 col-sm-12">
+                                            <h5>Seleccione un Funcionario</h5>
+                                            <select class="form-control " id="empleado"
+                                                name="empleado" aria-label="E"
+                                                aria-describedby="basic-addon1"></select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" id="btnModificarTipoDoc" class="btn btn-primary"><i class="fas fa-check"></i> Asignar</button>
+                                        <button type="button" class="btn btn-primary"
+                                            data-bs-dismiss="modal">Volver</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- Modal para ver comentarios-->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -51,7 +77,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>  
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-asignadas" role="tabpanel" aria-labelledby="nav-asignadas-tab">
@@ -102,6 +128,6 @@
     </main>
     <?php include_once "footer.frm.php" ?>
 </body>
-<script src="../js/administrador    /solicitudes.js"></script>
+<script src="../js/administrador/solicitudes.adm.js"></script>
 
 </html>

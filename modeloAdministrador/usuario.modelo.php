@@ -56,6 +56,7 @@ class Usuario{
           try {
                $this->sql = "SELECT
                usu.`id_usuario`,
+               empl.`id_empleado`,
                empl.`nombre_completo`,
                empl.`correo_empleado`,
                usu.`usuario`,

@@ -1,7 +1,7 @@
 <?php
 
-include_once "../entidadEmpleado/documento.entidad.php";
-include_once "../modeloEmpleado/documento.modelo.php";
+include_once "../entidadAdministrador/documento.entidad.php";
+include_once "../modeloAdministrador/documento.modelo.php";
 
 
 $documentoE = new \entidad\Documento();

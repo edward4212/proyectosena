@@ -14,9 +14,8 @@ $fechaActual = date("Y-m-d H-i-s");
 
 if (isset($_FILES["fileSolicitud"]))
 {
-    $foto=$_FILES["fileSolicitud"]["tmp_name"];
-    $tipo =$_FILES['fileSolicitud']['type'];
-    $tamaño =$_FILES['fileSolicitud']['size'];
+  
+ 
     
     $directorio = "../documentos/usuarios/$usuario/solicitudes/$fechaActual/";
    
@@ -33,6 +32,13 @@ if (isset($_FILES["fileSolicitud"]))
 }
 else{
     $nombre = NULL ;
+    $directorio = "../documentos/usuarios/$usuario/solicitudes/$fechaActual/";
+    if(!file_exists($directorio)){
+        mkdir($directorio,0777,true);
+    }else{
+        if(file_exists($directorio)){
+        }    
+    }
 }
 
 $solicitudesE = new \entidad\Solicitudes(); 

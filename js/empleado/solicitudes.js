@@ -2,16 +2,16 @@ function comentario (codigo){
     $("#numIdSolicitud").val(codigo);
 }
 
-function actualizacion (codigo, tipoDoc,id_tipo_documento){
+function actualizacion (codigo, tipo_documento,id_tipo_documento){
     $("#codigo").val(codigo);
-    $("#tipoDoc1").val(tipoDoc);
+    $("#tipoDoc1").val(tipo_documento);
     $("#idTipoDoc1").val(id_tipo_documento);
 }
 
 
-function eliminacion (codigo, tipoDoc,id_tipo_documento){
+function eliminacion (codigo, tipo_documento,id_tipo_documento){
     $("#codigo2").val(codigo);
-    $("#tipoDoc2").val(tipoDoc);
+    $("#tipoDoc2").val(tipo_documento);
     $("#idTipoDoc2").val(id_tipo_documento);
 }
 
@@ -41,16 +41,17 @@ $(document).ready(function(){
              * Se crea la tabla para mostrar los datos consultados
              */
             var datos = '';
-                datos += "<table id='tableConsulta' class='table  class='table  table-striped table-bordered table-responsive '  >"; 
+                datos += "<table id='tableSolicitudes' class='table  class='table  table-striped table-bordered table-responsive '  >"; 
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary text-center align-middle ">';
                             datos += '<th  class="border border-primary text-center align-middle ">CODIGO SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE LA SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">PRIORIDAD</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">ESTADO DE LA SOLICITUD</th>'; 
                             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE DOCUMENTO </th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DE DOCUMENTO </th>';
                             datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCIÓN DE LA SOLICITUD</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">ESTADO DE LA SOLICITUD</th>';                          
                             datos += '<th  class="border border-primary text-center align-middle ">ASIGNADO A</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">VER COMENTARIOS</th>';
                         datos += '</tr>';
@@ -61,10 +62,12 @@ $(document).ready(function(){
                                 datos += '<td class=" border border-primary text-wrap align-middle" id="numIdSolicitud">'+value.codigo+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_solicitud+'</td>'; 
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.prioridad+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.estado+'</td>'; 
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.tipo_solicitud+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.tipo_documento+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
-                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.estado+'</td>'; 
+
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.funcionario_asignado+'</td>';
                                 datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="btnVerComentarios" onclick="comentario('+value.codigo+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-comment-dots"></i></button></td>';
                             datos += '</tr>';
@@ -72,7 +75,7 @@ $(document).ready(function(){
                     datos += '</tbody>';
                 datos += '</table>';
             $('#solicitudes').html(datos);
-            $('#tableConsulta').DataTable({
+            $('#tableSolicitudes').DataTable({
                 "destroy" : true,
                 "autoWidth": true,
                 "responsive": true,
@@ -155,7 +158,7 @@ $(document).ready(function(){
                         comentarios += "<h5>Aun no hay comentarios</h5>";
                     }else{
                     // datos += '<form action="" class="form-group" id="buscar">';
-                    comentarios += "<table id='tableConsulta' class='table  class='table  table-striped table-bordered table-responsive ' >"; 
+                    comentarios += "<table id='tableComentarios' class='table  class='table  table-striped table-bordered table-responsive ' >"; 
                         comentarios += '<thead >';
                             comentarios += '<tr class="table-light border-primary ">';
                                 comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
@@ -262,12 +265,12 @@ $(document).ready(function(){
                     $.each(json, function(key, value){
                         datos += '<tr class="align-middle" >';
                             datos += '<td class=" border border-primary  text-wrap">'+value.proceso+'</td>'; 
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.tipoDoc+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.tipo_documento+'</td>';
                             datos += '<td class=" border border-primary text-center align-middle">'+value.codigo+'</td>';
-                            datos += '<td class=" border border-primary text-wrap">'+value.nombre+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.version+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.fecha+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="actualizacion(\''+value.codigo+'\',\''+value.tipoDoc+'\','+value.id_tipo_documento+'\)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class="fas fa-file-signature"></i></button></td>';
+                            datos += '<td class=" border border-primary text-wrap">'+value.nombre_documento+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.numero_version+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.fecha_aprobacion+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="actualizacion(\''+value.codigo+'\',\''+value.tipo_documento+'\','+value.id_tipo_documento+'\)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class="fas fa-file-signature"></i></button></td>';
                         datos += '</tr>';
                     })
                 datos += '</tbody>';
@@ -350,12 +353,12 @@ $(document).ready(function(){
                     $.each(json, function(key, value){
                         datos += '<tr class="align-middle" >';
                             datos += '<td class=" border border-primary  text-wrap">'+value.proceso+'</td>'; 
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.tipoDoc+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.tipo_documento+'</td>';
                             datos += '<td class=" border border-primary text-center align-middle">'+value.codigo+'</td>';
-                            datos += '<td class=" border border-primary text-wrap">'+value.nombre+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.version+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle">'+value.fecha+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle"><button type="button"  onclick="eliminacion(\''+value.codigo+'\',\''+value.tipoDoc+'\','+value.id_tipo_documento+'\)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class="fas fa-trash-alt"></i></button></td>';
+                            datos += '<td class=" border border-primary text-wrap">'+value.nombre_documento+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.numero_version+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle">'+value.fecha_aprobacion+'</td>';
+                            datos += '<td class=" border border-primary text-center align-middle"><button type="button"  onclick="eliminacion(\''+value.codigo+'\',\''+value.tipo_documento+'\','+value.id_tipo_documento+'\)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class="fas fa-trash-alt"></i></button></td>';
                         datos += '</tr>';
                     })
                 datos += '</tbody>';

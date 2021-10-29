@@ -127,6 +127,30 @@ nav-tabs{
     transform: scale(1.7);
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
+
+  .form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    border-radius: 50px !important;
+    display: block;
+    width: 70% !important;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
 }
 
 
@@ -262,4 +286,17 @@ textarea{
    border: 1px solid #ced4da;
  }
 
+.codigo{
+  position: relative;
+  display: flex;
+  flex-wrap: unset !important;
+  width: 100%;
+  max-width: 80px;
+}
+
+
+.input-group-text {
  
+  background-color: transparent  !important;
+  border:0px  !important;
+}

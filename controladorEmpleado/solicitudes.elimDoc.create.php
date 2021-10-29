@@ -14,10 +14,6 @@ $fechaActual = date("Y-m-d H-i-s");
 
 if (isset($_FILES["fileEliminacion"]))
 {
-    $foto=$_FILES["fileEliminacion"]["tmp_name"];
-    $tipo =$_FILES['fileEliminacion']['type'];
-    $tamaño =$_FILES['fileEliminacion']['size'];
-    
     $directorio = "../documentos/usuarios/$usuario/solicitudes/$fechaActual/";
    
     if(!file_exists($directorio)){

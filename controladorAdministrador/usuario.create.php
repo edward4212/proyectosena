@@ -19,7 +19,7 @@ $directorio = "../documentos/usuarios/$usuario/imagen/";
 
 if(!file_exists($directorio)){
     mkdir($directorio,0777,true);
-    copy("../documentos/usuarios/imagenes/usuario.png","../documentos/usuarios/$usuario/imagen/usuario.png");     
+    copy("../documentos/imagenes/usuario.png","../documentos/usuarios/$usuario/imagen/usuario.png");     
 }
 
 

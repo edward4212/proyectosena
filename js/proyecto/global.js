@@ -19,3 +19,18 @@ function mostrarPassword1(){
         $('.icons').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
     }
   } 
+
+
+  function leadingZeros(input) {
+    if(!isNaN(input.value) && input.value.length == 1 ) {
+      input.value = '0' + input.value;
+    }
+    if(!isNaN(input.value) && input.value.length == 2 ) {
+        input.value = '0' + input.value;
+      }
+
+    if(!isNaN(input.value) && input.value.length == 3 ) {
+    input.value = '' + input.value;
+    }
+  }
+  

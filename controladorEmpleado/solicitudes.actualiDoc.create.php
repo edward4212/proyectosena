@@ -13,11 +13,7 @@ $solicitud = $_POST['solicitud1'];
 $fechaActual = date("Y-m-d H-i-s");
 
 if (isset($_FILES["fileActualizacion"]))
-{
-    $foto=$_FILES["fileActualizacion"]["tmp_name"];
-    $tipo =$_FILES['fileActualizacion']['type'];
-    $tamaño =$_FILES['fileActualizacion']['size'];
-    
+{  
     $directorio = "../documentos/usuarios/$usuario/solicitudes/$fechaActual/";
    
     if(!file_exists($directorio)){
@@ -33,6 +29,14 @@ if (isset($_FILES["fileActualizacion"]))
 }
 else{
     $nombre = NULL ;
+    
+    $directorio = "../documentos/usuarios/$usuario/solicitudes/$fechaActual/";
+    if(!file_exists($directorio)){
+        mkdir($directorio,0777,true);
+    }else{
+        if(file_exists($directorio)){
+        }    
+    }
 }
 
 $solicitudesE = new \entidad\Solicitudes(); 

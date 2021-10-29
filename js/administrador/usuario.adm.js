@@ -428,27 +428,27 @@ $(document).ready(function(){
             dataType: 'json',
             data: $('#usuario').serialize(),
         }).done(function (json) {
-            // if (json[0].proceso == "OK") {
-            //     Swal.fire({
-            //         icon: 'success',
-            //         title: 'Usuario Creado con Exito',
-            //         showConfirmButton: false,
-            //         timer: 2000
-            //       }).then((result) => {
-            //         window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
-            //       })
+            if (json[0].proceso == "OK") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario Creado con Exito',
+                    showConfirmButton: false,
+                    timer: 2000
+                  }).then((result) => {
+                    window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+                  })
 
-            // }else{
+            }else{
 
-            //     Swal.fire({
-            //         icon: 'error',
-            //         title: 'No se pudo crear el usuario!.. Favor Verifique los datos ingresado!',
-            //         showConfirmButton: false,
-            //         timer: 2000
-            //       }).then((result) => {
-            //         window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
-            //       })
-            // }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'No se pudo crear el usuario!.. Favor Verifique los datos ingresado!',
+                    showConfirmButton: false,
+                    timer: 2000
+                  }).then((result) => {
+                    window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+                  })
+            }
         }).fail(function (xhr, status, error) {
             $('#respuesta').html(error);
         })

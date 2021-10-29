@@ -14,15 +14,18 @@ class Documento{
      public $id_proceso;
      public $codigo;
      public $nombre_documento;
-     public $id_version;
-     public $id_empresa;
-     public $tipo_documento;
-     public $sigla_tipo_documento;
-     public $proceso;
-     public $sigla_proceso;
-     public $estado;
-     public $version;
+     public $id_versionamiento;
+     public $numero_version;
+     public $descripcion_version;
+     public $usuario_creacion;
+     public $fecha_creacion;
+     public $usuario_revision;
+     public $fecha_revision;
+     public $usuario_aprobacion;
      public $fecha_aprobacion;
+     public $documento;
+     public $estado;
+   
      
 
     // OTROS ATRIBUTOS //
@@ -39,15 +42,21 @@ class Documento{
          $this->id_proceso = $documentoE->getIdProceso();
          $this->codigo = $documentoE->getCodigo();
          $this->nombre_documento = $documentoE->getNombreDocumento();
-         $this->id_version = $documentoE->getIdVersion();
-         $this->id_empresa = $documentoE->getIdEmpresa();
-         $this->tipo_documento = $documentoE->getTipoDocumento();
-         $this->sigla_tipo_documento = $documentoE->getSiglaTipoDocumento();
-         $this->proceso = $documentoE->getProceso();
-         $this->sigla_proceso = $documentoE->getSiglaProceso();
-         $this->estado = $documentoE->getEstado();
-         $this->version = $documentoE->getVersion();
+         $this->id_versionamiento = $documentoE->getIdVersionamiento();
+         $this->numero_version = $documentoE->getNumeroVersion();
+         $this->descripcion_version = $documentoE->getDescripcionVersion();
+         $this->usuario_creacion = $documentoE->getUsuarioCreacion();
+         $this->fecha_creacion = $documentoE->getFechaCreacion();
+         $this->usuario_revision = $documentoE->getUsuarioRevision();
+         $this->fecha_revision = $documentoE->getFechaRevision();
+         $this->usuario_aprobacion = $documentoE->getUsuarioAprobacion();
          $this->fecha_aprobacion = $documentoE->getFechaAprobacion();
+         $this->documento = $documentoE->getDocumento();
+         $this->estado = $documentoE->getEstado();
+
+
+
+
          $this->conexion = \Conexion::singleton();
     }
 
@@ -59,21 +68,25 @@ class Documento{
 
      try {
           $this->sql = "SELECT 
-               pr.`proceso` AS proceso, 
-               tdoc.`id_tipo_documento`,
-               tdoc.`tipo_documento` AS tipoDoc, 
+               doc.`id_documento`,
+               doc.`codigo`,
+               doc.`nombre_documento`,
+               pr.`id_proceso`,
+               pr.`proceso`,
                pr.`sigla_proceso`,
-               CONCAT(pr.`sigla_proceso`,'-',tdoc.`sigla_tipo_documento`,'-',doc.`codigo`) AS codigo,
-               doc.`nombre_documento` AS nombre,
-               vr.`version`,
-               vr.`estado`,
-               vr.`fecha_aprobacion` AS fecha,
-               vr.`documento`   
+               tdoc.`id_tipo_documento`,
+               tdoc.`tipo_documento` ,
+               vr.`id_versionamiento`,
+               vr.`numero_version`,
+               vr.`documento`,
+               vr.`descripcion_version`,
+               vr.`fecha_aprobacion`,
+               vr.`estado`
                FROM documento AS doc
                INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
                INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
-               INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`  
-               WHERE vr.`estado`='v'
+               INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`   
+               WHERE vr.`estado`='V'
                ORDER BY codigo  ASC";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);

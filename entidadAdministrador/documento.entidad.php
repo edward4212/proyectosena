@@ -8,16 +8,20 @@ class Documento {
     public $id_proceso;
     public $codigo;
     public $nombre_documento;
-    public $id_version;
-    public $id_empresa;
-    public $tipo_documento;
-    public $sigla_tipo_documento;
-    public $proceso;
-    public $sigla_proceso;
-    public $estado;
-    public $version;
+    public $id_versionamiento;
+    public $numero_version;
+    public $descripcion_version;
+    public $usuario_creacion;
+    public $fecha_creacion;
+    public $usuario_revision;
+    public $fecha_revision;
+    public $usuario_aprobacion;
     public $fecha_aprobacion;
-   
+    public $documento;
+    public $estado;
+  
+
+
     /**
      * Get the value of id_documento
      */
@@ -119,161 +123,161 @@ class Documento {
     }
 
     /**
-     * Get the value of id_version
+     * Get the value of id_versionamiento
      */
-    public function getIdVersion()
+    public function getIdVersionamiento()
     {
-        return $this->id_version;
+        return $this->id_versionamiento;
     }
 
     /**
-     * Set the value of id_version
+     * Set the value of id_versionamiento
      *
      * @return  self
      */
-    public function setIdVersion($id_version)
+    public function setIdVersionamiento($id_versionamiento)
     {
-        $this->id_version = $id_version;
+        $this->id_versionamiento = $id_versionamiento;
 
         return $this;
     }
 
     /**
-     * Get the value of id_empresa
+     * Get the value of numero_version
      */
-    public function getIdEmpresa()
+    public function getNumeroVersion()
     {
-        return $this->id_empresa;
+        return $this->numero_version;
     }
 
     /**
-     * Set the value of id_empresa
+     * Set the value of numero_version
      *
      * @return  self
      */
-    public function setIdEmpresa($id_empresa)
+    public function setNumeroVersion($numero_version)
     {
-        $this->id_empresa = $id_empresa;
+        $this->numero_version = $numero_version;
 
         return $this;
     }
 
     /**
-     * Get the value of tipo_documento
+     * Get the value of descripcion_version
      */
-    public function getTipoDocumento()
+    public function getDescripcionVersion()
     {
-        return $this->tipo_documento;
+        return $this->descripcion_version;
     }
 
     /**
-     * Set the value of tipo_documento
+     * Set the value of descripcion_version
      *
      * @return  self
      */
-    public function setTipoDocumento($tipo_documento)
+    public function setDescripcionVersion($descripcion_version)
     {
-        $this->tipo_documento = $tipo_documento;
+        $this->descripcion_version = $descripcion_version;
 
         return $this;
     }
 
     /**
-     * Get the value of sigla_tipo_documento
+     * Get the value of usuario_creacion
      */
-    public function getSiglaTipoDocumento()
+    public function getUsuarioCreacion()
     {
-        return $this->sigla_tipo_documento;
+        return $this->usuario_creacion;
     }
 
     /**
-     * Set the value of sigla_tipo_documento
+     * Set the value of usuario_creacion
      *
      * @return  self
      */
-    public function setSiglaTipoDocumento($sigla_tipo_documento)
+    public function setUsuarioCreacion($usuario_creacion)
     {
-        $this->sigla_tipo_documento = $sigla_tipo_documento;
+        $this->usuario_creacion = $usuario_creacion;
 
         return $this;
     }
 
     /**
-     * Get the value of proceso
+     * Get the value of fecha_creacion
      */
-    public function getProceso()
+    public function getFechaCreacion()
     {
-        return $this->proceso;
+        return $this->fecha_creacion;
     }
 
     /**
-     * Set the value of proceso
+     * Set the value of fecha_creacion
      *
      * @return  self
      */
-    public function setProceso($proceso)
+    public function setFechaCreacion($fecha_creacion)
     {
-        $this->proceso = $proceso;
+        $this->fecha_creacion = $fecha_creacion;
 
         return $this;
     }
 
     /**
-     * Get the value of sigla_proceso
+     * Get the value of usuario_revision
      */
-    public function getSiglaProceso()
+    public function getUsuarioRevision()
     {
-        return $this->sigla_proceso;
+        return $this->usuario_revision;
     }
 
     /**
-     * Set the value of sigla_proceso
+     * Set the value of usuario_revision
      *
      * @return  self
      */
-    public function setSiglaProceso($sigla_proceso)
+    public function setUsuarioRevision($usuario_revision)
     {
-        $this->sigla_proceso = $sigla_proceso;
+        $this->usuario_revision = $usuario_revision;
 
         return $this;
     }
 
     /**
-     * Get the value of estado
+     * Get the value of fecha_revision
      */
-    public function getEstado()
+    public function getFechaRevision()
     {
-        return $this->estado;
+        return $this->fecha_revision;
     }
 
     /**
-     * Set the value of estado
+     * Set the value of fecha_revision
      *
      * @return  self
      */
-    public function setEstado($estado)
+    public function setFechaRevision($fecha_revision)
     {
-        $this->estado = $estado;
+        $this->fecha_revision = $fecha_revision;
 
         return $this;
     }
 
     /**
-     * Get the value of version
+     * Get the value of usuario_aprobacion
      */
-    public function getVersion()
+    public function getUsuarioAprobacion()
     {
-        return $this->version;
+        return $this->usuario_aprobacion;
     }
 
     /**
-     * Set the value of version
+     * Set the value of usuario_aprobacion
      *
      * @return  self
      */
-    public function setVersion($version)
+    public function setUsuarioAprobacion($usuario_aprobacion)
     {
-        $this->version = $version;
+        $this->usuario_aprobacion = $usuario_aprobacion;
 
         return $this;
     }
@@ -294,6 +298,46 @@ class Documento {
     public function setFechaAprobacion($fecha_aprobacion)
     {
         $this->fecha_aprobacion = $fecha_aprobacion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of documento
+     */
+    public function getDocumento()
+    {
+        return $this->documento;
+    }
+
+    /**
+     * Set the value of documento
+     *
+     * @return  self
+     */
+    public function setDocumento($documento)
+    {
+        $this->documento = $documento;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of estado
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set the value of estado
+     *
+     * @return  self
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
 
         return $this;
     }
