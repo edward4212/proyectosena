@@ -35,7 +35,7 @@ $(document).ready(function () {
                         text: '¡Usuario o Contraseña Incorrecto!',
                     });
                 } else {
-                    if(obj[0].esUsuario == "A"){
+                    if(obj[0].estadoUsuario == "A"){
                         if (obj[0].id_rol == 1) {
                             Swal.fire({
                                 icon: 'success',
@@ -64,14 +64,14 @@ $(document).ready(function () {
                                 window.location.href = "../vistaVisitante/inicio.frm.php";
                               })
                             }
-                    }else if(obj[0].esUsuario == "C"){
+                    }else if(obj[0].estadoUsuario == "C"){
                         Swal.fire({
                             icon: 'error',
                             title: '¡Usuario No Activo!',
                             showConfirmButton: false,
                             timer: 2000
                           })
-                    }else if(obj[0].esUsuario == "I"){
+                    }else if(obj[0].estadoUsuario == "I"){
                         Swal.fire({
                             icon: 'error',
                             title: '¡Usuario Inhabilitado!',

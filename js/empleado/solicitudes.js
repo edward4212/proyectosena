@@ -41,7 +41,7 @@ $(document).ready(function(){
              * Se crea la tabla para mostrar los datos consultados
              */
             var datos = '';
-                datos += "<table id='tableSolicitudes' class='table  class='table  table-striped table-bordered table-responsive '  >"; 
+                datos += "<table id='tableSolicitudes' class='table  table-striped table-bordered table-responsive '  >"; 
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary text-center align-middle ">';
                             datos += '<th  class="border border-primary text-center align-middle ">CODIGO SOLICITUD</th>';
@@ -89,6 +89,10 @@ $(document).ready(function(){
                 "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
                 "iDisplayLength":	5,
                 "language": {"url": "../componente/libreria/idioma/es-mx.json"},
+                order: [[2, 'asc'], [1, 'asc']],
+                    rowGroup: {
+                        dataSrc: 2
+                    },
                 dom:  'Qfrtip',
                 dom:  'Bfrtip',
                 buttons: 
@@ -249,7 +253,7 @@ $(document).ready(function(){
              * Se crea la tabla para mostrar los datos consultados
              */
             var datos = '';
-            datos += "<table id='tablaActualizar' class='table  class='table  table-striped table-bordered table-responsive' >";
+            datos += "<table id='tablaActualizar'  class='table  table-striped table-bordered table-responsive' >";
                datos += '<thead >';
                     datos += '<tr class="table-light border-primary ">';
                         datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';

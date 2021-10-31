@@ -1,6 +1,6 @@
 <!-- Se agrega Head -->
 <?php include_once "head.Adm.frm.php" ?>
-<title>Tareas</title>
+<title>Solicitudes</title>
 
 <body class="bg-light d-flex flex-column h-100">
     <!-- se agrega Menu -->
@@ -10,107 +10,73 @@
         <div class="container">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active " id="nav-tareas-tab" data-bs-toggle="tab"
-                        data-bs-target="#nav-tareas" type="button" role="tab" aria-controls="nav-tareas"
-                        aria-selected="false">Tarea Registradas</button>
-                    <button class="nav-link " id="nav-asignar-tab" data-bs-toggle="tab" data-bs-target="#nav-asignar"
-                        type="button" role="tab" aria-controls="nav-asignar" aria-selected="true">
-                        Mis Tareas</button>
+                    <button class="nav-link active " id="nav-solicitudes-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-solicitudes" type="button" role="tab" aria-controls="nav-solicitudes"
+                        aria-selected="false">Solicitudes Asignadas</button>
+                    <button class="nav-link " id="nav-asignadas-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-asignadas" type="button" role="tab" aria-controls="nav-asignadas"
+                        aria-selected="true">Tareas</button>
                 </div>
             </nav>
+
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade  show active" id="nav-tareas" role="tabpanel"
-                    aria-labelledby="nav-tareas-tab">
-                    <br>
+                <div class="tab-pane fade  show active" id="nav-solicitudes" role="tabpanel"
+                    aria-labelledby="nav-solicitudes-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title  align-items-center">Mis Tareas</h5>
-                                    <div class="text-center">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">First</th>
-                                                    <th scope="col">Last</th>
-                                                    <th scope="col">Handle</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td colspan="2">Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                            <h3 class="card-title text-center">Solicitudes Asignadas</h3>
+                            <div>
+                                <form action="" class="form-group" id="buscar">
+                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
+                                    <h5 id="solicitudesAsig"></h5>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- Modal para ver comentarios-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Comentarios de la Solicitud</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <form action="" class="form-group" id="buscar1">
+                                        <div class="modal-body">
+                                            <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Agregar Comentario</h5>
+                                                <textarea type="text" class="form-control redondeado" rows="2"
+                                                    id="comentrioEmpleado" name="comentrioEmpleado" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 id="comentarios"></h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                                id="btnCrearcomentario" name="btnCrearcomentario" data-bs-toggle="modal"
+                                                data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Agregar
+                                                Comentario</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-asignar" role="tabpanel" aria-labelledby="nav-asignar-tab">
-                    <br>
-                    <div class="row ">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title  align-items-center">Tareas</h5>
-                                    <div class="text-center">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">First</th>
-                                                    <th scope="col">Last</th>
-                                                    <th scope="col">Handle</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td colspan="2">Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tab-pane fade" id="nav-asignadas" role="tabpanel" aria-labelledby="nav-asignadas-tab">
+                  <h5>hoa</h5>
                 </div>
             </div>
         </div>
     </main>
-
     <?php include_once "footer.frm.php" ?>
 </body>
+<script src="../js/administrador/tareas.adm.js"></script>
 
 </html>

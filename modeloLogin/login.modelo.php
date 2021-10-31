@@ -36,7 +36,7 @@ class login{
             $this->sql="SELECT 
             us.`id_usuario`,
             us.`usuario`,
-            us.`estado` as esUsuario,
+            us.`estado` as estadoUsuario,
             rol.`id_rol`,
             rol.`rol`,
             rol.`estado`,

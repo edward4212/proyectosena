@@ -13,11 +13,8 @@
                     <button class="nav-link active " id="nav-solicitudes-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-solicitudes" type="button" role="tab" aria-controls="nav-solicitudes"
                         aria-selected="false">Solicitudes Registradas</button>
-                    <button class="nav-link " id="nav-asignadas-tab" data-bs-toggle="tab" data-bs-target="#nav-asignadas"
-                        type="button" role="tab" aria-controls="nav-asignadas" aria-selected="true">Solicitudes Asignadas</button>
                 </div>
             </nav>
-            
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade  show active" id="nav-solicitudes" role="tabpanel"
                     aria-labelledby="nav-solicitudes-tab">
@@ -26,103 +23,88 @@
                             <h3 class="card-title text-center">Solicitudes Registradas</h3>
                             <div>
                                 <form action="" class="form-group" id="buscar">
-                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
+                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden >
                                     <h5 id="solicitudesAdmn"></h5>
                                 </form>
                             </div>
-                            
+
                         </div>
                         <!-- Modal Asignar Funcionario-->
-                        <div class="modal fade" id="asignarFuncionarioSol" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="asignarFuncionarioSol" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Asignar Funcionario Encargado de la Solicitud</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Asignar Funcionario Encargado de
+                                            la Solicitud</h5>
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <form action="" class="form-group" id="buscar2">
+                                        <div class="modal-body">
                                         <div class="col-md-12 col-xs-12 col-sm-12">
-                                            <h5>Seleccione un Funcionario</h5>
-                                            <select class="form-control " id="empleado"
-                                                name="empleado" aria-label="E"
-                                                aria-describedby="basic-addon1"></select>
+                                                <input type="number" name="numIdSolicitud2" id="numIdSolicitud2" hidden >
+                                                <h5>Funcionario Asignado</h5>
+                                                <input class="form-control " id="funcionarioAsignado" name="funcionarioAsignado" aria-label="E"
+                                                    aria-describedby="basic-addon1" readonly> 
+                                            </div>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Seleccione para Asignar o Modificar el Funcionario</h5>
+                                                <select class="form-control " id="empleado" name="empleado" aria-label="E"
+                                                    aria-describedby="basic-addon1"></select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" id="btnModificarTipoDoc" class="btn btn-primary"><i class="fas fa-check"></i> Asignar</button>
-                                        <button type="button" class="btn btn-primary"
-                                            data-bs-dismiss="modal">Volver</button>
-                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" id="btnAgregarFunc" name="btnAgregarFunc" class="btn btn-primary"><i
+                                                    class="fas fa-plus"></i> Asignar Funcionario</button>
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">Volver</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <!-- Modal para ver comentarios-->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
+                            aria-="true">
+                            <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Comentarios de la Solicitud</h5>
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
-                                        <h5 id="comentarios"></h5>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary"
-                                            data-bs-dismiss="modal">Volver</button>
-                                    </div>
+                                    <form action="" class="form-group" id="buscar1">
+                                        <div class="modal-body">
+                                            <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Agregar Comentario</h5>
+                                                <textarea type="text" class="form-control redondeado" rows="2"
+                                                    id="comentrioEmpleado" name="comentrioEmpleado" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 id="comentarios"></h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                                id="btnCrearcomentario" name="btnCrearcomentario" data-bs-toggle="modal"
+                                                data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Agregar
+                                                Comentario</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-asignadas" role="tabpanel" aria-labelledby="nav-asignadas-tab">
+                <!-- <div class="tab-pane fade" id="nav-asignadas" role="tabpanel" aria-labelledby="nav-asignadas-tab">
                     <div class="row ">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <h3 class="card-title text-center">Solicitudes Asignadas</h3>
-                            <div>
-                                <form action="" class="form-group" id="buscar">
-                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
-                                    <h5 id="misSoliciutdes"></h5>
-                                </form>
-                            </div>
-                            
-                        </div>
-                        <!-- Modal para Agregar comentarios-->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Comentarios</h5>
-                                        <button type="button" id="btnCerrarModal" class="btn-close"
-                                            data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="col-md-12 col-xs-12 col-sm-12"></div>
-                                        <h5 >Agregar Comentario</h5>
-                                        <div></div>textarea>
-                                        </div>
-                                        <div class="col-md-12 col-xs-12 col-sm-12"></div>
-                                        <h5 >Comentario De la Solicitud</h5>
-                                        <h5 id="comentarios"></h5>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary"
-                                        data-bs-dismiss="modal">Volver</button>
-                                        <button type="button" class="btn btn-primary"
-                                            data-bs-dismiss="modal">Volver</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>

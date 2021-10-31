@@ -17,8 +17,13 @@ class Solicitudes {
     public $documento;
     public $codigo;
     public $carpeta;
-    
-    
+    public $funcionario_asignado;
+
+    public $id_comentarios_solicitud;
+    public $comentario;
+    public $usuario_comentario;
+    public $fecha_comentario;
+
     /**
      * Get the value of id_solicitud
      */
@@ -295,6 +300,106 @@ class Solicitudes {
     public function setCarpeta($carpeta)
     {
         $this->carpeta = $carpeta;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_comentarios_solicitud
+     */
+    public function getIdComentariosSolicitud()
+    {
+        return $this->id_comentarios_solicitud;
+    }
+
+    /**
+     * Set the value of id_comentarios_solicitud
+     *
+     * @return  self
+     */
+    public function setIdComentariosSolicitud($id_comentarios_solicitud)
+    {
+        $this->id_comentarios_solicitud = $id_comentarios_solicitud;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of comentario
+     */
+    public function getComentario()
+    {
+        return $this->comentario;
+    }
+
+    /**
+     * Set the value of comentario
+     *
+     * @return  self
+     */
+    public function setComentario($comentario)
+    {
+        $this->comentario = $comentario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usuario_comentario
+     */
+    public function getUsuarioComentario()
+    {
+        return $this->usuario_comentario;
+    }
+
+    /**
+     * Set the value of usuario_comentario
+     *
+     * @return  self
+     */
+    public function setUsuarioComentario($usuario_comentario)
+    {
+        $this->usuario_comentario = $usuario_comentario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fecha_comentario
+     */
+    public function getFechaComentario()
+    {
+        return $this->fecha_comentario;
+    }
+
+    /**
+     * Set the value of fecha_comentario
+     *
+     * @return  self
+     */
+    public function setFechaComentario($fecha_comentario)
+    {
+        $this->fecha_comentario = $fecha_comentario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of funcionario_asignado
+     */
+    public function getFuncionarioAsignado()
+    {
+        return $this->funcionario_asignado;
+    }
+
+    /**
+     * Set the value of funcionario_asignado
+     *
+     * @return  self
+     */
+    public function setFuncionarioAsignado($funcionario_asignado)
+    {
+        $this->funcionario_asignado = $funcionario_asignado;
 
         return $this;
     }

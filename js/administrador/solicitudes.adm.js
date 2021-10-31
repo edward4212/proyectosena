@@ -5,20 +5,20 @@ function cargar(){
 
 function comentario (codigo){
     $("#numIdSolicitud").val(codigo);
+    $("#numIdSolicitud1").val(codigo);
+   
 }
 
-function asignarFuncionario (codigo){
-    $("#numIdSolicitud").val(codigo);
+function asignarFuncionario (codigo,funcionario_asignado){
+    $("#numIdSolicitud2").val(codigo);
+    $("#funcionarioAsignado").val(funcionario_asignado);
 }
 
 $(document).ready(function(){
 
     buscar();
-    buscarPrioridad(); 
-    buscarTipoDocumento();  
     buscarFuncionarios();
-
-
+   
      /**
      * Se realiza la consulta de los Mis Solicitudes para mostrar en la vistaEmpleado/consultas.frm.php
      */
@@ -34,15 +34,18 @@ $(document).ready(function(){
              * Se crea la tabla para mostrar los datos consultados
              */
             var datos = '';
-                datos += "<table id='tableSolicitudes' class='table  class='table  table-striped table-bordered table-responsive '  >"; 
+                datos += "<table id='tableSolicitudesRea'   class='table  table-striped table-bordered table-responsive '  >"; 
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary text-center align-middle ">';
                             datos += '<th  class="border border-primary text-center align-middle ">CODIGO SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE LA SOLICITUD</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">PRIORIDAD</th>';
+                            datos += '<th  class="border border-primary text-wrap align-middle ">PRIORIDAD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE DOCUMENTO </th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO </th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CREADO POR </th>';
                             datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCIÓN DE LA SOLICITUD</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">DOCUMENTO SOPORTE </th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ESTADO DE LA SOLICITUD</th>';                          
                             datos += '<th  class="border border-primary text-center align-middle ">ASIGNAR FUNCIONARIO</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ASIGNADO A</th>';
@@ -54,18 +57,15 @@ $(document).ready(function(){
                             datos += '<tr class="align-middle" >';
                                 datos += '<td class=" border border-primary text-wrap align-middle" id="numIdSolicitud">'+value.codigo+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_solicitud+'</td>'; 
-                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.prioridad+'</td>';
+                                datos += '<td class=" border border-primary text-wrap">'+value.prioridad+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.tipo_solicitud+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.tipo_documento+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo_documento+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.nombre_completo+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
+                                datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/usuarios/'+value.usuario+'/solicitudes/'+value.carpeta+'/'+value.documento+'"><i class="fas fa-download"></i></a></td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.estado+'</td>'; 
-                                if(value.funcionario_asignado != "Sin Asignar"){
-                                    datos += '<td class=" border border-primary text-wrap align-middle">Ya se Asigno Funcionario</td>';
-                                   
-                                }else{
-                                    datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="bntAsignarFuncionario" onclick="asignarFuncionario('+value.codigo+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asignarFuncionarioSol"><i class="fas fa-user-check"></i></button></td>';
-                                }
-                               
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="bntAsignarFuncionario" onclick="asignarFuncionario('+value.codigo+',\''+value.funcionario_asignado+'\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asignarFuncionarioSol"><i class="fas fa-user-check"></i></button></td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.funcionario_asignado+'</td>';
                                 datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="btnVerComentarios" onclick="comentario('+value.codigo+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-comment-dots"></i></button></td>';
                             datos += '</tr>';
@@ -73,7 +73,7 @@ $(document).ready(function(){
                     datos += '</tbody>';
                 datos += '</table>';
             $('#solicitudesAdmn').html(datos);
-            $('#tableSolicitudes').DataTable({
+            $('#tableSolicitudesRea').DataTable({
                 "destroy" : true,
                 "autoWidth": true,
                 "responsive": true,
@@ -96,12 +96,13 @@ $(document).ready(function(){
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
+                        pageSize: 'LEGAL',
                         title: 'Mis Solicitudes',
                         titleAttr: 'Mis Solicitudes',
                         messageTop: 'Mis Solicitudes',
                         text : '<i class="far fa-file-pdf"></i>',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5,6,7]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                         }
                     },
                     {
@@ -111,7 +112,7 @@ $(document).ready(function(){
                         messageTop: 'Mis Solicitudes',
                         text : '<i class="fas fa-print"></i>',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5,6,7]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                         }
                     },
                     {
@@ -120,7 +121,7 @@ $(document).ready(function(){
                         autoFiltre : true ,
                         title: 'Mis Solicitudes',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5,6,7]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                         }
                     },
                     {
@@ -129,7 +130,7 @@ $(document).ready(function(){
                         autoFiltre : true ,
                         titleAttr: 'COPIAR',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5,6,7]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                         }
                     },
                     {
@@ -146,7 +147,7 @@ $(document).ready(function(){
     $(document).on('click','#btnVerComentarios',function(event){
         event.preventDefault();
             $.ajax({
-                url:'../controladorEmpleado/solicitudes.comentarios.read.php',
+                url:'../controladorAdministrador/solicitudes.comentarios.read.php',
                 type: 'POST',
                 dataType: 'json',
                 data : $('#buscar').serialize(),
@@ -156,7 +157,7 @@ $(document).ready(function(){
                         comentarios += "<h5>Aun no hay comentarios</h5>";
                     }else{
                     // datos += '<form action="" class="form-group" id="buscar">';
-                    comentarios += "<table id='tableComentarios' class='table  class='table  table-striped table-bordered table-responsive ' >"; 
+                    comentarios += "<table id='tableComentarios'  class='table  table-striped table-bordered table-responsive'>"; 
                         comentarios += '<thead >';
                             comentarios += '<tr class="table-light border-primary ">';
                                 comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
@@ -176,11 +177,11 @@ $(document).ready(function(){
                     comentarios += '</table>';
                     }
                     $('#comentarios').html(comentarios  );
-                    $('#tablaFiltro').DataTable({
+                    $('#tableComentarios').DataTable({
                         "destroy" : true,
                         "autoWidth": true,
-                        "responsive": true,
-                        "searching": true,
+                        "responsive": true, 
+                        "searching": false,
                         "info":     true,
                         "ordering": true,
                         "colReorder": true,
@@ -199,43 +200,6 @@ $(document).ready(function(){
                 }
     )
   
-    function buscarPrioridad() {
-        $.ajax({
-            url:'../controladorEmpleado/solicitudes.prioridad.read.php',
-            type: 'POST',
-            dataType: 'json',
-            data : null,
-        }).done(function(json){
-            var prioridad  =0;
-            prioridad+='<option disabled selected> - Seleccione una Prioridad -</option>';
-            $.each(json, function (key,value) {    
-                prioridad+='<option value='+value.id_prioridad+'>'+value.prioridad+'</option>';   
-            })
-            $('#prioridad').html(prioridad);
-        }).fail(function(xhr, status, error){
-            $('#prioridad').html(error);
-        })     
-    }
-   
-    function buscarTipoDocumento() {
-
-        $.ajax({
-            url:'../controladorEmpleado/solicitudes.tipoDocumento.read.php',
-            type: 'POST',
-            dataType: 'json',
-            data : null,
-        }).done(function(json){
-            var tipoDocumento  =0;
-            tipoDocumento+='<option disabled selected> - Seleccione un Tipo de Documento -</option>';
-            $.each(json, function (key,value) {    
-                tipoDocumento+='<option value='+value.id_tipo_documento+'>'+value.tipo_documento+'</option>';   
-            })            
-            $('#tipoDocumento').html(tipoDocumento);
-        }).fail(function(xhr, status, error){
-            $('#tipoDocumento').html(error);
-        })     
-    }
-
     function buscarFuncionarios() {
 
         $.ajax({
@@ -247,7 +211,7 @@ $(document).ready(function(){
             var tipoDocumento  =0;
             tipoDocumento+='<option disabled selected> - Seleccione un funcionario-</option>';
             $.each(json, function (key,value) {    
-                tipoDocumento+='<option value='+value.id_empleado+'>'+value.nombre_completo+'</option>';   
+                tipoDocumento+='<option value='+value.usuario+'>'+value.usuario+'</option>';   
             })            
             $('#empleado').html(tipoDocumento);
         }).fail(function(xhr, status, error){
@@ -255,28 +219,64 @@ $(document).ready(function(){
         })     
     }
 
-  /// ASIGNAR FUNCIONARIO A LA SOLICITUD///
-    $(document).on('click','#btnEliminarCargo',function(event){
+  /// ASIGNAR COMENTARIO A LA SOLICITUD///
+    $(document).on('click','#btnCrearcomentario',function(event){
         event.preventDefault();
             $.ajax({
-                url:'../controladorAdministrador/cargo.delete.php',
+                url:'../controladorAdministrador/solicitudes.comentarios.create.php',
                 type: 'POST',
                 dataType: 'json',
-                data : $('#buscar').serialize(),
+                data : $('#buscar1').serialize(),
             }).done(function(json){
                 Swal.fire({                  
                     icon: 'success',
-                    title: 'Funcionario Asignado con Exito',
+                    title: 'Comentario Asignado con Exito',
                     showConfirmButton: false,
                     timer: 2000
-                    }).then((result) => {
+                }).then((result) => {
                     cargar();
-                    })
+                })
             }).fail(function(xhr, status, error){
-                alert (error);
+                console.log(error);
         })
     })
 
+     /// ASIGNAR FUNCIONARIO A LA SOLICITUD///
+     $(document).on('click','#btnAgregarFunc',function(event){
+        event.preventDefault();
+            $.ajax({
+                url:'../controladorAdministrador/solicitudes.funcionario.create.php',
+                type: 'POST',
+                dataType: 'json',
+                data : $('#buscar2').serialize(),
+            }).done(function(json){
+                // Swal.fire({                  
+                //     icon: 'success',
+                //     title: 'Funcionario Asignado con Exito',
+                //     showConfirmButton: false,
+                //     timer: 2000
+                // }).then((result) => {
+                //     cargar();
+                // })
+            }).fail(function(xhr, status, error){
+                console.log(error);
+        })
+    })
+
+    
+     /// ASIGNAR COMENTARIO DE CREACION FUNCIONARIO///
+     $(document).on('click','#btnAgregarFunc',function(event){
+        event.preventDefault();
+            $.ajax({
+                url:'../controladorAdministrador/solicitudes.comentarios.funcionario.create.php',
+                type: 'POST',
+                dataType: 'json',
+                data : $('#buscar2').serialize(),
+            }).done(function(json){
+            }).fail(function(xhr, status, error){
+                console.log(error);
+        })
+    })
 
 
 

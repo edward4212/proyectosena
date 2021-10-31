@@ -4,11 +4,10 @@ namespace modelo;
 use PDO;
 use Exception;
 
-include_once '../entidadEmpleado/solicitudes.entidad.php';
+include_once '../entidadEmpleado/solicitudes.entidad.php    ';
 include_once '../entorno/conexionSingleton.php';
 
 class Solicitudes{
-    
      
     public $id_solicitud;
     public $solicitud;
@@ -25,13 +24,11 @@ class Solicitudes{
     public $codigo;
     public $carpeta;
      
-
     // OTROS ATRIBUTOS //
     public $conexion;
     private $result;
     private $retorno;
     private $sql;
-
 
     public function __construct(\entidad\Solicitudes $solicitudesE)
     {
@@ -54,7 +51,7 @@ class Solicitudes{
 
     /**
      * Se realiza la consulta de los solicutdes creadas por el usuario vigentes para mostrar en la vistaEmpleado/consultas.frm.php
-     */
+     * */
     public function read()
      {
           try {
@@ -82,7 +79,7 @@ class Solicitudes{
           }
           return $this->retorno;
      }
-
+     
      public function comentarios()
      {
 
@@ -128,7 +125,7 @@ class Solicitudes{
      {
          try{
                
-              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '1', '1' , '0000', :solicitud ,:carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL)");
+              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '1', '1' , '0000', :solicitud ,:carpeta, :documento, CURRENT_TIMESTAMP(),'Sin    Asignar',NULL)");
               $this->result->bindParam(':empleado', $this->id_empleado);
               $this->result->bindParam(':prioridad', $this->id_prioridad);
               $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);

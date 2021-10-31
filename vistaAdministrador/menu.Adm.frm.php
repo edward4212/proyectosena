@@ -39,6 +39,7 @@
                     <li class="nav-item col-6 col-md-auto">
                         <a class="nav-link p-2" href=""></a>
                     </li>
+                </ul>
             </div>
             <form class="d-flex">
                 <label href="perfil.Adm.frm.php" class="nav-link p-2" ><?php $usuario= $_SESSION['usuario']; echo $usuario;?></label>
