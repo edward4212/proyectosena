@@ -53,23 +53,28 @@ $(document).ready(function(){
                             datos += '<th  class="border border-primary text-center align-middle ">CODIGO DE DOCUMENTO </th>';
                             datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCIÓN DE LA SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ASIGNADO A</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">VER COMENTARIOS</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">COMENTARIOS</th>';
                         datos += '</tr>';
                     datos +=  '</thead>';
                     datos += '<tbody>';
                         $.each(json, function(key, value){
                             datos += '<tr class="align-middle" >';
-                                datos += '<td class=" border border-primary text-wrap align-middle" id="numIdSolicitud">'+value.codigo+' </td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle" id="numIdSolicitud">'+value.id_solicitud+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_solicitud+'</td>'; 
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.prioridad+'</td>';
-                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.estado+'</td>'; 
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.estatus_solicitud+'</td>'; 
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.tipo_solicitud+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.tipo_documento+'</td>';
-                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo_documento+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
-
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.funcionario_asignado+'</td>';
-                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="btnVerComentarios" onclick="comentario('+value.codigo+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-comment-dots"></i></button></td>';
+                                if( value.fecha_asignacion != null){
+                                    datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_asignacion+'</td>';
+                                }else{
+                                    datos += '<td class=" border border-primary text-wrap align-middle">Sin Asignar</td>';
+                                }
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="btnVerComentarios" onclick="comentario('+value.id_solicitud+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-comment-dots"></i></button></td>';
                             datos += '</tr>';
                         })
                     datos += '</tbody>';
@@ -161,8 +166,7 @@ $(document).ready(function(){
                     if(json== 0){ 
                         comentarios += "<h5>Aun no hay comentarios</h5>";
                     }else{
-                    // datos += '<form action="" class="form-group" id="buscar">';
-                    comentarios += "<table id='tableComentarios' class='table  class='table  table-striped table-bordered table-responsive ' >"; 
+                    comentarios += "<table id='tableComentarios'   class='table  table-striped table-bordered table-responsive ' >"; 
                         comentarios += '<thead >';
                             comentarios += '<tr class="table-light border-primary ">';
                                 comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
@@ -182,11 +186,11 @@ $(document).ready(function(){
                     comentarios += '</table>';
                     }
                     $('#comentarios').html(comentarios  );
-                    $('#tablaFiltro').DataTable({
+                    $('#tableComentarios').DataTable({
                         "destroy" : true,
                         "autoWidth": true,
                         "responsive": true,
-                        "searching": true,
+                        "searching": false,
                         "info":     true,
                         "ordering": true,
                         "colReorder": true,
@@ -197,7 +201,54 @@ $(document).ready(function(){
                         "deferRender": true,
                         "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
                         "iDisplayLength":5,
-                        "language": {"url": "../componente/libreria/idioma/es-mx.json"}
+                        "language": {"url": "../componente/libreria/idioma/es-mx.json"},
+                        dom:  'Qfrtip',
+                        dom:  'Bfrtip',
+                        buttons: 
+                        [
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                pageSize: 'A4',
+                                download: 'open',
+                                pageSize: 'LEGAL',
+                                title: 'Comentarios sobre la Solicitud',
+                                titleAttr: 'Comentarios sobre la Solicitud',
+                                messageTop: 'Comentarios sobre la Solicitud',
+                                text : '<i class="far fa-file-pdf"></i>',
+                                exportOptions : {
+                                    columns: [0,1,2,]
+                                }
+                            },
+                            {
+                                extend: 'print',
+                                title: 'Comentarios sobre la Solicitud',
+                                titleAttr: 'Comentarios sobre la Solicitud',
+                                messageTop: 'Comentarios sobre la Solicitud',
+                                text : '<i class="fas fa-print"></i>',
+                                exportOptions : {
+                                    columns: [0,1,2]
+                                }
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                text : '<i class="fas fa-file-excel"></i>',
+                                autoFiltre : true ,
+                                title: 'Comentarios sobre la Solicitud',
+                                exportOptions : {
+                                    columns: [0,1,2]
+                                }
+                            },
+                            {
+                                extend: 'copyHtml5',
+                                text : '<i class="fas fa-copy"></i>',
+                                autoFiltre : true ,
+                                titleAttr: 'COPIAR',
+                                exportOptions : {
+                                    columns: [0,1,2]
+                                }
+                            }                
+                        ]
                     }); 
                 }).fail(function(xhr, status, error){
                         $('#comentarios').html(error); 

@@ -65,15 +65,11 @@ class Solicitudes{
          $this->conexion = \Conexion::singleton();
     }
 
-    /**
-     * Se realiza la consulta de los solicutdes creadas por el usuario vigentes para mostrar en la vistaEmpleado/consultas.frm.php
-     */
-
     public function read()
      {
           try {
                $this->sql = "	SELECT
-               sl.`id_solicitud` AS codigo,
+               sl.`id_solicitud` ,
                pr.`prioridad`,
                ts.`tipo_solicitud`,
                td.`tipo_documento`,
@@ -82,10 +78,11 @@ class Solicitudes{
                emp.`nombre_completo`,
                sl.`solicitud`,
                sl.`fecha_solicitud`,
+               sl.`fecha_asignacion`,
                sl.`carpeta`,
                sl.`documento`,
                sl.`funcionario_asignado`,
-               est.`estatus_solicitud` AS estado,
+               est.`estatus_solicitud`,
                us.`usuario`
         
                FROM solicitud AS sl
@@ -107,7 +104,7 @@ class Solicitudes{
      {
           try {
                $this->sql = "	SELECT
-               sl.`id_solicitud` AS codigo,
+               sl.`id_solicitud` ,
                pr.`prioridad`,
                ts.`tipo_solicitud`,
                td.`tipo_documento`,
@@ -116,10 +113,13 @@ class Solicitudes{
                emp.`nombre_completo`,
                sl.`solicitud`,
                sl.`fecha_solicitud`,
+               sl.`fecha_asignacion`,
+               sl.`fecha_asignacion`,
+               sl.`fecha_inicio_tarea`,
                sl.`carpeta`,
                sl.`documento`,
                sl.`funcionario_asignado`,
-               est.`estatus_solicitud` AS estado,
+               est.`estatus_solicitud`,
                us.`usuario`
         
                FROM solicitud AS sl
@@ -129,8 +129,7 @@ class Solicitudes{
                INNER JOIN tipo_documento AS td ON sl.`id_tipo_documento` = td.`id_tipo_documento`
                INNER JOIN empleado AS emp ON sl.`id_empleado` = emp.`id_empleado`
                INNER JOIN usuario AS us ON emp.`id_empleado` = us.`id_empleado`
-               WHERE sl.`funcionario_asignado` = '$this->usuario'
-               ORDER BY codigo ASC";
+               WHERE sl.`funcionario_asignado` = '$this->usuario' ";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
@@ -142,7 +141,6 @@ class Solicitudes{
 
      public function comentarios()
      {
-
           try {
                $this->sql = "	SELECT * FROM comentarios_solicitud 
                WHERE id_solicitud =  '$this->id_solicitud'
@@ -157,7 +155,6 @@ class Solicitudes{
 
      public function prioridad()
      {
-     
           try {
                $this->sql = "SELECT * FROM prioridad ";
                $this->result = $this->conexion->query($this->sql);
@@ -170,7 +167,6 @@ class Solicitudes{
        
      public function tipoDocumento()
      {
-
           try {
                $this->sql = "SELECT * FROM tipo_documento ";
                $this->result = $this->conexion->query($this->sql);
@@ -200,8 +196,7 @@ class Solicitudes{
      public function comentariosCrear1()
      {
          try{
-               
-              $this->result = $this->conexion->prepare("INSERT INTO comentarios_solicitud VALUES (NULL , 'Se asigno o modifico funcionario', :id_solicitud, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");
+              $this->result = $this->conexion->prepare("INSERT INTO comentarios_solicitud VALUES (NULL , 'Se asigno o modifico funcionario Encargado', :id_solicitud, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");
               $this->result->bindParam(':id_solicitud', $this->id_solicitud);
               $this->result->bindParam(':usuario_comentario', $this->usuario_comentario);
               $this->result->execute();    
@@ -212,11 +207,10 @@ class Solicitudes{
               return $this->retorno;
      }
 
-
      public function funcionarioCrear()
      {
           try {
-               $this->sql = "UPDATE solicitud SET funcionario_asignado='$this->funcionario_asignado', id_estatus_solicitud='2' WHERE id_solicitud=$this->id_solicitud";
+               $this->sql = "UPDATE solicitud SET funcionario_asignado='$this->funcionario_asignado', id_estatus_solicitud='2', fecha_asignacion =  CURRENT_TIMESTAMP() WHERE id_solicitud=$this->id_solicitud";
                $this->result = $this->conexion->query($this->sql);
           } catch (Exception $e) {
                $this->retorno = $e->getMessage();
@@ -225,8 +219,47 @@ class Solicitudes{
         }
    
 
-
+        public function estadoSolicitudRead()
+        {
+             try {
+                  $this->sql = "SELECT * FROM estatus_solicitud ORDER BY estatus_solicitud ASC";
+                  $this->result = $this->conexion->query($this->sql);
+                  $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
+                       
+             } catch (Exception $e) {
+                  $this->retorno = $e->getMessage();
+             }
+                  return $this->retorno;
+        }
      
+        
+     public function tareaCrear()
+     {
+         try{
+               
+              $this->result = $this->conexion->prepare("INSERT INTO tarea VALUES (NULL , :id_solicitud , :usuario_creacion,CURRENT_TIMESTAMP() ,null, null,null,null, 'C' )");
+              $this->result->bindParam(':id_solicitud', $this->id_solicitud);
+              $this->result->bindParam(':usuario_creacion', $this->usuario);
+              $this->result->execute();    
+          } catch (Exception $e) {
+          
+              $this->retorno = $e->getMessage();
+          }
+              return $this->retorno;
+     }
+
+     public function estadoTarea()
+     {
+          try {
+               $this->sql = "UPDATE solicitud SET id_estatus_solicitud='3', fecha_inicio_tarea =  CURRENT_TIMESTAMP() WHERE id_solicitud=$this->id_solicitud";
+               $this->result = $this->conexion->query($this->sql);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+        }
+   
+
 
 }
 

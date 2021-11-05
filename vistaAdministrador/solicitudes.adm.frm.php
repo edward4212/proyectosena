@@ -47,6 +47,9 @@
                                                 <h5>Funcionario Asignado</h5>
                                                 <input class="form-control " id="funcionarioAsignado" name="funcionarioAsignado" aria-label="E"
                                                     aria-describedby="basic-addon1" readonly> 
+                                                    <h5>Fecha de Asignación</h5>
+                                                <input class="form-control " id="fecha" name="fecha" aria-label="E"
+                                                    aria-describedby="basic-addon1" readonly> 
                                             </div>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Seleccione para Asignar o Modificar el Funcionario</h5>
@@ -58,7 +61,7 @@
                                             <button type="submit" id="btnAgregarFunc" name="btnAgregarFunc" class="btn btn-primary"><i
                                                     class="fas fa-plus"></i> Asignar Funcionario</button>
                                             <button type="button" class="btn btn-primary"
-                                                data-bs-dismiss="modal">Volver</button>
+                                                data-bs-dismiss="modal"><i class="fas fa-undo"></i>Volver</button>
                                         </div>
                                     </form>
                                 </div>
@@ -83,14 +86,16 @@
                                                     id="comentrioEmpleado" name="comentrioEmpleado" required></textarea>
                                             </div>
                                         </div>
-                                        <div class="modal-body">
-                                            <h5 id="comentarios"></h5>
-                                        </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
                                                 id="btnCrearcomentario" name="btnCrearcomentario" data-bs-toggle="modal"
                                                 data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Agregar
                                                 Comentario</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 id="comentarios"></h5>
+                                        </div>
+                                        <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                     class="fas fa-undo"></i> Volver</button>
                                         </div>

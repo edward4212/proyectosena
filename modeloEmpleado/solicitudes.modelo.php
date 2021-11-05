@@ -56,22 +56,26 @@ class Solicitudes{
      {
           try {
                $this->sql = "	SELECT
-               sl.`id_solicitud` AS codigo,
+               sl.`id_solicitud` ,
                pr.`prioridad`,
                ts.`tipo_solicitud`,
-               sl.`funcionario_asignado`,
-               sl.`codigo_documento`,
                td.`tipo_documento`,
+               sl.`codigo_documento`,
                sl.`solicitud`,
                sl.`fecha_solicitud`,
-               est.`estatus_solicitud` AS estado
+               sl.`fecha_asignacion`,
+               sl.`carpeta`,
+               sl.`documento`,
+               sl.`funcionario_asignado`,
+               est.`estatus_solicitud`
+                    
                FROM solicitud AS sl
                INNER JOIN prioridad AS pr ON sl.`id_prioridad` = pr.`id_prioridad`
                INNER JOIN tipo_solicitud AS ts ON sl.`id_tipo_solicitud` = ts.`id_tipo_solicitud`
                INNER JOIN estatus_solicitud AS est ON sl.`id_estatus_solicitud` = est.`id_estatus_solicitud`
                INNER JOIN tipo_documento AS td ON sl.`id_tipo_documento` = td.`id_tipo_documento`
                WHERE sl.`id_empleado` = '$this->id_empleado' 
-               ORDER BY codigo ASC";
+               ORDER BY id_solicitud ASC";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
@@ -125,7 +129,7 @@ class Solicitudes{
      {
          try{
                
-              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '1', '1' , '0000', :solicitud ,:carpeta, :documento, CURRENT_TIMESTAMP(),'Sin    Asignar',NULL)");
+              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '1', '1' , '0000', :solicitud ,:carpeta, :documento, CURRENT_TIMESTAMP(),'Sin    Asignar',NULL,NULL,NULL)");
               $this->result->bindParam(':empleado', $this->id_empleado);
               $this->result->bindParam(':prioridad', $this->id_prioridad);
               $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
@@ -144,7 +148,7 @@ class Solicitudes{
      {
          try{
   
-              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '2', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL)");
+              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '2', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL,NULL,NULL)");
               $this->result->bindParam(':empleado', $this->id_empleado);
               $this->result->bindParam(':prioridad', $this->id_prioridad);
               $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
@@ -164,7 +168,7 @@ class Solicitudes{
      {
          try{
   
-              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '3', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL)");
+              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '3', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL,NULL)");
               $this->result->bindParam(':empleado', $this->id_empleado);
               $this->result->bindParam(':prioridad', $this->id_prioridad);
               $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);

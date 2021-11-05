@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-md-3 col-xs-12 col-sm-12">
                                     <h5>Cargo</h5>
-                                    <select class="form-control " id="cargosUsuario" name="cargosUsuario" aria-label="E"
+                                    <select class="form-control " id="estadoSolicitud" name="estadoSolicitud" aria-label="E"
                                         aria-describedby="basic-addon1" required></select>
                                 </div>
                                 <div class="col-md-3 col-xs-12 col-sm-12">

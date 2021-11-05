@@ -27,16 +27,53 @@
                             <h3 class="card-title text-center">Solicitudes Asignadas</h3>
                             <div>
                                 <form action="" class="form-group" id="buscar">
-                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
+                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" >
+                                    <input type="number" name="numIdSolicitud3" id="numIdSolicitud3" >
                                     <h5 id="solicitudesAsig"></h5>
                                 </form>
                             </div>
 
                         </div>
+                        <!-- Modal para ver estado-->
+                        <div class="modal fade" id="estadoSol" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Estado de la Solicitud</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="" class="form-group" id="EstadiSolicitud">
+                                        <div class="modal-body">
+                                            <input type="number" name="numIdSolicitud2" id="numIdSolicitud2" >
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Estado Actual de la Solicitud </h5>
+                                                <input type="text" class="form-control redondeado" 
+                                                    id="estadoSolicitud" name="estadoSolicitud" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>Nuevo estado de la Solicitud</h5>
+                                            <select class="form-control " id="estadoSolicitud1" name="estadoSolicitud1" aria-label="E"
+                                            aria-describedby="basic-addon1" required></select>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                                id="btnEstadiSolicitud" name="btnEstadiSolicitud" data-bs-toggle="modal"
+                                                data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Agregar
+                                                Comentario</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Modal para ver comentarios-->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
+                            aria-="true">
+                            <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Comentarios de la Solicitud</h5>
@@ -45,21 +82,23 @@
                                     </div>
                                     <form action="" class="form-group" id="buscar1">
                                         <div class="modal-body">
-                                            <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden>
+                                            <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" >
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Agregar Comentario</h5>
                                                 <textarea type="text" class="form-control redondeado" rows="2"
                                                     id="comentrioEmpleado" name="comentrioEmpleado" required></textarea>
                                             </div>
                                         </div>
-                                        <div class="modal-body">
-                                            <h5 id="comentarios"></h5>
-                                        </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
                                                 id="btnCrearcomentario" name="btnCrearcomentario" data-bs-toggle="modal"
                                                 data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Agregar
                                                 Comentario</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 id="comentarios"></h5>
+                                        </div>
+                                        <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                     class="fas fa-undo"></i> Volver</button>
                                         </div>
