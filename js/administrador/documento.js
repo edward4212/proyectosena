@@ -331,7 +331,7 @@ $(document).ready(function(){
          /// MOSTRAR PARA ADMINISTRACIÓN DE DOCMENTOS
          function buscarDocuAdm(){
             $.ajax({
-                url:'../controladorAdministrador/documento.read.php',
+                url:'../controladorAdministrador/documento.read2.php',
                 type: 'POST',
                 dataType: 'json',
                 data : null,

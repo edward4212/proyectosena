@@ -116,6 +116,7 @@ class Solicitudes{
                sl.`fecha_asignacion`,
                sl.`fecha_asignacion`,
                sl.`fecha_inicio_tarea`,
+               sl.`id_estatus_solicitud`,
                sl.`carpeta`,
                sl.`documento`,
                sl.`funcionario_asignado`,
@@ -129,7 +130,7 @@ class Solicitudes{
                INNER JOIN tipo_documento AS td ON sl.`id_tipo_documento` = td.`id_tipo_documento`
                INNER JOIN empleado AS emp ON sl.`id_empleado` = emp.`id_empleado`
                INNER JOIN usuario AS us ON emp.`id_empleado` = us.`id_empleado`
-               WHERE sl.`funcionario_asignado` = '$this->usuario' ";
+               WHERE sl.`funcionario_asignado` = '$this->usuario' AND sl.`id_estatus_solicitud` != '4' AND  sl.`id_estatus_solicitud` != '5' ";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
@@ -143,8 +144,7 @@ class Solicitudes{
      {
           try {
                $this->sql = "	SELECT * FROM comentarios_solicitud 
-               WHERE id_solicitud =  '$this->id_solicitud'
-               ORDER BY fecha_comentario ASC";
+               WHERE id_solicitud =  '$this->id_solicitud'";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
@@ -207,6 +207,20 @@ class Solicitudes{
               return $this->retorno;
      }
 
+     public function comentariosCrear2()
+     {
+         try{
+              $this->result = $this->conexion->prepare("INSERT INTO comentarios_solicitud VALUES (NULL , 'Se inicio la tarea', :id_solicitud, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");
+              $this->result->bindParam(':id_solicitud', $this->id_solicitud);
+              $this->result->bindParam(':usuario_comentario', $this->usuario_comentario);
+              $this->result->execute();    
+          } catch (Exception $e) {
+          
+              $this->retorno = $e->getMessage();
+          }
+              return $this->retorno;
+     }
+
      public function funcionarioCrear()
      {
           try {
@@ -222,7 +236,7 @@ class Solicitudes{
         public function estadoSolicitudRead()
         {
              try {
-                  $this->sql = "SELECT * FROM estatus_solicitud ORDER BY estatus_solicitud ASC";
+                  $this->sql = "SELECT * FROM estatus_solicitud WHERE id_estatus_solicitud != '1' AND id_estatus_solicitud  !='2' AND id_estatus_solicitud  != '3'";
                   $this->result = $this->conexion->query($this->sql);
                   $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                        

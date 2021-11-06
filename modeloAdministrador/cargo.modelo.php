@@ -36,7 +36,7 @@ class Cargo{
     public function read()
      {
           try {
-               $this->sql = "SELECT * FROM cargo ORDER BY cargo ASC";
+               $this->sql = "SELECT * FROM cargo";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                     

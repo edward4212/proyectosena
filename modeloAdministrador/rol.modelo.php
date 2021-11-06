@@ -34,7 +34,7 @@ class Rol{
     public function read()
    {
      try {
-          $this->sql = "SELECT * FROM rol ORDER BY rol ASC";
+          $this->sql = "SELECT * FROM rol";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                

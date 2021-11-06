@@ -70,9 +70,7 @@ class Usuario{
                
                INNER JOIN usuario AS usu ON usu.`id_empleado` = empl.`id_empleado`
                INNER JOIN rol ON rol.`id_rol` = usu.`id_rol`
-               INNER JOIN cargo AS ca ON ca.`id_cargo` = empl.`id_cargo`
-               
-               ORDER BY usu.`id_usuario` ASC";
+               INNER JOIN cargo AS ca ON ca.`id_cargo` = empl.`id_cargo`";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                     

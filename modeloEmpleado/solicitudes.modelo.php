@@ -74,8 +74,7 @@ class Solicitudes{
                INNER JOIN tipo_solicitud AS ts ON sl.`id_tipo_solicitud` = ts.`id_tipo_solicitud`
                INNER JOIN estatus_solicitud AS est ON sl.`id_estatus_solicitud` = est.`id_estatus_solicitud`
                INNER JOIN tipo_documento AS td ON sl.`id_tipo_documento` = td.`id_tipo_documento`
-               WHERE sl.`id_empleado` = '$this->id_empleado' 
-               ORDER BY id_solicitud ASC";
+               WHERE sl.`id_empleado` = '$this->id_empleado' ";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
@@ -89,8 +88,7 @@ class Solicitudes{
 
           try {
                $this->sql = "	SELECT * FROM comentarios_solicitud 
-               WHERE id_solicitud =  '$this->id_solicitud'
-               ORDER BY fecha_comentario ASC";
+               WHERE id_solicitud =  '$this->id_solicitud'";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {

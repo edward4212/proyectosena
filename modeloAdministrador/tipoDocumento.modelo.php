@@ -36,7 +36,7 @@ class TipoDocumento{
     public function read()
    {
      try {
-          $this->sql = "SELECT * FROM tipo_documento ORDER BY sigla_tipo_documento  ASC";
+          $this->sql = "SELECT * FROM tipo_documento";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                

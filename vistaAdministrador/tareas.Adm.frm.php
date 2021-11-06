@@ -61,8 +61,8 @@
                                         <div class="modal-footer">
                                             <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
                                                 id="btnEstadiSolicitud" name="btnEstadiSolicitud" data-bs-toggle="modal"
-                                                data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Agregar
-                                                Comentario</button>
+                                                data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Cambiar
+                                                Estado</button>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                     class="fas fa-undo"></i> Volver</button>
                                         </div>

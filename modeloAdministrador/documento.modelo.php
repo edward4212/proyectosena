@@ -82,8 +82,7 @@ class Documento{
           INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
           INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
           INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`   
-          WHERE  vr.`estado` ='V'
-          ORDER BY codigo  ASC";
+          WHERE  vr.`estado` ='V'";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                
@@ -115,8 +114,7 @@ class Documento{
           FROM documento AS doc
           INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
           INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
-          INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`    
-          ORDER BY codigo  ASC";
+          INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento` ";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                
@@ -149,8 +147,7 @@ class Documento{
           INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
           INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
           INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento` 
-               WHERE   vr.`estado` = 'O'
-               ORDER BY codigo  ASC";
+          WHERE   vr.`estado` = 'O'";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                
