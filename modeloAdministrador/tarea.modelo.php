@@ -71,12 +71,12 @@ class Tarea{
  
       try {
            $this->sql = "SELECT 
-           doc.`id_documento`,
+           doc.`id_documento` AS id_documento,
            doc.`codigo` AS codigo,
            doc.`nombre_documento` AS nombre_documento,
            pr.`id_proceso`,
            pr.`proceso`,
-           pr.`sigla_proceso`,
+           pr.`sigla_proceso` AS sigla_proceso,
            tdoc.`id_tipo_documento`,
            tdoc.`tipo_documento` ,
            vr.`id_versionamiento`,
@@ -97,6 +97,8 @@ class Tarea{
                 $this->informacion[] = array(
                      "nombre_documento" => $value['codigo'] . "-" . $value['nombre_documento'],
                      "numero_version" =>  $value['version1'],
+                     "sigla_proceso" =>  $value['sigla_proceso'],
+                     "id_documento" =>  $value['id_documento'],
                      "label" => $value['codigo'] . "-" . $value['nombre_documento']);
            }
       } catch (Exception $e) {

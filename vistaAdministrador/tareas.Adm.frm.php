@@ -12,10 +12,16 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active " id="nav-solicitudes-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-solicitudes" type="button" role="tab" aria-controls="nav-solicitudes"
-                        aria-selected="false">Solicitudes Asignadas</button>
-                    <button class="nav-link " id="nav-asignadas-tab" data-bs-toggle="tab"
-                        data-bs-target="#nav-asignadas" type="button" role="tab" aria-controls="nav-asignadas"
-                        aria-selected="true">Tareas</button>
+                        aria-selected="false">Tareas Asignadas</button>
+                    <button class="nav-link " id="nav-creacion-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-creacion" type="button" role="tab" aria-controls="nav-creacion"
+                        aria-selected="true">Creación</button>
+                    <button class="nav-link " id="nav-revision-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-revision" type="button" role="tab" aria-controls="nav-revision"
+                        aria-selected="true">Revision</button>
+                    <button class="nav-link " id="nav-aprobacion-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-aprobacion" type="button" role="tab" aria-controls="nav-aprobacion"
+                        aria-selected="true">Aprobación</button>
                 </div>
             </nav>
 
@@ -108,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-asignadas" role="tabpanel" aria-labelledby="nav-asignadas-tab">
+                <div class="tab-pane fade" id="nav-creacion" role="tabpanel" aria-labelledby="nav-creacion-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                         <h3 class="card-title text-center">Mis Tareas</h3>
@@ -134,11 +140,11 @@
                                             <div class="row">
                                                 <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden >
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
+                                                    <input  class="form-control"  type="text" name="idDocumento" id="idDocumento" hidden >
                                                     <label for="data">Seleccionar Documento</label>
                                                     <input  class="form-control"  type="text" name="documentoAuto" id="documentoAuto"  >
-                                                    <!-- <select class="form-control" id="documentos" name="documentos" aria-label="E" aria-describedby="basic-addon1" required></select>
-                                                    <input  class="form-control"  type="text" name="idsiglasProc" id="idsiglasProc" hidden >
-                                                    <input  class="form-control"  type="text" name="proceso" id="proceso" hidden > -->
+                                                    <!-- <select class="form-control" id="documentos" name="documentos" aria-label="E" aria-describedby="basic-addon1" required></select>-->
+                                                    <input  class="form-control"  type="text" name="proceso" id="proceso"  hidden> 
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version Siguiente</h5>
@@ -146,15 +152,15 @@
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Descripción de la Versión</h5>
-                                                    <textarea type="text" class="form-control redondeado" rows="2" id="comentrioEmpleado" name="comentrioEmpleado" required></textarea>
+                                                    <textarea type="text" class="form-control redondeado" rows="2" id="descriCambio" name="descriCambio" required></textarea>
                                                 </div>
                                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                                     <h5>Agregar Documento</h5>
-                                                    <input  class="form-control"  type="file" name="numIdSolicitud1" id="numIdSolicitud1" >
+                                                    <input  class="form-control"  type="file" name="fileDocumento" id="fileDocumento" >
                                                 </div>
                                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                                     <h5>Selecionar Usuario para Revision</h5>
-                                                    <select class="form-control" id="cargarDocumento" name="cargarDocumento" aria-label="E" aria-describedby="basic-addon1" required></select>
+                                                    <select class="form-control" id="empleado" name="empleado" aria-label="E" aria-describedby="basic-addon1" required></select>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,6 +176,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="tab-pane fade" id="nav-revision" role="tabpanel" aria-labelledby="nav-revision-tab">
+                    <h5>revision</h5>
+                </div>
+                <div class="tab-pane fade" id="nav-aprobacion" role="tabpanel" aria-labelledby="nav-aprobacion-tab">
+                    <h5>aprobacion</h5>
                 </div>
             </div>
         </div>

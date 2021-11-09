@@ -33,6 +33,7 @@ $(document).ready(function(){
     estatus();
     tareas();
     buscarDoc();
+    buscarFuncionarios();
   
     $("#documentoAuto").autocomplete({
         source: function( request, response){
@@ -54,7 +55,9 @@ $(document).ready(function(){
         var resul = suma + uno;
         $("#documentoAuto").val(ui.item.nombre_documento);
         $("#versionSig").val(resul);
-        $("#documentoAuto").prop("disabled", true)
+        $("#idDocumento").val(ui.item.id_documento);
+        $("#proceso").val(ui.item.sigla_proceso);
+        $("#documentoAuto").prop("disabled", true);
         // $("#txtNombreCliente").val(ui.item.nombre);
         // $("#txtApellidoCliente").val(ui.item.apellido);
         // $("#txtPuntosActCliente").val(ui.item.puntos);  
@@ -527,6 +530,25 @@ $(document).ready(function(){
         })     
     }
 
+
+    function buscarFuncionarios() {
+
+        $.ajax({
+            url:'../controladorAdministrador/usuario.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data : null,
+        }).done(function(json){
+            var tipoDocumento  =0;
+            tipoDocumento+='<option disabled selected> - Seleccione un funcionario-</option>';
+            $.each(json, function (key,value) {    
+                tipoDocumento+='<option value='+value.usuario+'>'+value.usuario+'</option>';   
+            })            
+            $('#empleado').html(tipoDocumento);
+        }).fail(function(xhr, status, error){
+            $('#empleado').html(error);
+        })     
+    }
 
 
     
