@@ -273,6 +273,17 @@ class Solicitudes{
                return $this->retorno;
         }
    
+     public function estatusSolicitud()
+     {
+     try {
+          $this->sql = "UPDATE solicitud SET id_estatus_solicitud='$this->id_estatus_solicitud',  fecha_solucion =  CURRENT_TIMESTAMP() WHERE id_solicitud=$this->id_solicitud";
+          $this->result = $this->conexion->query($this->sql);
+     } catch (Exception $e) {
+          $this->retorno = $e->getMessage();
+     }
+          return $this->retorno;
+     }
+
 
 
 }

@@ -15,22 +15,61 @@ function estadiSolicitud (id_solicitud,estatus_solicitud){
 
 function iniciarTarea (id_solicitud){
     $("#numIdSolicitud3").val(id_solicitud);
+}
 
+function tarea (id_tarea){
+    $("#numIdTarea").val(id_tarea);
+}
+
+function sigla_proceso (id_proceso ,sigla_proceso,numero_version){
+    $("#idsiglasProc").val(id_proceso);
+    $("#proceso").val(sigla_proceso);
+    $("#versionSig").val(numero_version+1);
 }
 
 $(document).ready(function(){
 
     buscar();
-    buscarFuncionarios();
-    
-     function buscar(){
+    estatus();
+    tareas();
+    buscarDoc();
+  
+    $("#documentoAuto").autocomplete({
+        source: function( request, response){
+             $.ajax( {
+                url: "../controladorAdministrador/documento.autocomplete.php",
+                dataType: "json",
+                data : {
+                        term: request.term
+            },
+            success: function(data) {
+                response(data);
+            }
+        })
+    },
+    select: function( event, ui ){
+        event.preventDefault();
+        var suma = parseInt(ui.item.numero_version);
+        var uno = 1;
+        var resul = suma + uno;
+        $("#documentoAuto").val(ui.item.nombre_documento);
+        $("#versionSig").val(resul);
+        $("#documentoAuto").prop("disabled", true)
+        // $("#txtNombreCliente").val(ui.item.nombre);
+        // $("#txtApellidoCliente").val(ui.item.apellido);
+        // $("#txtPuntosActCliente").val(ui.item.puntos);  
+        console.log(ui);
+    }
+    })
+
+    function buscar(){
         $.ajax({
             url:'../controladorAdministrador/solicitudes.read2.php',
             type: 'POST',
             dataType: 'json',
             data : null,
         }).done(function(json){
-             /**
+                /**
              * Se crea la tabla para mostrar los datos consultados
              */
             var datos = '';
@@ -108,9 +147,9 @@ $(document).ready(function(){
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
-                        title: 'Mis Solicitudes',
-                        titleAttr: 'Mis Solicitudes',
-                        messageTop: 'Mis Solicitudes',
+                        title: 'Mis Solicitudes Asignadas',
+                        titleAttr: 'Mis Solicitudes Asignadas',
+                        messageTop: 'Mis Solicitudes Asignadas',
                         text : '<i class="far fa-file-pdf"></i>',
                         exportOptions : {
                             columns: [0,1,2,3,4,5,6,7,8,9]
@@ -118,9 +157,9 @@ $(document).ready(function(){
                     },
                     {
                         extend: 'print',
-                        title: 'Mis Solicitudes',
-                        titleAttr: 'Mis Solicitudes',
-                        messageTop: 'Mis Solicitudes',
+                        title: 'Mis Solicitudes Asignadas',
+                        titleAttr: 'Mis Solicitudes Asignadas',
+                        messageTop: 'Mis Solicitudes Asignadas',
                         text : '<i class="fas fa-print"></i>',
                         exportOptions : {
                             columns: [0,1,2,3,4,5,6,7,8,9]
@@ -130,7 +169,7 @@ $(document).ready(function(){
                         extend: 'excelHtml5',
                         text : '<i class="fas fa-file-excel"></i>',
                         autoFiltre : true ,
-                        title: 'Mis Solicitudes',
+                        title: 'Mis Solicitudes Asignadas',
                         exportOptions : {
                             columns: [0,1,2,3,4,5,6,7,8,9]
                         }
@@ -256,8 +295,8 @@ $(document).ready(function(){
                 })
                 }
     )
-  
-  /// ASIGNAR COMENTARIO A LA SOLICITUD///
+
+    /// ASIGNAR COMENTARIO A LA SOLICITUD///
     $(document).on('click','#btnCrearcomentario',function(event){
         event.preventDefault();
             $.ajax({
@@ -278,9 +317,9 @@ $(document).ready(function(){
                 console.log(error);
         })
     })
-    
+
     /// ASIGNAR ESTATUS A LA SOLICITUD///
-    function buscarFuncionarios() {
+    function estatus() {
         $.ajax({
             url:'../controladorAdministrador/estatus_solicitud.read.php',
             type: 'POST',
@@ -298,31 +337,30 @@ $(document).ready(function(){
         })     
     }
 
-
-      /// cambio de estado a la solicitud///
-  $(document).on('click','#btnEstadiSolicitud',function(event){
+    /// cambio de estado a la solicitud///
+    $(document).on('click','#btnEstadiSolicitud',function(event){
     event.preventDefault();
         $.ajax({
             url:'../controladorAdministrador/solicitudes.estado.update.php',
             type: 'POST',
             dataType: 'json',
-            data : $('#buscar').serialize(),
+            data : $('#EstadiSolicitud').serialize(),
         }).done(function(json){
-            Swal.fire({                  
-                icon: 'success',
-                title: 'Tarea Iniciada con Exito',
-                showConfirmButton: false,
-                timer: 2000
-            }).then((result) => {
-                cargar();
-            })
+            // Swal.fire({                  
+            //     icon: 'success',
+            //     title: 'Soliictud Actualizada con Exito',
+            //     showConfirmButton: false,
+            //     timer: 2000
+            // }).then((result) => {
+            //     cargar();
+            // })
         }).fail(function(xhr, status, error){
-            console.log(error);
+            
         })
     })
 
-  /// INICIAR UNA TAREA///
-  $(document).on('click','#btnIniciarTarea',function(event){
+    /// INICIAR UNA TAREA///
+    $(document).on('click','#btnIniciarTarea',function(event){
     event.preventDefault();
         $.ajax({
             url:'../controladorAdministrador/tarea.create.php',
@@ -343,8 +381,8 @@ $(document).ready(function(){
         })
     })
 
-      /// agregar comentario de INICIAR UNA TAREA///
-  $(document).on('click','#btnIniciarTarea',function(event){
+    /// agregar comentario de INICIAR UNA TAREA///
+    $(document).on('click','#btnIniciarTarea',function(event){
     event.preventDefault();
         $.ajax({
             url:'../controladorAdministrador/solicitudes.comentarios.tarea.create.php',
@@ -358,5 +396,139 @@ $(document).ready(function(){
         })
     })
 
+    function tareas(){
+        $.ajax({
+            url:'../controladorAdministrador/tarea.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data : null,
+        }).done(function(json){
+                /**
+             * Se crea la tabla para mostrar los datos consultados
+             */
+            var datos = '';
+                datos += "<table id='tabletareas'   class='table  table-striped table-bordered table-responsive '  >"; 
+                datos += '<thead >';
+                        datos += '<tr class="table-light border-primary text-center align-middle ">';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO TAREA</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">SOLICITUD</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">ESTADO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
+                        datos += '</tr>';
+                    datos +=  '</thead>';
+                    datos += '<tbody>';
+                        $.each(json, function(key, value){
+                            if(value.estado = "C"){
+                                value.estado ="CREACION";
+                            }else if(value.estado = "R"){
+                                Value.estado ="REVISION";
+                            }else if(value.estado = "A"){
+                                Value.estado ="ACTUALIZACIÓN";
+                            }
+                            datos += '<tr class="align-middle" >';
+                                datos += '<td class=" border border-primary text-wrap align-middle" id="numIdSolicitud">'+value.id_tarea+' </td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_asignacion+'</td>';  
+                                datos += '<td class=" border border-primary text-wrap">'+value.estado+'</td>';  
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="btnAdminTarea" onclick="tarea('+value.id_tarea+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltarea"><i class="fas fa-cogs"></i></button></td>';
+                            datos += '</tr>';
+                        })
+                    datos += '</tbody>';
+                datos += '</table>';
+            $('#tareas').html(datos);
+            $('#tabletareas').DataTable({
+                "destroy" : true,
+                "autoWidth": true,
+                "responsive": true,
+                "searching": true,
+                "info":     true,
+                "ordering": true,
+                "colReorder": true,
+                "sZeroRecords": true,
+                "keys": true,
+                "deferRender": true,
+                "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+                "iDisplayLength":	5,
+                "language": {"url": "../componente/libreria/idioma/es-mx.json"},
+                order: [[1, 'asc']],
+                dom:  'Qfrtip',
+                dom:  'Bfrtip',
+                buttons: 
+                [
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'A4',
+                        download: 'open',
+                        title: 'Mis Tareas Asignadas',
+                        titleAttr: 'Mis Tareas Asignadas',
+                        messageTop: 'Mis Tareas Asignadas',
+                        text : '<i class="far fa-file-pdf"></i>',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: 'Mis Tareas Asignadas',
+                        titleAttr: 'Mis Tareas Asignadas',
+                        messageTop: 'Mis Tareas Asignadas',
+                        text : '<i class="fas fa-print"></i>',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text : '<i class="fas fa-file-excel"></i>',
+                        autoFiltre : true ,
+                        title: 'Mis Tareas Asignadas',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'copyHtml5',
+                        text : '<i class="fas fa-copy"></i>',
+                        autoFiltre : true ,
+                        titleAttr: 'COPIAR',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'searchBuilder'
+                    
+                    }                      
+                ]
+            });
+        }).fail(function(xhr, status, error){
+            $('#tareas').html(error);
+        })
+    }
+    
+     /// BUSCAR DOCUMENTOS///
+     function buscarDoc() {
+        $.ajax({
+            url:'../controladorAdministrador/documento.read3.php',
+            type: 'POST',
+            dataType: 'json',
+            data : null,
+        }).done(function(json){
+            var documentos  =0;
+            documentos+='<option disabled selected> - Seleccione un Documento-</option>';
+            $.each(json, function (key,value) {    
+                documentos+='<option value='+value.id_documento+' onclick="sigla_proceso('+value.id_proceso+',\''+value.sigla_proceso+'\','+value.numero_version+')"> '+value.codigo+' - '+value.nombre_documento+'</option>';   
+            })            
+            $('#documentos').html(documentos);
+        }).fail(function(xhr, status, error){
+            $('#documentos').html(error);
+        })     
+    }
+
+
+
+    
 
 })

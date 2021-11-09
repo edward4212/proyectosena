@@ -6,8 +6,7 @@ include_once("../controladorLogin/logueo.read.php");
         if ($_SESSION['id_rol']!=1) {
           header('location: inicio.Adm.frm.php');
         }
-    }
-    
+    }  
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -61,7 +60,7 @@ include_once("../controladorLogin/logueo.read.php");
     <script src="../componente/libreria/globales/fixedColumns.dataTables.min.js"></script>
     <script src="../componente/libreria/globales/fixedHeader.dataTables.min.js"></script>
     <!-- <script src="../componente/libreria/globales/jquery-3.6.0.slim.min.js" ></script>   -->
-    <!-- <script src="../componente/libreria/globales/jquery-ui.min.js" ></script>   -->
+    <script src="../componente/libreria/globales/jquery-ui.min.js" ></script> 
     <script src="../componente/libreria/globales/jszip.min.js"></script>
     <script src="../componente/libreria/globales/keyTable.dataTables.min.js"></script>
     <!-- <script src="../componente/libreria/globales/pdfmake.min.js" ></script>   -->

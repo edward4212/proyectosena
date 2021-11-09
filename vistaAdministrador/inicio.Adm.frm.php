@@ -102,7 +102,8 @@
                                         <input type="number" class="card-text" id="numEmpresaMod1" name="numEmpresaMod1"
                                             hidden>
                                         <h5 class="card-title">Logo Empresa</h5>
-                                        <input type="file" class="card-text" id="fileLogo" name="fileLogo" accept="image/*">
+                                        <input type="file" class="card-text" id="fileLogo" name="fileLogo"
+                                            accept="image/*">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i>
@@ -333,7 +334,8 @@
                                         <input type="number" class="card-text" id="numEmpresaOrganigrama"
                                             name="numEmpresaOrganigrama" hidden>
                                         <h5 class="card-title">Organigrama Empresa</h5>
-                                        <input type="file" class="card-text" id="fileOrg" name="fileOrg" accept="image/*">
+                                        <input type="file" class="card-text" id="fileOrg" name="fileOrg"
+                                            accept="image/*">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i>

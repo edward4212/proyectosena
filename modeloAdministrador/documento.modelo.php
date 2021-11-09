@@ -77,12 +77,12 @@ class Documento{
           vr.`documento`,
           vr.`descripcion_version`,
           vr.`fecha_aprobacion`,
-          vr.`estado`
+          vr.`estado_version`
           FROM documento AS doc
           INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
           INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
           INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`   
-          WHERE  vr.`estado` ='V'";
+          WHERE  vr.`estado_version` ='V'";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                
@@ -110,11 +110,12 @@ class Documento{
           vr.`documento`,
           vr.`descripcion_version`,
           vr.`fecha_aprobacion`,
-          vr.`estado`
+          vr.`estado_version`
           FROM documento AS doc
           INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
           INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
-          INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento` ";
+          INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`
+          WHERE vr.`estado_version` != 'O'";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                
@@ -123,6 +124,39 @@ class Documento{
      }
           return $this->retorno;
      }
+
+     public function read3()
+     {
+  
+       try {
+            $this->sql = "SELECT 
+            doc.`id_documento`,
+            doc.`codigo`,
+            doc.`nombre_documento`,
+            pr.`id_proceso`,
+            pr.`proceso`,
+            pr.`sigla_proceso`,
+            tdoc.`id_tipo_documento`,
+            tdoc.`tipo_documento` ,
+            vr.`id_versionamiento`,
+            vr.`numero_version`,
+            vr.`documento`,
+            vr.`descripcion_version`,
+            vr.`fecha_aprobacion`,
+            vr.`estado_version`
+            FROM documento AS doc
+            INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
+            INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
+            INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento` 
+            WHERE vr.`estado_version` != 'O'";
+            $this->result = $this->conexion->query($this->sql);
+            $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
+                 
+       } catch (Exception $e) {
+            $this->retorno = $e->getMessage();
+       }
+            return $this->retorno;
+       }
 
      public function obsoletos()
    {
@@ -142,12 +176,12 @@ class Documento{
           vr.`documento`,
           vr.`descripcion_version`,
           vr.`fecha_aprobacion`,
-          vr.`estado`
+          vr.`estado_version`
           FROM documento AS doc
           INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
           INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
           INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento` 
-          WHERE   vr.`estado` = 'O'";
+          WHERE   vr.`estado_version` = 'O'";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                

@@ -72,8 +72,9 @@
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form class="row g-3 form-group" action="../controladorAdministrador/imagen.update.php"
-                                        method="POST" enctype="multipart/form-data">
+                                    <form class="row g-3 form-group"
+                                        action="../controladorAdministrador/imagen.update.php" method="POST"
+                                        enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="row">
                                                 <input class="form-control" type="number" name="numidTipDocElim"
@@ -141,4 +142,5 @@
     <?php include_once "footer.frm.php" ?>
 </body>
 <script src="../js/administrador/perfil.js"></script>
+
 </html>

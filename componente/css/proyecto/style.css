@@ -299,3 +299,11 @@ textarea{
   background-color: transparent  !important;
   border:0px  !important;
 }
+
+.ui-autocomplete {
+  z-index: 5000 !important;
+}
+
+label{
+  font-size: 1.25rem;
+}

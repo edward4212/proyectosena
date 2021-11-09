@@ -30,7 +30,7 @@
                     aria-labelledby="nav-documentos-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Documentos Documento Vigentes</h3>
                             <div class="text-center">
                                 <h5 id="consulta"></h5>
@@ -41,7 +41,7 @@
                 <div class="tab-pane fade" id="nav-crear" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Crear Documentos</h3>
                             <form class="row g-3 form-group" id="crearDoc" name="crearDoc" method="POST">
                                 <div class="col-md-4 col-xs-12 col-sm-12">
@@ -78,7 +78,8 @@
                                         onkeyup="javascript:this.value=this.value.toUpperCase(); " required>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end    ">
-                                    <button type="submit" id="btncrearDoc" name="btncrearDoc" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Crear
+                                    <button type="submit" id="btncrearDoc" name="btncrearDoc"
+                                        class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Crear
                                         Documento</button>
                                     <button type="reset" class="btn btn-secondary mb-3"><i class="fas fa-broom"></i>
                                         Limpiar</button>
@@ -98,7 +99,7 @@
                 <div class="tab-pane fade" id="nav-actualizar" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Administracion de Documentos</h3>
                             <div class="text-center">
                                 <h5 id="documentosAdm"></h5>
@@ -133,19 +134,19 @@
                                                     <h5>Codigo </h5>
                                                     <input class="form-control" type="text" name="txtClaveMod"
                                                         id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1" >
+                                                        aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <h5>Nombre del Documento</h5>
                                                     <input class="form-control" type="text" name="txtClaveMod"
                                                         id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1" >
+                                                        aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version</h5>
                                                     <input class="form-control" type="number" name="txtClaveMod"
                                                         id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1" >
+                                                        aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="col-md-4 col-xs-12 col-sm-12">
                                                     <h5>Creado Por:</h5>
@@ -157,7 +158,7 @@
                                                     <h5>Fecha Creación</h5>
                                                     <input class="form-control" type="date" name="txtClaveMod"
                                                         id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1" >
+                                                        aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="col-md-4 col-xs-12 col-sm-12">
                                                     <h5>Revisado Por:</h5>
@@ -175,20 +176,20 @@
                                                     <h5>Aprobado Por:</h5>
                                                     <input class="form-control" type="text" name="txtClaveMod"
                                                         id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1" >
-                                                </div>  
+                                                        aria-describedby="basic-addon1">
+                                                </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Fecha Aprobación</h5>
                                                     <input class="form-control" type="date" name="txtClaveMod"
                                                         id="txtClaveMod" autocomplete="current-password" aria-label="E"
                                                         aria-describedby="basic-addon1">
-                                                </div>  
+                                                </div>
                                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                                     <h5>Documento</h5>
                                                     <input class="form-control" type="file" name="txtClaveMod"
                                                         id="txtClaveMod" autocomplete="current-password" aria-label="E"
                                                         aria-describedby="basic-addon1">
-                                                </div> 
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -206,7 +207,7 @@
                 <div class="tab-pane fade" id="nav-obsoletos" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Documentos Obsoletos</h3>
                             <div class="text-center">
                                 <h5 id="documentosObs"></h5>

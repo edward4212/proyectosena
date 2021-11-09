@@ -19,10 +19,10 @@ try {
     $usuario  = $_POST['txtUsuario'];
     $emailTo =  $_POST['txtCorreoEmpleado'];
     $clave  = $_POST['txtClaveInicial'];
-    $subject = "SIDOC - Creacion usuario";
+    $subject = "LIMARO - Creacion usuario";
     $bodyEmail = "Estimado (a) $nombre_completo,
 
-    Su usuario dentro del sistema SIDOC ha sido creado con la siguiente información:
+    Su usuario dentro del sistema LIMARO ha sido creado con la siguiente información:
     
     Usuario: $usuario
     Contraseña Inicial:  $clave
@@ -34,7 +34,7 @@ try {
 
     Bienvenido(a)
     
-    SIDOC";
+    LIMARO";
 
     $fromemail = "edward4212@gmail.com";
     $fromname = "SIDOC";

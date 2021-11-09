@@ -81,12 +81,12 @@ class Documento{
                vr.`documento`,
                vr.`descripcion_version`,
                vr.`fecha_aprobacion`,
-               vr.`estado`
+               vr.`estado_version`
                FROM documento AS doc
                INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
                INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
                INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento`   
-               WHERE vr.`estado`='V' ";
+               WHERE vr.`estado_version`='V' ";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                

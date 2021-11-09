@@ -23,7 +23,7 @@
                             <h3 class="card-title text-center">Solicitudes Registradas</h3>
                             <div>
                                 <form action="" class="form-group" id="buscar">
-                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden >
+                                    <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
                                     <h5 id="solicitudesAdmn"></h5>
                                 </form>
                             </div>
@@ -42,26 +42,28 @@
                                     </div>
                                     <form action="" class="form-group" id="buscar2">
                                         <div class="modal-body">
-                                        <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <input type="number" name="numIdSolicitud2" id="numIdSolicitud2" hidden >
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <input type="number" name="numIdSolicitud2" id="numIdSolicitud2" hidden>
                                                 <h5>Funcionario Asignado</h5>
-                                                <input class="form-control " id="funcionarioAsignado" name="funcionarioAsignado" aria-label="E"
-                                                    aria-describedby="basic-addon1" readonly> 
-                                                    <h5>Fecha de Asignación</h5>
+                                                <input class="form-control " id="funcionarioAsignado"
+                                                    name="funcionarioAsignado" aria-label="E"
+                                                    aria-describedby="basic-addon1" readonly>
+                                                <h5>Fecha de Asignación</h5>
                                                 <input class="form-control " id="fecha" name="fecha" aria-label="E"
-                                                    aria-describedby="basic-addon1" readonly> 
+                                                    aria-describedby="basic-addon1" readonly>
                                             </div>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Seleccione para Asignar o Modificar el Funcionario</h5>
-                                                <select class="form-control " id="empleado" name="empleado" aria-label="E"
-                                                    aria-describedby="basic-addon1"></select>
+                                                <select class="form-control " id="empleado" name="empleado"
+                                                    aria-label="E" aria-describedby="basic-addon1"></select>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" id="btnAgregarFunc" name="btnAgregarFunc" class="btn btn-primary"><i
-                                                    class="fas fa-plus"></i> Asignar Funcionario</button>
-                                            <button type="button" class="btn btn-primary"
-                                                data-bs-dismiss="modal"><i class="fas fa-undo"></i>Volver</button>
+                                            <button type="submit" id="btnAgregarFunc" name="btnAgregarFunc"
+                                                class="btn btn-primary"><i class="fas fa-plus"></i> Asignar
+                                                Funcionario</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
+                                                    class="fas fa-undo"></i>Volver</button>
                                         </div>
                                     </form>
                                 </div>
@@ -87,10 +89,9 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-                                                id="btnCrearcomentario" name="btnCrearcomentario" data-bs-toggle="modal"
-                                                data-bs-dismiss="modal"> <i class="fas fa-plus"></i>Agregar
-                                                Comentario</button>
+                                            <button class="btn btn-primary" id="btnCrearcomentario"
+                                                name="btnCrearcomentario" data-bs-toggle="modal"> <i
+                                                    class="fas fa-plus"></i>Iniciar Versionamiento</button>
                                         </div>
                                         <div class="modal-body">
                                             <h5 id="comentarios"></h5>

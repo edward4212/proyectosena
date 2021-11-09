@@ -14,15 +14,13 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class=" navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0  ">
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" aria-current="page" href="inicio.frm.php"><i class="fas fa-home"></i>
-                            Inicio</a>
+                        <a class="nav-link p-2" aria-current="page" href="inicio.frm.php"><i class="fas fa-home"></i> Inicio</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
                         <a class="nav-link p-2 " href="documento.frm.php"><i class="fas fa-file"></i> Documentos</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href="solicitudes.frm.php"><i class="far fa-address-book"></i>
-                            Solicitudes</a>
+                        <a class="nav-link p-2" href="solicitudes.frm.php"><i class="far fa-address-book"></i> Solicitudes</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
                         <a class="nav-link p-2" href="tareas.frm.php"><i class="far fa-address-book"></i> Tareas</a>
