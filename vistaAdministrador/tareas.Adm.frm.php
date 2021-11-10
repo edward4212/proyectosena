@@ -120,7 +120,7 @@
                         <h3 class="card-title text-center">Mis Tareas</h3>
                             <div>
                                 <form action="" class="form-group" id="buscar">
-                                    <input type="number" name="numIdTarea" id="numIdTarea" hidden >
+                                    <input type="number" name="numIdTarea" id="numIdTarea" hidden  >
                                     <h5 id="tareas"></h5>
                                 </form>
                             </div>
@@ -135,16 +135,19 @@
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form action="" class="form-group">
+                                    <form class="row g-3 form-group" action="../controladorAdministrador/versionamiento.create.php" method="POST" enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="row">
-                                                <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden >
+                                                <input type="number" name="numIdTarea1" id="numIdTarea1" hidden >
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
+                                                <input  class="form-control"  type="text" name="numIdSolT" id="numIdSolT"  >
                                                     <input  class="form-control"  type="text" name="idDocumento" id="idDocumento" hidden >
                                                     <label for="data">Seleccionar Documento</label>
                                                     <input  class="form-control"  type="text" name="documentoAuto" id="documentoAuto"  >
                                                     <!-- <select class="form-control" id="documentos" name="documentos" aria-label="E" aria-describedby="basic-addon1" required></select>-->
-                                                    <input  class="form-control"  type="text" name="proceso" id="proceso"  hidden> 
+                                                    <input  class="form-control"  type="text" name="proceso" id="proceso"  hidden>
+                                                    <input  class="form-control"  type="text" name="sigla_tipo_documento" id="sigla_tipo_documento"  hidden> 
+                                                    
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version Siguiente</h5>
@@ -165,8 +168,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-primary" id="btnCrearcomentario"
-                                                name="btnCrearcomentario" data-bs-dismiss="modal"> <i
+                                            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal"> <i
                                                     class="fas fa-plus"></i>Iniciar Versión</button>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                     class="fas fa-undo"></i> Volver</button>

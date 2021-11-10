@@ -17,8 +17,10 @@ function iniciarTarea (id_solicitud){
     $("#numIdSolicitud3").val(id_solicitud);
 }
 
-function tarea (id_tarea){
+function idtarea(id_tarea,id_solicitud){
     $("#numIdTarea").val(id_tarea);
+    $("#numIdTarea1").val(id_tarea);
+    $("#numIdSolT").val(id_solicitud);
 }
 
 function sigla_proceso (id_proceso ,sigla_proceso,numero_version){
@@ -32,7 +34,7 @@ $(document).ready(function(){
     buscar();
     estatus();
     tareas();
-    buscarDoc();
+    // buscarDoc();
     buscarFuncionarios();
   
     $("#documentoAuto").autocomplete({
@@ -57,6 +59,7 @@ $(document).ready(function(){
         $("#versionSig").val(resul);
         $("#idDocumento").val(ui.item.id_documento);
         $("#proceso").val(ui.item.sigla_proceso);
+        $("#sigla_tipo_documento").val(ui.item.sigla_tipo_documento);
         $("#documentoAuto").prop("disabled", true);
         // $("#txtNombreCliente").val(ui.item.nombre);
         // $("#txtApellidoCliente").val(ui.item.apellido);
@@ -97,7 +100,7 @@ $(document).ready(function(){
                     datos += '<tbody>';
                         $.each(json, function(key, value){
                             datos += '<tr class="align-middle" >';
-                                datos += '<td class=" border border-primary text-wrap align-middle" id="numIdSolicitud">'+value.id_solicitud+' </td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.id_solicitud+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_solicitud+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_asignacion+'</td>';  
                                 datos += '<td class=" border border-primary text-wrap">'+value.prioridad+'</td>';
@@ -349,14 +352,14 @@ $(document).ready(function(){
             dataType: 'json',
             data : $('#EstadiSolicitud').serialize(),
         }).done(function(json){
-            // Swal.fire({                  
-            //     icon: 'success',
-            //     title: 'Soliictud Actualizada con Exito',
-            //     showConfirmButton: false,
-            //     timer: 2000
-            // }).then((result) => {
-            //     cargar();
-            // })
+            Swal.fire({                  
+                icon: 'success',
+                title: 'Soliictud Actualizada con Exito',
+                showConfirmButton: false,
+                timer: 2000
+            }).then((result) => {
+                cargar();
+            })
         }).fail(function(xhr, status, error){
             
         })
@@ -430,11 +433,11 @@ $(document).ready(function(){
                                 Value.estado ="ACTUALIZACIÓN";
                             }
                             datos += '<tr class="align-middle" >';
-                                datos += '<td class=" border border-primary text-wrap align-middle" id="numIdSolicitud">'+value.id_tarea+' </td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_tarea+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_asignacion+'</td>';  
                                 datos += '<td class=" border border-primary text-wrap">'+value.estado+'</td>';  
-                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  id="btnAdminTarea" onclick="tarea('+value.id_tarea+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltarea"><i class="fas fa-cogs"></i></button></td>';
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" onclick="idtarea('+value.id_tarea+','+value.id_solicitud+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltarea"><i class="fas fa-cogs"></i></button></td>';
                             datos += '</tr>';
                         })
                     datos += '</tbody>';
@@ -454,7 +457,7 @@ $(document).ready(function(){
                 "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
                 "iDisplayLength":	5,
                 "language": {"url": "../componente/libreria/idioma/es-mx.json"},
-                order: [[1, 'asc']],
+                order: [[0, 'asc']],
                 dom:  'Qfrtip',
                 dom:  'Bfrtip',
                 buttons: 
@@ -511,24 +514,24 @@ $(document).ready(function(){
         })
     }
     
-     /// BUSCAR DOCUMENTOS///
-     function buscarDoc() {
-        $.ajax({
-            url:'../controladorAdministrador/documento.read3.php',
-            type: 'POST',
-            dataType: 'json',
-            data : null,
-        }).done(function(json){
-            var documentos  =0;
-            documentos+='<option disabled selected> - Seleccione un Documento-</option>';
-            $.each(json, function (key,value) {    
-                documentos+='<option value='+value.id_documento+' onclick="sigla_proceso('+value.id_proceso+',\''+value.sigla_proceso+'\','+value.numero_version+')"> '+value.codigo+' - '+value.nombre_documento+'</option>';   
-            })            
-            $('#documentos').html(documentos);
-        }).fail(function(xhr, status, error){
-            $('#documentos').html(error);
-        })     
-    }
+    //  /// BUSCAR DOCUMENTOS///
+    //  function buscarDoc() {
+    //     $.ajax({
+    //         url:'../controladorAdministrador/documento.read3.php',
+    //         type: 'POST',
+    //         dataType: 'json',
+    //         data : null,
+    //     }).done(function(json){
+    //         var documentos  =0;
+    //         documentos+='<option disabled selected> - Seleccione un Documento-</option>';
+    //         $.each(json, function (key,value) {    
+    //             documentos+='<option value='+value.id_documento+' onclick="sigla_proceso('+value.id_proceso+',\''+value.sigla_proceso+'\','+value.numero_version+')"> '+value.codigo+' - '+value.nombre_documento+'</option>';   
+    //         })            
+    //         $('#documentos').html(documentos);
+    //     }).fail(function(xhr, status, error){
+    //         $('#documentos').html(error);
+    //     })     
+    // }
 
 
     function buscarFuncionarios() {

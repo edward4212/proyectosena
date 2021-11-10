@@ -114,8 +114,8 @@ class Solicitudes{
                sl.`solicitud`,
                sl.`fecha_solicitud`,
                sl.`fecha_asignacion`,
-               sl.`fecha_asignacion`,
                sl.`fecha_inicio_tarea`,
+               sl.`fecha_solucion`,
                sl.`id_estatus_solicitud`,
                sl.`carpeta`,
                sl.`documento`,
@@ -251,7 +251,7 @@ class Solicitudes{
      {
          try{
                
-              $this->result = $this->conexion->prepare("INSERT INTO tarea VALUES (NULL , :id_solicitud , :usuario_creacion,CURRENT_TIMESTAMP() ,null, null,null,null, 'C' )");
+              $this->result = $this->conexion->prepare("INSERT INTO tarea VALUES (NULL , :id_solicitud , CURRENT_TIMESTAMP(), :usuario_creacion, null,null, null,null,null, 'C' )");
               $this->result->bindParam(':id_solicitud', $this->id_solicitud);
               $this->result->bindParam(':usuario_creacion', $this->usuario);
               $this->result->execute();    
