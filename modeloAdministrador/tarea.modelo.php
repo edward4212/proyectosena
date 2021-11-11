@@ -130,35 +130,67 @@ class Tarea{
          return $this->retorno;
     }
 
+//     public function creacionVersionamiento()
+//     {
+//         try{
+              
+//              $this->result = $this->conexion->prepare("INSERT INTO versionamiento VALUES (NULL , :numero_version , :id_documento, :descripcion_version , :usuario_creacion, CURRENT_TIMESTAMP(),:usuario_revision,null,null,null,:documento,'T')");
+//              $this->result->bindParam(':numero_version', $this->numero_version);
+//              $this->result->bindParam(':id_documento', $this->id_documento);
+//              $this->result->bindParam(':descripcion_version', $this->descripcion_version);
+//              $this->result->bindParam(':usuario_creacion', $this->usuario);
+//              $this->result->bindParam(':usuario_revision', $this->usuario_revision);
+//              $this->result->bindParam(':documento', $this->documento);
+//              $this->result->execute();    
+//          } catch (Exception $e) {
+         
+//              $this->retorno = $e->getMessage();
+//          }
+//              return $this->retorno;
+//     }
+
     public function creacionVersionamiento()
     {
-        try{
-              
-             $this->result = $this->conexion->prepare("INSERT INTO versionamiento VALUES (NULL , :numero_version , :id_documento, :descripcion_version , :usuario_creacion, CURRENT_TIMESTAMP(),:usuario_revision,null,null,null,null,null,:documento,'T')");
-             $this->result->bindParam(':numero_version', $this->numero_version);
-             $this->result->bindParam(':id_documento', $this->id_documento);
-             $this->result->bindParam(':descripcion_version', $this->descripcion_version);
-             $this->result->bindParam(':usuario_creacion', $this->usuario);
-             $this->result->bindParam(':usuario_revision', $this->usuario_revision);
-             $this->result->bindParam(':documento', $this->documento);
-             $this->result->execute();    
-         } catch (Exception $e) {
-         
-             $this->retorno = $e->getMessage();
-         }
-             return $this->retorno;
+ 
+      try {
+           $this->sql = "  CALL createComentarioVer(1,'$this->numero_version', '$this->id_documento','$this->descripcion_version','$this->usuario',CURRENT_TIMESTAMP(),
+           '$this->usuario_revision',NULL,NULL,NULL,'$this->documento','T',1,'Se asigna el Documento','$this->usuario', CURRENT_TIMESTAMP())";
+           $this->result=$this->conexion->query($this->sql);     
+           $this->retorno =  $this->result->fetchAll(PDO::FETCH_ASSOC);
+ 
+      } catch (Exception $e) {
+           $this->retorno = $e->getMessage(); 
+      }
+           return $this->retorno;
     }
+ 
+
 
     public function actualizarTarea()
     {
          try {
-              $this->sql = "UPDATE tarea SET usuario_revision='$this->usuario_revision', estado='R' WHERE id_tarea=$this->id_tarea";
+              $this->sql = "UPDATE tarea SET usuario_revision='$this->usuario_revision', fecha_creacion = CURRENT_TIMESTAMP(), estado='R' WHERE id_tarea=$this->id_tarea";
               $this->result = $this->conexion->query($this->sql);
          } catch (Exception $e) {
               $this->retorno = $e->getMessage();
          }
               return $this->retorno;
        }
+
+       
+     public function comentariosCrearDoc()
+     {
+         try{
+              $this->result = $this->conexion->prepare("INSERT INTO comentarios_solicitud VALUES (NULL , 'Se Creo el Documento', :id_solicitud, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");
+              $this->result->bindParam(':id_solicitud', $this->id_solicitud);
+              $this->result->bindParam(':usuario_comentario', $this->usuario);
+              $this->result->execute();    
+          } catch (Exception $e) {
+          
+              $this->retorno = $e->getMessage();
+          }
+              return $this->retorno;
+     }
   
 
 }

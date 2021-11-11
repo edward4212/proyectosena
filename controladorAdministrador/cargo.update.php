@@ -71,7 +71,7 @@ echo '
             icon: "success",
             title: "Cargo Actualizado con Exito",
             showConfirmButton: false,
-            timer: 2000
+            timer: 3000
             }).then(function() {
             window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
         });

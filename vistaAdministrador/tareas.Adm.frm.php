@@ -138,15 +138,15 @@
                                     <form class="row g-3 form-group" action="../controladorAdministrador/versionamiento.create.php" method="POST" enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="row">
-                                                <input type="number" name="numIdTarea1" id="numIdTarea1" hidden >
+                                                <input type="number" name="numIdTarea1" id="numIdTarea1"  >
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                 <input  class="form-control"  type="text" name="numIdSolT" id="numIdSolT"  >
-                                                    <input  class="form-control"  type="text" name="idDocumento" id="idDocumento" hidden >
+                                                    <input  class="form-control"  type="text" name="idDocumento" id="idDocumento"  >
                                                     <label for="data">Seleccionar Documento</label>
                                                     <input  class="form-control"  type="text" name="documentoAuto" id="documentoAuto"  >
                                                     <!-- <select class="form-control" id="documentos" name="documentos" aria-label="E" aria-describedby="basic-addon1" required></select>-->
-                                                    <input  class="form-control"  type="text" name="proceso" id="proceso"  hidden>
-                                                    <input  class="form-control"  type="text" name="sigla_tipo_documento" id="sigla_tipo_documento"  hidden> 
+                                                    <input  class="form-control"  type="text" name="proceso" id="proceso"  >
+                                                    <input  class="form-control"  type="text" name="sigla_tipo_documento" id="sigla_tipo_documento"  > 
                                                     
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
@@ -180,7 +180,66 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-revision" role="tabpanel" aria-labelledby="nav-revision-tab">
-                    <h5>revision</h5>
+                <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                        <h3 class="card-title text-center">Mis Tareas</h3>
+                            <div>
+                                <form action="" class="form-group" id="buscar">
+                                    <input type="number" name="numIdTarea" id="numIdTarea" hidden  >
+                                    <h5 id="tareasAct"></h5>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Modal para administrar tarea-->
+                        <div class="modal fade" id="modaltareaAct" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">ADMINISTRAR TAREA</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form class="row g-3 form-group" action="../controladorAdministrador/versionamiento.create.php" method="POST" enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <input type="number" name="numIdTarea11" id="numIdTarea11"  >
+                                                <div class="col-md-10 col-xs-12 col-sm-12">
+                                                <input  class="form-control"  type="text" name="numIdSolT1" id="numIdSolT1"  >
+                                                    <input  class="form-control"  type="text" name="idDocumento1" id="idDocumento1"  >
+                                                    <label for="data">Documento</label>
+                                                    <input  class="form-control"  type="text" name="documendocumentoTarea" id="documendocumentoTarea"  >
+                                                    
+                                                </div>
+                                                <div class="col-md-2 col-xs-12 col-sm-12">
+                                                    <h5>Version </h5>
+                                                    <input  class="form-control"  type="text" name="versionDoc" id="versionDoc" readonly>
+                                                </div>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Descripción de la Revision</h5>
+                                                    <textarea type="text" class="form-control redondeado" rows="2" id="descriCambio" name="descriCambio" required></textarea>
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                                    </br>
+                                                    <button type="button" class="btn btn-primary form-control" name="fileDocumento" id="fileDocumento" ><i class="fas fa-download"></i>Descagar Documento</button>
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                                    <h5>Selecionar Usuario para Aprobación</h5>
+                                                    <select class="form-control" id="empleado1" name="empleado1" aria-label="E" aria-describedby="basic-addon1" required></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-plus"></i>Iniciar Versión</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="nav-aprobacion" role="tabpanel" aria-labelledby="nav-aprobacion-tab">
                     <h5>aprobacion</h5>

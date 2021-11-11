@@ -52,7 +52,7 @@ echo '
             icon: "success",
             title: "Organigrama Actualizado con Exito",
             showConfirmButton: false,
-            timer: 2000
+            timer: 3000
             }).then(function() {
             window.location.href = "../vistaAdministrador/inicio.Adm.frm.php";
         });

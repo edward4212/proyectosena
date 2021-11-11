@@ -11,30 +11,28 @@ $descriocion_version = $_POST['descriCambio'];
 $usuario = $_SESSION['usuario'];
 $usuario_revision = $_POST['empleado'];
 
-
 $proceso = $_POST['proceso'];
 $tipDoc = $_POST['sigla_tipo_documento'];
 
+$foto=$_FILES["fileDocumento"]["tmp_name"];
+$tipo =$_FILES['fileDocumento']['type'];
+$tamaño =$_FILES['fileDocumento']['size'];
 
-    $foto=$_FILES["fileDocumento"]["tmp_name"];
-    $tipo =$_FILES['fileDocumento']['type'];
-    $tamaño =$_FILES['fileDocumento']['size'];
-    
-    $directorio = "../documentos/procesos/$proceso/$tipDoc/";
-   
-    if(!file_exists($directorio)){
-        mkdir($directorio,0777,true);
-        $nombre = $_FILES['fileDocumento']['name'];   
-        move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);        
-    }else{
-        if(file_exists($directorio)){
-            $nombre = $_FILES['fileDocumento']['name'];
-            move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);
-        }    
-    }
+$directorio = "../documentos/procesos/$proceso/$tipDoc/";
+
+if(!file_exists($directorio)){
+    mkdir($directorio,0777,true);
+    $nombre = $_FILES['fileDocumento']['name'];   
+    move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);        
+}else{
+    if(file_exists($directorio)){
+        $nombre = $_FILES['fileDocumento']['name'];
+        move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);
+    }    
+}
 
 $id_tarea = $_POST['numIdTarea1'];
-
+$id_solicitud = $_POST['numIdSolT'];
 
 
 $tareaE = new \entidad\Tarea(); 
@@ -46,11 +44,13 @@ $tareaE -> setUsuarioRevision($usuario_revision);
 $tareaE -> setDocumento($nombre);
 
 $tareaE -> setIdTarea($id_tarea);
+$tareaE -> setIdSolicitud($id_solicitud);
+
 
 $tareaM= new \modelo\Tarea($tareaE);
 $resultado = $tareaM->creacionVersionamiento();
+$resultado = $tareaM->comentariosCrearDoc();
 $resultado = $tareaM->actualizarTarea();
-
 
 unset($tareaE);
 unset($tareaM);
@@ -65,7 +65,7 @@ echo '
                 icon: "success",
                 title: "Versionamiento Creado con Exito",
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
                 }).then(function() {
                 window.location.href = "../vistaAdministrador/tareas.Adm.frm.php";
             });

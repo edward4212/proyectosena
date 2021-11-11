@@ -189,7 +189,7 @@ $(document).ready(function () {
                     icon: 'success',
                     title: 'Documento Creado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
                 })
@@ -200,7 +200,7 @@ $(document).ready(function () {
                     icon: 'error',
                     title: 'No se pudo crear el Documento!.. Favor Verifique los datos ingresado!',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
                 })

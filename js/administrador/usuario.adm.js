@@ -179,7 +179,7 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Rol Creado con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             })
@@ -201,7 +201,7 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Rol Actualizado con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             });
@@ -223,7 +223,7 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Estado Actualizado con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             })
@@ -364,7 +364,7 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Estado Actualizado con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             })
@@ -429,7 +429,7 @@ $(document).ready(function () {
                     icon: 'success',
                     title: 'Usuario Creado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
                 })
@@ -440,7 +440,7 @@ $(document).ready(function () {
                     icon: 'error',
                     title: 'No se pudo crear el usuario!.. Favor Verifique los datos ingresado!',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
                 })
@@ -601,7 +601,7 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Contraseña Actualizada con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             })
@@ -665,7 +665,7 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Usuario Actualizado con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             });
@@ -687,7 +687,7 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Estado Actualizado con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             })

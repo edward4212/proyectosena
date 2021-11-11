@@ -56,7 +56,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Proceso Creado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                   }).then((result) => {
                     cargar();
                   })
@@ -194,7 +194,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Proceso Actualizado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                   }).then((result) => {
                     cargar();
                   });
@@ -216,7 +216,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Estado Actualizado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                   }).then((result) => {
                     cargar();
                   })
@@ -358,7 +358,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Tipo de Documento Creado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                   }).then((result) => {
                     cargar();
                   })
@@ -382,7 +382,7 @@ $(document).ready(function(){
                 icon: 'success',
                 title: 'Tipo de Documento Actualizado con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
                 }).then((result) => {
                     cargar();
                   })
@@ -404,7 +404,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Estado Actualizado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                     }).then((result) => {
                         cargar();
                       })

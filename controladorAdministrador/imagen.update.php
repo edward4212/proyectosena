@@ -49,7 +49,7 @@ echo '
             icon: "success",
             title: "Imagen Actualizada con Exito ...! Inicie Sesión Nuevamente",
             showConfirmButton: false,
-            timer: 2000
+            timer: 3000
             }).then(function() {
             window.location.href = "../vistaLogin/login.frm.php";
         });

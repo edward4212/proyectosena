@@ -105,7 +105,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Nombre Empresa Actualziado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                   }).then((result) => {
                     cargar();
                   })

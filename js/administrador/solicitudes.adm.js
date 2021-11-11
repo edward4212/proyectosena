@@ -280,7 +280,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Comentario Creado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     cargar();
                 })
@@ -302,7 +302,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Funcionario Asignado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     cargar();
                 })

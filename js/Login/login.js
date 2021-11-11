@@ -41,7 +41,7 @@ $(document).ready(function () {
                                 icon: 'success',
                                 title: 'Bienvenido '+obj[0].nombre_completo,
                                 showConfirmButton: false,
-                                timer: 2000
+                                timer: 3000
                               }).then((result) => {
                                 window.location.href = "../vistaAdministrador/inicio.Adm.frm.php";
                               })
@@ -69,21 +69,21 @@ $(document).ready(function () {
                             icon: 'error',
                             title: '¡Usuario No Activo!',
                             showConfirmButton: false,
-                            timer: 2000
+                            timer: 3000
                           })
                     }else if(obj[0].estadoUsuario == "I"){
                         Swal.fire({
                             icon: 'error',
                             title: '¡Usuario Inhabilitado!',
                             showConfirmButton: false,
-                            timer: 2000
+                            timer: 3000
                           })
                     }else if(obj[0].rol.estado == "I"){
                         Swal.fire({
                             icon: 'error',
                             title: 'Rol Inhabilitado!',
                             showConfirmButton: false,
-                            timer: 2000
+                            timer: 3000
                           })
                     }   
                 }
@@ -95,7 +95,7 @@ $(document).ready(function () {
                 icon: 'error',
                 title: '¡Usuario o Contraseña Incorrecto!',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             })
         })
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
                     icon: 'success',
                     title: 'Usuario Activado con Exito... Por Favor Inicie Sesion',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     window.location.href = "../vistaLogin/login.frm.php";
                 })
@@ -126,7 +126,7 @@ $(document).ready(function () {
                     icon: 'error',             
                     title: 'Usuario ya se encuentra Activo  o esta Inhabilitado',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                 }).then((result) => {
                     window.location.href = "../vistaEmpleado/perfil.frm.php";
                 })
@@ -136,7 +136,7 @@ $(document).ready(function () {
                 icon: 'error',
                 title: 'Digete los campos completos del formulario',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 window.location.href = "../vistaEmpleado/perfil.frm.php";
             })

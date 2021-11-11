@@ -14,7 +14,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Contraseña Actualizada con Exito... Por Favor Inicie Sesión Nuevamente',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                     }).then((result) => {
                          window.location.href = "../vistaLogin/login.frm.php";
                     })
@@ -23,7 +23,7 @@ $(document).ready(function(){
                     icon: 'error',
                     title: 'Contraseña No Actualizada',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                     }).then((result) => {
                          window.location.href = "../vistaEmpleado/perfil.frm.php";
                     })

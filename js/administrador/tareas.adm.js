@@ -23,6 +23,12 @@ function idtarea(id_tarea,id_solicitud){
     $("#numIdSolT").val(id_solicitud);
 }
 
+function idtareaAct(id_tarea,id_solicitud){
+    $("#numIdTarea1").val(id_tarea);
+    $("#numIdTarea11").val(id_tarea);
+    $("#numIdSolT1").val(id_solicitud);
+}
+
 function sigla_proceso (id_proceso ,sigla_proceso,numero_version){
     $("#idsiglasProc").val(id_proceso);
     $("#proceso").val(sigla_proceso);
@@ -36,6 +42,9 @@ $(document).ready(function(){
     tareas();
     // buscarDoc();
     buscarFuncionarios();
+    tareasAct();
+    buscarFuncionarios1();
+
   
     $("#documentoAuto").autocomplete({
         source: function( request, response){
@@ -315,7 +324,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Comentario Asignado con Exito',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 3000
                     }).then((result) => {
                     cargar();
                     })
@@ -356,7 +365,7 @@ $(document).ready(function(){
                 icon: 'success',
                 title: 'Soliictud Actualizada con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             })
@@ -378,7 +387,7 @@ $(document).ready(function(){
                 icon: 'success',
                 title: 'Tarea Iniciada con Exito',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             }).then((result) => {
                 cargar();
             })
@@ -553,7 +562,136 @@ $(document).ready(function(){
         })     
     }
 
-
+    function tareasAct(){
+        $.ajax({
+            url:'../controladorAdministrador/tarea.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data : null,
+        }).done(function(json){
+                /**
+             * Se crea la tabla para mostrar los datos consultados
+             */
+            var datos = '';
+                datos += "<table id='tabletareasAct'   class='table  table-striped table-bordered table-responsive '  >"; 
+                datos += '<thead >';
+                        datos += '<tr class="table-light border-primary text-center align-middle ">';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO TAREA</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">SOLICITUD</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">ESTADO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
+                        datos += '</tr>';
+                    datos +=  '</thead>';
+                    datos += '<tbody>';
+                        $.each(json, function(key, value){
+                            if(value.estado = "C"){
+                                value.estado ="CREACION";
+                            }else if(value.estado = "R"){
+                                Value.estado ="REVISION";
+                            }else if(value.estado = "A"){
+                                Value.estado ="ACTUALIZACIÓN";
+                            }
+                            datos += '<tr class="align-middle" >';
+                                datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_tarea+' </td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_asignacion+'</td>';  
+                                datos += '<td class=" border border-primary text-wrap">'+value.estado+'</td>';  
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" onclick="idtareaAct('+value.id_tarea+','+value.id_solicitud+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaAct"><i class="fas fa-cogs"></i></button></td>';
+                            datos += '</tr>';
+                        })
+                    datos += '</tbody>';
+                datos += '</table>';
+            $('#tareasAct').html(datos);
+            $('#tabletareasAct').DataTable({
+                "destroy" : true,
+                "autoWidth": true,
+                "responsive": true,
+                "searching": true,
+                "info":     true,
+                "ordering": true,
+                "colReorder": true,
+                "sZeroRecords": true,
+                "keys": true,
+                "deferRender": true,
+                "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+                "iDisplayLength":	5,
+                "language": {"url": "../componente/libreria/idioma/es-mx.json"},
+                order: [[0, 'asc']],
+                dom:  'Qfrtip',
+                dom:  'Bfrtip',
+                buttons: 
+                [
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'A4',
+                        download: 'open',
+                        title: 'Mis Tareas Asignadas',
+                        titleAttr: 'Mis Tareas Asignadas',
+                        messageTop: 'Mis Tareas Asignadas',
+                        text : '<i class="far fa-file-pdf"></i>',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: 'Mis Tareas Asignadas',
+                        titleAttr: 'Mis Tareas Asignadas',
+                        messageTop: 'Mis Tareas Asignadas',
+                        text : '<i class="fas fa-print"></i>',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text : '<i class="fas fa-file-excel"></i>',
+                        autoFiltre : true ,
+                        title: 'Mis Tareas Asignadas',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'copyHtml5',
+                        text : '<i class="fas fa-copy"></i>',
+                        autoFiltre : true ,
+                        titleAttr: 'COPIAR',
+                        exportOptions : {
+                            columns: [0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'searchBuilder'
+                    
+                    }                      
+                ]
+            });
+        }).fail(function(xhr, status, error){
+            $('#tareasAct').html(error);
+        })
+    }
     
+    
+    function buscarFuncionarios1() {
+
+        $.ajax({
+            url:'../controladorAdministrador/usuario.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data : null,
+        }).done(function(json){
+            var tipoDocumento  =0;
+            tipoDocumento+='<option disabled selected> - Seleccione un funcionario-</option>';
+            $.each(json, function (key,value) {    
+                tipoDocumento+='<option value='+value.usuario+'>'+value.usuario+'</option>';   
+            })            
+            $('#empleado1').html(tipoDocumento);
+        }).fail(function(xhr, status, error){
+            $('#empleado1').html(error);
+        })     
+    }
 
 })
