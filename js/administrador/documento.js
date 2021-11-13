@@ -184,27 +184,27 @@ $(document).ready(function () {
             dataType: 'json',
             data: $('#crearDoc').serialize(),
         }).done(function (json) {
-            if (json[0].proceso == "OK") {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Documento Creado con Exito',
-                    showConfirmButton: false,
-                    timer: 3000
-                }).then((result) => {
-                    window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
-                })
+            // if (json[0].proceso == "OK") {
+            //     Swal.fire({
+            //         icon: 'success',
+            //         title: 'Documento Creado con Exito',
+            //         showConfirmButton: false,
+            //         timer: 3000
+            //     }).then((result) => {
+            //         window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
+            //     })
 
-            } else {
+            // } else {
 
-                Swal.fire({
-                    icon: 'error',
-                    title: 'No se pudo crear el Documento!.. Favor Verifique los datos ingresado!',
-                    showConfirmButton: false,
-                    timer: 3000
-                }).then((result) => {
-                    window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
-                })
-            }
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'No se pudo crear el Documento!.. Favor Verifique los datos ingresado!',
+            //         showConfirmButton: false,
+            //         timer: 3000
+            //     }).then((result) => {
+            //         window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
+            //     })
+            // }
         }).fail(function (xhr, status, error) {
             $('#respuesta').html(error);
         })
@@ -460,6 +460,7 @@ $(document).ready(function () {
             datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">VER DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">FECHA INACTIVACIÓN</th>';
             datos += '</tr>';
             datos += '</thead>';
@@ -471,6 +472,7 @@ $(document).ready(function () {
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.numero_version + '</td>';
+                datos += '<td class=" border border-primary text-wrap"> </td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.fecha_aprobacion + '</td>';
                 datos += '</tr>';
             })

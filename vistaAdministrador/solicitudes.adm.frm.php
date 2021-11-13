@@ -91,7 +91,7 @@
                                         <div class="modal-footer">
                                             <button class="btn btn-primary" id="btnCrearcomentario"
                                                 name="btnCrearcomentario" data-bs-toggle="modal"> <i
-                                                    class="fas fa-plus"></i>Iniciar Versionamiento</button>
+                                                    class="fas fa-plus"></i>Agregar Comentario</button>
                                         </div>
                                         <div class="modal-body">
                                             <h5 id="comentarios"></h5>

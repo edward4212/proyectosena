@@ -348,7 +348,7 @@
                                 </div>
                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                     <button type="submit" class="btn btn-primary mb-3" id="btnRegistrarRol"><i
-                                            class="fas fa-plus"></i> Crear Proceso</button>
+                                            class="fas fa-plus"></i> Crear Rol</button>
                                     <button type="reset" class="btn btn-secondary mb-3"><i class="fas fa-broom"></i>
                                         Limpiar</button>
                                 </div>
@@ -360,7 +360,7 @@
                                 <h5 id="roles"></h5>
                             </div>
                         </div>
-                        <!-- Modal para actualizaciones sobre procesos-->
+                        <!-- Modal para actualizaciones sobre roles-->
                         <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

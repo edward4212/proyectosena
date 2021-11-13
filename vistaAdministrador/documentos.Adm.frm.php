@@ -17,9 +17,7 @@
                         type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Creación de
                         Documentos
                     </button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-actualizar"
-                        type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Administración de
-                        Documentos</button>
+
                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-obsoletos"
                         type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Matriz de Documentos
                         Obsoletos</button>
@@ -92,114 +90,6 @@
                             <h3 class="card-title text-center">Documentos Registrados</h3>
                             <div class="col-md-12 col-xs-12 col-sm-12 text-center">
                                 <h5 id="documentosRg"></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="nav-actualizar" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div class="row ">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <br>
-                            <h3 class="card-title text-center">Administracion de Documentos</h3>
-                            <div class="text-center">
-                                <h5 id="documentosAdm"></h5>
-                            </div>
-                        </div>
-                        <!-- Modal para actualizaciones DE DOCUMEENTOS -->
-                        <div class="modal fade bd-example-modal-xl" id="administrarDocumentos" tabindex="-1"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog  modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Actualizar Clave Usuario</h5>
-                                        <button type="button" id="btnCerrarModal" class="btn-close"
-                                            data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <form class="row g-3 form-group" id="modifClaveUsu" method="POST">
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                                    <h5>Proceso</h5>
-                                                    <input class="form-control" type="text" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                                    <h5>Tipo Documento</h5>
-                                                    <input class="form-control" type="text" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                                    <h5>Codigo </h5>
-                                                    <input class="form-control" type="text" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-10 col-xs-12 col-sm-12">
-                                                    <h5>Nombre del Documento</h5>
-                                                    <input class="form-control" type="text" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-2 col-xs-12 col-sm-12">
-                                                    <h5>Version</h5>
-                                                    <input class="form-control" type="number" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                                    <h5>Creado Por:</h5>
-                                                    <input class="form-control" type="text" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-2 col-xs-12 col-sm-12">
-                                                    <h5>Fecha Creación</h5>
-                                                    <input class="form-control" type="date" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                                    <h5>Revisado Por:</h5>
-                                                    <input class="form-control" type="text" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-2 col-xs-12 col-sm-12">
-                                                    <h5>Fecha Revisión</h5>
-                                                    <input class="form-control" type="date" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                                    <h5>Aprobado Por:</h5>
-                                                    <input class="form-control" type="text" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-2 col-xs-12 col-sm-12">
-                                                    <h5>Fecha Aprobación</h5>
-                                                    <input class="form-control" type="date" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="col-md-6 col-xs-12 col-sm-12">
-                                                    <h5>Documento</h5>
-                                                    <input class="form-control" type="file" name="txtClaveMod"
-                                                        id="txtClaveMod" autocomplete="current-password" aria-label="E"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" id="btnModClaveUsu" class="btn btn-primary"><i
-                                                    class="far fa-edit"></i> Modificar</button>
-                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
-                                                    class="fas fa-undo"></i> Volver</button>
-                                        </div>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -195,9 +195,9 @@ class Documento{
      {
   
        try {
-            $this->sql = "  CALL createVersionamiento(1,'0','Se asigna Codigo al Documento','$this->usuario_creacion',
-            CURRENT_TIMESTAMP(),NULL,NULL,NULL,NULL,NULL,'C',1,'$this->id_tipo_documento','$this->id_proceso', '$this->codigo',
-            '$this->nombre_documento')";
+            $this->sql = "CALL createVersionamiento(1,'$this->id_tipo_documento','$this->id_proceso', '$this->codigo',
+            '$this->nombre_documento',1,'0','Se asigna Codigo al Documento','$this->usuario_creacion',
+            CURRENT_TIMESTAMP(),NULL,NULL,NULL,NULL,NULL,'C')";
             $this->result=$this->conexion->query($this->sql);
             $this->retorno =  $this->result->fetchAll(PDO::FETCH_ASSOC);
   

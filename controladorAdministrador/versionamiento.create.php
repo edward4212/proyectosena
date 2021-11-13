@@ -46,10 +46,10 @@ $tareaE -> setDocumento($nombre);
 $tareaE -> setIdTarea($id_tarea);
 $tareaE -> setIdSolicitud($id_solicitud);
 
-
 $tareaM= new \modelo\Tarea($tareaE);
 $resultado = $tareaM->creacionVersionamiento();
 $resultado = $tareaM->comentariosCrearDoc();
+$resultado = $tareaM->comentariosTarea();
 $resultado = $tareaM->actualizarTarea();
 
 unset($tareaE);

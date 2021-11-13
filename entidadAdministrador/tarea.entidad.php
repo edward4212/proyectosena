@@ -24,7 +24,7 @@ class Tarea {
     public $estado_version;
 
     public $usuario;
-
+    public $comentario;
     
     /**
      * Get the value of id_tarea
@@ -422,6 +422,26 @@ class Tarea {
     public function setUsuario($usuario)
     {
         $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of comentario
+     */
+    public function getComentario()
+    {
+        return $this->comentario;
+    }
+
+    /**
+     * Set the value of comentario
+     *
+     * @return  self
+     */
+    public function setComentario($comentario)
+    {
+        $this->comentario = $comentario;
 
         return $this;
     }
