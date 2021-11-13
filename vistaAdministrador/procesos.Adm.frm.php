@@ -274,7 +274,6 @@
     </main>
 
     <?php include_once "footer.frm.php" ?>
-</body>
 <script src="../js/administrador/procesos.Adm.js"></script>
-
+</body>
 </html>

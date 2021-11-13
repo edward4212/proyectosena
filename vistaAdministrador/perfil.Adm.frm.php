@@ -140,7 +140,8 @@
         </div>
     </main>
     <?php include_once "footer.frm.php" ?>
-</body>
 <script src="../js/administrador/perfil.js"></script>
+</body>
+
 
 </html>

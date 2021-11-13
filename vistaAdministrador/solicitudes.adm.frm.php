@@ -115,7 +115,6 @@
         </div>
     </main>
     <?php include_once "footer.frm.php" ?>
-</body>
 <script src="../js/administrador/solicitudes.adm.js"></script>
-
+</body>
 </html>

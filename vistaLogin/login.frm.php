@@ -99,7 +99,7 @@
                                     <h4 for="formFile" class="form-label">Contraseña</h4>
                                     <div class="input-group mb-3 p-1">
                                         <input class="form-control form-control-lg bg-light login" type="password"
-                                            autocomplete="off" class="form-control" placeholder="Contraseña"
+                                            autocomplete="off"  placeholder="Contraseña"
                                             id="txtClave" aria-label="E" name="txtClave" pattern="[A-Z]{1}[0-9]{2}"
                                             maxlength="50" aria-describedby="basic-addon1">
                                         <button id="show_password" class="btn btn-primary" type="button"
@@ -127,25 +127,26 @@
                             <h5 class="modal-title" id="exampleModalLabel">Activar Usuario</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <form class="row g-3 form-group" id="actUsu" method="POST">
-                                <div class="modal-body">
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <h5>Usuario</h5>
-                                        <input class="form-control" type="text" name="txtUsuarioAct" id="txtUsuarioAct"
-                                            autocomplete="off" aria-label="E" aria-describedby="basic-addon1">
-                                        <h5> Nueva Contraseña</h5>
-                                        <input class="form-control" type="password" name="txtClaveAct" id="txtClaveAct"
-                                            autocomplete="off" aria-label="E" aria-describedby="basic-addon1">
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" id="btnActUsu" class="btn btn-primary"><i class="far fa-edit"></i>
-                                Modificar</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
-                                    class="fas fa-undo"></i> Volver</button>
-                        </div>
+						<form class="row g-3 form-group" id="actUsu" method="POST">
+							<div class="modal-body">
+								
+									<div class="modal-body">
+										<div class="col-md-12 col-xs-12 col-sm-12">
+											<h5>Usuario</h5>
+											<input class="form-control" type="text" name="txtUsuarioAct" id="txtUsuarioAct"
+												autocomplete="off" aria-label="E" aria-describedby="basic-addon1">
+											<h5> Nueva Contraseña</h5>
+											<input class="form-control" type="password" name="txtClaveAct" id="txtClaveAct"
+												autocomplete="off" aria-label="E" aria-describedby="basic-addon1">
+										</div>
+									</div>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" id="btnActUsu" class="btn btn-primary"><i class="far fa-edit"></i>
+									Modificar</button>
+								<button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
+										class="fas fa-undo"></i> Volver</button>
+							</div>
                         </form>
                     </div>
                 </div>
@@ -154,7 +155,8 @@
         <!-- Formulario login fin -->
     </main>
     <?php include_once "footer.frm.php" ?>
+	<script src="../js/Login/login.js"></script>
 </body>
-<script src="../js/Login/login.js"></script>
+
 
 </html>

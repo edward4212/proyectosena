@@ -353,7 +353,6 @@
     </main>
 
     <?php include_once "footer.frm.php" ?>
-</body>
 <script src="../js/administrador/inicio.adm.js"></script>
-
+</body>
 </html>

@@ -80,8 +80,8 @@
                                                     id="numidTipDocElim" hidden>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Nueva Imagen</h5>
-                                                    <input class="form-control" type="file" name="fileImagenPerfilUs"
-                                                        id="fileImagenPerfilUs" class="file " accept="image/*">
+                                                    <input class="form-control file  redondeado" type="file" name="fileImagenPerfilUs"
+                                                        id="fileImagenPerfilUs" accept="image/*">
                                                 </div>
                                                 <br>
                                             </div>
@@ -141,7 +141,7 @@
     </main>
 
     <?php include_once "footer.frm.php" ?>
-</body>
-<script src="../js/empleado/perfil.js"></script>
 
+<script src="../js/empleado/perfil.js"></script>
+</body>
 </html>

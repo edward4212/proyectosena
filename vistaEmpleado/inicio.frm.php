@@ -104,9 +104,9 @@
                     </div>
                 </div>
             </div>
+        </div>
     </main>
     <?php include_once "footer.frm.php" ?>
-</body>
 <script src="../js/empleado/inicio.js"></script>
-
+</body>
 </html>

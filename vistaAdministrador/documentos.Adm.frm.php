@@ -39,48 +39,42 @@
                 <div class="tab-pane fade" id="nav-crear" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <br>
-                            <h3 class="card-title text-center">Crear Documentos</h3>
                             <form class="row g-3 form-group" id="crearDoc" name="crearDoc" method="POST">
+                                <br>
+                                <h3 class="card-title text-center">Crear Documentos</h3>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
                                     <h5>Proceso</h5>
                                     <select class="form-control redondeado" id="proceso" name="proceso"
-                                        required></select>
+                                    required></select>
                                 </div>
-
                                 <div class="col-md-4 col-xs-12 col-sm-12">
                                     <h5>Tipo de Documento</h5>
                                     <select class="form-control redondeado" id="tipoDocumento" name="tipoDocumento"
-                                        required></select>
+                                    required></select>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
-                                    <h5>Codigo del Documento</h5>
                                     <div class="input-group">
-                                        <input type="text" aria-label="E" id="siglasProc" name="siglasProc"
+                                        <h5>Codigo del Documento</h5>
+                                            <input type="text" aria-label="E" id="siglasProc" name="siglasProc"
                                             class="form-control codigo" readonly>
-                                        <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
-                                        <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc"
+                                            <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
+                                            <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc"
                                             name="siglasTipDoc" readonly>
-                                        <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
-                                        <input type="number" aria-label="E" class="form-control codigo" aria-label="E"
-                                            onKeyDown="if(this.value.length==3) return false;" id="codigo" name="codigo"
-                                            onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
-                                            pattern="[0-9]{10}" aria-describedby="basic-addon1" value="000"
-                                            onchange="leadingZeros(this)" onkeyup="leadingZeros(this)"
-                                            onclick="leadingZeros(this)">
+                                            <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
+                                            <input type="number" aria-label="E" class="form-control codigo" aria-label="E"  id="codigo" name="codigo">
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-xs-12 col-sm-12">
                                     <h5>Nombre Documento</h5>
                                     <input type="text" class="form-control redondeado" id="nombreDoc" name="nombreDoc"
-                                        onkeyup="javascript:this.value=this.value.toUpperCase(); " required>
+                                    onkeyup="javascript:this.value=this.value.toUpperCase(); " required>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end    ">
                                     <button type="submit" id="btncrearDoc" name="btncrearDoc"
-                                        class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Crear
-                                        Documento</button>
+                                    class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Crear
+                                    Documento</button>
                                     <button type="reset" class="btn btn-secondary mb-3"><i class="fas fa-broom"></i>
-                                        Limpiar</button>
+                                    Limpiar</button>
                                 </div>
                             </form>
                         </div>
@@ -110,7 +104,6 @@
     </main>
 
     <?php include_once "footer.frm.php" ?>
-</body>
 <script src="../js/administrador/documento.js"></script>
-
+</body>
 </html>

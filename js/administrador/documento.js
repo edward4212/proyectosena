@@ -18,6 +18,8 @@ $(document).ready(function () {
     buscarDocuCrea();
     buscarDocuAdm();
     buscarDocuObs();
+    buscarCodigo();
+
     /**
     * Se realiza la consulta de los documentos vigentes para mostrar en la vistaEmpleado/consultas.frm.php
     */
@@ -184,27 +186,27 @@ $(document).ready(function () {
             dataType: 'json',
             data: $('#crearDoc').serialize(),
         }).done(function (json) {
-            // if (json[0].proceso == "OK") {
-            //     Swal.fire({
-            //         icon: 'success',
-            //         title: 'Documento Creado con Exito',
-            //         showConfirmButton: false,
-            //         timer: 3000
-            //     }).then((result) => {
-            //         window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
-            //     })
+            if (json[0].proceso == "OK") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Documento Creado con Exito',
+                    showConfirmButton: false,
+                    timer: 3000
+                }).then((result) => {
+                    window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
+                })
 
-            // } else {
+            } else {
 
-            //     Swal.fire({
-            //         icon: 'error',
-            //         title: 'No se pudo crear el Documento!.. Favor Verifique los datos ingresado!',
-            //         showConfirmButton: false,
-            //         timer: 3000
-            //     }).then((result) => {
-            //         window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
-            //     })
-            // }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'No se pudo crear el Documento!.. Favor Verifique los datos ingresado!',
+                    showConfirmButton: false,
+                    timer: 3000
+                }).then((result) => {
+                    window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
+                })
+            }
         }).fail(function (xhr, status, error) {
             $('#respuesta').html(error);
         })
@@ -549,6 +551,26 @@ $(document).ready(function () {
             });
         }).fail(function (xhr, status, error) {
             $('#documentosObs').html(error);
+        })
+    }
+
+    /// MOSTRAR TIPO DOCUMENTOS ///
+    function buscarCodigo() {
+        $.ajax({
+            url: '../controladorAdministrador/codigo.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data: $('#buscarCodigo').serialize(),
+        }).done(function (json) {
+            var tipoDocumento = 0;
+            $.each(json, function (key, value) {
+                if (value.estado == "A") {
+                    tipoDocumento += '<option value=' + value.id_tipo_documento + ' onclick="sigla_tipo_documento(' + value.id_tipo_documento + ',\'' + value.sigla_tipo_documento + '\')">' + value.tipo_documento + '</option>';
+                }
+            })
+            $('#tipoDocumento').html(tipoDocumento);
+        }).fail(function (xhr, status, error) {
+            $('#tipoDocumento').html(error);
         })
     }
 

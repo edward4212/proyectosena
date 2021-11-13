@@ -189,7 +189,7 @@
                                                 required></textarea>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Subir Documento</h5>
-                                                <input type="file"class="form-control redondeado" id="fileEliminacion" name="fileEliminacion" multiple>
+                                                <input type="file" class="form-control redondeado" id="fileEliminacion" name="fileEliminacion" multiple>
                                                 <p class="text-muted">Si se agrega mas de un archivo, anexarlos en carpeta comprimida .zip</p>
                                             </div>
                                         </div>
@@ -209,7 +209,8 @@
         </div>
     </main>
     <?php include_once "footer.frm.php" ?>
-</body>
 <script src="../js/empleado/solicitudes.js"></script>
+</body>
+
 
 </html>

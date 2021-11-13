@@ -208,7 +208,19 @@ class Documento{
      }
   
    
-
+     public function codigo()
+     {
+  
+       try {
+            $this->sql = "ELECT codigo FROM documento WHERE codigo LIKE '$this->codigo%' ORDER BY codigo DESC LIMIT 1";
+            $this->result = $this->conexion->query($this->sql);
+            $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
+                 
+       } catch (Exception $e) {
+            $this->retorno = $e->getMessage();
+       }
+            return $this->retorno;
+       }
 }
 
 ?>
