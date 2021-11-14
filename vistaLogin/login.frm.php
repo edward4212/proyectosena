@@ -5,7 +5,7 @@
     <!-- Inicio Anexo de archivos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../documentos/usuarios/imagen/usuario.png" sizes="16x16 24x24 36x36 48x48">
+    <link rel="icon" type="image/png" href="../documentos/limaro/favicon_created_by_logaster.ico" sizes="16x16 24x24 36x36 48x48">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 

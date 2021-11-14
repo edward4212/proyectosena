@@ -1,15 +1,17 @@
 
 function sigla_proceso(id_proceso, sigla_proceso) {
     $("#idsiglasProc").val(id_proceso);
+    $("#idsiglasProc12").val(id_proceso);
     $("#siglasProc").val(sigla_proceso);
+    $("#siglasProc1").val(sigla_proceso);
 }
-
 
 function sigla_tipo_documento(id_tipo_documento, sigla_tipo_documento) {
     $("#idsiglasTipDoc").val(id_tipo_documento);
+    $("#idsiglasTipDoc12").val(id_tipo_documento);
     $("#siglasTipDoc").val(sigla_tipo_documento);
+    $("#siglasTipDoc1").val(sigla_tipo_documento);
 }
-
 
 $(document).ready(function () {
     buscar();
@@ -18,7 +20,6 @@ $(document).ready(function () {
     buscarDocuCrea();
     buscarDocuAdm();
     buscarDocuObs();
-    buscarCodigo();
 
     /**
     * Se realiza la consulta de los documentos vigentes para mostrar en la vistaEmpleado/consultas.frm.php
@@ -74,7 +75,7 @@ $(document).ready(function () {
                 "keys": true,
                 "deferRender": true,
                 "lengthMenu": [[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-                "iDisplayLength": 5,
+                "iDisplayLength": 20,
                 "language": { "url": "../componente/libreria/idioma/es-mx.json" },
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
@@ -269,7 +270,7 @@ $(document).ready(function () {
                 "keys": true,
                 "deferRender": true,
                 "lengthMenu": [[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-                "iDisplayLength": 5,
+                "iDisplayLength": 20,
                 "language": { "url": "../componente/libreria/idioma/es-mx.json" },
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
@@ -288,7 +289,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -298,7 +299,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -307,7 +308,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Registrados',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -316,7 +317,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -381,7 +382,7 @@ $(document).ready(function () {
                 "keys": true,
                 "deferRender": true,
                 "lengthMenu": [[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-                "iDisplayLength": 5,
+                "iDisplayLength": 20,
                 "language": { "url": "../componente/libreria/idioma/es-mx.json" },
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
@@ -493,7 +494,7 @@ $(document).ready(function () {
                 "keys": true,
                 "deferRender": true,
                 "lengthMenu": [[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-                "iDisplayLength": 5,
+                "iDisplayLength": 20,
                 "language": { "url": "../componente/libreria/idioma/es-mx.json" },
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
@@ -507,31 +508,31 @@ $(document).ready(function () {
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
-                        title: 'Documentos Registrados',
-                        titleAttr: 'Documentos Registrados',
-                        messageTop: 'Documentos Registrados',
+                        title: 'Documentos Obsoletos',
+                        titleAttr: 'Documentos Obsoletos',
+                        messageTop: 'Documentos Obsoletos',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,6]
                         }
                     },
                     {
                         extend: 'print',
-                        title: 'Documentos Registrados',
-                        titleAttr: 'Documentos Registrados',
-                        messageTop: 'Documentos Registrados',
+                        title: 'Documentos Obsoletos',
+                        titleAttr: 'Documentos Obsoletos',
+                        messageTop: 'Documentos Obsoletos',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,6]
                         }
                     },
                     {
                         extend: 'excelHtml5',
                         text: '<i class="fas fa-file-excel"></i>',
                         autoFiltre: true,
-                        title: 'Documentos Registrados',
+                        title: 'Documentos Obsoletos',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,6]
                         }
                     },
                     {
@@ -540,7 +541,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,6]
                         }
                     },
                     {
@@ -554,24 +555,55 @@ $(document).ready(function () {
         })
     }
 
-    /// MOSTRAR TIPO DOCUMENTOS ///
-    function buscarCodigo() {
+    /// CREAR NUMERO DE CODIGO///
+    $(document).on('click', '#btnAsignarCod', function (event) {
+        event.preventDefault();
         $.ajax({
             url: '../controladorAdministrador/codigo.read.php',
             type: 'POST',
             dataType: 'json',
-            data: $('#buscarCodigo').serialize(),
+            data: $('#crearDoc').serialize(),
         }).done(function (json) {
-            var tipoDocumento = 0;
+            var miCadena = "";
+                var divisiones = "";
+                var sss="";
+                var dd = "";
+                var resul=0;
             $.each(json, function (key, value) {
-                if (value.estado == "A") {
-                    tipoDocumento += '<option value=' + value.id_tipo_documento + ' onclick="sigla_tipo_documento(' + value.id_tipo_documento + ',\'' + value.sigla_tipo_documento + '\')">' + value.tipo_documento + '</option>';
-                }
+                
+                miCadena = value.codigo;
+                divisiones = miCadena.split("-");
+                sss = divisiones[2];
+                dd = parseInt(sss);
+                var uno = 1;
+             
+                resul = dd + uno;
             })
-            $('#tipoDocumento').html(tipoDocumento);
+            $('#txtcodigo').val(resul);
+            $("#btnAsignarCod").prop("hidden", true);
+            $("#proceso").prop("disabled", true);
+            $("#tipoDocumento").prop("disabled", true);
+            $("#nombreAsig").prop("hidden", false);
+            $("#codigoAsi").prop("hidden", false);
+            $("#btncrearDoc").prop("hidden", false);
+            $("#btncrearResDoc").prop("hidden", false);
         }).fail(function (xhr, status, error) {
-            $('#tipoDocumento').html(error);
+            alert (error);
         })
-    }
+
+    })
+
+    $(document).on('click','#btncrearResDoc', function(){
+        $("#btnAsignarCod").prop("hidden", false);
+        $("#proceso").prop("disabled", false);
+        $("#tipoDocumento").prop("disabled", false);
+        $("#nombreAsig").prop("hidden", true);
+        $("#codigoAsi").prop("hidden", true);
+        $("#btncrearDoc").prop("hidden", true);
+        $("#btncrearResDoc").prop("hidden", true)
+    })
+
+    
+
 
 })

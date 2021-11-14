@@ -5,7 +5,7 @@ include_once "../modeloAdministrador/documento.modelo.php";
 
 $proceso = $_POST['siglasProc'];
 $tipoDoc = $_POST['siglasTipDoc'];
-$sl = '-';
+$sl = "-";
 $codigo = $proceso.$sl.$tipoDoc;
 
 $documentoE = new \entidad\Documento();

@@ -572,7 +572,7 @@ $(document).ready(function(){
 
     function tareasAct(){
         $.ajax({
-            url:'../controladorAdministrador/tarea.read.php',
+            url:'../controladorAdministrador/tarea.readAct.php',
             type: 'POST',
             dataType: 'json',
             data : null,

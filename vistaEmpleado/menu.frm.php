@@ -3,8 +3,8 @@
     <nav class=" navbar  bg-light container-lg flex-wrap flex-md-nowrap fixed-top head-model border" aria-label="Main navigation">
         <div class="container-fluid ">
             <a class="navbar-brand">
-                <img src="../documentos/empresa/logo/<?php $logo= $_SESSION['logo']; echo $logo;?>" alt="" width="50"
-                    height="24">
+            <img src="../documentos/limaro/horizontal_on_white_by_logaster.png" alt="" width="130"
+                    height="40">
             </a>
             <!-- <a class="navbar-brand p-0 me-2" href="#" aria-label="Bootstrap">Navbar</a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"

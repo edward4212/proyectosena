@@ -118,8 +118,8 @@
                             <h3 class="card-title text-center">Mis Tareas</h3>
                             <div>
                                 <form action="" class="form-group" id="buscarTareaComentario1">
-                                    <input type="number" name="numIdTarea" id="numIdTarea">
-                                    <input type="number" name="numIdTidTareaCom1" id="numIdTidTareaCom1">
+                                    <input type="number" name="numIdTarea" id="numIdTarea" hidden>
+                                    <input type="number" name="numIdTidTareaCom1" id="numIdTidTareaCom1" hidden>
                                     <h5 id="tareas"></h5>
                                 </form>
                             </div>
@@ -199,7 +199,7 @@
                                     <form action="" class="form-group" id="agregarComta">
                                         <div class="modal-body">
                                             <input type="number" name="numIdTidTareaCom" id="numIdTidTareaCom" hidden>
-                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                            <div class="col-md-12 col-xs-12 col-sm-12" >
                                                 <h5>Agregar Comentario</h5>
                                                 <textarea type="text" class="form-control redondeado" rows="2"
                                                     id="comentrioEmpleadoTarea" name="comentrioEmpleadoTarea"
@@ -254,9 +254,9 @@
                                             <input type="number" name="numIdTarea11" id="numIdTarea11">
                                             <div class="col-md-10 col-xs-12 col-sm-12">
                                                 <input class="form-control" type="text" name="numIdSolT1"
-                                                    id="numIdSolT1">
-                                                <input class="form-control" type="text" name="idDocumento1"
-                                                    id="idDocumento1">
+                                                    id="numIdSolT1" hidden>
+                                                <input class="form-co ntrol" type="text" name="idDocumento1"
+                                                    id="idDocumento1" hidden>
                                                 <label for="data">Documento</label>
                                                 <input class="form-control" type="text" name="documendocumentoTarea"
                                                     id="documendocumentoTarea">
@@ -273,7 +273,7 @@
                                                     id="descriCambio" name="descriCambio" required></textarea>
                                             </div>
                                             <div class="col-md-6 col-xs-12 col-sm-12">
-                                                </br>
+                                                <br>
                                                 <button type="button" class="btn btn-primary form-control"
                                                     name="fileDocumento" id="fileDocumento"><i
                                                         class="fas fa-download"></i>Descagar Documento</button>

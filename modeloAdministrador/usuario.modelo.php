@@ -21,37 +21,36 @@ class Usuario{
      public $clave;
      public $id_rol;
      public $estado;
-     
 
-    // OTROS ATRIBUTOS //
-    public $conexion;
-    private $result;
-    private $retorno;
-    private $sql;
+     // OTROS ATRIBUTOS //
+     public $conexion;
+     private $result;
+     private $retorno;
+     private $sql;
 
 
      public function __construct(\entidad\Usuario $usuarioE)
-    {
-         $this->id_empleado = $usuarioE->getIdEmpleado();
-         $this->nombre_completo = $usuarioE->getNombreCompleto();
-         $this->img_empleado = $usuarioE->getImgEmpleado();
-         $this->correo_empleado = $usuarioE->getCorreoEmpleado();
-         $this->id_cargo = $usuarioE->getIdCargo();
-         $this->id_empresa = $usuarioE->getIdEmpresa();
-         $this->estado_empleado = $usuarioE->getEstadoEmpleado();
-         $this->id_usuario = $usuarioE->getIdUsuario();
-         $this->usuario = $usuarioE->getUsuario();
-         $this->clave = $usuarioE->getClave();
-         $this->id_rol = $usuarioE->getIdRol();
-         $this->estado = $usuarioE->getEstado();
-    
-         $this->conexion = \Conexion::singleton();
-    }
+     {
+          $this->id_empleado = $usuarioE->getIdEmpleado();
+          $this->nombre_completo = $usuarioE->getNombreCompleto();
+          $this->img_empleado = $usuarioE->getImgEmpleado();
+          $this->correo_empleado = $usuarioE->getCorreoEmpleado();
+          $this->id_cargo = $usuarioE->getIdCargo();
+          $this->id_empresa = $usuarioE->getIdEmpresa();
+          $this->estado_empleado = $usuarioE->getEstadoEmpleado();
+          $this->id_usuario = $usuarioE->getIdUsuario();
+          $this->usuario = $usuarioE->getUsuario();
+          $this->clave = $usuarioE->getClave();
+          $this->id_rol = $usuarioE->getIdRol();
+          $this->estado = $usuarioE->getEstado();
 
-    /**
+          $this->conexion = \Conexion::singleton();
+     }
+
+     /**
      * Se realiza la consulta de los procesos vigentes para mostrar en la vistaEmpleado/consultas.frm.php
      */
-    public function read()
+     public function read()
      {
           try {
                $this->sql = "SELECT
@@ -81,74 +80,66 @@ class Usuario{
      }
 
      public function creacionUsuario()
-   {
+     {
+          try {
+               $this->sql = "CALL create_usuario(1,'$this->usuario',$this->clave,
+               '$this->id_rol','C',1,'$this->nombre_completo','usuario.png',
+               '$this->correo_empleado','$this->id_cargo','1','A')";
+               $this->result=$this->conexion->query($this->sql);
+               $this->retorno =  $this->result->fetchAll(PDO::FETCH_ASSOC);
+               // $this->retorno = "Exito: Usuario Creado";
 
-     try {
-          $this->sql = "CALL create_usuario(1,'$this->usuario',$this->clave,
-          '$this->id_rol','C',1,'$this->nombre_completo','usuario.png',
-          '$this->correo_empleado','$this->id_cargo','1','A')";
-          $this->result=$this->conexion->query($this->sql);
-          $this->retorno =  $this->result->fetchAll(PDO::FETCH_ASSOC);
-          // $this->retorno = "Exito: Usuario Creado";
-
-     } catch (Exception $e) {
-          $this->retorno = $e->getMessage(); 
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage(); 
+          }
+               return $this->retorno;
      }
+
+     public function newpass()
+     {
+          try {
+               $this->sql="UPDATE usuario SET  estado = 'C' , clave = AES_ENCRYPT('$this->clave','kddbjw8b3d')
+               WHERE id_usuario = '$this->id_usuario'";
+               $this->result=$this->conexion->query($this->sql);
+
+          } catch (Exception $e) {
+               $this->retorno =$e->getMessage();
+          }
           return $this->retorno;
-   }
-
-
-   public function newpass(){
-     try {
-         $this->sql="UPDATE usuario SET  estado = 'C' , clave = AES_ENCRYPT('$this->clave','kddbjw8b3d')
-         WHERE id_usuario = '$this->id_usuario'";
-         $this->result=$this->conexion->query($this->sql);
-
-     } catch (Exception $e) {
-         $this->retorno =$e->getMessage();
      }
-     return $this->retorno;
- 
-     }
-
 
      public function actualizarUsuario()
      {
-  
-       try {
-            $this->sql = "UPDATE usuario
-
-            INNER JOIN empleado ON usuario.`id_empleado` = empleado.`id_empleado`
-            
-            SET
-                 
-                 empleado.`nombre_completo` = '$this->nombre_completo',
-                 empleado.`correo_empleado` = '$this->correo_empleado',
-                 usuario.`id_rol`= '$this->id_rol', 
-                 empleado.`id_cargo` ='$this->id_cargo'
-                 
-            WHERE usuario.`id_usuario` = '$this->id_usuario'";
-            $this->result = $this->conexion->query($this->sql);
-       } catch (Exception $e) {
-            $this->retorno = $e->getMessage();
-       }
-            return $this->retorno;
+          try {
+               $this->sql = "UPDATE usuario
+               INNER JOIN empleado ON usuario.`id_empleado` = empleado.`id_empleado`
+               SET
+                    empleado.`nombre_completo` = '$this->nombre_completo',
+                    empleado.`correo_empleado` = '$this->correo_empleado',
+                    usuario.`id_rol`= '$this->id_rol', 
+                    empleado.`id_cargo` ='$this->id_cargo'
+               WHERE usuario.`id_usuario` = '$this->id_usuario'";
+               $this->result = $this->conexion->query($this->sql);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
      }
 
      public function inactivarUsuario()
      {
-  
-       try {
-            $this->sql = "UPDATE usuario SET estado='$this->estado' WHERE id_usuario=$this->id_usuario";
-            $this->result = $this->conexion->query($this->sql);
-       } catch (Exception $e) {
-            $this->retorno = $e->getMessage();
-       }
-            return $this->retorno;
+
+          try {
+               $this->sql = "UPDATE usuario SET estado='$this->estado' WHERE id_usuario=$this->id_usuario";
+               $this->result = $this->conexion->query($this->sql);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
      }
 
-     
-   
+
+
 }
 
 ?>

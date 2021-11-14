@@ -39,42 +39,52 @@
                 <div class="tab-pane fade" id="nav-crear" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
+                            <br>
+                            <h3 class="card-title text-center">Crear Documentos</h3>
                             <form class="row g-3 form-group" id="crearDoc" name="crearDoc" method="POST">
-                                <br>
-                                <h3 class="card-title text-center">Crear Documentos</h3>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
+                                <input type="text" aria-label="E" class="form-control codigo" id="idsiglasProc12"
+                                            name="idsiglasProc12" hidden>
                                     <h5>Proceso</h5>
                                     <select class="form-control redondeado" id="proceso" name="proceso"
-                                    required></select>
+                                        required></select>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
+                                <input type="text" aria-label="E" class="form-control codigo" id="idsiglasTipDoc12"
+                                            name="idsiglasTipDoc12" hidden >
                                     <h5>Tipo de Documento</h5>
                                     <select class="form-control redondeado" id="tipoDocumento" name="tipoDocumento"
-                                    required></select>
+                                        required></select>
                                 </div>
-                                <div class="col-md-4 col-xs-12 col-sm-12">
+                                <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end"  id="botonesAsig" >
+                                    <input type="text" aria-label="E" id="siglasProc" name="siglasProc" class="form-control codigo" hidden>
+                                    <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc"  name="siglasTipDoc" hidden>
+                                    <button type="button" id="btnAsignarCod" name="btnAsignarCod" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Asignar Numero</button>
+                                    <div class="" id="codigoAsi" hidden >
+                                    <h5>Codigo del Documento</h5>
                                     <div class="input-group">
-                                        <h5>Codigo del Documento</h5>
-                                            <input type="text" aria-label="E" id="siglasProc" name="siglasProc"
+                                        <input type="text" aria-label="E" id="siglasProc1" name="siglasProc1"
                                             class="form-control codigo" readonly>
-                                            <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
-                                            <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc"
-                                            name="siglasTipDoc" readonly>
-                                            <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
-                                            <input type="number" aria-label="E" class="form-control codigo" aria-label="E"  id="codigo" name="codigo">
+                                        <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
+                                        <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc1"
+                                            name="siglasTipDoc1" readonly>
+                                        <label class="input-group-text" id="inputGroup-sizing-lg">-</label>
+                                        <input type="number" aria-label="E" class="form-control codigo"   id="txtcodigo" name="txtcodigo" readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-xs-12 col-sm-12">
+                                </div>
+                                
+                                <div class="col-md-8 col-xs-12 col-sm-12" id="nombreAsig" hidden>
                                     <h5>Nombre Documento</h5>
                                     <input type="text" class="form-control redondeado" id="nombreDoc" name="nombreDoc"
-                                    onkeyup="javascript:this.value=this.value.toUpperCase(); " required>
+                                        onkeyup="javascript:this.value=this.value.toUpperCase(); " required >
                                 </div>
-                                <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end    ">
-                                    <button type="submit" id="btncrearDoc" name="btncrearDoc"
-                                    class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Crear
-                                    Documento</button>
-                                    <button type="reset" class="btn btn-secondary mb-3"><i class="fas fa-broom"></i>
-                                    Limpiar</button>
+                                <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end">
+                                    <br>
+                                    <button type="submit" id="btncrearDoc" name="btncrearDoc" class="btn btn-primary mb-3" hidden><i class="fas fa-plus"></i> Crear
+                                        Documento</button>
+                                    <button type="reset" class="btn btn-secondary mb-3" id="btncrearResDoc" name="btncrearResDoc" hidden><i class="fas fa-broom"></i>
+                                        Limpiar</button>
                                 </div>
                             </form>
                         </div>
@@ -106,4 +116,5 @@
     <?php include_once "footer.frm.php" ?>
 <script src="../js/administrador/documento.js"></script>
 </body>
+
 </html>

@@ -9,50 +9,50 @@ include_once '../entorno/conexionSingleton.php';
 
 class Solicitudes{
      
-    public $id_solicitud;
-    public $solicitud;
-    public $id_empleado;
-    public $id_prioridad;
-    public $prioridad;
-    public $id_tipo_documento;
-    public $tipo_documento;
-    public $id_estatus_solicitud;
-    public $estatus_solicitud;
-    public $id_tipo_solicitud;
-    public $tipo_solicitud;
-    public $documento;
-    public $codigo;
-    public $carpeta;
-     
-    // OTROS ATRIBUTOS //
-    public $conexion;
-    private $result;
-    private $retorno;
-    private $sql;
+     public $id_solicitud;
+     public $solicitud;
+     public $id_empleado;
+     public $id_prioridad;
+     public $prioridad;
+     public $id_tipo_documento;
+     public $tipo_documento;
+     public $id_estatus_solicitud;
+     public $estatus_solicitud;
+     public $id_tipo_solicitud;
+     public $tipo_solicitud;
+     public $documento;
+     public $codigo;
+     public $carpeta;
 
-    public function __construct(\entidad\Solicitudes $solicitudesE)
-    {
-         $this->id_solicitud = $solicitudesE->getIdSolicitud();
-         $this->solicitud = $solicitudesE->getSolicitud();
-         $this->id_empleado = $solicitudesE->getIdEmpleado();
-         $this->id_prioridad = $solicitudesE->getIdPrioridad();
-         $this->prioridad = $solicitudesE->getPrioridad();
-         $this->id_tipo_documento = $solicitudesE->getIdTipoDocumento();
-         $this->tipo_documento = $solicitudesE->getTipoDocumento();
-         $this->id_estatus_solicitud = $solicitudesE->getIdEstatusSolicitud();
-         $this->estatus_solicitud = $solicitudesE->getEstatusSolicitud();
-         $this->id_tipo_solicitud = $solicitudesE->getIdTipoSolicitud();
-         $this->tipo_solicitud = $solicitudesE->getTipoSolicitud();
-         $this->documento = $solicitudesE->getDocumento();
-         $this->codigo = $solicitudesE->getCodigo();
-         $this->carpeta = $solicitudesE->getCarpeta();
-         $this->conexion = \Conexion::singleton();
-    }
+     // OTROS ATRIBUTOS //
+     public $conexion;
+     private $result;
+     private $retorno;
+     private $sql;
 
-    /**
+     public function __construct(\entidad\Solicitudes $solicitudesE)
+     {
+          $this->id_solicitud = $solicitudesE->getIdSolicitud();
+          $this->solicitud = $solicitudesE->getSolicitud();
+          $this->id_empleado = $solicitudesE->getIdEmpleado();
+          $this->id_prioridad = $solicitudesE->getIdPrioridad();
+          $this->prioridad = $solicitudesE->getPrioridad();
+          $this->id_tipo_documento = $solicitudesE->getIdTipoDocumento();
+          $this->tipo_documento = $solicitudesE->getTipoDocumento();
+          $this->id_estatus_solicitud = $solicitudesE->getIdEstatusSolicitud();
+          $this->estatus_solicitud = $solicitudesE->getEstatusSolicitud();
+          $this->id_tipo_solicitud = $solicitudesE->getIdTipoSolicitud();
+          $this->tipo_solicitud = $solicitudesE->getTipoSolicitud();
+          $this->documento = $solicitudesE->getDocumento();
+          $this->codigo = $solicitudesE->getCodigo();
+          $this->carpeta = $solicitudesE->getCarpeta();
+          $this->conexion = \Conexion::singleton();
+     }
+
+     /**
      * Se realiza la consulta de los solicutdes creadas por el usuario vigentes para mostrar en la vistaEmpleado/consultas.frm.php
      * */
-    public function read()
+     public function read()
      {
           try {
                $this->sql = "	SELECT
@@ -82,7 +82,7 @@ class Solicitudes{
           }
           return $this->retorno;
      }
-     
+
      public function comentarios()
      {
 
@@ -99,7 +99,7 @@ class Solicitudes{
 
      public function prioridad()
      {
-     
+
           try {
                $this->sql = "SELECT * FROM prioridad ";
                $this->result = $this->conexion->query($this->sql);
@@ -109,10 +109,9 @@ class Solicitudes{
           }
                return $this->retorno;
      }
-       
+          
      public function tipoDocumento()
      {
-
           try {
                $this->sql = "SELECT * FROM tipo_documento ";
                $this->result = $this->conexion->query($this->sql);
@@ -125,61 +124,61 @@ class Solicitudes{
 
      public function solicitudCreacion()
      {
-         try{
+          try{
                
-              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '1', '1' , '0000', :solicitud ,:carpeta, :documento, CURRENT_TIMESTAMP(),'Sin    Asignar',NULL,NULL,NULL)");
-              $this->result->bindParam(':empleado', $this->id_empleado);
-              $this->result->bindParam(':prioridad', $this->id_prioridad);
-              $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
-              $this->result->bindParam(':solicitud', $this->solicitud);
-              $this->result->bindParam(':carpeta', $this->carpeta);
-              $this->result->bindParam(':documento', $this->documento);
-              $this->result->execute();    
+               $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '1', '1' , '0000', :solicitud ,:carpeta, :documento, CURRENT_TIMESTAMP(),'Sin    Asignar',NULL,NULL,NULL)");
+               $this->result->bindParam(':empleado', $this->id_empleado);
+               $this->result->bindParam(':prioridad', $this->id_prioridad);
+               $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
+               $this->result->bindParam(':solicitud', $this->solicitud);
+               $this->result->bindParam(':carpeta', $this->carpeta);
+               $this->result->bindParam(':documento', $this->documento);
+               $this->result->execute();    
           } catch (Exception $e) {
           
-              $this->retorno = $e->getMessage();
+               $this->retorno = $e->getMessage();
           }
-              return $this->retorno;
+               return $this->retorno;
      }
 
      public function solicitudActualizacion()
      {
-         try{
-  
-              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '2', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL,NULL,NULL)");
-              $this->result->bindParam(':empleado', $this->id_empleado);
-              $this->result->bindParam(':prioridad', $this->id_prioridad);
-              $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
-              $this->result->bindParam(':codigo', $this->codigo);
-              $this->result->bindParam(':solicitud', $this->solicitud);
-              $this->result->bindParam(':carpeta', $this->carpeta);
-              $this->result->bindParam(':documento', $this->documento);
-              $this->result->execute();    
+          try{
+
+               $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '2', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL,NULL,NULL)");
+               $this->result->bindParam(':empleado', $this->id_empleado);
+               $this->result->bindParam(':prioridad', $this->id_prioridad);
+               $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
+               $this->result->bindParam(':codigo', $this->codigo);
+               $this->result->bindParam(':solicitud', $this->solicitud);
+               $this->result->bindParam(':carpeta', $this->carpeta);
+               $this->result->bindParam(':documento', $this->documento);
+               $this->result->execute();    
           } catch (Exception $e) {
           
-              $this->retorno = $e->getMessage();
+               $this->retorno = $e->getMessage();
           }
-              return $this->retorno;
+               return $this->retorno;
      }
 
      public function solicitudEliminacion()
      {
-         try{
-  
-              $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '3', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL,NULL)");
-              $this->result->bindParam(':empleado', $this->id_empleado);
-              $this->result->bindParam(':prioridad', $this->id_prioridad);
-              $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
-              $this->result->bindParam(':codigo', $this->codigo);
-              $this->result->bindParam(':solicitud', $this->solicitud);
-              $this->result->bindParam(':carpeta', $this->carpeta);
-              $this->result->bindParam(':documento', $this->documento);
-              $this->result->execute();    
+          try{
+
+               $this->result = $this->conexion->prepare("INSERT INTO solicitud VALUES (NULL , :empleado , :prioridad, :tipo_documento , '3', '1' , :codigo, :solicitud, :carpeta, :documento, CURRENT_TIMESTAMP(),'Sin Asignar',NULL,NULL)");
+               $this->result->bindParam(':empleado', $this->id_empleado);
+               $this->result->bindParam(':prioridad', $this->id_prioridad);
+               $this->result->bindParam(':tipo_documento', $this->id_tipo_documento);
+               $this->result->bindParam(':codigo', $this->codigo);
+               $this->result->bindParam(':solicitud', $this->solicitud);
+               $this->result->bindParam(':carpeta', $this->carpeta);
+               $this->result->bindParam(':documento', $this->documento);
+               $this->result->execute();    
           } catch (Exception $e) {
           
-              $this->retorno = $e->getMessage();
+               $this->retorno = $e->getMessage();
           }
-              return $this->retorno;
+               return $this->retorno;
      }
 
 

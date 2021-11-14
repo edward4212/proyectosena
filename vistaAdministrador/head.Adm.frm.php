@@ -16,9 +16,8 @@ include_once("../controladorLogin/logueo.read.php");
     <!-- Inicio Anexo de archivos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href=".." sizes="16x16 24x24 36x36 48x48">
+    <link rel="icon" type="image/png" href="../documentos/limaro/favicon_created_by_logaster.ico" sizes="16x16 24x24 36x36 48x48">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
     <link rel="stylesheet" href="../componente/css/proyecto/style.css">
     <link rel="stylesheet" href="../componente/css/globales/all.min.css">
@@ -43,9 +42,8 @@ include_once("../controladorLogin/logueo.read.php");
     <link rel="stylesheet" href="../componente/css/globales/select.dataTables.min.css">
     <link rel="stylesheet" href="../componente/css/globales/sweetalert2.min.css">
 
-    <script src="../componente/libreria/globales/jquery-3.6.0.js"></script>
+    <script src="../componente/libreria/globales/jquery-3.6.0.min.js" ></script>
     <script src="../componente/libreria/globales/bootstrap.min.js"></script>
-    <!-- <script src="../componente/libreria/globales/jquery-3.6.0.min.js" ></script>   -->
     <script src="../componente/libreria/globales/all.min.js"></script>
     <script src="../componente/libreria/globales/autoFill.dataTables.min.js"></script>
     <!-- <script src="../componente/libreria/globales/buttons.dataTables.min.js" ></script>

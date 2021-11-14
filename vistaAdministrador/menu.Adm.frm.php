@@ -4,8 +4,8 @@
         aria-label="Main navigation">
         <div class="container-fluid ">
             <a class="navbar-brand">
-                <img src="../documentos/empresa/logo/<?php $logo= $_SESSION['logo']; echo $logo;?>" alt="" width="50"
-                    height="24">
+                <img src="../documentos/limaro/horizontal_on_white_by_logaster.png" alt="" width="130"
+                    height="40">
             </a>
             <!-- <a class="navbar-brand p-0 me-2" href="#" aria-label="Bootstrap">Navbar</a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -33,7 +33,7 @@
                             Solicitudes</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href="tareas.adm.frm.php"><i class="fas fa-list"></i> Tareas</a>
+                        <a class="nav-link p-2" href="tareas.Adm.frm.php"><i class="fas fa-list"></i> Tareas</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
                         <a class="nav-link p-2" href="perfil.Adm.frm.php"><i class="fas fa-user-circle"></i> Perfil</a>

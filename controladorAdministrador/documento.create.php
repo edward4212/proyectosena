@@ -5,12 +5,12 @@ include_once "../modeloAdministrador/documento.modelo.php";
 include_once "../controladorLogin/logueo.read.php";
 
 
-$id_tipo_documento = $_POST['tipoDocumento'];
+$id_tipo_documento = $_POST['idsiglasTipDoc12'];
 $sigla_tipo_documento =  $_POST['siglasTipDoc'];
-$id_proceso = $_POST['proceso'];
+$id_proceso = $_POST['idsiglasProc12'];
 $sigla_proceso =  $_POST['siglasProc'];
 $s ="-";
-$codigo = $_POST['codigo'];
+$codigo = $_POST['txtcodigo'];
 $codigoConca = $sigla_proceso.$s.$sigla_tipo_documento.$s.$codigo;
 $nombre_documento = $_POST['nombreDoc'];
 $usuario_crecion = $_SESSION['usuario'];

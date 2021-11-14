@@ -14,14 +14,13 @@ class Cargo{
      public $manual_funciones;
      public $estado;  
 
-    // OTROS ATRIBUTOS //
-    public $conexion;
-    private $result;
-    private $retorno;
-    private $sql;
+     // OTROS ATRIBUTOS //
+     public $conexion;
+     private $result;
+     private $retorno;
+     private $sql;
 
-
-     public function __construct(\entidad\Cargo $cargoE)
+    public function __construct(\entidad\Cargo $cargoE)
     {
          $this->id_cargo = $cargoE->getIdCargo();
          $this->cargo = $cargoE->getCargo();
@@ -33,7 +32,7 @@ class Cargo{
     /**
      * Se realiza la consulta de los procesos vigentes para mostrar en la vistaEmpleado/consultas.frm.php
      */
-    public function read()
+     public function read()
      {
           try {
                $this->sql = "SELECT * FROM cargo";
