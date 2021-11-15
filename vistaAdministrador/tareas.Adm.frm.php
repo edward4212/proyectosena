@@ -22,7 +22,6 @@
                         aria-selected="true">Aprobación</button>
                 </div>
             </nav>
-
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade  show active" id="nav-solicitudes" role="tabpanel"
                     aria-labelledby="nav-solicitudes-tab">
@@ -230,8 +229,9 @@
                     <div class="col-md-12 col-xs-12 col-sm-12">
                         <h3 class="card-title text-center">Mis Tareas</h3>
                         <div>
-                            <form action="" class="form-group" id="buscar">
-                                <input type="number" name="numIdTarea" id="numIdTarea" hidden>
+                            <form action="" class="form-group" id="buscarTareaComentario12">
+                                <input type="number" name="numIdTarea1" id="numIdTarea1" >
+                                <input type="number" name="numIdTidTareaCom1Act" id="numIdTidTareaCom1Act" >
                                 <h5 id="tareasAct"></h5>
                             </form>
                         </div>
@@ -246,9 +246,7 @@
                                     <button type="button" id="btnCerrarModal" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form class="row g-3 form-group"
-                                    action="../controladorAdministrador/versionamiento.create.php" method="POST"
-                                    enctype="multipart/form-data">
+                                <form class="row g-3 form-group" method="POST" id="tareaRevision">
                                     <div class="modal-body">
                                         <div class="row">
                                             <input type="number" name="numIdTarea11" id="numIdTarea11">
@@ -259,13 +257,13 @@
                                                     id="idDocumento1" hidden>
                                                 <label for="data">Documento</label>
                                                 <input class="form-control" type="text" name="documendocumentoTarea"
-                                                    id="documendocumentoTarea">
+                                                    id="documendocumentoTarea" readonly>
 
                                             </div>
                                             <div class="col-md-2 col-xs-12 col-sm-12">
                                                 <h5>Version </h5>
-                                                <input class="form-control" type="text" name="versionDoc"
-                                                    id="versionDoc" readonly>
+                                                <input class="form-control" type="text" name="versionDoc1"
+                                                    id="versionDoc1" readonly>
                                             </div>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Descripción de la Revision</h5>
@@ -274,9 +272,9 @@
                                             </div>
                                             <div class="col-md-6 col-xs-12 col-sm-12">
                                                 <br>
-                                                <button type="button" class="btn btn-primary form-control"
-                                                    name="fileDocumento" id="fileDocumento"><i
-                                                        class="fas fa-download"></i>Descagar Documento</button>
+                                                <a type="button" class="btn btn-primary form-control" href="" target="_blank" 
+                                                    name="fileDocumentoDes" id="fileDocumentoDes"><i
+                                                        class="fas fa-download"></i>Descagar Documento</a>
                                             </div>
                                             <div class="col-md-6 col-xs-12 col-sm-12">
                                                 <h5>Selecionar Usuario para Aprobación</h5>
@@ -286,8 +284,46 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn btn-primary" type="submit" data-bs-dismiss="modal"> <i
+                                        <button class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                 class="fas fa-plus"></i>Iniciar Versión</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                class="fas fa-undo"></i> Volver</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-times-circle"></i>Devolver Tarea</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal para ver comentarios-->
+                    <div class="modal fade" id="comentariosTareaRev" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Comentarios de la Tarea</h5>
+                                    <button type="button" id="btnCerrarModal" class="btn-close"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="" class="form-group" id="agregarComtaRev">
+                                    <div class="modal-body">
+                                        <input type="number" name="numIdTidTareaComAct" id="numIdTidTareaComAct" hidden >
+                                        <div class="col-md-12 col-xs-12 col-sm-12" >
+                                            <h5>Agregar Comentario</h5>
+                                            <textarea type="text" class="form-control redondeado" rows="2"
+                                                id="comentrioEmpleadoTareaAct" name="comentrioEmpleadoTareaAct"
+                                                required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" id="btnCrearcomentarioTareaRev"
+                                            name="btnCrearcomentarioTareaRev" data-bs-dismiss="modal"> <i
+                                                class="fas fa-plus"></i>Agregar
+                                            Comentario</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 id="comentariosTareasAct"></h5>
+                                    </div>
+                                    <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                 class="fas fa-undo"></i> Volver</button>
                                     </div>

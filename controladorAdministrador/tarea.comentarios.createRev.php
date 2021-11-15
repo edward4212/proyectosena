@@ -5,13 +5,17 @@ include_once "../modeloAdministrador/tarea.modelo.php";
 include_once "../controladorLogin/logueo.read.php";
 
 $usuario = $_SESSION['usuario'];
+$id_tarea = $_POST['numIdTidTareaComAct'];  
+$comentario = $_POST['comentrioEmpleadoTareaAct'];
 
 $tareaE = new \entidad\Tarea();
 $tareaE -> setUsuario($usuario);
+$tareaE -> setIdTarea($id_tarea);
+$tareaE -> setComentario($comentario);
 
 $tareaM= new \modelo\Tarea($tareaE);
 
-$resultado = $tareaM->readAct();
+$resultado = $tareaM->comentariosTarea2();
 
 unset($tareaE);
 unset($tareaM);

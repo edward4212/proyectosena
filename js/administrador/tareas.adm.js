@@ -23,15 +23,24 @@ function idtarea(id_tarea,id_solicitud){
     $("#numIdSolT").val(id_solicitud);
 }
 
-function idtareaAct(id_tarea,id_solicitud){
-    $("#numIdTarea1").val(id_tarea);
-    $("#numIdTarea11").val(id_tarea);
-    $("#numIdSolT1").val(id_solicitud);
+function idtareaAct(id_versionamiento,documento,codigo,nombre_documento,numero_version,sigla_tipo_documento,sigla_proceso){
+    $("#numIdTarea11").val(id_versionamiento);
+    $("#documendocumentoTarea").val(codigo+'-'+nombre_documento);
+    $("#versionDoc1").val(numero_version);
+    $("#fileDocumentoDes").attr('href','../documentos/procesos/'+sigla_proceso+'/'+sigla_tipo_documento+'/'+documento);
+    
+
 }
 
 function idcomentarioTar(id_tarea){
     $("#numIdTidTareaCom").val(id_tarea);
     $("#numIdTidTareaCom1").val(id_tarea);
+
+}
+
+function idcomentarioTarAct(id_tarea){
+    $("#numIdTidTareaComAct").val(id_tarea);
+    $("#numIdTidTareaCom1Act").val(id_tarea);
 
 }
 
@@ -46,12 +55,10 @@ $(document).ready(function(){
     buscar();
     estatus();
     tareas();
-    // buscarDoc();
     buscarFuncionarios();
     tareasAct();
     buscarFuncionarios1();
 
-  
     $("#documentoAuto").autocomplete({
         source: function( request, response){
              $.ajax( {
@@ -442,11 +449,7 @@ $(document).ready(function(){
                     datos += '<tbody>';
                         $.each(json, function(key, value){
                             if(value.estado = "C"){
-                                value.estado ="CREACION";
-                            }else if(value.estado = "R"){
-                                Value.estado ="REVISION";
-                            }else if(value.estado = "A"){
-                                Value.estado ="ACTUALIZACIÓN";
+                                estado ="CREACION";
                             }
                             datos += '<tr class="align-middle" >';
                                 datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_tarea+' </td>';
@@ -530,26 +533,6 @@ $(document).ready(function(){
             $('#tareas').html(error);
         })
     }
-    
-    //  /// BUSCAR DOCUMENTOS///
-    //  function buscarDoc() {
-    //     $.ajax({
-    //         url:'../controladorAdministrador/documento.read3.php',
-    //         type: 'POST',
-    //         dataType: 'json',
-    //         data : null,
-    //     }).done(function(json){
-    //         var documentos  =0;
-    //         documentos+='<option disabled selected> - Seleccione un Documento-</option>';
-    //         $.each(json, function (key,value) {    
-    //             documentos+='<option value='+value.id_documento+' onclick="sigla_proceso('+value.id_proceso+',\''+value.sigla_proceso+'\','+value.numero_version+')"> '+value.codigo+' - '+value.nombre_documento+'</option>';   
-    //         })            
-    //         $('#documentos').html(documentos);
-    //     }).fail(function(xhr, status, error){
-    //         $('#documentos').html(error);
-    //     })     
-    // }
-
 
     function buscarFuncionarios() {
 
@@ -570,6 +553,132 @@ $(document).ready(function(){
         })     
     }
 
+    /// ver cometarios de la tarea///
+    $(document).on('click','#btnComentarioTarea',function(event){
+    event.preventDefault();
+        $.ajax({
+            url:'../controladorAdministrador/tarea.comentarios.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data : $('#buscarTareaComentario1').serialize(),
+        }).done(function(json){
+            var comentarios = '';
+            if(json== 0){ 
+                comentarios += "<h5>Aun no hay comentarios</h5>";
+            }else{
+            comentarios += "<table id='tableComentariosTarea'  class='table  table-striped table-bordered table-responsive ' >"; 
+                comentarios += '<thead >';
+                    comentarios += '<tr class="table-light border-primary ">';
+                        comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
+                        comentarios += '<th  class="text-center align-middle border border-primary ">USUARIO</th>';
+                        comentarios += '<th  class="text-center align-middle border border-primary ">COMENTARIO</th>';;
+                    comentarios += '</tr>';
+                comentarios +=  '</thead>';
+            comentarios += '<tbody>';
+            $.each(json, function(key, value){
+            comentarios += '<tr class="align-middle" >';
+                comentarios += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.fecha_comentario+' </td>';
+                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.usuario_comentario+'</td>';
+                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.comentario+'</td>';
+            comentarios += '</tr>';
+            })
+            comentarios += '</tbody>';
+            comentarios += '</table>';
+            }
+            $('#comentariosTareas').html(comentarios  );
+            $('#tableComentariosTarea').DataTable({
+                "destroy" : true,
+                "autoWidth": true,
+                "responsive": true, 
+                "searching": false,
+                "info":     true,
+                "ordering": true,
+                "colReorder": true,
+                "sZeroRecords": true,
+                "fixedColumns": true,
+                "fixedHeader": true,
+                "keys": true,
+                "deferRender": true,
+                "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+                "iDisplayLength":5,
+                "language": {"url": "../componente/libreria/idioma/es-mx.json"},
+                dom:  'Qfrtip',
+                dom:  'Bfrtip',
+                buttons: 
+                [
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'A4',
+                        download: 'open',
+                        pageSize: 'LEGAL',
+                        title: 'Comentarios sobre la Solicitud',
+                        titleAttr: 'Comentarios sobre la Solicitud',
+                        messageTop: 'Comentarios sobre la Solicitud',
+                        text : '<i class="far fa-file-pdf"></i>',
+                        exportOptions : {
+                            columns: [0,1,2,]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: 'Comentarios sobre la Solicitud',
+                        titleAttr: 'Comentarios sobre la Solicitud',
+                        messageTop: 'Comentarios sobre la Solicitud',
+                        text : '<i class="fas fa-print"></i>',
+                        exportOptions : {
+                            columns: [0,1,2]
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text : '<i class="fas fa-file-excel"></i>',
+                        autoFiltre : true ,
+                        title: 'Comentarios sobre la Solicitud',
+                        exportOptions : {
+                            columns: [0,1,2]
+                        }
+                    },
+                    {
+                        extend: 'copyHtml5',
+                        text : '<i class="fas fa-copy"></i>',
+                        autoFiltre : true ,
+                        titleAttr: 'COPIAR',
+                        exportOptions : {
+                            columns: [0,1,2]
+                        }
+                    }                
+                ]
+            }); 
+            }).fail(function(xhr, status, error){
+                    $('#comentarios').html(error); 
+            })
+            }
+    )
+
+    /// ASIGNAR COMENTARIO A LA tarea///
+    $(document).on('click','#btnCrearcomentarioTarea',function(event){
+        event.preventDefault();
+            $.ajax({
+                url:'../controladorAdministrador/tarea.comentarios.create.php',
+                type: 'POST',
+                dataType: 'json',
+                data : $('#agregarComta').serialize(),
+            }).done(function(json){
+                Swal.fire({                  
+                    icon: 'success',
+                    title: 'Comentario Registrado con Exito',
+                    showConfirmButton: false,
+                    timer: 3000
+                    }).then((result) => {
+                    cargar();
+                    })
+            }).fail(function(xhr, status, error){
+                console.log(error);
+        })
+    })
+
+    /// mostrar las tareas revision//
     function tareasAct(){
         $.ajax({
             url:'../controladorAdministrador/tarea.readAct.php',
@@ -584,28 +693,24 @@ $(document).ready(function(){
                 datos += "<table id='tabletareasAct'   class='table  table-striped table-bordered table-responsive '  >"; 
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary text-center align-middle ">';
-                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO TAREA</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">SOLICITUD</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">ESTADO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCION DE CAMBIOS</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">NUEVA VERSION</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">COMENTARIOS dd</th>';
                         datos += '</tr>';
                     datos +=  '</thead>';
                     datos += '<tbody>';
                         $.each(json, function(key, value){
-                            if(value.estado = "C"){
-                                value.estado ="CREACION";
-                            }else if(value.estado = "R"){
-                                Value.estado ="REVISION";
-                            }else if(value.estado = "A"){
-                                Value.estado ="ACTUALIZACIÓN";
-                            }
-                            datos += '<tr class="align-middle" >';
-                                datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_tarea+' </td>';
-                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
-                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_asignacion+'</td>';  
-                                datos += '<td class=" border border-primary text-wrap">'+value.estado+'</td>';  
-                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaAct('+value.id_tarea+','+value.id_solicitud+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaAct"><i class="fas fa-cogs"></i></button></td>';
+                          if(value.estado = "R"){
+                              estado ="REVISION";
+                             }
+                                datos += '<tr class="align-middle" >';
+                                datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_versionamiento+' </td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.descripcion_version+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.numero_version+'</td>';  
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaAct('+value.id_versionamiento+',\''+value.documento+'\',\''+value.codigo+'\',\''+value.nombre_documento+'\','+value.numero_version+',\''+value.sigla_tipo_documento+'\',\''+value.sigla_proceso+'\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaAct"><i class="fas fa-cogs"></i></button></td>';
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnComentarioTareaAct" onclick="idcomentarioTarAct('+value.id_tarea+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentariosTareaRev"><i class="far fa-comment-dots"></i></button></td>';
                             datos += '</tr>';
                         })
                     datos += '</tbody>';
@@ -682,9 +787,8 @@ $(document).ready(function(){
         })
     }
     
-    
+    ///asignar funcioanrio para revisar///
     function buscarFuncionarios1() {
-
         $.ajax({
             url:'../controladorAdministrador/usuario.read.php',
             type: 'POST',
@@ -702,116 +806,117 @@ $(document).ready(function(){
         })     
     }
 
-    $(document).on('click','#btnComentarioTarea',function(event){
+    // /// ver cometarios de la tarea///
+    $(document).on('click','#btnComentarioTareaAct',function(event){
         event.preventDefault();
-            $.ajax({
-                url:'../controladorAdministrador/tarea.comentarios.read.php',
-                type: 'POST',
-                dataType: 'json',
-                data : $('#buscarTareaComentario1').serialize(),
-            }).done(function(json){
-                var comentarios = '';
-                if(json== 0){ 
-                    comentarios += "<h5>Aun no hay comentarios</h5>";
-                }else{
-                comentarios += "<table id='tableComentariosTarea'  class='table  table-striped table-bordered table-responsive ' >"; 
-                    comentarios += '<thead >';
-                        comentarios += '<tr class="table-light border-primary ">';
-                            comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
-                            comentarios += '<th  class="text-center align-middle border border-primary ">USUARIO</th>';
-                            comentarios += '<th  class="text-center align-middle border border-primary ">COMENTARIO</th>';;
-                        comentarios += '</tr>';
-                    comentarios +=  '</thead>';
-                comentarios += '<tbody>';
-                $.each(json, function(key, value){
-                comentarios += '<tr class="align-middle" >';
-                    comentarios += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.fecha_comentario+' </td>';
-                    comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.usuario_comentario+'</td>';
-                    comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.comentario+'</td>';
-                comentarios += '</tr>';
-                })
-                comentarios += '</tbody>';
-                comentarios += '</table>';
-                }
-                $('#comentariosTareas').html(comentarios  );
-                $('#tableComentariosTarea').DataTable({
-                    "destroy" : true,
-                    "autoWidth": true,
-                    "responsive": true, 
-                    "searching": false,
-                    "info":     true,
-                    "ordering": true,
-                    "colReorder": true,
-                    "sZeroRecords": true,
-                    "fixedColumns": true,
-                    "fixedHeader": true,
-                    "keys": true,
-                    "deferRender": true,
-                    "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-                    "iDisplayLength":5,
-                    "language": {"url": "../componente/libreria/idioma/es-mx.json"},
-                    dom:  'Qfrtip',
-                    dom:  'Bfrtip',
-                    buttons: 
-                    [
-                        {
-                            extend: 'pdfHtml5',
-                            orientation: 'landscape',
-                            pageSize: 'A4',
-                            download: 'open',
-                            pageSize: 'LEGAL',
-                            title: 'Comentarios sobre la Solicitud',
-                            titleAttr: 'Comentarios sobre la Solicitud',
-                            messageTop: 'Comentarios sobre la Solicitud',
-                            text : '<i class="far fa-file-pdf"></i>',
-                            exportOptions : {
-                                columns: [0,1,2,]
-                            }
-                        },
-                        {
-                            extend: 'print',
-                            title: 'Comentarios sobre la Solicitud',
-                            titleAttr: 'Comentarios sobre la Solicitud',
-                            messageTop: 'Comentarios sobre la Solicitud',
-                            text : '<i class="fas fa-print"></i>',
-                            exportOptions : {
-                                columns: [0,1,2]
-                            }
-                        },
-                        {
-                            extend: 'excelHtml5',
-                            text : '<i class="fas fa-file-excel"></i>',
-                            autoFiltre : true ,
-                            title: 'Comentarios sobre la Solicitud',
-                            exportOptions : {
-                                columns: [0,1,2]
-                            }
-                        },
-                        {
-                            extend: 'copyHtml5',
-                            text : '<i class="fas fa-copy"></i>',
-                            autoFiltre : true ,
-                            titleAttr: 'COPIAR',
-                            exportOptions : {
-                                columns: [0,1,2]
-                            }
-                        }                
-                    ]
-                }); 
-                }).fail(function(xhr, status, error){
-                        $('#comentarios').html(error); 
-                })
-                }
+        $.ajax({
+            url:'../controladorAdministrador/tarea.comentarios.readAct.php',
+            type: 'POST',
+            dataType: 'json',
+            data : $('#buscarTareaComentario12').serialize(),
+        }).done(function(json){
+            var comentarios = '';
+            if(json== 0){ 
+                comentarios += "<h5>Aun no hay comentarios</h5>";
+            }else{
+            comentarios += "<table id='tableComentariosTareaRev'  class='table  table-striped table-bordered table-responsive ' >"; 
+                comentarios += '<thead >';
+                    comentarios += '<tr class="table-light border-primary ">';
+                        comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
+                        comentarios += '<th  class="text-center align-middle border border-primary ">USUARIO</th>';
+                        comentarios += '<th  class="text-center align-middle border border-primary ">COMENTARIO</th>';;
+                    comentarios += '</tr>';
+                comentarios +=  '</thead>';
+            comentarios += '<tbody>';
+            $.each(json, function(key, value){
+            comentarios += '<tr class="align-middle" >';
+                comentarios += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.fecha_comentario+' </td>';
+                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.usuario_comentario+'</td>';
+                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.comentario+'</td>';
+            comentarios += '</tr>';
+            })
+            comentarios += '</tbody>';
+            comentarios += '</table>';
+            }
+            $('#comentariosTareasAct').html(comentarios  );
+            $('#tableComentariosTareaRev').DataTable({
+                "destroy" : true,
+                "autoWidth": true,
+                "responsive": true, 
+                "searching": false,
+                "info":     true,
+                "ordering": true,
+                "colReorder": true,
+                "sZeroRecords": true,
+                "fixedColumns": true,
+                "fixedHeader": true,
+                "keys": true,
+                "deferRender": true,
+                "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+                "iDisplayLength":5,
+                "language": {"url": "../componente/libreria/idioma/es-mx.json"},
+                dom:  'Qfrtip',
+                dom:  'Bfrtip',
+                buttons: 
+                [
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'A4',
+                        download: 'open',
+                        pageSize: 'LEGAL',
+                        title: 'Comentarios sobre la Solicitud',
+                        titleAttr: 'Comentarios sobre la Solicitud',
+                        messageTop: 'Comentarios sobre la Solicitud',
+                        text : '<i class="far fa-file-pdf"></i>',
+                        exportOptions : {
+                            columns: [0,1,2,]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: 'Comentarios sobre la Solicitud',
+                        titleAttr: 'Comentarios sobre la Solicitud',
+                        messageTop: 'Comentarios sobre la Solicitud',
+                        text : '<i class="fas fa-print"></i>',
+                        exportOptions : {
+                            columns: [0,1,2]
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text : '<i class="fas fa-file-excel"></i>',
+                        autoFiltre : true ,
+                        title: 'Comentarios sobre la Solicitud',
+                        exportOptions : {
+                            columns: [0,1,2]
+                        }
+                    },
+                    {
+                        extend: 'copyHtml5',
+                        text : '<i class="fas fa-copy"></i>',
+                        autoFiltre : true ,
+                        titleAttr: 'COPIAR',
+                        exportOptions : {
+                            columns: [0,1,2]
+                        }
+                    }                
+                ]
+        }); 
+        }).fail(function(xhr, status, error){
+            $('#comentarios').html(error); 
+        })
+        }
     )
 
-    /// ASIGNAR COMENTARIO A LA tarea///
-    $(document).on('click','#btnCrearcomentarioTarea',function(event){
+    // /// ASIGNAR COMENTARIO A LA tarea///
+    $(document).on('click','#btnCrearcomentarioTareaRev',function(event){
         event.preventDefault();
             $.ajax({
-                url:'../controladorAdministrador/tarea.comentarios.create.php',
+                url:'../controladorAdministrador/tarea.comentarios.createRev.php',
                 type: 'POST',
                 dataType: 'json',
-                data : $('#agregarComta').serialize(),
+                data : $('#agregarComtaRev').serialize(),
             }).done(function(json){
                 // Swal.fire({                  
                 //     icon: 'success',
@@ -825,6 +930,8 @@ $(document).ready(function(){
                 console.log(error);
         })
     })
+
+  
 
 
 })

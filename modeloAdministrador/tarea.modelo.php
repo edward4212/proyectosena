@@ -110,7 +110,7 @@ class Tarea{
                $this->sql = "SELECT
                tr.`id_tarea`,
                tr.`fecha_asignacion`,
-               tr.`estado`,
+               tr.`estado` as estado,
                sl.`solicitud`,
                sl.`id_solicitud`
                FROM tarea AS tr
@@ -213,15 +213,22 @@ class Tarea{
      public function readAct()
      {
           try {
-               $this->sql = "SELECT
-               tr.`id_tarea`,
-               tr.`fecha_asignacion`,
-               tr.`estado`,
-               sl.`solicitud`,
-               sl.`id_solicitud`
-               FROM tarea AS tr
-               INNER JOIN solicitud AS sl ON sl.`id_solicitud` = tr.`id_solicitud`
-                    WHERE tr.`usuario_creacion` = '$this->usuario' AND estado = 'R' ";
+               $this->sql = "SELECT 
+               versionamiento.`id_versionamiento`,
+               versionamiento.`descripcion_version`,
+               versionamiento.`numero_version`,
+               versionamiento.`documento`,
+               documento.`codigo`,
+               documento.`nombre_documento`,
+               tipo_documento.`sigla_tipo_documento`,
+               proceso.`sigla_proceso`
+          
+          FROM versionamiento 
+          
+          INNER JOIN documento ON documento.`id_documento` = versionamiento.`id_documento`
+          INNER JOIN tipo_documento ON tipo_documento.`id_tipo_documento` = documento.`id_tipo_documento`
+          INNER JOIN proceso ON proceso.`id_proceso` = documento.`id_proceso`
+               WHERE usuario_revision = '$this->usuario' AND estado_version = 'T' ";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
@@ -229,6 +236,35 @@ class Tarea{
           }
           return $this->retorno;
      }
+
+     public function comentariosRev()
+     {
+          try {
+               $this->sql = "	SELECT * FROM comentarios_tarea
+               WHERE id_tarea =  '$this->id_tarea'";
+               $this->result = $this->conexion->query($this->sql);
+               $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+
+     public function comentariosTarea2()
+     {
+          try{
+               $this->result = $this->conexion->prepare("INSERT INTO comentarios_tarea VALUES (NULL , :comentario, :id_tarea, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");
+               $this->result->bindParam(':id_tarea', $this->id_tarea);
+               $this->result->bindParam(':usuario_comentario', $this->usuario);
+               $this->result->bindParam(':comentario', $this->comentario);
+               $this->result->execute();    
+          } catch (Exception $e) {
+          
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+     
 
 }
 
