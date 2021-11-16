@@ -23,25 +23,35 @@ function idtarea(id_tarea,id_solicitud){
     $("#numIdSolT").val(id_solicitud);
 }
 
-function idtareaAct(id_versionamiento,documento,codigo,nombre_documento,numero_version,sigla_tipo_documento,sigla_proceso){
+function idtareaAct(id_versionamiento,documento,codigo,nombre_documento,numero_version,sigla_tipo_documento,sigla_proceso,descripcion_version){
     $("#numIdTarea11").val(id_versionamiento);
     $("#documendocumentoTarea").val(codigo+'-'+nombre_documento);
     $("#versionDoc1").val(numero_version);
     $("#fileDocumentoDes").attr('href','../documentos/procesos/'+sigla_proceso+'/'+sigla_tipo_documento+'/'+documento);
-    
+    $("#descriVersion").val(descripcion_version);
+    $("#numIdVerDevol").val(id_versionamiento);
+}
 
+function idtareaApr(id_versionamiento,documento,codigo,nombre_documento,numero_version,sigla_tipo_documento,sigla_proceso,descripcion_version,id_documento){
+    $("#numIdTareaApro").val(id_versionamiento);
+    $("#documendocumentoApr").val(codigo+'-'+nombre_documento);
+    $("#versionDocAp").val(numero_version);
+    $("#fileDocumentoDesAp").attr('href','../documentos/procesos/'+sigla_proceso+'/'+sigla_tipo_documento+'/'+documento);
+    $("#descriVersionAp").val(descripcion_version);
+    $("#numIdVerDevolApr").val(id_versionamiento);
+
+    $("#id_documentoVersion").val(id_documento);
+    $("#versionAnterior").val(numero_version-1);
 }
 
 function idcomentarioTar(id_tarea){
     $("#numIdTidTareaCom").val(id_tarea);
     $("#numIdTidTareaCom1").val(id_tarea);
-
 }
 
 function idcomentarioTarAct(id_tarea){
     $("#numIdTidTareaComAct").val(id_tarea);
     $("#numIdTidTareaCom1Act").val(id_tarea);
-
 }
 
 function sigla_proceso (id_proceso ,sigla_proceso,numero_version){
@@ -57,7 +67,9 @@ $(document).ready(function(){
     tareas();
     buscarFuncionarios();
     tareasAct();
+    tareasApr();
     buscarFuncionarios1();
+
 
     $("#documentoAuto").autocomplete({
         source: function( request, response){
@@ -443,7 +455,7 @@ $(document).ready(function(){
                             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ESTADO</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">COMENTARIOS</th>';
+                            // datos += '<th  class="border border-primary text-center align-middle ">COMENTARIOS</th>';
                         datos += '</tr>';
                     datos +=  '</thead>';
                     datos += '<tbody>';
@@ -455,9 +467,9 @@ $(document).ready(function(){
                                 datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_tarea+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.solicitud+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.fecha_asignacion+'</td>';  
-                                datos += '<td class=" border border-primary text-wrap">'+value.estado+'</td>';  
+                                datos += '<td class=" border border-primary text-wrap">'+estado+'</td>';  
                                 datos += '<td class=" border border-primary  text-center align-middle"><button type="button" onclick="idtarea('+value.id_tarea+','+value.id_solicitud+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltarea"><i class="fas fa-cogs"></i></button></td>';
-                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnComentarioTarea" onclick="idcomentarioTar('+value.id_tarea+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentariosTarea"><i class="far fa-comment-dots"></i></button></td>';
+                                // datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnComentarioTarea" onclick="idcomentarioTar('+value.id_tarea+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentariosTarea"><i class="far fa-comment-dots"></i></button></td>';
                             datos += '</tr>';
                         })
                     datos += '</tbody>';
@@ -487,7 +499,7 @@ $(document).ready(function(){
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
-                        title: 'Mis Tareas Asignadas',
+                        title: 'Mis Tareas Por Aprobar',
                         titleAttr: 'Mis Tareas Asignadas',
                         messageTop: 'Mis Tareas Asignadas',
                         text : '<i class="far fa-file-pdf"></i>',
@@ -553,131 +565,6 @@ $(document).ready(function(){
         })     
     }
 
-    /// ver cometarios de la tarea///
-    $(document).on('click','#btnComentarioTarea',function(event){
-    event.preventDefault();
-        $.ajax({
-            url:'../controladorAdministrador/tarea.comentarios.read.php',
-            type: 'POST',
-            dataType: 'json',
-            data : $('#buscarTareaComentario1').serialize(),
-        }).done(function(json){
-            var comentarios = '';
-            if(json== 0){ 
-                comentarios += "<h5>Aun no hay comentarios</h5>";
-            }else{
-            comentarios += "<table id='tableComentariosTarea'  class='table  table-striped table-bordered table-responsive ' >"; 
-                comentarios += '<thead >';
-                    comentarios += '<tr class="table-light border-primary ">';
-                        comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
-                        comentarios += '<th  class="text-center align-middle border border-primary ">USUARIO</th>';
-                        comentarios += '<th  class="text-center align-middle border border-primary ">COMENTARIO</th>';;
-                    comentarios += '</tr>';
-                comentarios +=  '</thead>';
-            comentarios += '<tbody>';
-            $.each(json, function(key, value){
-            comentarios += '<tr class="align-middle" >';
-                comentarios += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.fecha_comentario+' </td>';
-                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.usuario_comentario+'</td>';
-                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.comentario+'</td>';
-            comentarios += '</tr>';
-            })
-            comentarios += '</tbody>';
-            comentarios += '</table>';
-            }
-            $('#comentariosTareas').html(comentarios  );
-            $('#tableComentariosTarea').DataTable({
-                "destroy" : true,
-                "autoWidth": true,
-                "responsive": true, 
-                "searching": false,
-                "info":     true,
-                "ordering": true,
-                "colReorder": true,
-                "sZeroRecords": true,
-                "fixedColumns": true,
-                "fixedHeader": true,
-                "keys": true,
-                "deferRender": true,
-                "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-                "iDisplayLength":5,
-                "language": {"url": "../componente/libreria/idioma/es-mx.json"},
-                dom:  'Qfrtip',
-                dom:  'Bfrtip',
-                buttons: 
-                [
-                    {
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        download: 'open',
-                        pageSize: 'LEGAL',
-                        title: 'Comentarios sobre la Solicitud',
-                        titleAttr: 'Comentarios sobre la Solicitud',
-                        messageTop: 'Comentarios sobre la Solicitud',
-                        text : '<i class="far fa-file-pdf"></i>',
-                        exportOptions : {
-                            columns: [0,1,2,]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: 'Comentarios sobre la Solicitud',
-                        titleAttr: 'Comentarios sobre la Solicitud',
-                        messageTop: 'Comentarios sobre la Solicitud',
-                        text : '<i class="fas fa-print"></i>',
-                        exportOptions : {
-                            columns: [0,1,2]
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        text : '<i class="fas fa-file-excel"></i>',
-                        autoFiltre : true ,
-                        title: 'Comentarios sobre la Solicitud',
-                        exportOptions : {
-                            columns: [0,1,2]
-                        }
-                    },
-                    {
-                        extend: 'copyHtml5',
-                        text : '<i class="fas fa-copy"></i>',
-                        autoFiltre : true ,
-                        titleAttr: 'COPIAR',
-                        exportOptions : {
-                            columns: [0,1,2]
-                        }
-                    }                
-                ]
-            }); 
-            }).fail(function(xhr, status, error){
-                    $('#comentarios').html(error); 
-            })
-            }
-    )
-
-    /// ASIGNAR COMENTARIO A LA tarea///
-    $(document).on('click','#btnCrearcomentarioTarea',function(event){
-        event.preventDefault();
-            $.ajax({
-                url:'../controladorAdministrador/tarea.comentarios.create.php',
-                type: 'POST',
-                dataType: 'json',
-                data : $('#agregarComta').serialize(),
-            }).done(function(json){
-                Swal.fire({                  
-                    icon: 'success',
-                    title: 'Comentario Registrado con Exito',
-                    showConfirmButton: false,
-                    timer: 3000
-                    }).then((result) => {
-                    cargar();
-                    })
-            }).fail(function(xhr, status, error){
-                console.log(error);
-        })
-    })
-
     /// mostrar las tareas revision//
     function tareasAct(){
         $.ajax({
@@ -694,10 +581,10 @@ $(document).ready(function(){
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary text-center align-middle ">';
                             datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCION DE CAMBIOS</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">NUEVA VERSION</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">COMENTARIOS dd</th>';
                         datos += '</tr>';
                     datos +=  '</thead>';
                     datos += '<tbody>';
@@ -707,10 +594,11 @@ $(document).ready(function(){
                              }
                                 datos += '<tr class="align-middle" >';
                                 datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_versionamiento+' </td>';
-                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.descripcion_version+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.nombre_documento+'</td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.numero_version+'</td>';  
-                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaAct('+value.id_versionamiento+',\''+value.documento+'\',\''+value.codigo+'\',\''+value.nombre_documento+'\','+value.numero_version+',\''+value.sigla_tipo_documento+'\',\''+value.sigla_proceso+'\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaAct"><i class="fas fa-cogs"></i></button></td>';
-                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnComentarioTareaAct" onclick="idcomentarioTarAct('+value.id_tarea+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentariosTareaRev"><i class="far fa-comment-dots"></i></button></td>';
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaAct('+value.id_versionamiento+',\''+value.documento+'\',\''+value.codigo+'\',\''+value.nombre_documento+'\','+value.numero_version+',\''+value.sigla_tipo_documento+'\',\''+value.sigla_proceso+'\',\''+value.descripcion_version+'\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaAct"><i class="fas fa-cogs"></i></button></td>';
+                               
                             datos += '</tr>';
                         })
                     datos += '</tbody>';
@@ -806,55 +694,104 @@ $(document).ready(function(){
         })     
     }
 
-    // /// ver cometarios de la tarea///
-    $(document).on('click','#btnComentarioTareaAct',function(event){
-        event.preventDefault();
+   /// REVISION DE VERSION REALZIADA///
+   $(document).on('click','#btnRevisionTarea',function(event){
+    event.preventDefault();
         $.ajax({
-            url:'../controladorAdministrador/tarea.comentarios.readAct.php',
+            url:'../controladorAdministrador/versionamiento.revision.update.php',
             type: 'POST',
             dataType: 'json',
-            data : $('#buscarTareaComentario12').serialize(),
+            data : $('#tareaRevision').serialize(),
         }).done(function(json){
-            var comentarios = '';
-            if(json== 0){ 
-                comentarios += "<h5>Aun no hay comentarios</h5>";
-            }else{
-            comentarios += "<table id='tableComentariosTareaRev'  class='table  table-striped table-bordered table-responsive ' >"; 
-                comentarios += '<thead >';
-                    comentarios += '<tr class="table-light border-primary ">';
-                        comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
-                        comentarios += '<th  class="text-center align-middle border border-primary ">USUARIO</th>';
-                        comentarios += '<th  class="text-center align-middle border border-primary ">COMENTARIO</th>';;
-                    comentarios += '</tr>';
-                comentarios +=  '</thead>';
-            comentarios += '<tbody>';
-            $.each(json, function(key, value){
-            comentarios += '<tr class="align-middle" >';
-                comentarios += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.fecha_comentario+' </td>';
-                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.usuario_comentario+'</td>';
-                comentarios += '<td class=" border border-primary  text-wrap align-middle">'+value.comentario+'</td>';
-            comentarios += '</tr>';
+            Swal.fire({                  
+                icon: 'success',
+                title: 'Revision Registrada con Exito',
+                showConfirmButton: false,
+                timer: 3000
+            }).then((result) => {
+                cargar();
             })
-            comentarios += '</tbody>';
-            comentarios += '</table>';
-            }
-            $('#comentariosTareasAct').html(comentarios  );
-            $('#tableComentariosTareaRev').DataTable({
+        }).fail(function(xhr, status, error){
+            console.log(error);
+        })
+    })
+
+      /// DEVOLVER REVISION DE VERSION REALZIADA///
+   $(document).on('click','#btnDevolverTarea',function(event){
+    event.preventDefault();
+        $.ajax({
+            url:'../controladorAdministrador/versionamiento.devolver.update.php',
+            type: 'POST',
+            dataType: 'json',
+            data : $('#tareaDevolucion').serialize(),
+        }).done(function(json){
+            Swal.fire({                  
+                icon: 'success',
+                title: 'DEvolucion de Documento Registrada con Exito',
+                showConfirmButton: false,
+                timer: 3000
+            }).then((result) => {
+                cargar();
+            })
+        }).fail(function(xhr, status, error){
+            console.log(error);
+        })
+    })
+
+    /// mostrar las tareas APROBACION//
+    function tareasApr(){
+        $.ajax({
+            url:'../controladorAdministrador/tarea.readApr.php',
+            type: 'POST',
+            dataType: 'json',
+            data : null,
+        }).done(function(json){
+                /**
+             * Se crea la tabla para mostrar los datos consultados
+             */
+            var datos = '';
+                datos += "<table id='tabletareasApr'   class='table  table-striped table-bordered table-responsive '  >"; 
+                datos += '<thead >';
+                        datos += '<tr class="table-light border-primary text-center align-middle ">';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
+                            datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
+                        datos += '</tr>';
+                    datos +=  '</thead>';
+                    datos += '<tbody>';
+                        $.each(json, function(key, value){
+                        if(value.estado = "R"){
+                            estado ="REVISION";
+                            }
+                                datos += '<tr class="align-middle" >';
+                                datos += '<td class=" border border-primary text-wrap align-middle" >'+value.id_versionamiento+' </td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.nombre_documento+'</td>';
+                                datos += '<td class=" border border-primary text-wrap align-middle">'+value.numero_version+'</td>';  
+                                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaApr('+value.id_versionamiento+',\''+value.documento+'\',\''+value.codigo+'\',\''+value.nombre_documento+'\','+value.numero_version+',\''+value.sigla_tipo_documento+'\',\''+value.sigla_proceso+'\',\''+value.descripcion_version+'\','+value.id_documento+')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaApr"><i class="fas fa-cogs"></i></button></td>';
+                            
+                            datos += '</tr>';
+                        })
+                    datos += '</tbody>';
+                datos += '</table>';
+            $('#tareasApr').html(datos);
+            $('#tabletareasApr').DataTable({
                 "destroy" : true,
                 "autoWidth": true,
-                "responsive": true, 
-                "searching": false,
+                "responsive": true,
+                "searching": true,
                 "info":     true,
                 "ordering": true,
                 "colReorder": true,
                 "sZeroRecords": true,
-                "fixedColumns": true,
-                "fixedHeader": true,
                 "keys": true,
                 "deferRender": true,
                 "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-                "iDisplayLength":5,
+                "iDisplayLength":	5,
                 "language": {"url": "../componente/libreria/idioma/es-mx.json"},
+                order: [[0, 'asc']],
                 dom:  'Qfrtip',
                 dom:  'Bfrtip',
                 buttons: 
@@ -864,32 +801,31 @@ $(document).ready(function(){
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
-                        pageSize: 'LEGAL',
-                        title: 'Comentarios sobre la Solicitud',
-                        titleAttr: 'Comentarios sobre la Solicitud',
-                        messageTop: 'Comentarios sobre la Solicitud',
+                        title: 'Mis Tareas Por Aprobar',
+                        titleAttr: 'Mis Tareas Por Aprobar',
+                        messageTop: 'Mis Tareas Por Aprobar',
                         text : '<i class="far fa-file-pdf"></i>',
                         exportOptions : {
-                            columns: [0,1,2,]
+                            columns: [0,1,2,3]
                         }
                     },
                     {
                         extend: 'print',
-                        title: 'Comentarios sobre la Solicitud',
-                        titleAttr: 'Comentarios sobre la Solicitud',
-                        messageTop: 'Comentarios sobre la Solicitud',
+                        title: 'Mis Tareas Por Aprobar',
+                        titleAttr: 'Mis Tareas Por Aprobar',
+                        messageTop: 'Mis Tareas Por Aprobar',
                         text : '<i class="fas fa-print"></i>',
                         exportOptions : {
-                            columns: [0,1,2]
+                            columns: [0,1,2,3]
                         }
                     },
                     {
                         extend: 'excelHtml5',
                         text : '<i class="fas fa-file-excel"></i>',
                         autoFiltre : true ,
-                        title: 'Comentarios sobre la Solicitud',
+                        title: 'Mis Tareas Por Aprobar',
                         exportOptions : {
-                            columns: [0,1,2]
+                            columns: [0,1,2,3]
                         }
                     },
                     {
@@ -898,40 +834,81 @@ $(document).ready(function(){
                         autoFiltre : true ,
                         titleAttr: 'COPIAR',
                         exportOptions : {
-                            columns: [0,1,2]
+                            columns: [0,1,2,3]
                         }
-                    }                
+                    },
+                    {
+                        extend: 'searchBuilder'
+                    
+                    }                      
                 ]
-        }); 
+            });
         }).fail(function(xhr, status, error){
-            $('#comentarios').html(error); 
+            $('#tareasApr').html(error);
         })
-        }
-    )
+    }
 
-    // /// ASIGNAR COMENTARIO A LA tarea///
-    $(document).on('click','#btnCrearcomentarioTareaRev',function(event){
-        event.preventDefault();
-            $.ajax({
-                url:'../controladorAdministrador/tarea.comentarios.createRev.php',
-                type: 'POST',
-                dataType: 'json',
-                data : $('#agregarComtaRev').serialize(),
-            }).done(function(json){
-                // Swal.fire({                  
-                //     icon: 'success',
-                //     title: 'Comentario Asignado con Exito',
-                //     showConfirmButton: false,
-                //     timer: 3000
-                //     }).then((result) => {
-                //     cargar();
-                //     })
-            }).fail(function(xhr, status, error){
-                console.log(error);
+   /// REVISION DE VERSION REALZIADA///
+   $(document).on('click','#btnAprobacionTarea',function(event){
+    event.preventDefault();
+        $.ajax({
+            url:'../controladorAdministrador/versionamiento.aprobacion.update.php',
+            type: 'POST',
+            dataType: 'json',
+            data : $('#aprobacion').serialize(),
+        }).done(function(json){
+            // Swal.fire({                  
+            //     icon: 'success',
+            //     title: 'Revision Registrada con Exito',
+            //     showConfirmButton: false,
+            //     timer: 3000
+            // }).then((result) => {
+            //     cargar();
+            // })
+        }).fail(function(xhr, status, error){
+            console.log(error);
         })
     })
 
-  
+
+    ///INACTIVAR VERSION ANTERIOR DE VERSION REALZIADA///
+    $(document).on('click','#btnAprobacionTarea',function(event){
+        event.preventDefault();
+            $.ajax({
+                url:'../controladorAdministrador/versionamiento.aprobacion.update2.php',
+                type: 'POST',
+                dataType: 'json',
+                data : $('#aprobacion').serialize(),
+            }).done(function(json){
+
+            }).fail(function(xhr, status, error){
+                console.log(error);
+            })
+        })
+    
+
+//       /// DEVOLVER REVISION DE VERSION REALZIADA///
+//    $(document).on('click','#btnDevolverTareaApr',function(event){
+//     event.preventDefault();
+//         $.ajax({
+//             url:'../controladorAdministrador/versionamiento.devolver.update.php',
+//             type: 'POST',
+//             dataType: 'json',
+//             data : $('#tareaDevolucion').serialize(),
+//         }).done(function(json){
+//             Swal.fire({                  
+//                 icon: 'success',
+//                 title: 'DEvolucion de Documento Registrada con Exito',
+//                 showConfirmButton: false,
+//                 timer: 3000
+//             }).then((result) => {
+//                 cargar();
+//             })
+//         }).fail(function(xhr, status, error){
+//             console.log(error);
+//         })
+//     })
+
 
 
 })

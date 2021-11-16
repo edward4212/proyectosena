@@ -20,6 +20,9 @@
                     <button class="nav-link " id="nav-aprobacion-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-aprobacion" type="button" role="tab" aria-controls="nav-aprobacion"
                         aria-selected="true">Aprobación</button>
+                    <button class="nav-link " id="nav-devolucion-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-devolucion" type="button" role="tab" aria-controls="nav-devolucion"
+                        aria-selected="true">Devoluciones</button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -141,15 +144,16 @@
                                                 <input type="number" name="numIdTarea1" id="numIdTarea1" hidden>
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <input class="form-control" type="text" name="numIdSolT"
-                                                        id="numIdSolT" hidden >
+                                                        id="numIdSolT" hidden>
                                                     <input class="form-control" type="text" name="idDocumento"
-                                                        id="idDocumento" hidden >
+                                                        id="idDocumento" hidden>
                                                     <h5 for="data">Seleccionar Documento</h5>
                                                     <input class="form-control" type="text" name="documentoAuto"
                                                         id="documentoAuto">
-                                                    <input class="form-control" type="text" name="proceso" id="proceso" hidden >
+                                                    <input class="form-control" type="text" name="proceso" id="proceso"
+                                                        hidden>
                                                     <input class="form-control" type="text" name="sigla_tipo_documento"
-                                                        id="sigla_tipo_documento" hidden >
+                                                        id="sigla_tipo_documento" hidden>
 
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
@@ -185,158 +189,235 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Modal para ver comentarios-->
-                        <div class="modal fade" id="comentariosTarea" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-revision" role="tabpanel" aria-labelledby="nav-revision-tab">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h3 class="card-title text-center">Mis Tareas</h3>
+                            <div>
+                                <form action="" class="form-group" id="buscarTareaComentario12">
+                                    <input type="number" name="numIdTarea1" id="numIdTarea1" hidden>
+                                    <input type="number" name="numIdTidTareaCom1Act" id="numIdTidTareaCom1Act" hidden>
+                                    <h5 id="tareasAct"></h5>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Modal para administrar tarea-->
+                        <div class="modal fade" id="modaltareaAct" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-="true">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Comentarios de la Tarea</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">ADMINISTRAR TAREA</h5>
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form action="" class="form-group" id="agregarComta">
+                                    <form class="row g-3 form-group" method="POST" id="tareaRevision">
                                         <div class="modal-body">
-                                            <input type="number" name="numIdTidTareaCom" id="numIdTidTareaCom" hidden>
-                                            <div class="col-md-12 col-xs-12 col-sm-12" >
-                                                <h5>Agregar Comentario</h5>
-                                                <textarea type="text" class="form-control redondeado" rows="2"
-                                                    id="comentrioEmpleadoTarea" name="comentrioEmpleadoTarea"
-                                                    required></textarea>
+                                            <div class="row">
+                                                <input type="number" name="numIdTarea11" id="numIdTarea11" hidden>
+                                                <div class="col-md-10 col-xs-12 col-sm-12">
+                                                    <input class="form-control" type="text" name="numIdSolT1"
+                                                        id="numIdSolT1" hidden>
+                                                    <input class="form-co ntrol" type="text" name="idDocumento1"
+                                                        id="idDocumento1" hidden>
+                                                    <label for="data">Documento</label>
+                                                    <input class="form-control" type="text" name="documendocumentoTarea"
+                                                        id="documendocumentoTarea" readonly>
+
+                                                </div>
+                                                <div class="col-md-2 col-xs-12 col-sm-12">
+                                                    <h5>Version </h5>
+                                                    <input class="form-control" type="text" name="versionDoc1"
+                                                        id="versionDoc1" readonly>
+                                                </div>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Descripción de la Version</h5>
+                                                    <textarea type="text" class="form-control redondeado" rows="1"
+                                                        id="descriVersion" name="descriVersion" readonly></textarea>
+                                                </div>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Descripción de la Revision</h5>
+                                                    <textarea type="text" class="form-control redondeado" rows="2"
+                                                        id="descriCambioRev" name="descriCambioRev" required></textarea>
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                                    <br>
+                                                    <a type="button" class="btn btn-primary form-control" href=""
+                                                        target="_blank" name="fileDocumentoDes" id="fileDocumentoDes"><i
+                                                            class="fas fa-download"></i>Descagar Documento</a>
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                                    <h5>Selecionar Usuario para Aprobación</h5>
+                                                    <select class="form-control" id="empleado1" name="empleado1"
+                                                        aria-label="E" aria-describedby="basic-addon1"
+                                                        required></select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-primary" id="btnCrearcomentarioTarea"
-                                                name="btnCrearcomentarioTarea" data-bs-dismiss="modal"> <i
-                                                    class="fas fa-plus"></i>Agregar
-                                                Comentario</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h5 id="comentariosTareas"></h5>
-                                        </div>
-                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" id="btnRevisionTarea"
+                                                name="btnRevisionTarea" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-plus"></i>Iniciar Aprobación</button>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                     class="fas fa-undo"></i> Volver</button>
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                                                data-bs-dismiss="modal"><i class="fas fa-times-circle"></i>Devolver
+                                                Tarea</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="nav-revision" role="tabpanel" aria-labelledby="nav-revision-tab">
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 col-sm-12">
-                        <h3 class="card-title text-center">Mis Tareas</h3>
-                        <div>
-                            <form action="" class="form-group" id="buscarTareaComentario12">
-                                <input type="number" name="numIdTarea1" id="numIdTarea1" >
-                                <input type="number" name="numIdTidTareaCom1Act" id="numIdTidTareaCom1Act" >
-                                <h5 id="tareasAct"></h5>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Modal para administrar tarea-->
-                    <div class="modal fade" id="modaltareaAct" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-="true">
-                        <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">ADMINISTRAR TAREA</h5>
-                                    <button type="button" id="btnCerrarModal" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <form class="row g-3 form-group" method="POST" id="tareaRevision">
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <input type="number" name="numIdTarea11" id="numIdTarea11">
-                                            <div class="col-md-10 col-xs-12 col-sm-12">
-                                                <input class="form-control" type="text" name="numIdSolT1"
-                                                    id="numIdSolT1" hidden>
-                                                <input class="form-co ntrol" type="text" name="idDocumento1"
-                                                    id="idDocumento1" hidden>
-                                                <label for="data">Documento</label>
-                                                <input class="form-control" type="text" name="documendocumentoTarea"
-                                                    id="documendocumentoTarea" readonly>
-
-                                            </div>
-                                            <div class="col-md-2 col-xs-12 col-sm-12">
-                                                <h5>Version </h5>
-                                                <input class="form-control" type="text" name="versionDoc1"
-                                                    id="versionDoc1" readonly>
-                                            </div>
+                        <!-- Modal para devolver tarea-->
+                        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalToggleLabel2">Devolver Tarea</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form class="row g-3 form-group" method="POST" id="tareaDevolucion">
+                                        <div class="modal-body">
+                                            <input type="number" name="numIdVerDevol" id="numIdVerDevol" hidden>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <h5>Descripción de la Revision</h5>
-                                                <textarea type="text" class="form-control redondeado" rows="2"
-                                                    id="descriCambio" name="descriCambio" required></textarea>
-                                            </div>
-                                            <div class="col-md-6 col-xs-12 col-sm-12">
-                                                <br>
-                                                <a type="button" class="btn btn-primary form-control" href="" target="_blank" 
-                                                    name="fileDocumentoDes" id="fileDocumentoDes"><i
-                                                        class="fas fa-download"></i>Descagar Documento</a>
-                                            </div>
-                                            <div class="col-md-6 col-xs-12 col-sm-12">
-                                                <h5>Selecionar Usuario para Aprobación</h5>
-                                                <select class="form-control" id="empleado1" name="empleado1"
-                                                    aria-label="E" aria-describedby="basic-addon1" required></select>
+                                                <h5>Descripción de la Devolucion</h5>
+                                                <textarea type="text" class="form-control redondeado" rows="1"
+                                                    id="descriDevolu" name="descriDevolu"></textarea>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                     <div class="modal-footer">
-                                        <button class="btn btn-primary" data-bs-dismiss="modal"> <i
-                                                class="fas fa-plus"></i>Iniciar Versión</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
-                                                class="fas fa-undo"></i> Volver</button>
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-times-circle"></i>Devolver Tarea</button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-dismiss="modal" id="btnDevolverTarea" name="btnDevolverTarea"><i
+                                                class="fas fa-times-circle"></i>Devolver Tarea</button>
+                                        <button type="button" class="btn btn-primary" data-bs-target="#modaltareaAct"
+                                            data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fas fa-undo"></i>
+                                            Volver</button>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Modal para ver comentarios-->
-                    <div class="modal fade" id="comentariosTareaRev" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Comentarios de la Tarea</h5>
-                                    <button type="button" id="btnCerrarModal" class="btn-close"
-                                        data-bs-dismiss="modal" aria-label="Close"></button>
+
                                 </div>
-                                <form action="" class="form-group" id="agregarComtaRev">
-                                    <div class="modal-body">
-                                        <input type="number" name="numIdTidTareaComAct" id="numIdTidTareaComAct" hidden >
-                                        <div class="col-md-12 col-xs-12 col-sm-12" >
-                                            <h5>Agregar Comentario</h5>
-                                            <textarea type="text" class="form-control redondeado" rows="2"
-                                                id="comentrioEmpleadoTareaAct" name="comentrioEmpleadoTareaAct"
-                                                required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-primary" id="btnCrearcomentarioTareaRev"
-                                            name="btnCrearcomentarioTareaRev" data-bs-dismiss="modal"> <i
-                                                class="fas fa-plus"></i>Agregar
-                                            Comentario</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h5 id="comentariosTareasAct"></h5>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
-                                                class="fas fa-undo"></i> Volver</button>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="tab-pane fade" id="nav-aprobacion" role="tabpanel" aria-labelledby="nav-aprobacion-tab">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h3 class="card-title text-center">Mis Tareas</h3>
+                            <div>
+                                <form action="" class="form-group" id="buscarTareaComentario12">
+                                    <input type="number" name="numIdTarea1" id="numIdTarea1" hidden>
+                                    <input type="number" name="numIdTidTareaCom1Act" id="numIdTidTareaCom1Act" hidden>
+                                    <h5 id="tareasApr"></h5>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Modal para administrar tarea-->
+                        <div class="modal fade" id="modaltareaApr" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">ADMINISTRAR TAREA</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form class="row g-3 form-group" method="POST" id="aprobacion">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <input type="number" name="numIdTareaApro" id="numIdTareaApro">
+                                                <input type="number" name="id_documentoVersion" id="id_documentoVersion">
+                                                <input type="number" name="versionAnterior" id="versionAnterior">
+                                                <div class="col-md-10 col-xs-12 col-sm-12">
+                                                    <input class="form-control" type="text" name="numIdSolApr"
+                                                        id="numIdSolApr" hidden>
+                                                    <input class="form-co ntrol" type="text" name="idDocumentoApr"
+                                                        id="idDocumentoApr" hidden>
+                                                    <label for="data">Documento</label>
+                                                    <input class="form-control" type="text" name="documendocumentoApr"
+                                                        id="documendocumentoApr" readonly>
+
+                                                </div>
+                                                <div class="col-md-2 col-xs-12 col-sm-12">
+                                                    <h5>Version </h5>
+                                                    <input class="form-control" type="text" name="versionDocAp"
+                                                        id="versionDocAp" readonly>
+                                                </div>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Descripción de la Version</h5>
+                                                    <textarea type="text" class="form-control redondeado" rows="1"
+                                                        id="descriVersionAp" name="descriVersionAp" readonly></textarea>
+                                                </div>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Descripción de la Aprobación</h5>
+                                                    <textarea type="text" class="form-control redondeado" rows="2"
+                                                        id="descriCambioApr" name="descriCambioApr" required></textarea>
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                                    <br>
+                                                    <a type="button" class="btn btn-primary form-control" href=""
+                                                        target="_blank" name="fileDocumentoDesAp" id="fileDocumentoDesAp"><i
+                                                            class="fas fa-download"></i>Descagar Documento</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" id="btnAprobacionTarea"
+                                                name="btnAprobacionTarea" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-plus"></i>Aprobar Documento</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-target="#modall" data-bs-toggle="modal"
+                                                data-bs-dismiss="modal"><i class="fas fa-times-circle"></i>Devolver
+                                                Tarea</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal para devolver tarea-->
+                        <div class="modal fade" id="modall" aria-hidden="true"
+                            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalToggleLabel2">Devolver Tarea</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form class="row g-3 form-group" method="POST" id="tareaDevolucionApr">
+                                        <div class="modal-body">
+                                            <input type="number" name="numIdVerDevolApr" id="numIdVerDevolApr" hidden>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Descripción de la Devolucion</h5>
+                                                <textarea type="text" class="form-control redondeado" rows="1"
+                                                    id="descriDevoluApro" name="descriDevoluApro"></textarea>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-dismiss="modal" id="btnDevolverTareaApr" name="btnDevolverTareaApr"><i
+                                                class="fas fa-times-circle"></i>Devolver Tarea</button>
+                                        <button type="button" class="btn btn-primary" data-bs-target="#modaltareaApr"
+                                            data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fas fa-undo"></i>
+                                            Volver</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-devolucion" role="tabpanel" aria-labelledby="nav-devolucion-tab">
+                    <h5>devoluciones</h5>
+                </div>
             </div>
-            <div class="tab-pane fade" id="nav-aprobacion" role="tabpanel" aria-labelledby="nav-aprobacion-tab">
-                <h5>aprobacion</h5>
-            </div>
-        </div>
         </div>
     </main>
     <?php include_once "footer.frm.php" ?>

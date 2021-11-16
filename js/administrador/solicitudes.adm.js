@@ -84,7 +84,7 @@ $(document).ready(function(){
                 "lengthMenu":	[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
                 "iDisplayLength":	5,
                 "language": {"url": "../componente/libreria/idioma/es-mx.json"},
-                order: [[2, 'asc'], [1, 'asc']],
+                order: [[2, 'asc'], [0, 'asc']],
                 rowGroup: {
                     dataSrc: 2
                 },
