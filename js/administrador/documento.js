@@ -2,7 +2,7 @@
 function sigla_proceso(id_proceso, sigla_proceso) {
     $("#idsiglasProc").val(id_proceso);
     $("#idsiglasProc12").val(id_proceso);
-    $("#siglasProc").val(sigla_proceso);
+    // $("#siglasProc").val(sigla_proceso);
     $("#siglasProc1").val(sigla_proceso);
 }
 
@@ -57,7 +57,7 @@ $(document).ready(function () {
                 datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.numero_version + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.fecha_aprobacion + '</td>';
-                datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/' + value.sigla_proceso + '/' + value.documento + '"><i class="fas fa-download"></i></a></td>';
+                datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/' + value.sigla_proceso + '/'  + value.numero_version + '/' + value.documento + '"><i class="fas fa-download"></i></a></td>';
                 datos += '</tr>';
             })
             datos += '</tbody>';
@@ -145,13 +145,17 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             var proceso = 0;
+            var    siglasProc="";
             proceso += '<option disabled selected> - Seleccione un Proceso -</option>';
             $.each(json, function (key, value) {
                 if (value.estado == "A") {
                     proceso += '<option value=' + value.id_proceso + ' onclick="sigla_proceso(' + value.id_proceso + ',\'' + value.sigla_proceso + '\')">' + value.proceso + '</option>';
+                    siglasProc+= value.sigla_proceso;
                 }
             })
             $('#proceso').html(proceso);
+         
+            $('#siglasProc').html(siglasProc);
         }).fail(function (xhr, status, error) {
             $('#proceso').html(error);
         })

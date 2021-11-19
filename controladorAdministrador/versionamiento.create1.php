@@ -5,34 +5,31 @@ include_once "../modeloAdministrador/tarea.modelo.php";
 include_once "../controladorLogin/logueo.read.php";
 
 
-$numero_version = $_POST['versionSig'];
-$id_documento = $_POST['idDocumento'];
-$descriocion_version = $_POST['descriCambio'];
+$numero_version = $_POST['versionSig1'];
+$id_documento = $_POST['idDocumento1'];
+$descriocion_version = $_POST['descriCambio1'];
 $usuario = $_SESSION['usuario'];
-$usuario_revision = $_POST['empleado'];
+$usuario_revision = $_POST['empleadoCAN'];
 
-$proceso = $_POST['proceso'];
-$tipDoc = $_POST['sigla_tipo_documento'];
+$proceso = $_POST['proceso1'];
+$tipDoc = $_POST['sigla_tipo_documento1'];
 
-$foto=$_FILES["fileDocumento"]["tmp_name"];
-$tipo =$_FILES['fileDocumento']['type'];
-$tamaño =$_FILES['fileDocumento']['size'];
+$foto=$_FILES["fileDocumento1"]["tmp_name"];
+$tipo =$_FILES['fileDocumento1']['type'];
+$tamaño =$_FILES['fileDocumento1']['size'];
 
 $directorio = "../documentos/procesos/$proceso/$tipDoc/$numero_version/";
 
 if(!file_exists($directorio)){
     mkdir($directorio,0777,true);
-    $nombre = $_FILES['fileDocumento']['name'];   
-    move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);        
+    $nombre = $_FILES['fileDocumento1']['name'];   
+    move_uploaded_file($_FILES['fileDocumento1']['tmp_name'],$directorio.$nombre);        
 }else{
     if(file_exists($directorio)){
-        $nombre = $_FILES['fileDocumento']['name'];
-        move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);
+        $nombre = $_FILES['fileDocumento1']['name'];
+        move_uploaded_file($_FILES['fileDocumento1']['tmp_name'],$directorio.$nombre);
     }    
 }
-
-$id_tarea = $_POST['numIdTarea1'];
-$id_solicitud = $_POST['numIdSolT'];
 
 
 $tareaE = new \entidad\Tarea(); 
@@ -43,14 +40,10 @@ $tareaE -> setUsuario($usuario);
 $tareaE -> setUsuarioRevision($usuario_revision);
 $tareaE -> setDocumento($nombre);
 
-$tareaE -> setIdTarea($id_tarea);
-$tareaE -> setIdSolicitud($id_solicitud);
-
 $tareaM= new \modelo\Tarea($tareaE);
 $resultado = $tareaM->creacionVersionamiento();
-$resultado = $tareaM->comentariosCrearDoc();
-$resultado = $tareaM->comentariosTarea();
-$resultado = $tareaM->actualizarTarea();
+
+
 
 unset($tareaE);
 unset($tareaM);

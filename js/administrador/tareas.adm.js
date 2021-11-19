@@ -1,6 +1,6 @@
 
 function cargar(){
-    window.location.href = "../vistaAdministrador/tareas.adm.frm.php";
+    window.location.href = "../vistaAdministrador/tareas.Adm.frm.php";
 }
 
 function comentario (id_solicitud){
@@ -27,7 +27,7 @@ function idtareaAct(id_versionamiento,documento,codigo,nombre_documento,numero_v
     $("#numIdTarea11").val(id_versionamiento);
     $("#documendocumentoTarea").val(codigo+'-'+nombre_documento);
     $("#versionDoc1").val(numero_version);
-    $("#fileDocumentoDes").attr('href','../documentos/procesos/'+sigla_proceso+'/'+sigla_tipo_documento+'/'+documento);
+    $("#fileDocumentoDes").attr('href','../documentos/procesos/'+sigla_proceso+'/'+sigla_tipo_documento+'/'+numero_version+'/'+documento);
     $("#descriVersion").val(descripcion_version);
     $("#numIdVerDevol").val(id_versionamiento);
 }
@@ -36,7 +36,7 @@ function idtareaApr(id_versionamiento,documento,codigo,nombre_documento,numero_v
     $("#numIdTareaApro").val(id_versionamiento);
     $("#documendocumentoApr").val(codigo+'-'+nombre_documento);
     $("#versionDocAp").val(numero_version);
-    $("#fileDocumentoDesAp").attr('href','../documentos/procesos/'+sigla_proceso+'/'+sigla_tipo_documento+'/'+documento);
+    $("#fileDocumentoDesAp").attr('href','../documentos/procesos/'+sigla_proceso+'/'+sigla_tipo_documento+'/'+numero_version+'/'+documento);
     $("#descriVersionAp").val(descripcion_version);
     $("#numIdVerDevolApr").val(id_versionamiento);
 
@@ -69,6 +69,7 @@ $(document).ready(function(){
     tareasAct();
     tareasApr();
     buscarFuncionarios1();
+    buscarFuncionariossINT();
 
 
     $("#documentoAuto").autocomplete({
@@ -99,6 +100,49 @@ $(document).ready(function(){
         // $("#txtApellidoCliente").val(ui.item.apellido);
         // $("#txtPuntosActCliente").val(ui.item.puntos);  
         console.log(ui);
+    }
+    })
+
+    $("#documentoAuto1").autocomplete({
+        source: function( request, response){
+             $.ajax( {
+                url: "../controladorAdministrador/documento.autocomplete.php",
+                dataType: "json",
+                data : {
+                        term: request.term
+            },
+            success: function(data) {
+                response(data);
+            }
+        })
+    },
+    select: function( event, ui ){
+
+        event.preventDefault();
+        if(ui.item.est == 'T'){
+            Swal.fire({                  
+                icon: 'error',
+                title: 'El Documento se encuentra en Tramite, Seleccione otro documento',
+                showConfirmButton: false,
+                timer: 3000
+                }).then((result) => {
+                cargar();
+                })
+        }else{
+        var suma = parseInt(ui.item.numero_version);
+        var uno = 1;
+        var resul = suma + uno;
+        $("#documentoAuto1").val(ui.item.nombre_documento);
+        $("#versionSig1").val(resul);
+        $("#idDocumento1").val(ui.item.id_documento);
+        $("#proceso1").val(ui.item.sigla_proceso);
+        $("#sigla_tipo_documento1").val(ui.item.sigla_tipo_documento);
+        $("#documentoAuto1").prop("disabled", true);
+        // $("#txtNombreCliente").val(ui.item.nombre);
+        // $("#txtApellidoCliente").val(ui.item.apellido);
+        // $("#txtPuntosActCliente").val(ui.item.puntos);  
+        console.log(ui);
+        }
     }
     })
 
@@ -562,6 +606,26 @@ $(document).ready(function(){
             $('#empleado').html(tipoDocumento);
         }).fail(function(xhr, status, error){
             $('#empleado').html(error);
+        })     
+    }
+
+
+    function buscarFuncionariossINT() {
+
+        $.ajax({
+            url:'../controladorAdministrador/usuario.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data : null,
+        }).done(function(json){
+            var tipoDocumento  =0;
+            tipoDocumento+='<option disabled selected> - Seleccione un funcionario-</option>';
+            $.each(json, function (key,value) {    
+                tipoDocumento+='<option value='+value.usuario+'>'+value.usuario+'</option>';   
+            })            
+            $('#empleadoCAN').html(tipoDocumento);
+        }).fail(function(xhr, status, error){
+            $('#empleadoCAN').html(error);
         })     
     }
 

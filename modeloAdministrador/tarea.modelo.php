@@ -80,12 +80,12 @@ class Tarea{
                vr.`documento`,
                vr.`descripcion_version`,
                vr.`fecha_aprobacion`,
-               vr.`estado_version`
+               vr.`estado_version` AS est
                FROM documento AS doc
                INNER JOIN tipo_documento AS tdoc ON doc.`id_tipo_documento` = tdoc.`id_tipo_documento`
                INNER JOIN proceso AS pr ON doc.`id_proceso` = pr.`id_proceso`
                INNER JOIN versionamiento AS vr ON  doc.`id_documento` = vr.`id_documento` 
-               WHERE nombre_documento LIKE  CONCAT('%','$this->nombre_documento','%') AND vr.`estado_version` != 'O' AND vr.`estado_version` != 'T' AND vr.`estado_version` != 'D'   ";
+               WHERE nombre_documento LIKE  CONCAT('%','$this->nombre_documento','%') AND vr.`estado_version` != 'O' AND vr.`estado_version` != 'D'  AND vr.`estado_version` != 'T'   ";
                $this->result = $this->conexion->query($this->sql);
                $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -95,6 +95,7 @@ class Tarea{
                          "numero_version" =>  $value['version1'],
                          "sigla_proceso" =>  $value['sigla_proceso'],
                          "id_documento" =>  $value['id_documento'],
+                         "est" =>  $value['est'],
                          "sigla_tipo_documento" =>  $value['sigla_tipo_documento'],
                          "label" => $value['codigo'] . "-" . $value['nombre_documento']);
                }
