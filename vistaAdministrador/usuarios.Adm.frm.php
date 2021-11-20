@@ -25,6 +25,7 @@
                     aria-labelledby="nav-usuarios-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
+                            <br>
                             <h3 class="card-title text-center">Empleado</h3>
                             <form class="row g-3 form-group needs-validation" id="usuario" method="POST" novalidate>
                                 <h3 class="card-title">Crear Empleado</h3>
@@ -73,7 +74,8 @@
                         </div>
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <h3 class="card-title text-center">Usuarios Registrados</h3>
-                            <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                            <br>
                                 <h5 id="usuarios"></h5>
                             </div>
                         </div>
@@ -221,6 +223,7 @@
                 <div class="tab-pane fade" id="nav-cargo" role="tabpanel" aria-labelledby="nav-cargo-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
+                        <br>
                             <h3 class="card-title text-center">Cargo</h3>
                             <form class="row g-3 form-group" action="../controladorAdministrador/cargo.create.php"
                                 method="POST" enctype="multipart/form-data">
@@ -244,7 +247,8 @@
                         </div>
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <h3 class="card-title text-center">Cargos Registrados</h3>
-                            <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                            <br>
                                 <h5 id="cargos"></h5>
                             </div>
                         </div>
@@ -335,9 +339,9 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-rol" role="tabpanel" aria-labelledby="nav-rol-tab">
-                    
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
+                        <br>
                             <h3 class="card-title text-center">Roles</h3>
                             <form class="row g-3 form-group" id="rol" method="POST">
                                 <h3 class="card-title">Crear Rol</h3>
@@ -356,7 +360,8 @@
                         </div>
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <h3 class="card-title text-center">Roles Registrados</h3>
-                            <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                            <br>
                                 <h5 id="roles"></h5>
                             </div>
                         </div>

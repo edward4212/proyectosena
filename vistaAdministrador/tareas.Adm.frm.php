@@ -15,8 +15,6 @@
                         aria-selected="false">Tareas Asignadas</button>
                     <button class="nav-link " id="nav-creacion-tab" data-bs-toggle="tab" data-bs-target="#nav-creacion"
                         type="button" role="tab" aria-controls="nav-creacion" aria-selected="true">Creación</button>
-                    <button class="nav-link " id="nav-creacion1-tab" data-bs-toggle="tab" data-bs-target="#nav-creacion1"
-                        type="button" role="tab" aria-controls="nav-creacion1" aria-selected="true">Creación Sin tarea</button>
                     <button class="nav-link " id="nav-revision-tab" data-bs-toggle="tab" data-bs-target="#nav-revision"
                         type="button" role="tab" aria-controls="nav-revision" aria-selected="true">Revision</button>
                     <button class="nav-link " id="nav-aprobacion-tab" data-bs-toggle="tab"
@@ -32,11 +30,13 @@
                     aria-labelledby="nav-solicitudes-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <h3 class="card-title text-center">Solicitudes Asignadas</h3>
-                            <div>
+                            <br>
+                            <h3 class="card-title text-center">Mis Tareas Asignadas</h3>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscar">
                                     <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
                                     <input type="number" name="numIdSolicitud3" id="numIdSolicitud3" hidden>
+                                    <br>
                                     <h5 id="solicitudesAsig"></h5>
                                 </form>
                             </div>
@@ -119,11 +119,13 @@
                 <div class="tab-pane fade" id="nav-creacion" role="tabpanel" aria-labelledby="nav-creacion-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <h3 class="card-title text-center">Mis Tareas Creación de Documento</h3>
-                            <div>
+                        <br>
+                            <h3 class="card-title text-center">Creación de Documento</h3>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscarTareaComentario1">
                                     <input type="number" name="numIdTarea" id="numIdTarea" hidden>
                                     <input type="number" name="numIdTidTareaCom1" id="numIdTidTareaCom1" hidden>
+                                    <br>
                                     <h5 id="tareas"></h5>
                                 </form>
                             </div>
@@ -193,61 +195,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-creacion1" role="tabpanel" aria-labelledby="nav-creacion-tab">
-                    <div class="row">
-                        <div>
-                        </div>
-                        <div class="row">
-                            <form class="row g-3 form-group"
-                            action="../controladorAdministrador/versionamiento.create1.php" method="POST"
-                            enctype="multipart/form-data">
-                                <div class="col-md-10 col-xs-12 col-sm-12">
-                                    <input class="form-control" type="text" name="idDocumento1"
-                                    id="idDocumento1" hidden>
-                                    <h5 for="data">Seleccionar Documento</h5>
-                                    <input class="form-control" type="text" name="documentoAuto1"
-                                    id="documentoAuto1">
-                                    <input class="form-control" type="text" name="proceso1" id="proceso1" hidden>
-                                    <input class="form-control" type="text" name="sigla_tipo_documento1"
-                                    id="sigla_tipo_documento1" hidden >
-                                </div>
-                                <div class="col-md-2 col-xs-12 col-sm-12">
-                                    <h5>Version Siguiente</h5>
-                                    <input class="form-control" type="text" name="versionSig1"
-                                    id="versionSig1" readonly>
-                                </div>
-                                <div class="col-md-12 col-xs-12 col-sm-12">
-                                    <h5>Descripción de la Versión</h5>
-                                    <textarea type="text" class="form-control redondeado" rows="2"
-                                    id="descriCambio1" name="descriCambio1" required></textarea>
-                                </div>
-                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                    <h5>Agregar Documento</h5>
-                                    <input class="form-control" type="file" name="fileDocumento1"
-                                    id="fileDocumento1">
-                                </div>
-                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                    <h5>Selecionar Usuario para Revision</h5>
-                                    <select class="form-control" id="empleadoCAN" name="empleadoCAN"
-                                    aria-label="E" aria-describedby="basic-addon1"
-                                    required></select>
-                                </div>
-                                <div class="col-md-4 col-xs-12 col-sm-12">
-                                <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i>Iniciar Versión</button>
-                                <button type="button" class="btn btn-primary"><i class="fas fa-undo"></i> Volver</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <div class="tab-pane fade" id="nav-revision" role="tabpanel" aria-labelledby="nav-revision-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <h3 class="card-title text-center">Mis Tareas Revisión Documento</h3>
-                            <div>
+                        <br>
+                            <h3 class="card-title text-center">Revisión Documento</h3>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscarTareaComentario12">
                                     <input type="number" name="numIdTarea1" id="numIdTarea1" hidden>
                                     <input type="number" name="numIdTidTareaCom1Act" id="numIdTidTareaCom1Act" hidden>
+                                    <br>
                                     <h5 id="tareasAct"></h5>
                                 </form>
                             </div>
@@ -357,11 +314,13 @@
                 <div class="tab-pane fade" id="nav-aprobacion" role="tabpanel" aria-labelledby="nav-aprobacion-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <h3 class="card-title text-center">Mis Tareas Aprobación de Documento</h3>
-                            <div>
+                        <br>
+                            <h3 class="card-title text-center">Aprobación de Documento</h3>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscarTareaComentario12">
                                     <input type="number" name="numIdTarea1" id="numIdTarea1" hidden>
                                     <input type="number" name="numIdTidTareaCom1Act" id="numIdTidTareaCom1Act" hidden>
+                                    <br>
                                     <h5 id="tareasApr"></h5>
                                 </form>
                             </div>
@@ -379,9 +338,9 @@
                                     <form class="row g-3 form-group" method="POST" id="aprobacion">
                                         <div class="modal-body">
                                             <div class="row">
-                                                <input type="number" name="numIdTareaApro" id="numIdTareaApro">
-                                                <input type="number" name="id_documentoVersion" id="id_documentoVersion">
-                                                <input type="number" name="versionAnterior" id="versionAnterior">
+                                                <input type="number" name="numIdTareaApro" id="numIdTareaApro" hidden>
+                                                <input type="number" name="id_documentoVersion" id="id_documentoVersion" hidden>
+                                                <input type="number" name="versionAnterior" id="versionAnterior" hidden>
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <input class="form-control" type="text" name="numIdSolApr"
                                                         id="numIdSolApr" hidden>
@@ -464,7 +423,110 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-devolucion" role="tabpanel" aria-labelledby="nav-devolucion-tab">
-                    <h5>devoluciones</h5>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                        <br>
+                            <h3 class="card-title text-center">Devolucion de Documentos</h3>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <form action="" class="form-group" id="buscarTareaComentario1">
+                                    <input type="number" name="numIdTarea" id="numIdTarea" hidden>
+                                    <input type="number" name="numIdTidTareaCom1" id="numIdTidTareaCom1" hidden>
+                                    <br>
+                                    <h5 id="tareasDevol"></h5>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Modal para administrar tarea-->
+                        <div class="modal fade" id="modaltareaDevol" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">ADMINISTRAR TAREA</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form class="row g-3 form-group"
+                                        action="../controladorAdministrador/versionamiento.create.php" method="POST"
+                                        enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <input type="number" name="idVersionDevo" id="idVersionDevo" >
+                                                <div class="col-md-10 col-xs-12 col-sm-12">
+                                                    <h5 for="data"> Documento</h5>
+                                                    <input class="form-control" type="text" name="documendocumentoDevo"
+                                                        id="documendocumentoDevo" readonly>
+                                                </div>
+                                                <div class="col-md-2 col-xs-12 col-sm-12">
+                                                    <h5>Version </h5>
+                                                    <input class="form-control" type="text" name="versionDev"
+                                                        id="versionDev" readonly>
+                                                </div>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Descripción de la Versión</h5>
+                                                    <textarea type="text" class="form-control redondeado" rows="2"
+                                                        id="descriCambio" name="descriCambio" required></textarea>
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                                    <h5>Agregar Documento</h5>
+                                                    <input class="form-control" type="file" name="fileDocumento"
+                                                        id="fileDocumento">
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                                    <h5>Selecionar Usuario para Revision</h5>
+                                                    <select class="form-control" id="empleado" name="empleado"
+                                                        aria-label="E" aria-describedby="basic-addon1"
+                                                        required></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-plus"></i>Iniciar Versión</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Modal para ver comentarios-->
+                         <div class="modal fade" id="comentarioDev" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Comentarios de la Solicitud</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="" class="form-group" id="buscar1">
+                                        <div class="modal-body">
+                                            <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <h5>Agregar Comentario</h5>
+                                                <textarea type="text" class="form-control redondeado" rows="2"
+                                                    id="comentrioEmpleado" name="comentrioEmpleado" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" id="btnCrearcomentario"
+                                                name="btnCrearcomentario" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-plus"></i>Agregar
+                                                Comentario</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 id="comentarios"></h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

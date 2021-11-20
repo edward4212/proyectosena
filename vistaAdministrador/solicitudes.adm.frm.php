@@ -20,8 +20,9 @@
                     aria-labelledby="nav-solicitudes-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
+                            <br>
                             <h3 class="card-title text-center">Solicitudes Registradas</h3>
-                            <div>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscar">
                                     <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>
                                     <h5 id="solicitudesAdmn"></h5>
@@ -106,11 +107,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="tab-pane fade" id="nav-asignadas" role="tabpanel" aria-labelledby="nav-asignadas-tab">
-                    <div class="row ">
-                        
-                    </div>
-                </div> -->
             </div>
         </div>
     </main>

@@ -127,7 +127,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Mision Actualizada con Exito',
                     showConfirmButton: false,
-                    timer: 2500
+                    timer: 3000
                     }).then((result) => {
                         cargar();
                       })
@@ -149,7 +149,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Vision Actualizada con Exito',
                     showConfirmButton: false,
-                    timer: 2500
+                    timer: 3000
                     }).then((result) => {
                         cargar();
                       })
@@ -171,7 +171,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Politica de Calidad Actualizada con Exito',
                     showConfirmButton: false,
-                    timer: 2500
+                    timer: 3000
                     }).then((result) => {
                         cargar();
                       })
@@ -193,7 +193,7 @@ $(document).ready(function(){
                     icon: 'success',
                     title: 'Politica de Calidad Actualizada con Exito',
                     showConfirmButton: false,
-                    timer: 2500
+                    timer: 3000
                     }).then((result) => {
                         cargar();
                       })

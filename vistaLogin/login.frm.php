@@ -78,8 +78,9 @@
     <main class="flex-shrink-0">
         <!-- Formulario login inicio -->
         <div class="container ">
-            <div class="position-absolute top-50 start-50 translate-middle  ">
-                <div class="card ">
+            <div class="">
+                <br>
+                <div class="cardIndex">
                     <div class="row justify-content-center">
                         <br>
                         <div class="col-md-4 ">

@@ -24,6 +24,7 @@
                 <div class="tab-pane fade show active" id="nav-procesos" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
+                        <br>
                             <h3 class="card-title text-center">Procesos</h3>
                             <form class="row g-3 form-group" id="proceso" method="POST">
                                 <h3 class="card-title">Crear Proceso</h3>
@@ -50,7 +51,8 @@
                         </div>
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <h3 class="card-title text-center">Procesos Registrados</h3>
-                            <div class="text-center">
+                            <div class="">
+                            <br>
                                 <h5 id="procesos"></h5>
                             </div>
                         </div>
@@ -147,6 +149,7 @@
                 <div class="tab-pane fade" id="nav-tiDoc" role="tabpanel" aria-labelledby="nav-tiDoc-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
+                        <br>
                             <h3 class="card-title text-center">Tipo Documento</h3>
                             <form class="row g-3 form-group" id="tipoDocumento" method="POST">
                                 <h3 class="card-title">Crear Tipo Documento</h3>
@@ -174,7 +177,8 @@
                         </div>
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <h3 class="card-title text-center">Tipo Documento Registrados</h3>
-                            <div class="text-center">
+                            <div class="">
+                            <br>
                                 <h5 id="tipoDocumentos"></h5>
                             </div>
                         </div>
@@ -272,8 +276,7 @@
             </div>
         </div>
     </main>
-
-    <?php include_once "footer.frm.php" ?>
+<?php include_once "footer.frm.php" ?>
 <script src="../js/administrador/procesos.Adm.js"></script>
 </body>
 </html>

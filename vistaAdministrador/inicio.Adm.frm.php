@@ -52,7 +52,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Logo</h5>
-                                    <img id="logo" class="rounded d-block zoom1" width="50" height="70" alt="...">
+                                    <img id="logo" class="rounded d-block zoom1"  alt="...">
                                 </div>
                                 <h5 class="card-title text-center" id="btnModificarLogo"></h5>
                             </div>

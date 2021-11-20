@@ -125,6 +125,32 @@ class Tarea{
           return $this->retorno;
      }
 
+     public function readDev()
+     {
+          try {
+               $this->sql = "SELECT 
+               versionamiento.`id_versionamiento`,
+               versionamiento.`descripcion_version`,
+               versionamiento.`numero_version`,
+               versionamiento.`documento`,
+               documento.`codigo`,
+               documento.`nombre_documento`,
+               tipo_documento.`sigla_tipo_documento`,
+               proceso.`sigla_proceso`
+               
+               FROM versionamiento 
+               
+               INNER JOIN documento ON documento.`id_documento` = versionamiento.`id_documento`
+               INNER JOIN tipo_documento ON tipo_documento.`id_tipo_documento` = documento.`id_tipo_documento`
+               INNER JOIN proceso ON proceso.`id_proceso` = documento.`id_proceso`
+               WHERE versionamiento.`usuario_creacion`  = '$this->usuario'  AND estado_version = 'D'  ";
+               $this->result = $this->conexion->query($this->sql);
+               $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+          return $this->retorno;
+     }
      public function creacionVersionamiento()
      {
           try{
@@ -356,6 +382,33 @@ class Tarea{
           }
                return $this->retorno;
      }
+
+     public function DevolverVersionamiento1()
+     {
+          try {
+               $this->sql = "UPDATE versionamiento SET usuario_revision= null, fecha_revision= null,fecha_aprobacion= null, usuario_aprobacion= null, estado_version = 'D' WHERE id_versionamiento=$this->id_versionamiento";
+               $this->result = $this->conexion->query($this->sql);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+
+     public function comentariosVersionamientoDevol1()
+     {
+          try{
+               $this->result = $this->conexion->prepare("INSERT INTO comentarios_versionamiento VALUES (NULL , :comentario, :id_versionamiento, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");
+               $this->result->bindParam(':comentario', $this->descripcion_version);
+               $this->result->bindParam(':id_versionamiento', $this->id_versionamiento);
+               $this->result->bindParam(':usuario_comentario', $this->usuario);
+               $this->result->execute();    
+          } catch (Exception $e) {
+
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+
 
 }
 

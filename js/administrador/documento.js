@@ -2,7 +2,7 @@
 function sigla_proceso(id_proceso, sigla_proceso) {
     $("#idsiglasProc").val(id_proceso);
     $("#idsiglasProc12").val(id_proceso);
-    // $("#siglasProc").val(sigla_proceso);
+    $("#siglasProc").val(sigla_proceso);
     $("#siglasProc1").val(sigla_proceso);
 }
 
@@ -57,7 +57,7 @@ $(document).ready(function () {
                 datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.numero_version + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.fecha_aprobacion + '</td>';
-                datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/' + value.sigla_proceso + '/'  + value.numero_version + '/' + value.documento + '"><i class="fas fa-download"></i></a></td>';
+                datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/' + value.sigla_proceso + '/' + value.sigla_tipo_documento + '/' + value.numero_version + '/' + value.documento + '"><i class="fas fa-download"></i></a></td>';
                 datos += '</tr>';
             })
             datos += '</tbody>';
@@ -150,12 +150,10 @@ $(document).ready(function () {
             $.each(json, function (key, value) {
                 if (value.estado == "A") {
                     proceso += '<option value=' + value.id_proceso + ' onclick="sigla_proceso(' + value.id_proceso + ',\'' + value.sigla_proceso + '\')">' + value.proceso + '</option>';
-                    siglasProc+= value.sigla_proceso;
+                  
                 }
             })
             $('#proceso').html(proceso);
-         
-            $('#siglasProc').html(siglasProc);
         }).fail(function (xhr, status, error) {
             $('#proceso').html(error);
         })
@@ -252,10 +250,10 @@ $(document).ready(function () {
                 }
                 datos += '<tr class="align-middle" >';
                 datos += '<td class=" border border-primary  text-wrap">' + value.proceso + '</td>';
-                datos += '<td class=" border border-primary text-center align-middle">' + value.tipo_documento + '</td>';
+                datos += '<td class=" border border-primary  text-wrap">' + value.tipo_documento + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
-                datos += '<td class=" border border-primary text-wrap">' + value.numero_version + '</td>';
+                datos += '<td class= "text-center align-middle border border-primary ">' + value.numero_version + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.estado_version + '</td>';
                 datos += '</tr>';
             })
@@ -355,20 +353,18 @@ $(document).ready(function () {
             datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
-            datos += '<th  class="text-center align-middle border border-primary ">ACTUALIZAR</th>';
             datos += '<th  class="text-center align-middle border border-primary ">INACTIVAR</th>';
             datos += '</tr>';
             datos += '</thead>';
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 datos += '<tr class="align-middle" >';
-                datos += '<td class=" border border-primary  text-wrap">' + value.proceso + '</td>';
-                datos += '<td class=" border border-primary text-center align-middle">' + value.tipo_documento + '</td>';
-                datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
-                datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
-                datos += '<td class=" border border-primary text-wrap">' + value.numero_version + '</td>';
-                datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="modificarRol(' + value.id_rol + ',\'' + value.rol + '\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#administrarDocumentos"><i class="far fa-edit"></i></button></td>';
-                datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="estadoRol(' + value.id_rol + ',\'' + value.rol + '\')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class="fas fa-times"></i></button></td>';
+                    datos += '<td class=" border border-primary text-wrap">' + value.proceso + '</td>';
+                    datos += '<td class=" border border-primary text-wrap">' + value.tipo_documento + '</td>';
+                    datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
+                    datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
+                    datos += '<td class=" border border-primary text-center align-middle">' + value.numero_version + '</td>';
+                    datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="estadoRol(' + value.id_rol + ',\'' + value.rol + '\')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class="fas fa-times"></i></button></td>';
                 datos += '</tr>';
             })
             datos += '</tbody>';
@@ -459,7 +455,7 @@ $(document).ready(function () {
             * Se crea la tabla para mostrar los datos consultados
             */
             var datos = '';
-            datos += "<table id='tableConsultaObso'  class='table  table-striped table-bordered table-responsive '   >";
+            datos += "<table id='tableConsultaObso'  class='table  table-striped table-bordered table-responsive '    >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
@@ -475,11 +471,11 @@ $(document).ready(function () {
             $.each(json, function (key, value) {
                 datos += '<tr class="align-middle" >';
                 datos += '<td class=" border border-primary  text-wrap">' + value.proceso + '</td>';
-                datos += '<td class=" border border-primary text-center align-middle">' + value.tipo_documento + '</td>';
-                datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
+                datos += '<td class=" border border-primary text-wrap align-middle">' + value.tipo_documento + '</td>';
+                datos += '<td class=" border border-primary  text-wrap ">' + value.codigo + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
-                datos += '<td class=" border border-primary text-wrap">' + value.numero_version + '</td>';
-                datos += '<td class=" border border-primary text-wrap"> </td>';
+                datos += '<td class=" border border-primary text-center align-middle">' + value.numero_version + '</td>';
+                datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/' + value.sigla_proceso + '/' + value.sigla_tipo_documento + '/' + value.numero_version + '/' + value.documento + '"><i class="fas fa-download"></i></a></td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.fecha_aprobacion + '</td>';
                 datos += '</tr>';
             })
