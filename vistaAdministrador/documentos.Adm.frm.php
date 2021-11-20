@@ -62,7 +62,7 @@
                                     <input type="text" aria-label="E" class="form-control codigo" id="idsiglasProc12"
                                         name="idsiglasProc12" hidden>
                                     <h5>Proceso</h5>
-                                    <select class="form-control redondeado" id="proceso" name="proceso"
+                                    <select class="form-control redondeado" id="procesoNuevo" name="procesoNuevo"
                                         required></select>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
@@ -73,13 +73,13 @@
                                         required></select>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end" id="botonesAsig">
-                                    <input type="text" aria-label="E" id="siglasProc" name="siglasProc"
-                                        class="form-control codigo" hidden>
+                                    <input type="text" aria-label="E" id="siglasProcNuevo" name="siglasProcNuevo"
+                                        class="form-control codigo" hidden >
                                     <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc"
                                         name="siglasTipDoc" hidden>
                                     <button type="button" id="btnAsignarCod" name="btnAsignarCod"
                                         class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Asignar Numero</button>
-                                    <div class="" id="codigoAsi" hidden>
+                                    <div class="" id="codigoAsi" hidden >
                                         <h5>Codigo del Documento</h5>
                                         <div class="input-group">
                                             <input type="text" aria-label="E" id="siglasProc1" name="siglasProc1"

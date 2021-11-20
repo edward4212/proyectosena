@@ -3,7 +3,7 @@
 include_once "../entidadAdministrador/documento.entidad.php";
 include_once "../modeloAdministrador/documento.modelo.php";
 
-$proceso = $_POST['siglasProc'];
+$proceso = $_POST['siglasProcNuevo'];
 $tipoDoc = $_POST['siglasTipDoc'];
 $sl = "-";
 $codigo = $proceso.$sl.$tipoDoc;

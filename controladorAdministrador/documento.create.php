@@ -8,7 +8,7 @@ include_once "../controladorLogin/logueo.read.php";
 $id_tipo_documento = $_POST['idsiglasTipDoc12'];
 $sigla_tipo_documento =  $_POST['siglasTipDoc'];
 $id_proceso = $_POST['idsiglasProc12'];
-$sigla_proceso =  $_POST['siglasProc'];
+$sigla_proceso =  $_POST['siglasProc1       '];
 $s ="-";
 $codigo = $_POST['txtcodigo'];
 $codigoConca = $sigla_proceso.$s.$sigla_tipo_documento.$s.$codigo;

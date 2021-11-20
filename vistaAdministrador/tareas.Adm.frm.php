@@ -224,7 +224,9 @@
                                             <div class="row">
                                                 <input type="number" name="numIdTarea11" id="numIdTarea11" hidden>
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
-                                                    <input class="form-control" type="text" name="numIdSolT1"
+                                                    <input class="form-control" type="text" name="id_tareaAct"
+                                                        id="id_tareaAct" hidden >
+                                                        <input class="form-control" type="text" name="numIdSolT1"
                                                         id="numIdSolT1" hidden>
                                                     <input class="form-co ntrol" type="text" name="idDocumento1"
                                                         id="idDocumento1" hidden>
@@ -341,6 +343,8 @@
                                                 <input type="number" name="numIdTareaApro" id="numIdTareaApro" hidden>
                                                 <input type="number" name="id_documentoVersion" id="id_documentoVersion" hidden>
                                                 <input type="number" name="versionAnterior" id="versionAnterior" hidden>
+                                                <input class="form-control" type="text" name="id_tareaApr"
+                                                        id="id_tareaApr"  >
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <input class="form-control" type="text" name="numIdSolApr"
                                                         id="numIdSolApr" hidden>
@@ -447,7 +451,7 @@
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <form class="row g-3 form-group"
-                                        action="../controladorAdministrador/versionamiento.create.php" method="POST"
+                                        action="../controladorAdministrador/versionamiento.create2.php" method="POST"
                                         enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="row">
@@ -456,6 +460,8 @@
                                                     <h5 for="data"> Documento</h5>
                                                     <input class="form-control" type="text" name="documendocumentoDevo"
                                                         id="documendocumentoDevo" readonly>
+                                                    <input type="text" name="procesoDEv" id="procesoDEv" >
+                                                    <input type="text" name="tipoDocDElv" id="tipoDocDElv" >
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version </h5>
@@ -465,16 +471,16 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Descripción de la Versión</h5>
                                                     <textarea type="text" class="form-control redondeado" rows="2"
-                                                        id="descriCambio" name="descriCambio" required></textarea>
+                                                        id="descriCambioDev" name="descriCambioDev" required></textarea>
                                                 </div>
                                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                                     <h5>Agregar Documento</h5>
-                                                    <input class="form-control" type="file" name="fileDocumento"
-                                                        id="fileDocumento">
+                                                    <input class="form-control" type="file" name="fileDocumentoDev"
+                                                        id="fileDocumentoDev">
                                                 </div>
                                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                                     <h5>Selecionar Usuario para Revision</h5>
-                                                    <select class="form-control" id="empleado" name="empleado"
+                                                    <select class="form-control" id="empleadoDev" name="empleadoDev"
                                                         aria-label="E" aria-describedby="basic-addon1"
                                                         required></select>
                                                 </div>

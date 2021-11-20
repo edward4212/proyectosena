@@ -41,7 +41,7 @@ $tareaE -> setUsuarioRevision($usuario_revision);
 $tareaE -> setDocumento($nombre);
 
 $tareaM= new \modelo\Tarea($tareaE);
-$resultado = $tareaM->creacionVersionamiento();
+$resultado = $tareaM->creacionVersionamiento1();
 
 
 

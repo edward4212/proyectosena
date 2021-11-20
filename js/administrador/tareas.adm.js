@@ -22,16 +22,17 @@ function idtarea(id_tarea, id_solicitud) {
     $("#numIdSolT").val(id_solicitud);
 }
 
-function idtareaAct(id_versionamiento, documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version) {
+function idtareaAct(id_versionamiento,id_tarea, documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version) {
     $("#numIdTarea11").val(id_versionamiento);
     $("#documendocumentoTarea").val(codigo + '-' + nombre_documento);
     $("#versionDoc1").val(numero_version);
     $("#fileDocumentoDes").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + numero_version + '/' + documento);
     $("#descriVersion").val(descripcion_version);
     $("#numIdVerDevol").val(id_versionamiento);
+    $("#id_tareaAct").val(id_tarea);
 }
 
-function idtareaApr(id_versionamiento, documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version, id_documento) {
+function idtareaApr(id_versionamiento, id_tarea,documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version, id_documento) {
     $("#numIdTareaApro").val(id_versionamiento);
     $("#documendocumentoApr").val(codigo + '-' + nombre_documento);
     $("#versionDocAp").val(numero_version);
@@ -41,6 +42,8 @@ function idtareaApr(id_versionamiento, documento, codigo, nombre_documento, nume
 
     $("#id_documentoVersion").val(id_documento);
     $("#versionAnterior").val(numero_version - 1);
+    $("#id_tareaApr").val(id_tarea);
+    
 }
 
 function idcomentarioTar(id_tarea) {
@@ -63,6 +66,8 @@ function idDevolucion(id_versionamiento, documento, codigo, nombre_documento, nu
     $("#idVersionDevo").val(id_versionamiento);
     $("#documendocumentoDevo").val(codigo + '-' + nombre_documento);
     $("#versionDev").val(numero_version);
+    $("#procesoDEv").val(sigla_proceso);
+    $("#tipoDocDElv").val(sigla_tipo_documento);
 }
 
 $(document).ready(function () {
@@ -76,6 +81,7 @@ $(document).ready(function () {
     tareasDevol();
     buscarFuncionarios1();
     buscarFuncionariossINT();
+    buscarFuncionarios2();
 
 
     $("#documentoAuto").autocomplete({
@@ -671,7 +677,7 @@ $(document).ready(function () {
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.nombre_documento + '</td>';
                 datos += '<td class=" border border border-primary text-center align-middle">' + value.numero_version + '</td>';
-                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaAct(' + value.id_versionamiento + ',\'' + value.documento + '\',\'' + value.codigo + '\',\'' + value.nombre_documento + '\',' + value.numero_version + ',\'' + value.sigla_tipo_documento + '\',\'' + value.sigla_proceso + '\',\'' + value.descripcion_version + '\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaAct"><i class="fas fa-cogs"></i></button></td>';
+                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaAct(' + value.id_versionamiento + ',' + value.id_tarea + ',\'' + value.documento + '\',\'' + value.codigo + '\',\'' + value.nombre_documento + '\',' + value.numero_version + ',\'' + value.sigla_tipo_documento + '\',\'' + value.sigla_proceso + '\',\'' + value.descripcion_version + '\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaAct"><i class="fas fa-cogs"></i></button></td>';
 
                 datos += '</tr>';
             })
@@ -835,7 +841,7 @@ $(document).ready(function () {
             datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
+            datos += '<th  class="border border-primary text-center align-middle "> VERSION ddd</th>';
             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
             datos += '</tr>';
             datos += '</thead>';
@@ -849,7 +855,7 @@ $(document).ready(function () {
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.nombre_documento + '</td>';
                 datos += '<td class=" bborder border-primary text-center align-middle">' + value.numero_version + '</td>';
-                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaApr(' + value.id_versionamiento + ',\'' + value.documento + '\',\'' + value.codigo + '\',\'' + value.nombre_documento + '\',' + value.numero_version + ',\'' + value.sigla_tipo_documento + '\',\'' + value.sigla_proceso + '\',\'' + value.descripcion_version + '\',' + value.id_documento + ')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaApr"><i class="fas fa-cogs"></i></button></td>';
+                datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idtareaApr(' + value.id_versionamiento + ',' + value.id_tarea + ',\'' + value.documento + '\',\'' + value.codigo + '\',\'' + value.nombre_documento + '\',' + value.numero_version + ',\'' + value.sigla_tipo_documento + '\',\'' + value.sigla_proceso + '\',\'' + value.descripcion_version + '\',' + value.id_documento + ')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaApr"><i class="fas fa-cogs"></i></button></td>';
 
                 datos += '</tr>';
             })
@@ -941,19 +947,18 @@ $(document).ready(function () {
             dataType: 'json',
             data: $('#aprobacion').serialize(),
         }).done(function (json) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Revision Registrada con Exito',
-                showConfirmButton: false,
-                timer: 3000
-            }).then((result) => {
-                cargar();
-            })
+            // Swal.fire({
+            //     icon: 'success',
+            //     title: 'Revision Registrada con Exito',
+            //     showConfirmButton: false,
+            //     timer: 3000
+            // }).then((result) => {
+            //     cargar();
+            // })
         }).fail(function (xhr, status, error) {
             console.log(error);
         })
     })
-
 
     ///INACTIVAR VERSION ANTERIOR DE VERSION REALZIADA///
     $(document).on('click', '#btnAprobacionTarea', function (event) {
@@ -1104,6 +1109,25 @@ $(document).ready(function () {
             });
         }).fail(function (xhr, status, error) {
             $('#tareasDevol').html(error);
+        })
+    }
+
+    ///asignar funcioanrio para revisar///
+    function buscarFuncionarios2() {
+        $.ajax({
+            url: '../controladorAdministrador/usuario.read.php',
+            type: 'POST',
+            dataType: 'json',
+            data: null,
+        }).done(function (json) {
+            var tipoDocumento = 0;
+            tipoDocumento += '<option disabled selected> - Seleccione un funcionario-</option>';
+            $.each(json, function (key, value) {
+                tipoDocumento += '<option value=' + value.usuario + '>' + value.usuario + '</option>';
+            })
+            $('#empleadoDev').html(tipoDocumento);
+        }).fail(function (xhr, status, error) {
+            $('#empleadoDev').html(error);
         })
     }
 

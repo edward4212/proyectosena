@@ -4,54 +4,45 @@ include_once "../entidadAdministrador/tarea.entidad.php";
 include_once "../modeloAdministrador/tarea.modelo.php";
 include_once "../controladorLogin/logueo.read.php";
 
-
-$numero_version = $_POST['versionSig'];
-$id_documento = $_POST['idDocumento'];
-$descriocion_version = $_POST['descriCambio'];
 $usuario = $_SESSION['usuario'];
-$usuario_revision = $_POST['empleado'];
-$id_tarea = $_POST['numIdTarea1'];
+$id_versionamiento = $_POST['idVersionDevo'];
+$descriocion_version = $_POST['descriCambioDev'];
+$usuario_revision = $_POST['empleadoDev'];
+$numero_version = $_POST['versionDev'];
 
-$proceso = $_POST['proceso'];
-$tipDoc = $_POST['sigla_tipo_documento'];
+$proceso = $_POST['procesoDEv'];
+$tipDoc = $_POST['tipoDocDElv'];
 
-$foto=$_FILES["fileDocumento"]["tmp_name"];
-$tipo =$_FILES['fileDocumento']['type'];
-$tamaño =$_FILES['fileDocumento']['size'];
+$foto=$_FILES["fileDocumentoDev"]["tmp_name"];
+$tipo =$_FILES['fileDocumentoDev']['type'];
+$tamaño =$_FILES['fileDocumentoDev']['size'];
 
 $directorio = "../documentos/procesos/$proceso/$tipDoc/$numero_version/";
 
 if(!file_exists($directorio)){
     mkdir($directorio,0777,true);
-    $nombre = $_FILES['fileDocumento']['name'];   
-    move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);        
+    $nombre = $_FILES['fileDocumentoDev']['name'];   
+    move_uploaded_file($_FILES['fileDocumentoDev']['tmp_name'],$directorio.$nombre);        
 }else{
     if(file_exists($directorio)){
-        $nombre = $_FILES['fileDocumento']['name'];
-        move_uploaded_file($_FILES['fileDocumento']['tmp_name'],$directorio.$nombre);
+        $nombre = $_FILES['fileDocumentoDev']['name'];
+        move_uploaded_file($_FILES['fileDocumentoDev']['tmp_name'],$directorio.$nombre);
     }    
 }
 
 
-$id_solicitud = $_POST['numIdSolT'];
-
-
 $tareaE = new \entidad\Tarea(); 
-$tareaE -> setNumeroVersion($numero_version);
-$tareaE -> setIdDocumento($id_documento);
-$tareaE -> setDescripcionVersion($descriocion_version);
+
 $tareaE -> setUsuario($usuario);
+$tareaE -> setIdVersionamiento($id_versionamiento);
+$tareaE -> setDescripcionVersion($descriocion_version);
 $tareaE -> setUsuarioRevision($usuario_revision);
 $tareaE -> setDocumento($nombre);
 
-$tareaE -> setIdTarea($id_tarea);
-$tareaE -> setIdSolicitud($id_solicitud);
-
 $tareaM= new \modelo\Tarea($tareaE);
-$resultado = $tareaM->creacionVersionamiento();
-$resultado = $tareaM->comentariosCrearDoc();
-$resultado = $tareaM->comentariosTarea();
-$resultado = $tareaM->actualizarTarea();
+$resultado = $tareaM->actualizacionVersionamientoDev();
+$resultado = $tareaM->comentariosVersionamientoDevolEn();
+
 
 unset($tareaE);
 unset($tareaM);
@@ -68,7 +59,7 @@ echo '
                 showConfirmButton: false,
                 timer: 3000
                 }).then(function() {
-                window.location.href = "../vistaAdministrador/tareas.Adm.frm.php";
+                window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
             });
         });
     </script>';

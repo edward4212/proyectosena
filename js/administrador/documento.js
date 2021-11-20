@@ -1,8 +1,8 @@
 
-function sigla_proceso(id_proceso, sigla_proceso) {
+function siglasProcNuevo(id_proceso, sigla_proceso) {
     $("#idsiglasProc").val(id_proceso);
     $("#idsiglasProc12").val(id_proceso);
-    $("#siglasProc").val(sigla_proceso);
+    $("#siglasProcNuevo").val(sigla_proceso);
     $("#siglasProc1").val(sigla_proceso);
 }
 
@@ -145,17 +145,16 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             var proceso = 0;
-            var    siglasProc="";
             proceso += '<option disabled selected> - Seleccione un Proceso -</option>';
             $.each(json, function (key, value) {
                 if (value.estado == "A") {
-                    proceso += '<option value=' + value.id_proceso + ' onclick="sigla_proceso(' + value.id_proceso + ',\'' + value.sigla_proceso + '\')">' + value.proceso + '</option>';
+                    proceso += '<option value=' + value.id_proceso + ' onclick="siglasProcNuevo(' + value.id_proceso + ',\'' + value.sigla_proceso + '\')">' + value.proceso + '</option>';
                   
                 }
             })
-            $('#proceso').html(proceso);
+            $('#procesoNuevo').html(proceso);
         }).fail(function (xhr, status, error) {
-            $('#proceso').html(error);
+            $('#procesoNuevo').html(error);
         })
     }
 
@@ -581,7 +580,7 @@ $(document).ready(function () {
             })
             $('#txtcodigo').val(resul);
             $("#btnAsignarCod").prop("hidden", true);
-            $("#proceso").prop("disabled", true);
+            $("#procesoNuevo").prop("disabled", true);
             $("#tipoDocumento").prop("disabled", true);
             $("#nombreAsig").prop("hidden", false);
             $("#codigoAsi").prop("hidden", false);
@@ -595,7 +594,7 @@ $(document).ready(function () {
 
     $(document).on('click','#btncrearResDoc', function(){
         $("#btnAsignarCod").prop("hidden", false);
-        $("#proceso").prop("disabled", false);
+        $("#procesoNuevo").prop("disabled", false);
         $("#tipoDocumento").prop("disabled", false);
         $("#nombreAsig").prop("hidden", true);
         $("#codigoAsi").prop("hidden", true);
