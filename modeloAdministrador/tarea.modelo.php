@@ -156,7 +156,7 @@ class Tarea{
      {
           try{
                
-               $this->result = $this->conexion->prepare("INSERT INTO versionamiento VALUES (NULL , :numero_version , :id_documento, :descripcion_version , :usuario_creacion, CURRENT_TIMESTAMP(),:usuario_revision,null,null,null,:documento,'T', :idTarea)");
+               $this->result = $this->conexion->prepare("INSERT INTO versionamiento VALUES (NULL , :numero_version , :id_documento, :descripcion_version , :usuario_creacion, CURRENT_TIMESTAMP(),:usuario_revision,null,null,null,:documento,'T', :idTarea, null)");
                $this->result->bindParam(':numero_version', $this->numero_version);
                $this->result->bindParam(':id_documento', $this->id_documento);
                $this->result->bindParam(':descripcion_version', $this->descripcion_version);
@@ -175,7 +175,7 @@ class Tarea{
      {
           try{
                
-               $this->result = $this->conexion->prepare("INSERT INTO versionamiento VALUES (NULL , :numero_version , :id_documento, :descripcion_version , :usuario_creacion, CURRENT_TIMESTAMP(),:usuario_revision,null,null,null,:documento,'T', null)");
+               $this->result = $this->conexion->prepare("INSERT INTO versionamiento VALUES (NULL , :numero_version , :id_documento, :descripcion_version , :usuario_creacion, CURRENT_TIMESTAMP(),:usuario_revision,null,null,null,:documento,'T', null, null)");
                $this->result->bindParam(':numero_version', $this->numero_version);
                $this->result->bindParam(':id_documento', $this->id_documento);
                $this->result->bindParam(':descripcion_version', $this->descripcion_version);
@@ -254,6 +254,37 @@ class Tarea{
                return $this->retorno;
      }
 
+     public function comentariosTareaDev()
+     {
+          try{
+               $this->result = $this->conexion->prepare("INSERT INTO comentarios_tarea VALUES (NULL , :comentario, :id_tarea, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");  
+               $this->result->bindParam(':id_tarea', $this->id_tarea);
+               $this->result->bindParam(':usuario_comentario', $this->usuario);
+               $this->result->bindParam(':comentario', $this->descripcion_version);
+               $this->result->execute();    
+          } catch (Exception $e) {
+
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+
+     public function comentariosTareaDevAp()
+     {
+          try{
+               $this->result = $this->conexion->prepare("INSERT INTO comentarios_tarea VALUES (NULL , :comentario, :id_tarea, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");  
+               $this->result->bindParam(':id_tarea', $this->id_tarea);
+               $this->result->bindParam(':usuario_comentario', $this->usuario);
+               $this->result->bindParam(':comentario', $this->descripcion_version);
+               $this->result->execute();    
+          } catch (Exception $e) {
+
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+
+
 
      public function comentarios()
      {
@@ -282,6 +313,8 @@ class Tarea{
           }
                return $this->retorno;
      }
+
+     
 
      public function readAct()
      {
@@ -410,8 +443,7 @@ class Tarea{
      public function aprobarVersionamiento()
      {
           try {
-               $this->sql = "UPDATE versionamiento SET fecha_aprobacion =  CURRENT_TIMESTAMP(), 
-               estado_version = 'V' WHERE id_versionamiento=$this->id_versionamiento";
+               $this->sql = "UPDATE versionamiento SET fecha_aprobacion =  CURRENT_TIMESTAMP(), estado_version = 'V' WHERE id_versionamiento=$this->id_versionamiento";
                $this->result = $this->conexion->query($this->sql);
           } catch (Exception $e) {
                $this->retorno = $e->getMessage();
@@ -422,7 +454,9 @@ class Tarea{
      public function taraApro()
      {
           try {
-               $this->sql = "UPDATE tarea SET fecha_aprobacion = CURRENT_TIMESTAMP(), estado ='T' WHERE id_tarea=$this->id_tarea";
+               $this->sql = "UPDATE tarea INNER JOIN solicitud ON tarea.`id_solicitud` = solicitud.`id_solicitud`
+               SET tarea.`fecha_aprobacion` = CURRENT_TIMESTAMP(), tarea.`estado` ='T' , solicitud.`fecha_solucion` = CURRENT_TIMESTAMP(), solicitud.`id_estatus_solicitud` = '4'
+               WHERE id_tarea=$this->id_tarea";
                $this->result = $this->conexion->query($this->sql);
           } catch (Exception $e) {
                $this->retorno = $e->getMessage();
@@ -433,7 +467,7 @@ class Tarea{
      public function comentariosTareaApr()
      {
           try{
-               $this->result = $this->conexion->prepare("INSERT INTO comentarios_tarea VALUES (NULL , 'Se Aproobo el Documento', :id_tarea, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");  
+               $this->result = $this->conexion->prepare("INSERT INTO comentarios_tarea VALUES (NULL , 'Se Aprobo el Documento', :id_tarea, :usuario_comentario , 'A', CURRENT_TIMESTAMP())");  
                $this->result->bindParam(':id_tarea', $this->id_tarea);
                $this->result->bindParam(':usuario_comentario', $this->usuario);
                $this->result->execute();    
@@ -507,6 +541,21 @@ class Tarea{
           }
                return $this->retorno;
      }
+
+
+     public function comentariosTareas()
+     {
+          try {
+               $this->sql = "	SELECT * FROM comentarios_tarea 
+               WHERE id_tarea =  '$this->id_tarea'";
+               $this->result = $this->conexion->query($this->sql);
+               $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+
 
 
 }

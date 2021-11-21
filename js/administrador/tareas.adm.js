@@ -22,17 +22,18 @@ function idtarea(id_tarea, id_solicitud) {
     $("#numIdSolT").val(id_solicitud);
 }
 
-function idtareaAct(id_versionamiento,id_tarea, documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version) {
+function idtareaAct(id_versionamiento, id_tarea, documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version) {
     $("#numIdTarea11").val(id_versionamiento);
     $("#documendocumentoTarea").val(codigo + '-' + nombre_documento);
     $("#versionDoc1").val(numero_version);
     $("#fileDocumentoDes").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + numero_version + '/' + documento);
     $("#descriVersion").val(descripcion_version);
     $("#numIdVerDevol").val(id_versionamiento);
+    $("#idTareDEvl").val(id_tarea);
     $("#id_tareaAct").val(id_tarea);
 }
 
-function idtareaApr(id_versionamiento, id_tarea,documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version, id_documento) {
+function idtareaApr(id_versionamiento, id_tarea, documento, codigo, nombre_documento, numero_version, sigla_tipo_documento, sigla_proceso, descripcion_version, id_documento) {
     $("#numIdTareaApro").val(id_versionamiento);
     $("#documendocumentoApr").val(codigo + '-' + nombre_documento);
     $("#versionDocAp").val(numero_version);
@@ -43,12 +44,16 @@ function idtareaApr(id_versionamiento, id_tarea,documento, codigo, nombre_docume
     $("#id_documentoVersion").val(id_documento);
     $("#versionAnterior").val(numero_version - 1);
     $("#id_tareaApr").val(id_tarea);
-    
+
+    $("#id_tareaDEvAp").val(id_tarea);
+
 }
 
 function idcomentarioTar(id_tarea) {
     $("#numIdTidTareaCom").val(id_tarea);
     $("#numIdTidTareaCom1").val(id_tarea);
+    $("#idTareaComDev").val(id_tarea);
+    
 }
 
 function idcomentarioTarAct(id_tarea) {
@@ -238,50 +243,50 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 buttons: [{
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        download: 'open',
-                        title: 'Mis Solicitudes Asignadas',
-                        titleAttr: 'Mis Solicitudes Asignadas',
-                        messageTop: 'Mis Solicitudes Asignadas',
-                        text: '<i class="far fa-file-pdf"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: 'Mis Solicitudes Asignadas',
-                        titleAttr: 'Mis Solicitudes Asignadas',
-                        messageTop: 'Mis Solicitudes Asignadas',
-                        text: '<i class="fas fa-print"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="fas fa-file-excel"></i>',
-                        autoFiltre: true,
-                        title: 'Mis Solicitudes Asignadas',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-                        }
-                    },
-                    {
-                        extend: 'copyHtml5',
-                        text: '<i class="fas fa-copy"></i>',
-                        autoFiltre: true,
-                        titleAttr: 'COPIAR',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-                        }
-                    },
-                    {
-                        extend: 'searchBuilder'
-
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    title: 'Mis Solicitudes Asignadas',
+                    titleAttr: 'Mis Solicitudes Asignadas',
+                    messageTop: 'Mis Solicitudes Asignadas',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
                     }
+                },
+                {
+                    extend: 'print',
+                    title: 'Mis Solicitudes Asignadas',
+                    titleAttr: 'Mis Solicitudes Asignadas',
+                    messageTop: 'Mis Solicitudes Asignadas',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Mis Solicitudes Asignadas',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    }
+                },
+                {
+                    extend: 'searchBuilder'
+
+                }
                 ]
             });
         }).fail(function (xhr, status, error) {
@@ -345,47 +350,47 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 buttons: [{
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        download: 'open',
-                        pageSize: 'LEGAL',
-                        title: 'Comentarios sobre la Solicitud',
-                        titleAttr: 'Comentarios sobre la Solicitud',
-                        messageTop: 'Comentarios sobre la Solicitud',
-                        text: '<i class="far fa-file-pdf"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, ]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: 'Comentarios sobre la Solicitud',
-                        titleAttr: 'Comentarios sobre la Solicitud',
-                        messageTop: 'Comentarios sobre la Solicitud',
-                        text: '<i class="fas fa-print"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="fas fa-file-excel"></i>',
-                        autoFiltre: true,
-                        title: 'Comentarios sobre la Solicitud',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    },
-                    {
-                        extend: 'copyHtml5',
-                        text: '<i class="fas fa-copy"></i>',
-                        autoFiltre: true,
-                        titleAttr: 'COPIAR',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    pageSize: 'LEGAL',
+                    title: 'Comentarios sobre la Solicitud',
+                    titleAttr: 'Comentarios sobre la Solicitud',
+                    messageTop: 'Comentarios sobre la Solicitud',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2,]
                     }
+                },
+                {
+                    extend: 'print',
+                    title: 'Comentarios sobre la Solicitud',
+                    titleAttr: 'Comentarios sobre la Solicitud',
+                    messageTop: 'Comentarios sobre la Solicitud',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Comentarios sobre la Solicitud',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                }
                 ]
             });
         }).fail(function (xhr, status, error) {
@@ -555,50 +560,50 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 buttons: [{
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        download: 'open',
-                        title: 'Mis Tareas Por Aprobar',
-                        titleAttr: 'Mis Tareas Asignadas',
-                        messageTop: 'Mis Tareas Asignadas',
-                        text: '<i class="far fa-file-pdf"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: 'Mis Tareas Asignadas',
-                        titleAttr: 'Mis Tareas Asignadas',
-                        messageTop: 'Mis Tareas Asignadas',
-                        text: '<i class="fas fa-print"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="fas fa-file-excel"></i>',
-                        autoFiltre: true,
-                        title: 'Mis Tareas Asignadas',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'copyHtml5',
-                        text: '<i class="fas fa-copy"></i>',
-                        autoFiltre: true,
-                        titleAttr: 'COPIAR',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'searchBuilder'
-
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    title: 'Mis Tareas Por Aprobar',
+                    titleAttr: 'Mis Tareas Asignadas',
+                    messageTop: 'Mis Tareas Asignadas',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
                     }
+                },
+                {
+                    extend: 'print',
+                    title: 'Mis Tareas Asignadas',
+                    titleAttr: 'Mis Tareas Asignadas',
+                    messageTop: 'Mis Tareas Asignadas',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Mis Tareas Asignadas',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'searchBuilder'
+
+                }
                 ]
             });
         }).fail(function (xhr, status, error) {
@@ -709,50 +714,50 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 buttons: [{
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        download: 'open',
-                        title: 'Mis Tareas Asignadas',
-                        titleAttr: 'Mis Tareas Asignadas',
-                        messageTop: 'Mis Tareas Asignadas',
-                        text: '<i class="far fa-file-pdf"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: 'Mis Tareas Asignadas',
-                        titleAttr: 'Mis Tareas Asignadas',
-                        messageTop: 'Mis Tareas Asignadas',
-                        text: '<i class="fas fa-print"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="fas fa-file-excel"></i>',
-                        autoFiltre: true,
-                        title: 'Mis Tareas Asignadas',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'copyHtml5',
-                        text: '<i class="fas fa-copy"></i>',
-                        autoFiltre: true,
-                        titleAttr: 'COPIAR',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'searchBuilder'
-
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    title: 'Mis Tareas Asignadas',
+                    titleAttr: 'Mis Tareas Asignadas',
+                    messageTop: 'Mis Tareas Asignadas',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
                     }
+                },
+                {
+                    extend: 'print',
+                    title: 'Mis Tareas Asignadas',
+                    titleAttr: 'Mis Tareas Asignadas',
+                    messageTop: 'Mis Tareas Asignadas',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Mis Tareas Asignadas',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'searchBuilder'
+
+                }
                 ]
             });
         }).fail(function (xhr, status, error) {
@@ -841,7 +846,7 @@ $(document).ready(function () {
             datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle "> VERSION ddd</th>';
+            datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
             datos += '</tr>';
             datos += '</thead>';
@@ -887,50 +892,50 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 buttons: [{
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        download: 'open',
-                        title: 'Mis Tareas Por Aprobar',
-                        titleAttr: 'Mis Tareas Por Aprobar',
-                        messageTop: 'Mis Tareas Por Aprobar',
-                        text: '<i class="far fa-file-pdf"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: 'Mis Tareas Por Aprobar',
-                        titleAttr: 'Mis Tareas Por Aprobar',
-                        messageTop: 'Mis Tareas Por Aprobar',
-                        text: '<i class="fas fa-print"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="fas fa-file-excel"></i>',
-                        autoFiltre: true,
-                        title: 'Mis Tareas Por Aprobar',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'copyHtml5',
-                        text: '<i class="fas fa-copy"></i>',
-                        autoFiltre: true,
-                        titleAttr: 'COPIAR',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'searchBuilder'
-
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    title: 'Mis Tareas Por Aprobar',
+                    titleAttr: 'Mis Tareas Por Aprobar',
+                    messageTop: 'Mis Tareas Por Aprobar',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
                     }
+                },
+                {
+                    extend: 'print',
+                    title: 'Mis Tareas Por Aprobar',
+                    titleAttr: 'Mis Tareas Por Aprobar',
+                    messageTop: 'Mis Tareas Por Aprobar',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Mis Tareas Por Aprobar',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'searchBuilder'
+
+                }
                 ]
             });
         }).fail(function (xhr, status, error) {
@@ -947,14 +952,14 @@ $(document).ready(function () {
             dataType: 'json',
             data: $('#aprobacion').serialize(),
         }).done(function (json) {
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Revision Registrada con Exito',
-            //     showConfirmButton: false,
-            //     timer: 3000
-            // }).then((result) => {
-            //     cargar();
-            // })
+            Swal.fire({
+                icon: 'success',
+                title: 'Revision Registrada con Exito',
+                showConfirmButton: false,
+                timer: 3000
+            }).then((result) => {
+                cargar();
+            })
         }).fail(function (xhr, status, error) {
             console.log(error);
         })
@@ -1030,7 +1035,7 @@ $(document).ready(function () {
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.nombre_documento + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.numero_version + '</td>';
                 datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idDevolucion(' + value.id_versionamiento + ',\'' + value.documento + '\',\'' + value.codigo + '\',\'' + value.nombre_documento + '\',' + value.numero_version + ',\'' + value.sigla_tipo_documento + '\',\'' + value.sigla_proceso + '\',\'' + value.descripcion_version + '\',' + value.id_documento + ')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaDevol"><i class="fas fa-cogs"></i></button></td>';
-                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnComentarioTarea" onclick="idcomentarioTar(' + value.id_tarea + ')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentarioDev"><i class="far fa-comment-dots"></i></button></td>';
+                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnVerComentariosTarea" onclick="idcomentarioTar(' + value.id_tarea + ')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentarioDevolucion"><i class="far fa-comment-dots"></i></button></td>';
                 datos += '</tr>';
             })
             datos += '</tbody>';
@@ -1061,50 +1066,50 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 buttons: [{
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        download: 'open',
-                        title: 'Mis Tareas Por Aprobar',
-                        titleAttr: 'Mis Tareas Asignadas',
-                        messageTop: 'Mis Tareas Asignadas',
-                        text: '<i class="far fa-file-pdf"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: 'Mis Tareas Asignadas',
-                        titleAttr: 'Mis Tareas Asignadas',
-                        messageTop: 'Mis Tareas Asignadas',
-                        text: '<i class="fas fa-print"></i>',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="fas fa-file-excel"></i>',
-                        autoFiltre: true,
-                        title: 'Mis Tareas Asignadas',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'copyHtml5',
-                        text: '<i class="fas fa-copy"></i>',
-                        autoFiltre: true,
-                        titleAttr: 'COPIAR',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3]
-                        }
-                    },
-                    {
-                        extend: 'searchBuilder'
-
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    title: 'Mis Tareas Por Aprobar',
+                    titleAttr: 'Mis Tareas Asignadas',
+                    messageTop: 'Mis Tareas Asignadas',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
                     }
+                },
+                {
+                    extend: 'print',
+                    title: 'Mis Tareas Asignadas',
+                    titleAttr: 'Mis Tareas Asignadas',
+                    messageTop: 'Mis Tareas Asignadas',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Mis Tareas Asignadas',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'searchBuilder'
+
+                }
                 ]
             });
         }).fail(function (xhr, status, error) {
@@ -1130,6 +1135,111 @@ $(document).ready(function () {
             $('#empleadoDev').html(error);
         })
     }
+
+    
+    $(document).on('click', '#btnVerComentariosTarea', function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '../controladorAdministrador/tarea.comentariosTarea.read.php.php',
+            type: 'POST',
+            dataType: 'json',
+            data: $('#comentarioDevoluciona').serialize(),
+        }).done(function (json) {
+            var comentarios = '';
+            if (json == 0) {
+                comentarios += "<h5>Aun no hay comentarios</h5>";
+            } else {
+                comentarios += "<table id='tableComentariosTarea'  class='table  table-striped table-bordered table-responsive ' >";
+                comentarios += '<thead >';
+                comentarios += '<tr class="table-light border-primary ">';
+                comentarios += '<th  class="text-center align-middle border border-primary ">FECHA COMENTARIO</th>';
+                comentarios += '<th  class="text-center align-middle border border-primary ">USUARIO</th>';
+                comentarios += '<th  class="text-center align-middle border border-primary ">COMENTARIO</th>';;
+                comentarios += '</tr>';
+                comentarios += '</thead>';
+                comentarios += '<tbody>';
+                $.each(json, function (key, value) {
+                    comentarios += '<tr class="align-middle" >';
+                    comentarios += '<td class=" border border-primary text-wrap" id="numIdSolicitud">' + value.fecha_comentario + ' </td>';
+                    comentarios += '<td class=" border border-primary  text-wrap align-middle">' + value.usuario_comentario + '</td>';
+                    comentarios += '<td class=" border border-primary  text-wrap align-middle">' + value.comentario + '</td>';
+                    comentarios += '</tr>';
+                })
+                comentarios += '</tbody>';
+                comentarios += '</table>';
+            }
+            $('#comentariosTareaDev').html(comentarios);
+            $('#tableComentariosTarea').DataTable({
+                "destroy": true,
+                "autoWidth": true,
+                "responsive": true,
+                "searching": false,
+                "info": true,
+                "ordering": true,
+                "colReorder": true,
+                "sZeroRecords": true,
+                "fixedColumns": true,
+                "fixedHeader": true,
+                "keys": true,
+                "deferRender": true,
+                "lengthMenu": [
+                    [5, 10, 20, 25, 50, -1],
+                    [5, 10, 20, 25, 50, "Todos"]
+                ],
+                "iDisplayLength": 5,
+                "language": {
+                    "url": "../componente/libreria/idioma/es-mx.json"
+                },
+                dom: 'Qfrtip',
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    pageSize: 'LEGAL',
+                    title: 'Comentarios sobre la Solicitud',
+                    titleAttr: 'Comentarios sobre la Solicitud',
+                    messageTop: 'Comentarios sobre la Solicitud',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2,]
+                    }
+                },
+                {
+                    extend: 'print',
+                    title: 'Comentarios sobre la Solicitud',
+                    titleAttr: 'Comentarios sobre la Solicitud',
+                    messageTop: 'Comentarios sobre la Solicitud',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Comentarios sobre la Solicitud',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                }
+                ]
+            });
+        }).fail(function (xhr, status, error) {
+            $('#comentariosTareaDev').html(error);
+        })
+    })
 
 
 

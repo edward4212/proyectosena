@@ -59,7 +59,7 @@ echo '
                 showConfirmButton: false,
                 timer: 3000
                 }).then(function() {
-                window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
+                window.location.href = "../vistaAdministrador/tareas.Adm.frm.php";
             });
         });
     </script>';

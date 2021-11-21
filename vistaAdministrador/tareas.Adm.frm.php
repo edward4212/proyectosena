@@ -289,9 +289,10 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <form class="row g-3 form-group" method="POST" id="tareaDevolucion">
+                                    <form class="row g-3 form-group" method="POST" id="tareaDevolucion" >
                                         <div class="modal-body">
                                             <input type="number" name="numIdVerDevol" id="numIdVerDevol" hidden>
+                                            <input type="number" name="idTareDEvl" id="idTareDEvl" hidden >
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Descripción de la Devolucion</h5>
                                                 <textarea type="text" class="form-control redondeado" rows="1"
@@ -344,7 +345,7 @@
                                                 <input type="number" name="id_documentoVersion" id="id_documentoVersion" hidden>
                                                 <input type="number" name="versionAnterior" id="versionAnterior" hidden>
                                                 <input class="form-control" type="text" name="id_tareaApr"
-                                                        id="id_tareaApr"  >
+                                                        id="id_tareaApr" hidden >
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <input class="form-control" type="text" name="numIdSolApr"
                                                         id="numIdSolApr" hidden>
@@ -405,6 +406,7 @@
                                     </div>
                                     <form class="row g-3 form-group" method="POST" id="tareaDevolucionApr">
                                         <div class="modal-body">
+                                        <input type="number" name="id_tareaDEvAp" id="id_tareaDEvAp" hidden >
                                             <input type="number" name="numIdVerDevolApr" id="numIdVerDevolApr" hidden>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Descripción de la Devolucion</h5>
@@ -455,13 +457,13 @@
                                         enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="row">
-                                                <input type="number" name="idVersionDevo" id="idVersionDevo" >
+                                                <input type="number" name="idVersionDevo" id="idVersionDevo" hidden  >
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <h5 for="data"> Documento</h5>
                                                     <input class="form-control" type="text" name="documendocumentoDevo"
                                                         id="documendocumentoDevo" readonly>
-                                                    <input type="text" name="procesoDEv" id="procesoDEv" >
-                                                    <input type="text" name="tipoDocDElv" id="tipoDocDElv" >
+                                                    <input type="text" name="procesoDEv" id="procesoDEv" hidden>
+                                                    <input type="text" name="tipoDocDElv" id="tipoDocDElv" hidden >
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version </h5>
@@ -497,7 +499,7 @@
                             </div>
                         </div>
                          <!-- Modal para ver comentarios-->
-                         <div class="modal fade" id="comentarioDev" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         <div class="modal fade" id="comentarioDevolucion" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -506,23 +508,11 @@
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form action="" class="form-group" id="buscar1">
+                                    <form action="" class="form-group" id="comentarioDevoluciona">
                                         <div class="modal-body">
+                                            <input type="number" name="idTareaComDev" id="idTareaComDev" hidden >
                                             <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden>
-                                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <h5>Agregar Comentario</h5>
-                                                <textarea type="text" class="form-control redondeado" rows="2"
-                                                    id="comentrioEmpleado" name="comentrioEmpleado" required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-primary" id="btnCrearcomentario"
-                                                name="btnCrearcomentario" data-bs-dismiss="modal"> <i
-                                                    class="fas fa-plus"></i>Agregar
-                                                Comentario</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h5 id="comentarios"></h5>
+                                            <h5 id="comentariosTareaDev"></h5>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i

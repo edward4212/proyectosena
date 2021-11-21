@@ -7,18 +7,21 @@ include_once "../controladorLogin/logueo.read.php";
 $usuario_revision = $_SESSION['usuario'];
 $id_versionamiento = $_POST['numIdVerDevol'];
 $comentario = $_POST['descriDevolu'];
+$id_tarea = $_POST['idTareDEvl'];
 
 
 $tareaE = new \entidad\Tarea();
 $tareaE -> setIdVersionamiento($id_versionamiento);
 $tareaE -> setDescripcionVersion($comentario);
 $tareaE -> setUsuario($usuario_revision);
-
+$tareaE -> setIdTarea($id_tarea);
 
 
 $tareaM= new \modelo\Tarea($tareaE);
 $resultado = $tareaM->DevolverVersionamiento();
 $resultado = $tareaM->comentariosVersionamientoDevol();
+$resultado = $tareaM->comentariosTareaDev();
+
 
 unset($tareaE);
 unset($tareaM);

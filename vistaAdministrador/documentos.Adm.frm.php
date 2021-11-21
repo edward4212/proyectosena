@@ -16,6 +16,9 @@
                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-obsoletos"
                         type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Matriz de Documentos
                         Obsoletos</button>
+                    <button class="nav-link" id="nav-tramite-tab" data-bs-toggle="tab" data-bs-target="#nav-tramite"
+                        type="button" role="tab" aria-controls="nav-tramite" aria-selected="false">Documentos En
+                        Tramites</button>
                     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-crear"
                         type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Creación de
                         Documentos
@@ -25,7 +28,7 @@
                         aria-selected="true">Versionamiento</button>
                     <button class="nav-link " id="nav-inactivar-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-inactivar" type="button" role="tab" aria-controls="nav-inactivar"
-                        aria-selected="true">Inactivar Documento</button>
+                        aria-selected="true">Inactivar Documentos Vigentes</button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -52,6 +55,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab-pane fade" id="nav-tramite" role="tabpanel" aria-labelledby="nav-tramite-tab">
+                    <div class="row ">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <br>
+                            <h3 class="card-title text-center">Documentos En Tramite</h3>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <h5 id="Doctramite"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="nav-crear" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
@@ -74,12 +88,12 @@
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end" id="botonesAsig">
                                     <input type="text" aria-label="E" id="siglasProcNuevo" name="siglasProcNuevo"
-                                        class="form-control codigo" hidden >
+                                        class="form-control codigo" hidden>
                                     <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc"
                                         name="siglasTipDoc" hidden>
                                     <button type="button" id="btnAsignarCod" name="btnAsignarCod"
                                         class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Asignar Numero</button>
-                                    <div class="" id="codigoAsi" hidden >
+                                    <div class="" id="codigoAsi" hidden>
                                         <h5>Codigo del Documento</h5>
                                         <div class="input-group">
                                             <input type="text" aria-label="E" id="siglasProc1" name="siglasProc1"
@@ -149,7 +163,8 @@
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
                                     <h5>Agregar Documento</h5>
-                                    <input class="form-control" type="file" name="fileDocumento1" id="fileDocumento1" required>
+                                    <input class="form-control" type="file" name="fileDocumento1" id="fileDocumento1"
+                                        required>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
                                     <h5>Selecionar Usuario para Revision</h5>
@@ -173,6 +188,44 @@
                             <h3 class="card-title text-center">Documentos Vigentes</h3>
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <h5 id="documentosAdm"></h5>
+                            </div>
+                        </div>
+                        <!-- Modal para actualziacion de estado documento-->
+                        <div class="modal fade bd-example-modal-lg" id="inactivarDoc" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Inactivar Documento</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form class="row g-3 form-group" id="inactivarDocVig" method="POST">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <input class="form-control" type="number" name="numeroVersionamiento"
+                                                    id="numeroVersionamiento" hidden>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Estado Actual</h5>
+                                                    <input class="form-control" type="text" name="estadoDocAct"
+                                                        id="estadoDocAct" readonly>
+                                                </div>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5>Nuevo Estado del Documento</h5>
+                                                    <input class="form-control" type="text" name="nuevoEstadoDocAct"
+                                                        id="nuevoEstadoDocAct" value="O" hidden>
+                                                    <label class="form-control" type="text" readonly >Obsoleto</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" id="btnInactivarDoc" class="btn btn-primary"><i
+                                                    class="fas fa-times"></i> Inactivar Documento</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
