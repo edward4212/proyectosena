@@ -110,8 +110,8 @@
 
                                 <div class="col-md-8 col-xs-12 col-sm-12" id="nombreAsig" hidden>
                                     <h5>Nombre Documento</h5>
-                                    <input type="text" class="form-control redondeado" id="nombreDoc" name="nombreDoc"
-                                        onkeyup="javascript:this.value=this.value.toUpperCase(); " required>
+                                    <input type="text" class="form-control redondeado inicialM" id="nombreDoc" name="nombreDoc"
+                                         required>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end">
                                     <br>

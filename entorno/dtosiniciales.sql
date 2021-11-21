@@ -55,7 +55,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `rol` WRITE;
 
-insert  into `rol`(`id_rol`,`rol`,`estado`) values (1,'Administrador','A');
+insert  into `rol`(`id_rol`,`rol`,`estado`) values (1,'Administrador','A'),(2,'Empleado','A'),(3,'Visitante','A');
 
 UNLOCK TABLES;
 

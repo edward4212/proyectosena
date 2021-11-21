@@ -3,7 +3,6 @@ SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.4.21-MariaDB : Database - proyecto1
 *********************************************************************
 */
-
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
@@ -22,75 +21,88 @@ CREATE TABLE `cargo` (
   UNIQUE KEY `cargo` (`cargo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `cargo` */
+/*Table structure for table `empresa` */
 
-LOCK TABLES `cargo` WRITE;
+CREATE TABLE `empresa` (
+  `id_empresa` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_empresa` varchar(500) DEFAULT NULL,
+  `logo` varchar(500) DEFAULT NULL,
+  `mision` text DEFAULT NULL,
+  `vision` text DEFAULT NULL,
+  `politica_calidad` text DEFAULT NULL,
+  `objetivos_calidad` text DEFAULT NULL,
+  `organigrama` varchar(500) DEFAULT NULL,
+  `estado` enum('A','I') DEFAULT NULL,
+  PRIMARY KEY (`id_empresa`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
-insert  into `cargo`(`id_cargo`,`cargo`,`manual_funciones`,`estado`) values (1,'Administrador',NULL,'A');
+/*Table structure for table `tipo_documento` */
 
-UNLOCK TABLES;
-
-/*Table structure for table `comentarios_solicitud` */
-
-CREATE TABLE `comentarios_solicitud` (
-  `id_comentarios_solicitud` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `comentario` varchar(500) NOT NULL,
-  `id_solicitud` bigint(7) unsigned NOT NULL,
-  `usuario_comentario` varchar(100) NOT NULL,
+CREATE TABLE `tipo_documento` (
+  `id_tipo_documento` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `tipo_documento` varchar(200) NOT NULL,
+  `sigla_tipo_documento` varchar(10) NOT NULL,
   `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  `fecha_comentario` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id_comentarios_solicitud`),
-  KEY `id_solicitud_` (`id_solicitud`),
-  CONSTRAINT `id_solicitud_` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud` (`id_solicitud`) ON DELETE NO ACTION ON UPDATE CASCADE
+  PRIMARY KEY (`id_tipo_documento`),
+  UNIQUE KEY `tipo_documento` (`tipo_documento`),
+  UNIQUE KEY `sigla_tipo_documento` (`sigla_tipo_documento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `comentarios_solicitud` */
+/*Table structure for table `tipo_solicitud` */
 
-LOCK TABLES `comentarios_solicitud` WRITE;
+CREATE TABLE `tipo_solicitud` (
+  `id_tipo_solicitud` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `tipo_solicitud` varchar(200) NOT NULL,
+  `estado` enum('I','A') NOT NULL DEFAULT 'A',
+  PRIMARY KEY (`id_tipo_solicitud`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
-UNLOCK TABLES;
 
-/*Table structure for table `comentarios_tarea` */
 
-CREATE TABLE `comentarios_tarea` (
-  `id_comentarios_tarea` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `comentario` varchar(500) NOT NULL,
-  `id_tarea` bigint(20) unsigned NOT NULL,
-  `usuario_comentario` varchar(100) NOT NULL,
+/*Table structure for table `estatus_solicitud` */
+
+CREATE TABLE `estatus_solicitud` (
+  `id_estatus_solicitud` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `estatus_solicitud` varchar(50) NOT NULL,
   `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  `fecha_comentario` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id_comentarios_tarea`),
-  KEY `id_tarea_` (`id_tarea`),
-  CONSTRAINT `id_tarea_` FOREIGN KEY (`id_tarea`) REFERENCES `tarea` (`id_tarea`) ON DELETE NO ACTION ON UPDATE CASCADE
+  PRIMARY KEY (`id_estatus_solicitud`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `prioridad` */
+
+CREATE TABLE `prioridad` (
+  `id_prioridad` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `prioridad` varchar(200) NOT NULL,
+  `estado` enum('A','I') NOT NULL DEFAULT 'A',
+  PRIMARY KEY (`id_prioridad`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `proceso` */
+
+CREATE TABLE `proceso` (
+  `id_proceso` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `proceso` varchar(200) NOT NULL,
+  `sigla_proceso` varchar(4) NOT NULL,
+  `estado` enum('A','I') NOT NULL DEFAULT 'A',
+  PRIMARY KEY (`id_proceso`,`proceso`),
+  UNIQUE KEY `proceso` (`proceso`),
+  UNIQUE KEY `siglas_proces` (`sigla_proceso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `comentarios_tarea` */
+/*Table structure for table `rol` */
 
-LOCK TABLES `comentarios_tarea` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `comentarios_versionamiento` */
-
-CREATE TABLE `comentarios_versionamiento` (
-  `id_comentarios_versionamineto` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `comentario` varchar(500) NOT NULL,
-  `id_versionamiento` int(20) unsigned NOT NULL,
-  `usuario_comentario` varchar(100) NOT NULL,
+CREATE TABLE `rol` (
+  `id_rol` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `rol` varchar(50) NOT NULL,
   `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  `fecha_comentario` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id_comentarios_versionamineto`),
-  KEY `id_versionamiento_com` (`id_versionamiento`),
-  CONSTRAINT `id_versionamiento_com` FOREIGN KEY (`id_versionamiento`) REFERENCES `versionamiento` (`id_versionamiento`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id_rol`),
+  UNIQUE KEY `rol` (`rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `comentarios_versionamiento` */
 
-LOCK TABLES `comentarios_versionamiento` WRITE;
 
-UNLOCK TABLES;
 
-/*Table structure for table `documento` */
+
 
 CREATE TABLE `documento` (
   `id_documento` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -105,12 +117,6 @@ CREATE TABLE `documento` (
   CONSTRAINT `id_proceso_` FOREIGN KEY (`id_proceso`) REFERENCES `proceso` (`id_proceso`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `id_tipo_documento_` FOREIGN KEY (`id_tipo_documento`) REFERENCES `tipo_documento` (`id_tipo_documento`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `documento` */
-
-LOCK TABLES `documento` WRITE;
-
-UNLOCK TABLES;
 
 /*Table structure for table `empleado` */
 
@@ -130,106 +136,6 @@ CREATE TABLE `empleado` (
   CONSTRAINT `id_empresa` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `empleado` */
-
-LOCK TABLES `empleado` WRITE;
-
-insert  into `empleado`(`id_empleado`,`nombre_completo`,`img_empleado`,`correo_empleado`,`id_cargo`,`id_empresa`,`estado_empleado`) values (1,'Administrador','usuario.png','administrador@limaro.com',1,1,'A');
-
-UNLOCK TABLES;
-
-/*Table structure for table `empresa` */
-
-CREATE TABLE `empresa` (
-  `id_empresa` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre_empresa` varchar(500) DEFAULT NULL,
-  `logo` varchar(500) DEFAULT NULL,
-  `mision` text DEFAULT NULL,
-  `vision` text DEFAULT NULL,
-  `politica_calidad` text DEFAULT NULL,
-  `objetivos_calidad` text DEFAULT NULL,
-  `organigrama` varchar(500) DEFAULT NULL,
-  `estado` enum('A','I') DEFAULT NULL,
-  PRIMARY KEY (`id_empresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `empresa` */
-
-LOCK TABLES `empresa` WRITE;
-
-insert  into `empresa`(`id_empresa`,`nombre_empresa`,`logo`,`mision`,`vision`,`politica_calidad`,`objetivos_calidad`,`organigrama`,`estado`) values (1,'Empresa',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-
-UNLOCK TABLES;
-
-/*Table structure for table `estatus_solicitud` */
-
-CREATE TABLE `estatus_solicitud` (
-  `id_estatus_solicitud` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `estatus_solicitud` varchar(50) NOT NULL,
-  `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  PRIMARY KEY (`id_estatus_solicitud`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `estatus_solicitud` */
-
-LOCK TABLES `estatus_solicitud` WRITE;
-
-insert  into `estatus_solicitud`(`id_estatus_solicitud`,`estatus_solicitud`,`estado`) values (1,'Creada','A'),(2,'Adignada','A'),(3,'En Desarrollo','A'),(4,'Finalizada','A'),(5,'Negada','A');
-
-UNLOCK TABLES;
-
-/*Table structure for table `prioridad` */
-
-CREATE TABLE `prioridad` (
-  `id_prioridad` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `prioridad` varchar(200) NOT NULL,
-  `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  PRIMARY KEY (`id_prioridad`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `prioridad` */
-
-LOCK TABLES `prioridad` WRITE;
-
-insert  into `prioridad`(`id_prioridad`,`prioridad`,`estado`) values (1,'Importante','A'),(2,'Urgente','A'),(3,'Media','A'),(4,'Baja','A');
-
-UNLOCK TABLES;
-
-/*Table structure for table `proceso` */
-
-CREATE TABLE `proceso` (
-  `id_proceso` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `proceso` varchar(200) NOT NULL,
-  `sigla_proceso` varchar(4) NOT NULL,
-  `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  PRIMARY KEY (`id_proceso`,`proceso`),
-  UNIQUE KEY `proceso` (`proceso`),
-  UNIQUE KEY `siglas_proces` (`sigla_proceso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `proceso` */
-
-LOCK TABLES `proceso` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `rol` */
-
-CREATE TABLE `rol` (
-  `id_rol` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `rol` varchar(50) NOT NULL,
-  `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  PRIMARY KEY (`id_rol`),
-  UNIQUE KEY `rol` (`rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `rol` */
-
-LOCK TABLES `rol` WRITE;
-
-insert  into `rol`(`id_rol`,`rol`,`estado`) values (1,'Administrador','A');
-
-UNLOCK TABLES;
 
 /*Table structure for table `solicitud` */
 
@@ -262,11 +168,19 @@ CREATE TABLE `solicitud` (
   CONSTRAINT `id_tipo_solicitud` FOREIGN KEY (`id_tipo_solicitud`) REFERENCES `tipo_solicitud` (`id_tipo_solicitud`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `solicitud` */
+/*Table structure for table `comentarios_solicitud` */
 
-LOCK TABLES `solicitud` WRITE;
-
-UNLOCK TABLES;
+CREATE TABLE `comentarios_solicitud` (
+  `id_comentarios_solicitud` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comentario` varchar(500) NOT NULL,
+  `id_solicitud` bigint(7) unsigned NOT NULL,
+  `usuario_comentario` varchar(100) NOT NULL,
+  `estado` enum('A','I') NOT NULL DEFAULT 'A',
+  `fecha_comentario` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_comentarios_solicitud`),
+  KEY `id_solicitud_` (`id_solicitud`),
+  CONSTRAINT `id_solicitud_` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud` (`id_solicitud`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `tarea` */
 
@@ -286,47 +200,6 @@ CREATE TABLE `tarea` (
   CONSTRAINT `id_solicitud_tar` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud` (`id_solicitud`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `tarea` */
-
-LOCK TABLES `tarea` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tipo_documento` */
-
-CREATE TABLE `tipo_documento` (
-  `id_tipo_documento` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `tipo_documento` varchar(200) NOT NULL,
-  `sigla_tipo_documento` varchar(10) NOT NULL,
-  `estado` enum('A','I') NOT NULL DEFAULT 'A',
-  PRIMARY KEY (`id_tipo_documento`),
-  UNIQUE KEY `tipo_documento` (`tipo_documento`),
-  UNIQUE KEY `sigla_tipo_documento` (`sigla_tipo_documento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `tipo_documento` */
-
-LOCK TABLES `tipo_documento` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tipo_solicitud` */
-
-CREATE TABLE `tipo_solicitud` (
-  `id_tipo_solicitud` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `tipo_solicitud` varchar(200) NOT NULL,
-  `estado` enum('I','A') NOT NULL DEFAULT 'A',
-  PRIMARY KEY (`id_tipo_solicitud`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `tipo_solicitud` */
-
-LOCK TABLES `tipo_solicitud` WRITE;
-
-insert  into `tipo_solicitud`(`id_tipo_solicitud`,`tipo_solicitud`,`estado`) values (1,'Creacion','A'),(2,'Actualizacion','A'),(3,'Eliminacion','A');
-
-UNLOCK TABLES;
-
 /*Table structure for table `usuario` */
 
 CREATE TABLE `usuario` (
@@ -343,14 +216,6 @@ CREATE TABLE `usuario` (
   CONSTRAINT `id_empleado` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id_empleado`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `id_rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `usuario` */
-
-LOCK TABLES `usuario` WRITE;
-
-insert  into `usuario`(`id_usuario`,`usuario`,`clave`,`id_rol`,`id_empleado`,`estado`) values (1,'admin',';aqèƒ/ÔÄBæFb¨û',1,1,'C');
-
-UNLOCK TABLES;
 
 /*Table structure for table `versionamiento` */
 
@@ -374,11 +239,35 @@ CREATE TABLE `versionamiento` (
   CONSTRAINT `id_documentoV` FOREIGN KEY (`id_documento`) REFERENCES `documento` (`id_documento`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `versionamiento` */
+/*Table structure for table `comentarios_tarea` */
 
-LOCK TABLES `versionamiento` WRITE;
+CREATE TABLE `comentarios_tarea` (
+  `id_comentarios_tarea` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comentario` varchar(500) NOT NULL,
+  `id_tarea` bigint(20) unsigned NOT NULL,
+  `usuario_comentario` varchar(100) NOT NULL,
+  `estado` enum('A','I') NOT NULL DEFAULT 'A',
+  `fecha_comentario` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_comentarios_tarea`),
+  KEY `id_tarea_` (`id_tarea`),
+  CONSTRAINT `id_tarea_` FOREIGN KEY (`id_tarea`) REFERENCES `tarea` (`id_tarea`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-UNLOCK TABLES;
+/*Table structure for table `comentarios_versionamiento` */
+
+CREATE TABLE `comentarios_versionamiento` (
+  `id_comentarios_versionamineto` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comentario` varchar(500) NOT NULL,
+  `id_versionamiento` int(20) unsigned NOT NULL,
+  `usuario_comentario` varchar(100) NOT NULL,
+  `estado` enum('A','I') NOT NULL DEFAULT 'A',
+  `fecha_comentario` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_comentarios_versionamineto`),
+  KEY `id_versionamiento_com` (`id_versionamiento`),
+  CONSTRAINT `id_versionamiento_com` FOREIGN KEY (`id_versionamiento`) REFERENCES `versionamiento` (`id_versionamiento`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `documento` */
 
 /* Procedure structure for procedure `createDocumento` */
 

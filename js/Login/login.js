@@ -61,7 +61,7 @@ $(document).ready(function () {
                                 showConfirmButton: false,
                                 timer: 3000
                               }).then((result) => {
-                                window.location.href = "../vistaVisitante/inicio.frm.php";
+                                window.location.href = "../vistaVisitante/iniciov.frm.php";
                               })
                             }
                     }else if(obj[0].estadoUsuario == "C"){

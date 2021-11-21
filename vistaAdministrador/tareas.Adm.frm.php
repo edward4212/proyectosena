@@ -12,17 +12,17 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active " id="nav-solicitudes-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-solicitudes" type="button" role="tab" aria-controls="nav-solicitudes"
-                        aria-selected="false">Tareas Asignadas</button>
+                        aria-selected="false">Solicitudes Asignadas</button>
                     <button class="nav-link " id="nav-creacion-tab" data-bs-toggle="tab" data-bs-target="#nav-creacion"
-                        type="button" role="tab" aria-controls="nav-creacion" aria-selected="true">Creación</button>
+                        type="button" role="tab" aria-controls="nav-creacion" aria-selected="true">Creación De Documento</button>
                     <button class="nav-link " id="nav-revision-tab" data-bs-toggle="tab" data-bs-target="#nav-revision"
-                        type="button" role="tab" aria-controls="nav-revision" aria-selected="true">Revision</button>
+                        type="button" role="tab" aria-controls="nav-revision" aria-selected="true">Revision De Documento</button>
                     <button class="nav-link " id="nav-aprobacion-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-aprobacion" type="button" role="tab" aria-controls="nav-aprobacion"
-                        aria-selected="true">Aprobación</button>
+                        aria-selected="true">Aprobación De Documento</button>
                     <button class="nav-link " id="nav-devolucion-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-devolucion" type="button" role="tab" aria-controls="nav-devolucion"
-                        aria-selected="true">Devoluciones</button>
+                        aria-selected="true">Devolución De Documento</button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -31,7 +31,7 @@
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <br>
-                            <h3 class="card-title text-center">Mis Tareas Asignadas</h3>
+                            <h3 class="card-title text-center">Mis Solicitudes Asignadas</h3>
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscar">
                                     <input type="number" name="numIdSolicitud" id="numIdSolicitud" hidden>

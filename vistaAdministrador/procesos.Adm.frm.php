@@ -30,8 +30,8 @@
                                 <h3 class="card-title">Crear Proceso</h3>
                                 <div class="col-md-5 col-xs-12 col-sm-12">
                                     <h5>Nombre Proceso</h5>
-                                    <input class="form-control" type="text" name="txtProceso" id="txtProceso"
-                                        style="text-transform:toUpperCase;" required title="Por favor">
+                                    <input class="form-control inicialM" type="text" name="txtProceso" id="txtProceso"
+                                         required >
                                 </div>
                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                 </div>
@@ -39,7 +39,7 @@
                                     <h5>Siglas Proceso</h5>
                                     <input class="form-control" type="text" name="txtSiglaProceso" id="txtSiglaProceso"
                                         maxlength="4" required
-                                        onkeyup="javascript:this.value=this.value.toUpperCase(); ">
+                                        onkeyup="javascript:this.value=this.value.toUpperCase();">
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <button type="submit" class="btn btn-primary mb-3" id="btnRegistrarProceso"><i
@@ -74,8 +74,8 @@
                                                     id="numidProcesosMod" hidden>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Nombre Proceso</h5>
-                                                    <input class="form-control" type="text" name="txtProcesoMod"
-                                                        id="txtProcesoMod" style="text-transform:toUpperCase;">
+                                                    <input class="form-control inicialM" type="text" name="txtProcesoMod"
+                                                        id="txtProcesoMod" >
                                                 </div>
 
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
@@ -83,8 +83,7 @@
                                                     <input class="form-control" type="text" name="txtSiglaProcesoAnt"
                                                         id="txtSiglaProcesoAnt" hidden>
                                                     <input class="form-control" type="text" name="txtSiglaProcesoMod"
-                                                        id="txtSiglaProcesoMod" maxlength="4"
-                                                        style="text-transform:toUpperCase;">
+                                                        id="txtSiglaProcesoMod" maxlength="4"  onkeyup="javascript:this.value=this.value.toUpperCase();">
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +114,7 @@
                                                     id="numidProcesosElim" hidden>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Nombre Proceso</h5>
-                                                    <input class="form-control" type="text" name="txtProcesoElim"
+                                                    <input class="form-control " type="text" name="txtProcesoElim"
                                                         id="txtProcesoElim" readonly>
                                                 </div>
 
@@ -155,9 +154,10 @@
                                 <h3 class="card-title">Crear Tipo Documento</h3>
                                 <div class="col-md-5 col-xs-12 col-sm-12">
                                     <h5>Nombre Tipo Documento</h5>
-                                    <input class="form-control" type="text" name="txtTipoDocumento"
+                                    <input class="form-control inicialM" type="text" name="txtTipoDocumento"
                                         id="txtTipoDocumento" required
-                                        onkeyup="javascript:this.value=this.value.toUpperCase(); ">
+                                       
+                                        >
                                 </div>
                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                 </div>
@@ -200,9 +200,9 @@
                                                     id="numidTipoDocumentoMod" hidden>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Nombre Tipo Documento</h5>
-                                                    <input class="form-control" type="text" name="txtTipoDocumentoMod"
+                                                    <input class="form-control inicialM" type="text" name="txtTipoDocumentoMod"
                                                         id="txtTipoDocumentoMod" required
-                                                        onkeyup="javascript:this.value=this.value.toUpperCase(); ">
+                                                       >
                                                 </div>
 
                                                 <div class="col-md-12 col-xs-12 col-sm-12">

@@ -27,13 +27,13 @@
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <br>
                             <h3 class="card-title text-center">Empleado</h3>
-                            <form class="row g-3 form-group needs-validation" id="usuario" method="POST" novalidate>
+                            <form class="row g-3 form-group needs-validation" id="usuario" method="POST" >
                                 <h3 class="card-title">Crear Empleado</h3>
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <h5>Nombre Completo Empleado</h5>
-                                    <input class="form-control" type="text" name="txtNombreEmpleado"
+                                    <input class="form-control inicialM" type="text" name="txtNombreEmpleado"
                                         id="txtNombreEmpleado" aria-label="E" aria-describedby="basic-addon1"
-                                        style="text-transform:toUpperCase;" required>
+                                        required>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <h5>Correo Electronico</h5>
@@ -55,8 +55,7 @@
                                 <div class="col-md-3 col-xs-12 col-sm-12">
                                     <h5>Nombre de Usuario</h5>
                                     <input class="form-control" type="text" name="txtUsuario" id="txtUsuario"
-                                        aria-label="E" aria-describedby="basic-addon1"
-                                        onkeyup="javascript:this.value=this.value.toLowerCase();" required>
+                                        aria-label="E" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="col-md-3 col-xs-12 col-sm-12">
                                     <h5>Clave Inicial</h5>
@@ -129,14 +128,14 @@
                                                 <input class="form-control" type="number" name="numIdUsuMod"
                                                     id="numIdUsuMod" hidden>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
-                                                    <h5>Nombre</h5>
-                                                    <input class="form-control" type="text" name="txtNombreMod"
-                                                        id="txtNombreMod" style="text-transform:toUpperCase;">
+                                                    <h5>Nombre Empleado</h5>
+                                                    <input class="form-control inicialM " type="text" name="txtNombreMod"
+                                                        id="txtNombreMod"  >
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Correo Electronico</h5>
                                                     <input class="form-control" type="text" name="txtCorreoMod"
-                                                        id="txtCorreoMod" style="text-transform:toUpperCase;">
+                                                        id="txtCorreoMod" onkeyup="javascript:this.value=this.value.toLowerCase();" >
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Cargo Actual:</h5>
@@ -230,8 +229,7 @@
                                 <h3 class="card-title">Crear Cargo</h3>
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <h5>Nombre Cargo</h5>
-                                    <input class="form-control" type="text" name="txtCargo" id="txtCargo" required
-                                        onkeyup="javascript:this.value=this.value.toUpperCase(); ">
+                                    <input class="form-control inicialM " type="text" name="txtCargo" id="txtCargo" required>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <h5>Manual de Funciones</h5>
@@ -275,8 +273,8 @@
                                                     id="txtManualModAnt" hidden>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Cargo</h5>
-                                                    <input class="form-control" type="text" name="txtCargoMod"
-                                                        id="txtCargoMod" style="text-transform:toUpperCase;">
+                                                    <input class="form-control inicialM" type="text" name="txtCargoMod"
+                                                        id="txtCargoMod" >
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Manual de Funciones</h5>
@@ -347,8 +345,7 @@
                                 <h3 class="card-title">Crear Rol</h3>
                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                     <h5>Nombre Rol</h5>
-                                    <input class="form-control" type="text" name="txtRol" id="txtRol" required
-                                        onkeyup="javascript:this.value=this.value.toUpperCase(); ">
+                                    <input class="form-control inicialM" type="text" name="txtRol" id="txtRol" required >
                                 </div>
                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                     <button type="submit" class="btn btn-primary mb-3" id="btnRegistrarRol"><i
@@ -383,8 +380,8 @@
                                                     id="numidRolMod" hidden>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                                     <h5>Rol</h5>
-                                                    <input class="form-control" type="text" name="txtRolMod"
-                                                        id="txtRolMod" style="text-transform:toUpperCase;">
+                                                    <input class="form-control inicialM" type="text" name="txtRolMod"
+                                                        id="txtRolMod" >
                                                 </div>
                                             </div>
                                         </div>

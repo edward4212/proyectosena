@@ -271,7 +271,7 @@ $(document).ready(function () {
                 if (value.manual_funciones == "null") {
                     datos += '<td class=" border border-primary text-wrap align-middle">No ha cargado manual de funciones</td>';
                 } else {
-                    datos += '<td class=" border border-primary text-wrap align-middle"><a class="btn btn-primary" href="../documentos/cargos/' + value.cargo + '/' + value.manual_funciones + '"><i class="fas fa-download"></i></a></td>';
+                    datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/cargos/' + value.cargo + '/' + value.manual_funciones + '"><i class="fas fa-download"></i></a></td>';
                 }
                 datos += '<td class=" border border-primary text-center align-middle">' + value.estado + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="modificarCargo(' + value.id_cargo + ',\'' + value.cargo + '\',\'' + value.manual_funciones + '\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modCargo"><i class="far fa-edit"></i></button></td>';
@@ -304,31 +304,31 @@ $(document).ready(function () {
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
-                        title: 'Roles',
-                        titleAttr: 'Roles',
-                        messageTop: 'Roles',
+                        title: 'Cargos',
+                        titleAttr: 'Cargos',
+                        messageTop: 'Cargos',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2]
+                            columns: [0, 1, 3]
                         }
                     },
                     {
                         extend: 'print',
-                        title: 'Roles',
-                        titleAttr: 'Roles',
-                        messageTop: 'Roles',
+                        title: 'Cargos',
+                        titleAttr: 'Cargos',
+                        messageTop: 'Cargos',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2]
+                            columns: [0, 1, 3]
                         }
                     },
                     {
                         extend: 'excelHtml5',
                         text: '<i class="fas fa-file-excel"></i>',
                         autoFiltre: true,
-                        title: 'Roles',
+                        title: 'Cargos',
                         exportOptions: {
-                            columns: [0, 1, 2]
+                            columns: [0, 1, 3]
                         }
                     },
                     {
@@ -337,7 +337,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2]
+                            columns: [0, 1, 3]
                         }
                     },
                     {
@@ -489,7 +489,7 @@ $(document).ready(function () {
             datos += '<th  class="text-wrap  align-middle border border-primary ">USUARIO</th>';
             datos += '<th  class="text-wrap  align-middle border border-primary ">CLAVE</th>';
             datos += '<th  class="text-wrap  align-middle border border-primary ">ESTADO</th>';
-            datos += '<th  class="text-wrap  align-middle border border-primary ">ACTUALIZAR CARGO</th>';
+            datos += '<th  class="text-wrap  align-middle border border-primary ">ACTUALIZAR INFORMACIÓN</th>';
             datos += '<th  class="text-wrap  align-middle border border-primary ">CAMBIAR ESTADO</th>';
             datos += '</tr>';
             datos += '</thead>';
@@ -541,9 +541,9 @@ $(document).ready(function () {
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
-                        title: 'Roles',
-                        titleAttr: 'Roles',
-                        messageTop: 'Roles',
+                        title: 'Usuarios',
+                        titleAttr: 'Usuarios',
+                        messageTop: 'Usuarios',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 7]
@@ -551,9 +551,9 @@ $(document).ready(function () {
                     },
                     {
                         extend: 'print',
-                        title: 'Roles',
-                        titleAttr: 'Roles',
-                        messageTop: 'Roles',
+                        title: 'Usuarios',
+                        titleAttr: 'Usuarios',
+                        messageTop: 'Usuarios',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 7]
@@ -563,7 +563,7 @@ $(document).ready(function () {
                         extend: 'excelHtml5',
                         text: '<i class="fas fa-file-excel"></i>',
                         autoFiltre: true,
-                        title: 'Roles',
+                        title: 'Usuarios',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 7]
                         }

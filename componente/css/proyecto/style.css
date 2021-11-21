@@ -10,6 +10,9 @@ header {
   margin-bottom: 60px;
 }
 
+.inicialM{
+  text-transform: capitalize;
+}
 /**
 * Se estilo a las etiquetas form
 */
@@ -212,7 +215,7 @@ SE FINALIZA RESPONSIVE */
   background-color: white;
   box-shadow: 0px 10px 10px;
   margin-bottom: 20px;
-  margin-left: 30%;
+  margin-left: 20%;
   margin-bottom: 20%;
   margin-top: 5%;
   max-width: max-content;

@@ -556,6 +556,24 @@ class Tarea{
                return $this->retorno;
      }
 
+     public function readTotal()
+     {
+          try {
+               $this->sql = "SELECT
+               tr.`id_tarea`,
+               tr.`fecha_asignacion`,
+               tr.`estado` as estado,
+               sl.`solicitud`,
+               sl.`id_solicitud`
+               FROM tarea AS tr
+               INNER JOIN solicitud AS sl ON sl.`id_solicitud` = tr.`id_solicitud` ";
+               $this->result = $this->conexion->query($this->sql);
+               $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+          return $this->retorno;
+     }
 
 
 }

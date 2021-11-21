@@ -1,4 +1,4 @@
-function cargar() {
+function cargar1() {
     window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
 }
 
@@ -211,7 +211,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
-                    cargar();
+                    cargar1();
                 })
 
             } else {
@@ -222,7 +222,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
-                    cargar();
+                    cargar1();
                 })
             }
         }).fail(function (xhr, status, error) {
@@ -664,31 +664,31 @@ $(document).ready(function () {
                         orientation: 'landscape',
                         pageSize: 'A4',
                         download: 'open',
-                        title: 'Documentos Obsoletos',
-                        titleAttr: 'Documentos Obsoletos',
-                        messageTop: 'Documentos Obsoletos',
+                        title: 'Documentos En Tramite',
+                        titleAttr: 'Documentos En Tramite',
+                        messageTop: 'Documentos En Tramite',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4]
                         }
                     },
                     {
                         extend: 'print',
-                        title: 'Documentos Obsoletos',
-                        titleAttr: 'Documentos Obsoletos',
-                        messageTop: 'Documentos Obsoletos',
+                        title: 'Documentos En Tramite',
+                        titleAttr: 'Documentos En Tramite',
+                        messageTop: 'Documentos En Tramite',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4]
                         }
                     },
                     {
                         extend: 'excelHtml5',
                         text: '<i class="fas fa-file-excel"></i>',
                         autoFiltre: true,
-                        title: 'Documentos Obsoletos',
+                        title: 'Documentos En Tramite',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4]
                         }
                     },
                     {
@@ -697,7 +697,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4]
                         }
                     },
                     {
@@ -768,14 +768,14 @@ $(document).ready(function () {
             dataType: 'json',
             data: $('#inactivarDocVig').serialize(),
         }).done(function (json) {
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Documento Inactivado con Exito',
-            //     showConfirmButton: false,
-            //     timer: 3000
-            // }).then((result) => {
-            //     cargar();
-            // })
+            Swal.fire({
+                icon: 'success',
+                title: 'Documento Inactivado con Exito',
+                showConfirmButton: false,
+                timer: 3000
+            }).then((result) => {
+                cargar1();
+            })
         }).fail(function (xhr, status, error) {
             alert(error);
         })

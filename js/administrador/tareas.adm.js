@@ -87,7 +87,7 @@ $(document).ready(function () {
     buscarFuncionarios1();
     buscarFuncionariossINT();
     buscarFuncionarios2();
-
+    tareastotal();
 
     $("#documentoAuto").autocomplete({
         source: function (request, response) {
@@ -164,7 +164,7 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla para mostrar los datos consultados
+             * Se crea la tabla Para mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tableSolicitudes'   class='table  table-striped table-bordered table-responsive '  >";
@@ -252,7 +252,7 @@ $(document).ready(function () {
                     messageTop: 'Mis Solicitudes Asignadas',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
                     }
                 },
                 {
@@ -262,7 +262,7 @@ $(document).ready(function () {
                     messageTop: 'Mis Solicitudes Asignadas',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
                     }
                 },
                 {
@@ -271,7 +271,7 @@ $(document).ready(function () {
                     autoFiltre: true,
                     title: 'Mis Solicitudes Asignadas',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
                     }
                 },
                 {
@@ -280,7 +280,7 @@ $(document).ready(function () {
                     autoFiltre: true,
                     titleAttr: 'COPIAR',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
                     }
                 },
                 {
@@ -506,7 +506,7 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla para mostrar los datos consultados
+             * Se crea la tabla Para mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareas'   class='table  table-striped table-bordered table-responsive '  >";
@@ -564,9 +564,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Mis Tareas Por Aprobar',
-                    titleAttr: 'Mis Tareas Asignadas',
-                    messageTop: 'Mis Tareas Asignadas',
+                    title: 'Documentos Para Creación',
+                    titleAttr: 'Documentos Para Creación',
+                    messageTop: 'Documentos Para Creación',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -574,9 +574,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Mis Tareas Asignadas',
-                    titleAttr: 'Mis Tareas Asignadas',
-                    messageTop: 'Mis Tareas Asignadas',
+                    title: 'Documentos Para Creación',
+                    titleAttr: 'Documentos Para Creación',
+                    messageTop: 'Documentos Para Creación',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -586,7 +586,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Mis Tareas Asignadas',
+                    title: 'Documentos Para Creación',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -659,7 +659,7 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla para mostrar los datos consultados
+             * Se crea la tabla Para mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasAct'   class='table  table-striped table-bordered table-responsive '  >";
@@ -718,9 +718,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Mis Tareas Asignadas',
-                    titleAttr: 'Mis Tareas Asignadas',
-                    messageTop: 'Mis Tareas Asignadas',
+                    title: 'Documentos Para Revisión',
+                    titleAttr: 'Documentos Para Revisión',
+                    messageTop: 'Documentos Para Revisión',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -728,9 +728,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Mis Tareas Asignadas',
-                    titleAttr: 'Mis Tareas Asignadas',
-                    messageTop: 'Mis Tareas Asignadas',
+                    title: 'Documentos Para Revisión',
+                    titleAttr: 'Documentos Para Revisión',
+                    messageTop: 'Documentos Para Revisión',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -740,7 +740,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Mis Tareas Asignadas',
+                    title: 'Documentos Para Revisión',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -765,7 +765,7 @@ $(document).ready(function () {
         })
     }
 
-    ///asignar funcioanrio para revisar///
+    ///asignar funcioanrio Para revisar///
     function buscarFuncionarios1() {
         $.ajax({
             url: '../controladorAdministrador/usuario.read.php',
@@ -837,7 +837,7 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla para mostrar los datos consultados
+             * Se crea la tabla Para mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasApr'   class='table  table-striped table-bordered table-responsive '  >";
@@ -896,9 +896,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Mis Tareas Por Aprobar',
-                    titleAttr: 'Mis Tareas Por Aprobar',
-                    messageTop: 'Mis Tareas Por Aprobar',
+                    title: 'Documentos  Para Aprobación',
+                    titleAttr: 'Documentos  Para Aprobación',
+                    messageTop: 'Documentos  Para Aprobación',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -906,9 +906,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Mis Tareas Por Aprobar',
-                    titleAttr: 'Mis Tareas Por Aprobar',
-                    messageTop: 'Mis Tareas Por Aprobar',
+                    title: 'Documentos  Para Aprobación',
+                    titleAttr: 'Documentos  Para Aprobación',
+                    messageTop: 'Documentos  Para Aprobación',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -918,7 +918,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Mis Tareas Por Aprobar',
+                    title: 'Documentos  Para Aprobación',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -1010,7 +1010,7 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla para mostrar los datos consultados
+             * Se crea la tabla Para mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasDev'   class='table  table-striped table-bordered table-responsive '  >";
@@ -1070,9 +1070,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Mis Tareas Por Aprobar',
-                    titleAttr: 'Mis Tareas Asignadas',
-                    messageTop: 'Mis Tareas Asignadas',
+                    title: 'Documentos  Devueltos',
+                    titleAttr: 'Documentos  Devueltos',
+                    messageTop: 'Documentos  Devueltos',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -1080,9 +1080,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Mis Tareas Asignadas',
-                    titleAttr: 'Mis Tareas Asignadas',
-                    messageTop: 'Mis Tareas Asignadas',
+                    title: 'Documentos  Devueltos',
+                    titleAttr: 'Documentos  Devueltos',
+                    messageTop: 'Documentos  Devueltos',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -1092,7 +1092,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Mis Tareas Asignadas',
+                    title: 'Documentos  Devueltos',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -1117,7 +1117,7 @@ $(document).ready(function () {
         })
     }
 
-    ///asignar funcioanrio para revisar///
+    ///asignar funcioanrio Para revisar///
     function buscarFuncionarios2() {
         $.ajax({
             url: '../controladorAdministrador/usuario.read.php',
@@ -1242,5 +1242,115 @@ $(document).ready(function () {
     })
 
 
+    function tareastotal() {
+        $.ajax({
+            url: '../controladorAdministrador/tarea.readtotal.php',
+            type: 'POST',
+            dataType: 'json',
+            data: null,
+        }).done(function (json) {
+            /**
+             * Se crea la tabla Para mostrar los datos consultados
+             */
+            var datos = '';
+            datos += "<table id='tabletareasTotal'   class='table  table-striped table-bordered table-responsive '  >";
+            datos += '<thead >';
+            datos += '<tr class="table-light border-primary text-center align-middle ">';
+            datos += '<th  class="border border-primary text-center align-middle ">CODIGO TAREA</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">SOLICITUD</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">ESTADO</th>';
+            datos += '</tr>';
+            datos += '</thead>';
+            datos += '<tbody>';
+            $.each(json, function (key, value) {
+                if (value.estado = "C") {
+                    estado = "CREACION";
+                }
+                datos += '<tr class="align-middle" >';
+                datos += '<td class=" border border-primary text-wrap align-middle" >' + value.id_tarea + ' </td>';
+                datos += '<td class=" border border-primary text-wrap align-middle">' + value.solicitud + '</td>';
+                datos += '<td class=" border border-primary text-wrap align-middle">' + value.fecha_asignacion + '</td>';
+                datos += '<td class=" border border-primary text-wrap">' + estado + '</td>';
+                datos += '</tr>';
+            })
+            datos += '</tbody>';
+            datos += '</table>';
+            $('#tareasTotal').html(datos);
+            $('#tabletareasTotal').DataTable({
+                "destroy": true,
+                "autoWidth": true,
+                "responsive": true,
+                "searching": true,
+                "info": true,
+                "ordering": true,
+                "colReorder": true,
+                "sZeroRecords": true,
+                "keys": true,
+                "deferRender": true,
+                "lengthMenu": [
+                    [5, 10, 20, 25, 50, -1],
+                    [5, 10, 20, 25, 50, "Todos"]
+                ],
+                "iDisplayLength": 5,
+                "language": {
+                    "url": "../componente/libreria/idioma/es-mx.json"
+                },
+                order: [
+                    [0, 'asc']
+                ],
+                dom: 'Qfrtip',
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    download: 'open',
+                    title: 'Total de Tareas',
+                    titleAttr: 'Total de Tareas',
+                    messageTop: 'Total de Tareas',
+                    text: '<i class="far fa-file-pdf"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'print',
+                    title: 'Total de Tareas',
+                    titleAttr: 'Total de Tareas',
+                    messageTop: 'Total de Tareas',
+                    text: '<i class="fas fa-print"></i>',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i>',
+                    autoFiltre: true,
+                    title: 'Total de Tareas',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fas fa-copy"></i>',
+                    autoFiltre: true,
+                    titleAttr: 'COPIAR',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+                {
+                    extend: 'searchBuilder'
+
+                }
+                ]
+            });
+        }).fail(function (xhr, status, error) {
+            $('#tareas').html(error);
+        })
+    }
 
 })

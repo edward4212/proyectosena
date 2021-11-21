@@ -14,12 +14,12 @@
                         data-bs-target="#nav-solicitudes" type="button" role="tab" aria-controls="nav-solicitudes"
                         aria-selected="false">Mis Solicitudes</button>
                     <button class="nav-link " id="nav-crear-tab" data-bs-toggle="tab" data-bs-target="#nav-crear"
-                        type="button" role="tab" aria-controls="nav-crear" aria-selected="true">Crear Documento</button>
+                        type="button" role="tab" aria-controls="nav-crear" aria-selected="true">Solicitar Crear Documento</button>
                     <button class="nav-link " id="nav-actualizar-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-actualizar" type="button" role="tab" aria-controls="nav-actualizar"
-                        aria-selected="false">Actualizar Documento</button>
+                        aria-selected="false">Solicitar Actualizar Documento</button>
                     <button class="nav-link " id="nav-eliminar-tab" data-bs-toggle="tab" data-bs-target="#nav-eliminar"
-                        type="button" role="tab" aria-controls="nav-eliminar" aria-selected="false">Eliminar
+                        type="button" role="tab" aria-controls="nav-eliminar" aria-selected="false"> Solicitar Eliminar
                         Documento</button>
                 </div>
             </nav>
