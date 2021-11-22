@@ -15,6 +15,18 @@ $codigoConca = $sigla_proceso.$s.$sigla_tipo_documento.$s.$codigo;
 $nombre_documento = $_POST['nombreDoc'];
 $usuario_crecion = $_SESSION['usuario'];
 
+$directorio = "../documentos/procesos/$sigla_proceso/$sigla_tipo_documento/$codigoConca/0/";
+
+if(!file_exists($directorio)){
+    mkdir($directorio,0777,true);
+           
+}else{
+    if(file_exists($directorio)){
+       
+    }    
+}
+
+
 $documentoE = new \entidad\Documento(); 
 $documentoE -> setIdTipoDocumento($id_tipo_documento);
 $documentoE -> setIdProceso($id_proceso);

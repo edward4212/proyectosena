@@ -9,6 +9,7 @@ $id_versionamiento = $_POST['idVersionDevo'];
 $descriocion_version = $_POST['descriCambioDev'];
 $usuario_revision = $_POST['empleadoDev'];
 $numero_version = $_POST['versionDev'];
+$codigo = $_POST['codigoDev'];
 
 $proceso = $_POST['procesoDEv'];
 $tipDoc = $_POST['tipoDocDElv'];
@@ -17,7 +18,7 @@ $foto=$_FILES["fileDocumentoDev"]["tmp_name"];
 $tipo =$_FILES['fileDocumentoDev']['type'];
 $tamaño =$_FILES['fileDocumentoDev']['size'];
 
-$directorio = "../documentos/procesos/$proceso/$tipDoc/$numero_version/";
+$directorio = "../documentos/procesos/$proceso/$tipDoc/$codigo/$numero_version/";
 
 if(!file_exists($directorio)){
     mkdir($directorio,0777,true);

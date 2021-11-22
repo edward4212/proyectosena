@@ -37,7 +37,7 @@ $(document).ready(function(){
                             datos += '<td class=" border border-primary text-wrap">'+value.nombre_documento+'</td>';
                             datos += '<td class=" border border-primary text-center align-middle">'+value.numero_version+'</td>';
                             datos += '<td class=" border border-primary text-center align-middle">'+value.fecha_aprobacion+'</td>';
-                            datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/'+value.sigla_proceso+'/'+value.documento+'"><i class="fas fa-download"></i></a></td>';
+                            datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/procesos/'+value.sigla_proceso+'/'+value.sigla_tipo_documento+ '/'+value.codigo+ '/'+value.numero_version+ '/' +value.documento+'"><i class="fas fa-download"></i></a></td>';
                         datos += '</tr>';
                     })
                 datos += '</tbody>';

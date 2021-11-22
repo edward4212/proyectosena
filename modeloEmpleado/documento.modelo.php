@@ -68,6 +68,7 @@ class Documento{
                pr.`sigla_proceso`,
                tdoc.`id_tipo_documento`,
                tdoc.`tipo_documento` ,
+               tdoc.`sigla_tipo_documento` ,
                vr.`id_versionamiento`,
                vr.`numero_version`,
                vr.`documento`,

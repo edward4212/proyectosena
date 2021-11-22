@@ -258,7 +258,7 @@
     </main>
     <?php include_once "footer.frm.php" ?>
 
-    <script src="../js/empleado/tareas.adm.js"></script>
+    <script src="../js/empleado/tareas.js"></script>
 
 </body>
 

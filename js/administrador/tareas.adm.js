@@ -26,7 +26,7 @@ function idtareaAct(id_versionamiento, id_tarea, documento, codigo, nombre_docum
     $("#numIdTarea11").val(id_versionamiento);
     $("#documendocumentoTarea").val(codigo + '-' + nombre_documento);
     $("#versionDoc1").val(numero_version);
-    $("#fileDocumentoDes").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + numero_version + '/' + documento);
+    $("#fileDocumentoDes").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + codigo+ '/' + numero_version + '/' + documento);
     $("#descriVersion").val(descripcion_version);
     $("#numIdVerDevol").val(id_versionamiento);
     $("#idTareDEvl").val(id_tarea);
@@ -37,7 +37,7 @@ function idtareaApr(id_versionamiento, id_tarea, documento, codigo, nombre_docum
     $("#numIdTareaApro").val(id_versionamiento);
     $("#documendocumentoApr").val(codigo + '-' + nombre_documento);
     $("#versionDocAp").val(numero_version);
-    $("#fileDocumentoDesAp").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + numero_version + '/' + documento);
+    $("#fileDocumentoDesAp").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + codigo+ '/' + numero_version + '/' + documento);
     $("#descriVersionAp").val(descripcion_version);
     $("#numIdVerDevolApr").val(id_versionamiento);
 
@@ -72,6 +72,7 @@ function idDevolucion(id_versionamiento, documento, codigo, nombre_documento, nu
     $("#documendocumentoDevo").val(codigo + '-' + nombre_documento);
     $("#versionDev").val(numero_version);
     $("#procesoDEv").val(sigla_proceso);
+    $("#codigoDev").val(codigo);
     $("#tipoDocDElv").val(sigla_tipo_documento);
 }
 
@@ -109,6 +110,7 @@ $(document).ready(function () {
             var resul = suma + uno;
             $("#documentoAuto").val(ui.item.nombre_documento);
             $("#versionSig").val(resul);
+            $("#codigo").val(ui.item.codigo);
             $("#idDocumento").val(ui.item.id_documento);
             $("#proceso").val(ui.item.sigla_proceso);
             $("#sigla_tipo_documento").val(ui.item.sigla_tipo_documento);
@@ -146,6 +148,7 @@ $(document).ready(function () {
                 var uno = 1;
                 var resul = suma + uno;
                 $("#documentoAuto1").val(ui.item.nombre_documento);
+                $("#codigo1").val(ui.item.codigo);
                 $("#versionSig1").val(resul);
                 $("#idDocumento1").val(ui.item.id_documento);
                 $("#proceso1").val(ui.item.sigla_proceso);

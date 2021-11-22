@@ -150,6 +150,8 @@
                                     <input class="form-control" type="text" name="proceso1" id="proceso1" hidden>
                                     <input class="form-control" type="text" name="sigla_tipo_documento1"
                                         id="sigla_tipo_documento1" hidden>
+                                        <input class="form-control" type="text" name="codigo1"
+                                        id="codigo1" hidden>
                                 </div>
                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                     <h5>Version Siguiente</h5>

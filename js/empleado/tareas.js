@@ -26,7 +26,7 @@ function idtareaAct(id_versionamiento, id_tarea, documento, codigo, nombre_docum
     $("#numIdTarea11").val(id_versionamiento);
     $("#documendocumentoTarea").val(codigo + '-' + nombre_documento);
     $("#versionDoc1").val(numero_version);
-    $("#fileDocumentoDes").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + numero_version + '/' + documento);
+    $("#fileDocumentoDes").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + codigo+ '/' + numero_version + '/' + documento);
     $("#descriVersion").val(descripcion_version);
     $("#numIdVerDevol").val(id_versionamiento);
     $("#idTareDEvl").val(id_tarea);
@@ -37,7 +37,7 @@ function idtareaApr(id_versionamiento, id_tarea, documento, codigo, nombre_docum
     $("#numIdTareaApro").val(id_versionamiento);
     $("#documendocumentoApr").val(codigo + '-' + nombre_documento);
     $("#versionDocAp").val(numero_version);
-    $("#fileDocumentoDesAp").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + numero_version + '/' + documento);
+    $("#fileDocumentoDesAp").attr('href', '../documentos/procesos/' + sigla_proceso + '/' + sigla_tipo_documento + '/' + codigo+ '/' + numero_version + '/' + documento);
     $("#descriVersionAp").val(descripcion_version);
     $("#numIdVerDevolApr").val(id_versionamiento);
 

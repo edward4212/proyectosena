@@ -14,9 +14,11 @@
                         data-bs-target="#nav-solicitudes" type="button" role="tab" aria-controls="nav-solicitudes"
                         aria-selected="false">Solicitudes Asignadas</button>
                     <button class="nav-link " id="nav-creacion-tab" data-bs-toggle="tab" data-bs-target="#nav-creacion"
-                        type="button" role="tab" aria-controls="nav-creacion" aria-selected="true">Creación De Documento</button>
+                        type="button" role="tab" aria-controls="nav-creacion" aria-selected="true">Creación De
+                        Documento</button>
                     <button class="nav-link " id="nav-revision-tab" data-bs-toggle="tab" data-bs-target="#nav-revision"
-                        type="button" role="tab" aria-controls="nav-revision" aria-selected="true">Revision De Documento</button>
+                        type="button" role="tab" aria-controls="nav-revision" aria-selected="true">Revision De
+                        Documento</button>
                     <button class="nav-link " id="nav-aprobacion-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-aprobacion" type="button" role="tab" aria-controls="nav-aprobacion"
                         aria-selected="true">Aprobación De Documento</button>
@@ -119,7 +121,7 @@
                 <div class="tab-pane fade" id="nav-creacion" role="tabpanel" aria-labelledby="nav-creacion-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Creación de Documento</h3>
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscarTareaComentario1">
@@ -158,7 +160,7 @@
                                                         hidden>
                                                     <input class="form-control" type="text" name="sigla_tipo_documento"
                                                         id="sigla_tipo_documento" hidden>
-
+                                                    <input class="form-control" type="text" name="codigo" id="codigo">
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version Siguiente</h5>
@@ -198,7 +200,7 @@
                 <div class="tab-pane fade" id="nav-revision" role="tabpanel" aria-labelledby="nav-revision-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Revisión Documento</h3>
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscarTareaComentario12">
@@ -225,8 +227,8 @@
                                                 <input type="number" name="numIdTarea11" id="numIdTarea11" hidden>
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <input class="form-control" type="text" name="id_tareaAct"
-                                                        id="id_tareaAct" hidden >
-                                                        <input class="form-control" type="text" name="numIdSolT1"
+                                                        id="id_tareaAct" hidden>
+                                                    <input class="form-control" type="text" name="numIdSolT1"
                                                         id="numIdSolT1" hidden>
                                                     <input class="form-co ntrol" type="text" name="idDocumento1"
                                                         id="idDocumento1" hidden>
@@ -289,10 +291,10 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <form class="row g-3 form-group" method="POST" id="tareaDevolucion" >
+                                    <form class="row g-3 form-group" method="POST" id="tareaDevolucion">
                                         <div class="modal-body">
                                             <input type="number" name="numIdVerDevol" id="numIdVerDevol" hidden>
-                                            <input type="number" name="idTareDEvl" id="idTareDEvl" hidden >
+                                            <input type="number" name="idTareDEvl" id="idTareDEvl" hidden>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Descripción de la Devolucion</h5>
                                                 <textarea type="text" class="form-control redondeado" rows="1"
@@ -317,7 +319,7 @@
                 <div class="tab-pane fade" id="nav-aprobacion" role="tabpanel" aria-labelledby="nav-aprobacion-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Aprobación de Documento</h3>
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscarTareaComentario12">
@@ -342,10 +344,11 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <input type="number" name="numIdTareaApro" id="numIdTareaApro" hidden>
-                                                <input type="number" name="id_documentoVersion" id="id_documentoVersion" hidden>
+                                                <input type="number" name="id_documentoVersion" id="id_documentoVersion"
+                                                    hidden>
                                                 <input type="number" name="versionAnterior" id="versionAnterior" hidden>
                                                 <input class="form-control" type="text" name="id_tareaApr"
-                                                        id="id_tareaApr" hidden >
+                                                    id="id_tareaApr" hidden>
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <input class="form-control" type="text" name="numIdSolApr"
                                                         id="numIdSolApr" hidden>
@@ -374,8 +377,9 @@
                                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                                     <br>
                                                     <a type="button" class="btn btn-primary form-control" href=""
-                                                        target="_blank" name="fileDocumentoDesAp" id="fileDocumentoDesAp"><i
-                                                            class="fas fa-download"></i>Descagar Documento</a>
+                                                        target="_blank" name="fileDocumentoDesAp"
+                                                        id="fileDocumentoDesAp"><i class="fas fa-download"></i>Descagar
+                                                        Documento</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -385,9 +389,9 @@
                                                     class="fas fa-plus"></i>Aprobar Documento</button>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <i
                                                     class="fas fa-undo"></i> Volver</button>
-                                            <button type="button" class="btn btn-danger"
-                                                data-bs-target="#modall" data-bs-toggle="modal"
-                                                data-bs-dismiss="modal"><i class="fas fa-times-circle"></i>Devolver
+                                            <button type="button" class="btn btn-danger" data-bs-target="#modall"
+                                                data-bs-toggle="modal" data-bs-dismiss="modal"><i
+                                                    class="fas fa-times-circle"></i>Devolver
                                                 Tarea</button>
                                         </div>
                                     </form>
@@ -406,7 +410,7 @@
                                     </div>
                                     <form class="row g-3 form-group" method="POST" id="tareaDevolucionApr">
                                         <div class="modal-body">
-                                        <input type="number" name="id_tareaDEvAp" id="id_tareaDEvAp" hidden >
+                                            <input type="number" name="id_tareaDEvAp" id="id_tareaDEvAp" hidden>
                                             <input type="number" name="numIdVerDevolApr" id="numIdVerDevolApr" hidden>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Descripción de la Devolucion</h5>
@@ -417,8 +421,9 @@
                                     </form>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-dismiss="modal" id="btnDevolverTareaApr" name="btnDevolverTareaApr"><i
-                                                class="fas fa-times-circle"></i>Devolver Tarea</button>
+                                            data-bs-dismiss="modal" id="btnDevolverTareaApr"
+                                            name="btnDevolverTareaApr"><i class="fas fa-times-circle"></i>Devolver
+                                            Tarea</button>
                                         <button type="button" class="btn btn-primary" data-bs-target="#modaltareaApr"
                                             data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fas fa-undo"></i>
                                             Volver</button>
@@ -431,7 +436,7 @@
                 <div class="tab-pane fade" id="nav-devolucion" role="tabpanel" aria-labelledby="nav-devolucion-tab">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                        <br>
+                            <br>
                             <h3 class="card-title text-center">Devolucion de Documentos</h3>
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <form action="" class="form-group" id="buscarTareaComentario1">
@@ -457,13 +462,14 @@
                                         enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="row">
-                                                <input type="number" name="idVersionDevo" id="idVersionDevo" hidden  >
+                                                <input type="number" name="idVersionDevo" id="idVersionDevo" hidden>
                                                 <div class="col-md-10 col-xs-12 col-sm-12">
                                                     <h5 for="data"> Documento</h5>
                                                     <input class="form-control" type="text" name="documendocumentoDevo"
                                                         id="documendocumentoDevo" readonly>
                                                     <input type="text" name="procesoDEv" id="procesoDEv" hidden>
-                                                    <input type="text" name="tipoDocDElv" id="tipoDocDElv" hidden >
+                                                    <input type="text" name="tipoDocDElv" id="tipoDocDElv" hidden>
+                                                    <input type="text" name="codigoDev" id="codigoDev" hidden>
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version </h5>
@@ -498,9 +504,9 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- Modal para ver comentarios-->
-                         <div class="modal fade" id="comentarioDevolucion" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-="true">
+                        <!-- Modal para ver comentarios-->
+                        <div class="modal fade" id="comentarioDevolucion" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -510,7 +516,7 @@
                                     </div>
                                     <form action="" class="form-group" id="comentarioDevoluciona">
                                         <div class="modal-body">
-                                            <input type="number" name="idTareaComDev" id="idTareaComDev" hidden >
+                                            <input type="number" name="idTareaComDev" id="idTareaComDev" hidden>
                                             <input type="number" name="numIdSolicitud1" id="numIdSolicitud1" hidden>
                                             <h5 id="comentariosTareaDev"></h5>
                                         </div>

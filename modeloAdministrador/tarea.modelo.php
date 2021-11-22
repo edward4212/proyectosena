@@ -95,6 +95,7 @@ class Tarea{
                          "numero_version" =>  $value['version1'],
                          "sigla_proceso" =>  $value['sigla_proceso'],
                          "id_documento" =>  $value['id_documento'],
+                         "codigo" =>  $value['codigo'],
                          "est" =>  $value['est'],
                          "sigla_tipo_documento" =>  $value['sigla_tipo_documento'],
                          "label" => $value['codigo'] . "-" . $value['nombre_documento']);
@@ -482,7 +483,7 @@ class Tarea{
      public function versionamientoObsoleto()
      {
           try {
-               $this->sql = "UPDATE versionamiento SET estado_version = 'O' 
+               $this->sql = "UPDATE versionamiento SET estado_version = 'O' ,fecha_obsoleto =  CURRENT_TIMESTAMP()
                WHERE id_documento = $this->id_documento  AND numero_version = $this->numero_version ";
                $this->result = $this->conexion->query($this->sql);
           } catch (Exception $e) {
