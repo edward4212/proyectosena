@@ -8,12 +8,19 @@ include_once "../componente/Mailer/src/Exception.php";
 
 
 
- $nombre_completo  = $_POST['txtNombreEmpleado'];
- $correo_empleado  = $_POST['txtCorreoEmpleado'];
- $id_cargo  = $_POST['cargosUsuario'];
- $usuario  = $_POST['txtUsuario'];
- $clave  = $_POST['txtClaveInicial'];
- $id_rol  = $_POST['rolesUsuario'];
+$nombre_completos  = $_POST['txtNombreEmpleado'];
+$nombre_completo =  ucwords($nombre_completos);
+
+$correo_empleados  = $_POST['txtCorreoEmpleado'];
+$correo_empleado =  strtolower($correo_empleados);
+
+$id_cargo  = $_POST['cargosUsuario'];
+
+$usuarios  = $_POST['txtUsuario'];
+$usuario =  strtolower($usuarios);
+
+$clave  = $_POST['txtClaveInicial'];
+$id_rol  = $_POST['rolesUsuario'];
 
 $directorio = "../documentos/usuarios/$usuario/imagen/";
 
@@ -21,7 +28,6 @@ if(!file_exists($directorio)){
     mkdir($directorio,0777,true);
     copy("../documentos/imagenes/usuario.png","../documentos/usuarios/$usuario/imagen/usuario.png");     
 }
-
 
 $usuarioE = new \entidad\Usuario(); 
 $usuarioE -> setNombreCompleto($nombre_completo);

@@ -3,8 +3,13 @@
 include_once "../entidadAdministrador/proceso.entidad.php";
 include_once "../modeloAdministrador/proceso.modelo.php";
 
-$proceso = $_POST['txtProceso'];
-$sigla_proceso = $_POST['txtSiglaProceso'];
+$procesos = $_POST['txtProceso'];
+$proceso =  ucwords($procesos);
+
+$sigla_procesos = $_POST['txtSiglaProceso'];
+$sigla_proceso = strtoupper($sigla_procesos);
+
+
 $directorio = "../documentos/procesos/$sigla_proceso/";
    
 if(!file_exists($directorio)){

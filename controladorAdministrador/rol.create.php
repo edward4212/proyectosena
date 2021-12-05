@@ -3,7 +3,9 @@
 include_once "../entidadAdministrador/rol.entidad.php";
 include_once "../modeloAdministrador/rol.modelo.php";
 
-$rol = $_POST['txtRol'];
+$rols = $_POST['txtRol'];
+$rol =  ucwords($rols);
+
 
 $rolE = new \entidad\Rol();
 $rolE -> setrol($rol);

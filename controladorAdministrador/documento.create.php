@@ -10,9 +10,14 @@ $sigla_tipo_documento =  $_POST['siglasTipDoc'];
 $id_proceso = $_POST['idsiglasProc12'];
 $sigla_proceso =  $_POST['siglasProc1'];
 $s ="-";
+$e =" ";
 $codigo = $_POST['txtcodigo'];
 $codigoConca = $sigla_proceso.$s.$sigla_tipo_documento.$s.$codigo;
-$nombre_documento = $_POST['nombreDoc'];
+$nombre_documentos = $_POST['nombreDoc'];
+
+$nombre_documentos =$codigoConca.$e.$nombre_documentos ;
+$nombre_documento = strtoupper($nombre_documentos);
+
 $usuario_crecion = $_SESSION['usuario'];
 
 $directorio = "../documentos/procesos/$sigla_proceso/$sigla_tipo_documento/$codigoConca/0/";

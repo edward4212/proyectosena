@@ -160,7 +160,7 @@
                                                         hidden>
                                                     <input class="form-control" type="text" name="sigla_tipo_documento"
                                                         id="sigla_tipo_documento" hidden>
-                                                    <input class="form-control" type="text" name="codigo" id="codigo">
+                                                    <input class="form-control" type="text" name="codigo" id="codigo" hidden>
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                                     <h5>Version Siguiente</h5>

@@ -21,6 +21,11 @@ function estadoDocumento(id_versionamiento, estado_version) {
     $("#estadoDocAct").val(estado_version);
 }
 
+function modDoc(id_documento, nombre_documento) {
+    $("#idDocumentoCambiar").val(id_documento);
+    $("#nuevoNombreDoc").val(nombre_documento);
+}
+
 
 $(document).ready(function () {
     buscar();
@@ -48,7 +53,8 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaDoc'  class='table  table-striped table-bordered table-responsive '   >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
+            datos += '<th  class="text-center align-middle border border-primary " >PROCESO</th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
@@ -60,6 +66,7 @@ $(document).ready(function () {
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 datos += '<tr class="align-middle" >';
+                datos += '<td class=" border border-primary  text-wrap" hidden>' + value.id_versionamiento + '</td>';
                 datos += '<td class=" border border-primary  text-wrap">' + value.proceso + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.tipo_documento + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
@@ -94,11 +101,11 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 order: [
-                    [0, 'asc'],
+                    [1, 'asc'],
                     [2, 'asc']
                 ],
                 rowGroup: {
-                    dataSrc: 0
+                    dataSrc: 1
                 },
                 buttons: [{
                         extend: 'pdfHtml5',
@@ -110,7 +117,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Vigentes',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -120,7 +127,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Vigentes',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -129,7 +136,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Vigentes',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -138,7 +145,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -246,12 +253,14 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaDocR'  class='table  table-striped table-bordered table-responsive '   >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
-            datos += '<th  class="text-center align-middle border border-primary ">ESTADO</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">ESTADO D</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">MODIFICAR NOMBRE DEL DOCUMENTO</th>';
             datos += '</tr>';
             datos += '</thead>';
             datos += '<tbody>';
@@ -264,12 +273,14 @@ $(document).ready(function () {
                     value.estado_version = "OBSOLETO";
                 }
                 datos += '<tr class="align-middle" >';
+                datos += '<td class=" border border-primary  text-wrap" hidden>' + value.id_versionamiento + '</td>';
                 datos += '<td class=" border border-primary  text-wrap">' + value.proceso + '</td>';
                 datos += '<td class=" border border-primary  text-wrap">' + value.tipo_documento + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.nombre_documento + '</td>';
                 datos += '<td class= "text-center align-middle border border-primary ">' + value.numero_version + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.estado_version + '</td>';
+                datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="modDoc(' + value.id_documento + ',\'' + value.nombre_documento + '\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modifiDoc"><i class="fas fa-edit"></i></button></td>';
                 datos += '</tr>';
             })
             datos += '</tbody>';
@@ -297,11 +308,11 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 order: [
-                    [0, 'asc'],
+                    [1, 'asc'],
                     [2, 'asc']
                 ],
                 rowGroup: {
-                    dataSrc: 0
+                    dataSrc: 1
                 },
                 buttons: [{
                         extend: 'pdfHtml5',
@@ -313,7 +324,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -323,7 +334,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -332,7 +343,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Registrados',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -341,7 +352,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -370,6 +381,7 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaAdm'  class='table  table-striped table-bordered table-responsive    '   >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
@@ -384,6 +396,7 @@ $(document).ready(function () {
                     estado_version = 'Vigente'
                 }
                 datos += '<tr class="align-middle" >';
+                datos += '<td class=" border border-primary  text-wrap" hidden>' + value.id_versionamiento + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.proceso + '</td>';
                 datos += '<td class=" border border-primary text-wrap">' + value.tipo_documento + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.codigo + '</td>';
@@ -417,11 +430,11 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 order: [
-                    [0, 'asc'],
+                    [1, 'asc'],
                     [2, 'asc']
                 ],
                 rowGroup: {
-                    dataSrc: 0
+                    dataSrc: 1
                 },
                 buttons: [{
                         extend: 'pdfHtml5',
@@ -433,7 +446,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4 ,5]
                         }
                     },
                     {
@@ -443,7 +456,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4  ,5]
                         }
                     },
                     {
@@ -452,7 +465,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Registrados',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4 ,5]
                         }
                     },
                     {
@@ -461,7 +474,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4 ,5]
                         }
                     },
                     {
@@ -490,6 +503,7 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaObso'  class='table  table-striped table-bordered table-responsive '    >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
@@ -502,6 +516,7 @@ $(document).ready(function () {
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 datos += '<tr class="align-middle" >';
+                datos += '<td class=" border border-primary  text-wrap" hidden>' + value.id_versionamiento + '</td>';
                 datos += '<td class=" border border-primary  text-wrap">' + value.proceso + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.tipo_documento + '</td>';
                 datos += '<td class=" border border-primary  text-wrap ">' + value.codigo + '</td>';
@@ -536,11 +551,11 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 order: [
-                    [0, 'asc'],
+                    [1, 'asc'],
                     [2, 'asc']
                 ],
                 rowGroup: {
-                    dataSrc: 0
+                    dataSrc: 1
                 },
                 buttons: [{
                         extend: 'pdfHtml5',
@@ -552,7 +567,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Obsoletos',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4,5,7 ]
                         }
                     },
                     {
@@ -562,7 +577,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Obsoletos',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4,5,7]
                         }
                     },
                     {
@@ -571,7 +586,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Obsoletos',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4,5,7]
                         }
                     },
                     {
@@ -580,7 +595,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 6]
+                            columns: [0, 1, 2, 3, 4,5,7]
                         }
                     },
                     {
@@ -609,6 +624,7 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaTram'  class='table  table-striped table-bordered table-responsive '    >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
@@ -620,6 +636,7 @@ $(document).ready(function () {
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 datos += '<tr class="align-middle" >';
+                datos += '<td class=" border border-primary  text-wrap" hidden>' + value.id_versionamiento + '</td>';
                 datos += '<td class=" border border-primary  text-wrap">' + value.proceso + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.tipo_documento + '</td>';
                 datos += '<td class=" border border-primary  text-wrap ">' + value.codigo + '</td>';
@@ -653,11 +670,11 @@ $(document).ready(function () {
                 dom: 'Qfrtip',
                 dom: 'Bfrtip',
                 order: [
-                    [0, 'asc'],
+                    [1, 'asc'],
                     [2, 'asc']
                 ],
                 rowGroup: {
-                    dataSrc: 0
+                    dataSrc: 1
                 },
                 buttons: [{
                         extend: 'pdfHtml5',
@@ -669,7 +686,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos En Tramite',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -679,7 +696,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos En Tramite',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -688,7 +705,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos En Tramite',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -697,7 +714,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
+                            columns: [0, 1, 2, 3, 4,5   ]
                         }
                     },
                     {
@@ -743,6 +760,29 @@ $(document).ready(function () {
             $("#codigoAsi").prop("hidden", false);
             $("#btncrearDoc").prop("hidden", false);
             $("#btncrearResDoc").prop("hidden", false);
+        }).fail(function (xhr, status, error) {
+            alert(error);
+        })
+
+    })
+
+     /// CAMBIAR NOMBRE DE DOCUMENTO///
+     $(document).on('click', '#btnCambiarNomDoc', function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '../controladorAdministrador/documento.update.php',
+            type: 'POST',
+            dataType: 'json',
+            data: $('#cambiarNomDoc').serialize(),
+        }).done(function (json) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Documento Modificado con Exito',
+                showConfirmButton: false,
+                timer: 3000
+            }).then((result) => {
+                cargar1();
+            })
         }).fail(function (xhr, status, error) {
             alert(error);
         })

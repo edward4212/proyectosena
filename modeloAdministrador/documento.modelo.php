@@ -265,7 +265,7 @@ class Documento{
 
      public function codigo()
      { try {
-          $this->sql = "SELECT codigo FROM documento WHERE codigo LIKE '$this->codigo%' ORDER BY codigo DESC LIMIT 1";
+          $this->sql = "SELECT codigo FROM documento WHERE codigo LIKE '$this->codigo%' ORDER BY id_documento DESC LIMIT 1";
           $this->result = $this->conexion->query($this->sql);
           $this->retorno = $this->result->fetchAll(PDO::FETCH_ASSOC);
                     
@@ -280,6 +280,19 @@ class Documento{
 
           try {
                $this->sql = "UPDATE versionamiento SET estado_version='$this->estado' , fecha_obsoleto= CURRENT_TIMESTAMP() WHERE id_versionamiento=$this->id_versionamiento";
+               $this->result = $this->conexion->query($this->sql);
+          } catch (Exception $e) {
+               $this->retorno = $e->getMessage();
+          }
+               return $this->retorno;
+     }
+
+     
+     public function actualizarNombreDoc()
+     {
+
+          try {
+               $this->sql = "UPDATE documento SET nombre_documento='$this->nombre_documento' WHERE id_documento=$this->id_documento";
                $this->result = $this->conexion->query($this->sql);
           } catch (Exception $e) {
                $this->retorno = $e->getMessage();

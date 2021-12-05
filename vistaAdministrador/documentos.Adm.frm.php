@@ -110,8 +110,8 @@
 
                                 <div class="col-md-8 col-xs-12 col-sm-12" id="nombreAsig" hidden>
                                     <h5>Nombre Documento</h5>
-                                    <input type="text" class="form-control redondeado inicialM" id="nombreDoc" name="nombreDoc"
-                                         required>
+                                    <input type="text" class="form-control redondeado inicialM" id="nombreDoc"
+                                        name="nombreDoc" required>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12 d-flex  align-items-end">
                                     <br>
@@ -132,6 +132,38 @@
                                 <h5 id="documentosRg"></h5>
                             </div>
                         </div>
+                        <!-- Modal para actualziacion nombre  documento-->
+                        <div class="modal fade bd-example-modal-lg" id="modifiDoc" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Cambiar Nombre Del Documento</h5>
+                                        <button type="button" id="btnCerrarModal" class="btn-close"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form class="row g-3 form-group" id="cambiarNomDoc" method="POST">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <input class="form-control" type="number" name="idDocumentoCambiar"
+                                                    id="idDocumentoCambiar" hidden>
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <h5> Nombre del Documento</h5>
+                                                    <textarea type="text" class="form-control redondeado" rows="4"
+                                                        name="nuevoNombreDoc" id="nuevoNombreDoc"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" id="btnCambiarNomDoc" name="btnCambiarNomDoc" class="btn btn-primary"><i
+                                                    class="fas fa-edit"></i> Cambiar Nombre Documento</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
+                                                    class="fas fa-undo"></i> Volver</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-creacion1" role="tabpanel" aria-labelledby="nav-creacion-tab">
@@ -150,8 +182,7 @@
                                     <input class="form-control" type="text" name="proceso1" id="proceso1" hidden>
                                     <input class="form-control" type="text" name="sigla_tipo_documento1"
                                         id="sigla_tipo_documento1" hidden>
-                                        <input class="form-control" type="text" name="codigo1"
-                                        id="codigo1" hidden>
+                                    <input class="form-control" type="text" name="codigo1" id="codigo1" hidden>
                                 </div>
                                 <div class="col-md-2 col-xs-12 col-sm-12">
                                     <h5>Version Siguiente</h5>
@@ -216,7 +247,7 @@
                                                     <h5>Nuevo Estado del Documento</h5>
                                                     <input class="form-control" type="text" name="nuevoEstadoDocAct"
                                                         id="nuevoEstadoDocAct" value="O" hidden>
-                                                    <label class="form-control" type="text" readonly >Obsoleto</label>
+                                                    <label class="form-control" type="text" readonly>Obsoleto</label>
                                                 </div>
                                             </div>
                                         </div>

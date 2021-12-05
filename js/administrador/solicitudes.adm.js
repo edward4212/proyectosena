@@ -1,5 +1,5 @@
 
-function cargar() {
+function cargarSol() {
     window.location.href = "../vistaAdministrador/solicitudes.adm.frm.php";
 }
 
@@ -283,7 +283,7 @@ $(document).ready(function () {
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
-                cargar();
+                cargarSol();
             })
         }).fail(function (xhr, status, error) {
             console.log(error);
@@ -305,7 +305,7 @@ $(document).ready(function () {
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
-                cargar();
+                cargarSol();
             })
         }).fail(function (xhr, status, error) {
             console.log(error);

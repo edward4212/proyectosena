@@ -49,10 +49,10 @@ function idtareaApr(id_versionamiento, id_tarea, documento, codigo, nombre_docum
 
 }
 
-function idcomentarioTar(id_tarea) {
+function idcomentarioTar(id_tarea,id_versionamiento) {
     $("#numIdTidTareaCom").val(id_tarea);
     $("#numIdTidTareaCom1").val(id_tarea);
-    $("#idTareaComDev").val(id_tarea);
+    $("#idTareaComDev").val(id_versionamiento);
     
 }
 
@@ -1038,7 +1038,7 @@ $(document).ready(function () {
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.nombre_documento + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.numero_version + '</td>';
                 datos += '<td class=" border border-primary  text-center align-middle"><button type="button"  onclick="idDevolucion(' + value.id_versionamiento + ',\'' + value.documento + '\',\'' + value.codigo + '\',\'' + value.nombre_documento + '\',' + value.numero_version + ',\'' + value.sigla_tipo_documento + '\',\'' + value.sigla_proceso + '\',\'' + value.descripcion_version + '\',' + value.id_documento + ')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltareaDevol"><i class="fas fa-cogs"></i></button></td>';
-                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnVerComentariosTarea" onclick="idcomentarioTar(' + value.id_tarea + ')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentarioDevolucion"><i class="far fa-comment-dots"></i></button></td>';
+                datos += '<td class=" border border-primary  text-center align-middle"><button type="button" id="btnVerComentariosTarea" onclick="idcomentarioTar(' + value.id_tarea + ',' + value.id_versionamiento +')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentarioDevolucion"><i class="far fa-comment-dots"></i></button></td>';
                 datos += '</tr>';
             })
             datos += '</tbody>';

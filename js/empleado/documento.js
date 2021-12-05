@@ -19,6 +19,7 @@ $(document).ready(function(){
             datos += "<table id='tableDocumentoVigentesEmp'  class='table  table-striped table-bordered table-responsive '   >";
                datos += '<thead >';
                     datos += '<tr class="table-light border-primary ">';
+                    datos += '<th  class="text-center align-middle border border-primary " hidden>IDVERSIONAMIENTO</th>' ;
                         datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
@@ -31,6 +32,7 @@ $(document).ready(function(){
                 datos += '<tbody>';
                     $.each(json, function(key, value){
                         datos += '<tr class="align-middle" >';
+                        datos += '<td class=" border border-primary  text-wrap" hidden>' + value.id_versionamiento + '</td>';
                             datos += '<td class=" border border-primary  text-wrap">'+value.proceso+'</td>'; 
                             datos += '<td class=" border border-primary text-center align-middle">'+value.tipo_documento+'</td>';
                             datos += '<td class=" border border-primary text-wrap align-middle">'+value.codigo+'</td>';
@@ -59,9 +61,12 @@ $(document).ready(function(){
                 "language": {"url": "../componente/libreria/idioma/es-mx.json"},
                 dom:  'Qfrtip',
                 dom:  'Bfrtip',
-                order: [[0, 'asc'],[2, 'asc']],
+                order: [
+                    [1, 'asc'],
+                    [2, 'asc']
+                ],
                 rowGroup: {
-                    dataSrc: 0
+                    dataSrc: 1
                 },
                 buttons: [
                     {

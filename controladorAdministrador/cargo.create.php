@@ -3,7 +3,9 @@
 include_once "../entidadAdministrador/cargo.entidad.php";
 include_once "../modeloAdministrador/cargo.modelo.php";
 
-$cargo = $_POST['txtCargo'];
+$cargos = $_POST['txtCargo'];
+
+$cargo =  ucwords($cargos);
 
 
 if (isset($_FILES["fileCargo"]))

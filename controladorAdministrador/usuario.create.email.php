@@ -47,7 +47,7 @@ try {
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();
 
-    $mail ->isSMTP();
+    $mail ->IsSMTP();
     $mail ->SMTPDebug = 2;
     $mail ->SMTPAuth  =  $SMTPAuth;
     $mail ->SMTPSecure = $SMTPSecure;
