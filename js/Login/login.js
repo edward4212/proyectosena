@@ -43,7 +43,7 @@ $(document).ready(function () {
                                 showConfirmButton: false,
                                 timer: 3000
                               }).then((result) => {
-                                window.location.href = "../vistaAdministrador/inicio.Adm.frm.php";
+                                window.location.href = "../administrador/inicio.php";
                               })
                         }else if (obj[0].id_rol == 2) {
                             Swal.fire({
@@ -52,7 +52,7 @@ $(document).ready(function () {
                                 showConfirmButton: false,
                                 timer: 3000
                               }).then((result) => {
-                                window.location.href = "../vistaEmpleado/inicio.frm.php";
+                                window.location.href = "../empleado/inicio.php";
                               })
                         }else if (obj[0].id_rol == 3) {
                             Swal.fire({
@@ -61,7 +61,7 @@ $(document).ready(function () {
                                 showConfirmButton: false,
                                 timer: 3000
                               }).then((result) => {
-                                window.location.href = "../vistaVisitante/iniciov.frm.php";
+                                window.location.href = "../visitante/inicio.php";
                               })
                             }
                     }else if(obj[0].estadoUsuario == "C"){
@@ -118,7 +118,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
-                    window.location.href = "../vistaLogin/login.frm.php";
+                    window.location.href = "../login/login.php";
                 })
             }else  if(json == '0')
             {
@@ -128,7 +128,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
-                    window.location.href = "../vistaEmpleado/perfil.frm.php";
+                    window.location.href = "../login/login.php";
                 })
             }
         }).fail(function(xhr, status, error){
@@ -138,7 +138,7 @@ $(document).ready(function () {
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
-                window.location.href = "../vistaEmpleado/perfil.frm.php";
+                window.location.href = "../empleado/perfil.php";
             })
         })
     })

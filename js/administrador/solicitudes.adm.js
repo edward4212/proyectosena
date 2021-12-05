@@ -1,6 +1,6 @@
 
 function cargarSol() {
-    window.location.href = "../vistaAdministrador/solicitudes.adm.frm.php";
+    window.location.href = "../administrador/solicitudes.php";
 }
 
 function comentario(id_solicitud) {

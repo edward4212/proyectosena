@@ -1,3 +1,3 @@
 <?php
-echo "<script> window.location.href = 'vistaLogin/login.frm.php'</script>";
+echo "<script> window.location.href = 'login/login.php'</script>";
 ?>

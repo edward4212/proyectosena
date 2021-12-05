@@ -16,7 +16,7 @@ $(document).ready(function(){
                     showConfirmButton: false,
                     timer: 3000
                     }).then((result) => {
-                         window.location.href = "../vistaLogin/login.frm.php";
+                         window.location.href = "../login/login.php";
                     })
             }).fail(function(xhr, status, error){
                 Swal.fire({                  
@@ -25,7 +25,7 @@ $(document).ready(function(){
                     showConfirmButton: false,
                     timer: 3000
                     }).then((result) => {
-                         window.location.href = "../vistaEmpleado/perfil.frm.php";
+                         window.location.href = "../administrador/perfil.php";
                     })
         })
     })

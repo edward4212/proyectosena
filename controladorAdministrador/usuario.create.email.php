@@ -36,8 +36,8 @@ try {
     
     LIMARO";
 
-    $fromemail = "edward4212@gmail.com";
-    $fromname = "SIDOC";
+    $fromemail = "limarosoftware@gmail.com";
+    $fromname = "LIMARO";
     $host = "smtp.gmail.com";
     $port ="587";
     $SMTPAuth = true;

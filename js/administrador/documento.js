@@ -1,5 +1,5 @@
 function cargar1() {
-    window.location.href = "../vistaAdministrador/documentos.Adm.frm.php";
+    window.location.href = "../administrador/documentos.php";
 }
 
 function siglasProcNuevo(id_proceso, sigla_proceso) {

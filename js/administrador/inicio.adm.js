@@ -31,7 +31,7 @@ function objetivos (id_empresa,objetivos_calidad){
 }
 
 function cargar(){
-    window.location.href = "../vistaAdministrador/inicio.Adm.frm.php";
+    window.location.href = "../administrador/inicio.php";
 }
 
 $(document).ready(function(){

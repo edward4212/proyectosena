@@ -1,6 +1,6 @@
 
 function cargar() {
-    window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+    window.location.href = "../administrador/usuarios.php";
 }
 
 function modificarRol(id_rol, rol) {
@@ -431,7 +431,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
-                    window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+                    window.location.href = "../administrador/usuarios.php";
                 })
 
             } else {
@@ -442,7 +442,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
-                    window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+                    window.location.href = "../administrador/usuarios.php";
                 })
             }
         }).fail(function (xhr, status, error) {

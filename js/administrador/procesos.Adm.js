@@ -1,5 +1,5 @@
 function cargar(){
-    window.location.href = "../vistaAdministrador/procesos.Adm.frm.php";
+    window.location.href = "../administrador/procesos.php";
 }
 
 function modificarProceso (id_proceso, proceso, sigla_proceso){
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
         
      /**
-     * Se realiza el CRUD de los Procesos para mostrar en vistaAdminsitrador/documento.Adm.frm.php
+     * Se realiza el CRUD de los Procesos para mostrar en vistaAdminsitrador/documento.php
      */
 
     /// REGISTRAR PROCESO ///
@@ -227,7 +227,7 @@ $(document).ready(function(){
     })
 
      /**
-     * Se realiza el CRUD de los tipos de documentos para mostrar en vistaAdminsitrador/documento.Adm.frm.php
+     * Se realiza el CRUD de los tipos de documentos para mostrar en vistaAdminsitrador/documento.php
      */
        /// MOSTRAR TIPO DOCUMENTOS ///
     function buscarTipoDocumento(){

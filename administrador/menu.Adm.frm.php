@@ -15,28 +15,28 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class=" navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0  ">
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" aria-current="page" href="inicio.Adm.frm.php"><i
+                        <a class="nav-link p-2" aria-current="page" href="inicio.php"><i
                                 class="fas fa-home"></i> Inicio</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href="usuarios.Adm.frm.php"><i class="fas fa-users"></i> Usuarios</a>
+                        <a class="nav-link p-2" href="usuarios.php"><i class="fas fa-users"></i> Usuarios</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2 " href="procesos.Adm.frm.php"><i class="fas fa-file"></i> Procesos</a>
+                        <a class="nav-link p-2 " href="procesos.php"><i class="fas fa-file"></i> Procesos</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href="documentos.Adm.frm.php"><i class="far fa-address-book"></i>
+                        <a class="nav-link p-2" href="documentos.php"><i class="far fa-address-book"></i>
                             Documentos</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href="solicitudes.adm.frm.php"><i class="fas fa-check-double"></i>
+                        <a class="nav-link p-2" href="solicitudes.php"><i class="fas fa-check-double"></i>
                             Solicitudes</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href="tareas.Adm.frm.php"><i class="fas fa-list"></i> Tareas</a>
+                        <a class="nav-link p-2" href="tareas.php"><i class="fas fa-list"></i> Tareas</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link p-2" href="perfil.Adm.frm.php"><i class="fas fa-user-circle"></i> Perfil</a>
+                        <a class="nav-link p-2" href="perfil.php"><i class="fas fa-user-circle"></i> Perfil</a>
                     </li>
                     <li class="nav-item col-6 col-md-auto">
                         <a class="nav-link p-2" href=""></a>
@@ -44,9 +44,9 @@
                 </ul>
             </div>
             <form class="d-flex">
-                <label href="perfil.Adm.frm.php"
+                <label href="perfil.php"
                     class="nav-link p-2"><?php $usuario= $_SESSION['usuario']; echo $usuario;?></label>
-                <img href="perfil.Adm.frm.php"
+                <img href="perfil.php"
                     src="../documentos/usuarios/<?php $usuario= $_SESSION['usuario']; echo $usuario;?>/imagen/<?php $img_empleado= $_SESSION['img_empleado']; echo $img_empleado; ?>"
                     alt="mdo" width="32" height="32" class="rounded-circle">
                 <a class="btn btn-primary" id="btnCerrar"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>

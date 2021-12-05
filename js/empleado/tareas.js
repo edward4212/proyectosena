@@ -1,5 +1,5 @@
 function cargar() {
-    window.location.href = "../vistaEmpleado/tareas.frm.php";
+    window.location.href = "../empleado/tareas.php";
 }
 
 function comentario(id_solicitud) {

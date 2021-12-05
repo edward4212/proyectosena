@@ -51,7 +51,7 @@ echo '
             showConfirmButton: false,
             timer: 3000
             }).then(function() {
-            window.location.href = "../vistaLogin/login.frm.php";
+            window.location.href = "../login/login.php";
         });
     });
     </script>';

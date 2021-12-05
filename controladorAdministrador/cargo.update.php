@@ -73,7 +73,7 @@ echo '
             showConfirmButton: false,
             timer: 3000
             }).then(function() {
-            window.location.href = "../vistaAdministrador/usuarios.Adm.frm.php";
+                window.location.href = "../administrador/usuarios.php";
         });
     });
     </script>';

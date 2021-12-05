@@ -9,7 +9,7 @@ $(document).ready(function(){
         }).done(function(json){
                 var obj=JSON.parse(json);
                 if(obj==true){
-                window.location.href="../vistaLogin/login.frm.php";
+                window.location.href="../login/login.php";
                 }
         }).fail(function(xhr,status,error){
             console.log(error);
