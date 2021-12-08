@@ -117,7 +117,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Vigentes',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -127,7 +127,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Vigentes',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -136,7 +136,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Vigentes',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -145,7 +145,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -324,7 +324,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -334,7 +334,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -343,7 +343,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Registrados',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -352,7 +352,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5,6]
+                            columns: [ 1, 2, 3, 4, 5,6]
                         }
                     },
                     {
@@ -446,7 +446,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4 ,5]
+                            columns: [ 1, 2, 3, 4 ,5]
                         }
                     },
                     {
@@ -456,7 +456,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Registrados',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4  ,5]
+                            columns: [ 1, 2, 3, 4  ,5]
                         }
                     },
                     {
@@ -465,7 +465,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Registrados',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4 ,5]
+                            columns: [ 1, 2, 3, 4 ,5]
                         }
                     },
                     {
@@ -474,7 +474,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4 ,5]
+                            columns: [ 1, 2, 3, 4 ,5]
                         }
                     },
                     {
@@ -567,7 +567,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Obsoletos',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5,7 ]
+                            columns: [ 1, 2, 3, 4,5,7 ]
                         }
                     },
                     {
@@ -577,7 +577,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos Obsoletos',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5,7]
+                            columns: [ 1, 2, 3, 4,5,7]
                         }
                     },
                     {
@@ -586,7 +586,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos Obsoletos',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5,7]
+                            columns: [ 1, 2, 3, 4,5,7]
                         }
                     },
                     {
@@ -595,7 +595,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5,7]
+                            columns: [ 1, 2, 3, 4,5,7]
                         }
                     },
                     {
@@ -686,7 +686,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos En Tramite',
                         text: '<i class="far fa-file-pdf"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5]
+                            columns: [ 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -696,7 +696,7 @@ $(document).ready(function () {
                         messageTop: 'Documentos En Tramite',
                         text: '<i class="fas fa-print"></i>',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5]
+                            columns: [ 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -705,7 +705,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         title: 'Documentos En Tramite',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5]
+                            columns: [ 1, 2, 3, 4,5]
                         }
                     },
                     {
@@ -714,7 +714,7 @@ $(document).ready(function () {
                         autoFiltre: true,
                         titleAttr: 'COPIAR',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4,5   ]
+                            columns: [ 1, 2, 3, 4,5   ]
                         }
                     },
                     {

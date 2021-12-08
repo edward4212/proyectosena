@@ -79,7 +79,7 @@ $(document).ready(function(){
                         messageTop: 'Documentos Vigentes',
                         text : '<i class="far fa-file-pdf"></i>',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5]
+                            columns: [1,2,3,4,5]
                         }
                     },
                     {
@@ -89,7 +89,7 @@ $(document).ready(function(){
                         messageTop: 'Documentos Vigentes',
                         text : '<i class="fas fa-print"></i>',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5]
+                            columns: [1,2,3,4,5]
                         }
                     },
                     {
@@ -98,7 +98,7 @@ $(document).ready(function(){
                         autoFiltre : true ,
                         title: 'Documentos Vigentes',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5]
+                            columns: [1,2,3,4,5]
                         }
                     },
                     {
@@ -107,7 +107,7 @@ $(document).ready(function(){
                         autoFiltre : true ,
                         titleAttr: 'COPIAR',
                         exportOptions : {
-                            columns: [0,1,2,3,4,5]
+                            columns: [1,2,3,4,5]
                         }
                     },
                     {
