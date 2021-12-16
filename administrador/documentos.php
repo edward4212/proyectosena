@@ -70,7 +70,7 @@
                     <div class="row ">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <br>
-                            <h3 class="card-title text-center">Crear Documentos</h3>
+                            <h3 class="card-title text-center">Crear Documento</h3>
                             <form class="row g-3 form-group" id="crearDoc" name="crearDoc" method="POST">
                                 <div class="col-md-4 col-xs-12 col-sm-12">
                                     <input type="text" aria-label="E" class="form-control codigo" id="idsiglasProc12"
@@ -92,9 +92,9 @@
                                     <input type="text" aria-label="E" class="form-control codigo" id="siglasTipDoc"
                                         name="siglasTipDoc" hidden>
                                     <button type="button" id="btnAsignarCod" name="btnAsignarCod"
-                                        class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Asignar Numero</button>
+                                        class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Asignar Número</button>
                                     <div class="" id="codigoAsi" hidden>
-                                        <h5>Codigo del Documento</h5>
+                                        <h5>Código del Documento</h5>
                                         <div class="input-group">
                                             <input type="text" aria-label="E" id="siglasProc1" name="siglasProc1"
                                                 class="form-control codigo" readonly>
@@ -109,7 +109,7 @@
                                 </div>
 
                                 <div class="col-md-8 col-xs-12 col-sm-12" id="nombreAsig" hidden>
-                                    <h5>Nombre Documento</h5>
+                                    <h5>Nombren Del Documento</h5>
                                     <input type="text" class="form-control redondeado inicialM" id="nombreDoc"
                                         name="nombreDoc" required>
                                 </div>
@@ -156,7 +156,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" id="btnCambiarNomDoc" name="btnCambiarNomDoc" class="btn btn-primary"><i
-                                                    class="fas fa-edit"></i> Cambiar Nombre Documento</button>
+                                                    class="fas fa-edit"></i> Cambiar Nombre Del Documento</button>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
                                                     class="fas fa-undo"></i> Volver</button>
                                         </div>
@@ -185,7 +185,7 @@
                                     <input class="form-control" type="text" name="codigo1" id="codigo1" hidden>
                                 </div>
                                 <div class="col-md-2 col-xs-12 col-sm-12">
-                                    <h5>Version Siguiente</h5>
+                                    <h5>Versión Siguiente</h5>
                                     <input class="form-control" type="text" name="versionSig1" id="versionSig1"
                                         readonly>
                                 </div>
@@ -200,7 +200,7 @@
                                         required>
                                 </div>
                                 <div class="col-md-4 col-xs-12 col-sm-12">
-                                    <h5>Selecionar Usuario para Revision</h5>
+                                    <h5>Seleccionar Usuario para Revisión</h5>
                                     <select class="form-control" id="empleadoCAN" name="empleadoCAN" aria-label="E"
                                         aria-describedby="basic-addon1" required></select>
                                 </div>

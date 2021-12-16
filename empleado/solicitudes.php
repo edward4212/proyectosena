@@ -80,13 +80,13 @@
                                         required></select>
                                 </div>
                                 <div class="col-md-12 col-xs-12 col-sm-12">
-                                    <h5>Descripcion</h5>
+                                    <h5>Descripción</h5>
                                     <textarea type="text" class="form-control redondeado" rows="5" id="solicitud" name="solicitud" required></textarea>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <h5>Subir Documento</h5>
                                     <input type="file" class="form-control redondeado" id="fileSolicitud" name="fileSolicitud" multiple>
-                                    <p class="text-muted">Si se agrega mas de un archivo, anexarlos en carpeta comprimida .zip</p>
+                                    <p class="text-muted">Si se agrega más de un archivo, anexarlos en carpeta comprimida .zip</p>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12 align-items-center">
                                     <button type="submit" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Crear
@@ -115,7 +115,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Solicitar Actualizacion de
+                                        <h5 class="modal-title" id="exampleModalLabel">Solicitar Actualización de
                                             Documento</h5>
                                         <button type="button" id="btnCerrarModal" class="btn-close"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
@@ -124,7 +124,7 @@
                                         action="../controladorEmpleado/solicitudes.actualiDoc.create.php" method="POST"
                                         enctype="multipart/form-data">
                                         <div class="modal-body">
-                                            <h5>Codigo Documento</h5>
+                                            <h5>Código Documento</h5>
                                             <input type="text" class="form-control redondeado" name="codigo" id="codigo" readonly>
                                             <h5>Tipo Documento</h5>
                                             <input type="text" class="form-control redondeado" name="idTipoDoc1" id="idTipoDoc1" hidden>
@@ -132,13 +132,13 @@
                                             <h5>Prioridad</h5>
                                             <select class="form-control redondeado" id="prioridad1" name="prioridad1"
                                                 required></select>
-                                            <h5>Descripcion</h5>
+                                            <h5>Descripción</h5>
                                             <textarea type="text" class="form-control redondeado" rows="8" cols="55" id="solicitud1" name="solicitud1"
                                                 required></textarea>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Subir Documento</h5>
                                                 <input type="file" class="form-control redondeado" id="fileActualizacion" name="fileActualizacion" multiple>
-                                                <p class="text-muted">Si se agrega mas de un archivo, anexarlos en carpeta comprimida .zip</p>
+                                                <p class="text-muted">Si se agrega más de un archivo, anexarlos en carpeta comprimida .zip</p>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -176,7 +176,7 @@
                                         action="../controladorEmpleado/solicitudes.elimDoc.create.php" method="POST"
                                         enctype="multipart/form-data">
                                         <div class="modal-body">
-                                            <h5>Codigo Documento</h5>
+                                            <h5>Código Documento</h5>
                                             <input type="text" name="codigo2" id="codigo2" readonly>
                                             <h5>Tipo Documento</h5>
                                             <input type="text" class="form-control redondeado" name="idTipoDoc2" id="idTipoDoc2" hidden>
@@ -184,13 +184,13 @@
                                             <h5>Prioridad</h5>
                                             <select class="form-control redondeado" id="prioridad2" name="prioridad2"
                                                 required></select>
-                                            <h5>Descripcion</h5>
+                                            <h5>Descripción</h5>
                                             <textarea type="text" class="form-control redondeado" rows="8" cols="55" id="solicitud2" name="solicitud2"
                                                 required></textarea>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <h5>Subir Documento</h5>
                                                 <input type="file" class="form-control redondeado" id="fileEliminacion" name="fileEliminacion" multiple>
-                                                <p class="text-muted">Si se agrega mas de un archivo, anexarlos en carpeta comprimida .zip</p>
+                                                <p class="text-muted">Si se agrega más de un archivo, anexarlos en carpeta comprimida .zip</p>
                                             </div>
                                         </div>
                                         <div class="modal-footer">

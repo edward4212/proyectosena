@@ -80,7 +80,7 @@ $(document).ready(function(){
                 datos += "<table id='tablaProcesos' class='table  table-striped table-bordered table-responsive '   >"; 
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary ">';
-                            datos += '<th  class="text-center align-middle border border-primary ">CODIGO PROCESO</th>';
+                            datos += '<th  class="text-center align-middle border border-primary " hidden>CÓDIGO  PROCESO</th>';
                             datos += '<th  class="text-wrap align-middle border border-primary ">NOMBRE PROCESO</th>';
                             datos += '<th  class="text-center align-middle border border-primary ">SIGLA PROCESO</th>';
                             datos += '<th  class="text-center align-middle border border-primary ">ESTADO PROCESO</th>';
@@ -98,7 +98,7 @@ $(document).ready(function(){
                                 }
                             }
                             datos += '<tr class="align-middle" >';
-                                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.id_proceso+' </td>';
+                                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud" hidden>'+value.id_proceso+' </td>';
                                 datos += '<td class=" border border-primary text-wrap align-middle">'+value.proceso+'</td>';
                                 datos += '<td class=" border border-primary text-center align-middle">'+value.sigla_proceso+'</td>';
                                 datos += '<td class=" border border-primary text-center align-middle">'+value.estado+'</td>';
@@ -244,7 +244,7 @@ $(document).ready(function(){
                 datos += "<table id='tablaTipoDoc' class='table  table-striped table-bordered table-responsive '  >"; 
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary ">';
-                            datos += '<th  class="text-wrap align-middle border border-primary ">CODIGO TIPO DOCUMENTO</th>';
+                            datos += '<th  class="text-wrap align-middle border border-primary " hidden>CÓDIGO  TIPO DOCUMENTO</th>';
                             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE TIPO DOCUMENTO</th>';
                             datos += '<th  class="text-wrap align-middle border border-primary ">SIGLA TIPO DOCUMENTO</th>';
                             datos += '<th  class="text-center align-middle border border-primary ">ESTADO TIPO DOCUMENTO</th>';
@@ -262,7 +262,7 @@ $(document).ready(function(){
                                 }
                             }
                             datos += '<tr class="align-middle" >';
-                                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud">'+value.id_tipo_documento+' </td>';
+                                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud" hidden>'+value.id_tipo_documento+' </td>';
                                 datos += '<td class=" border border-primary text-center align-middle">'+value.tipo_documento    +'</td>';
                                 datos += '<td class=" border border-primary text-center align-middle">'+value.sigla_tipo_documento+'</td>';
                                 datos += '<td class=" border border-primary text-center align-middle">'+value.estado+'</td>';

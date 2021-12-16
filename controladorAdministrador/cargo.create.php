@@ -49,7 +49,7 @@ echo '
     jQuery(function(){
         Swal.fire({
             icon: "success",
-            title: "Cargo Creado con Exito",
+            title: "Cargo Creado con Éxito",
             showConfirmButton: false,
             timer: 3000
             }).then(function() {

@@ -34,7 +34,7 @@
             <label  href="perfil.php" class="nav-link p-2" ><?php $usuario= $_SESSION['usuario']; echo $usuario;?></label>
                 <img href="perfil.php"  src="../documentos/usuarios/<?php $usuario= $_SESSION['usuario']; echo $usuario;?>/imagen/<?php $img_empleado= $_SESSION['img_empleado']; echo $img_empleado; ?>"
                 alt="mdo" width="32" height="32" class="rounded-circle">
-                <a class="btn btn-primary" id="btnCerrar"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
+                <a class="btn btn-primary" id="btnCerrar"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
                 <script src="../js/Login/logueo.js"></script>
             </form>
         </div>

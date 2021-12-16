@@ -36,13 +36,13 @@ try {
     
     LIMARO";
 
-    $fromemail = "limarosoftware@gmail.com";
+    $fromemail = "notificaciones@limaro.co";
     $fromname = "LIMARO";
-    $host = "smtp.gmail.com";
-    $port ="587";
+    $host = "smtp.mi.com.co";
+    $port ="465";
     $SMTPAuth = true;
     $SMTPSecure = "tsl";
-    $password ="Romero1316";
+    $password ="Kddbjw8b3d";
     $IsHTML=true;
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();

@@ -19,10 +19,10 @@ $(document).ready(function(){
             datos += "<table id='tableDocumentoVigentesEmp'  class='table  table-striped table-bordered table-responsive '   >";
                datos += '<thead >';
                     datos += '<tr class="table-light border-primary ">';
-                    datos += '<th  class="text-center align-middle border border-primary " hidden>IDVERSIONAMIENTO</th>' ;
+                    datos += '<th  class="text-center align-middle border border-primary " hidden>ID VERSIONAMIENTO</th>' ;
                         datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-                        datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+                        datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
                         datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">FECHA DE VIGENCIA</th>';

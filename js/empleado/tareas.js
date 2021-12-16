@@ -90,23 +90,23 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasAct'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO VERSIONAMIENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
+            datos += '<th  class="border border-primary text-center align-middle "> VERSIÓN </th>';
             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
             datos += '</tr>';
             datos += '</thead>';
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 if (value.estado = "R") {
-                    estado = "REVISION";
+                    estado = "REVISIÓN ";
                 }
                 datos += '<tr class="align-middle" >';
                 datos += '<td class=" border border-primary text-wrap align-middle" >' + value.id_versionamiento + ' </td>';
@@ -149,9 +149,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Documentos Para Revisión',
-                    titleAttr: 'Documentos Para Revisión',
-                    messageTop: 'Documentos Para Revisión',
+                    title: 'Documentos Por Revisión',
+                    titleAttr: 'Documentos Por Revisión',
+                    messageTop: 'Documentos Por Revisión',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -159,9 +159,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Documentos Para Revisión',
-                    titleAttr: 'Documentos Para Revisión',
-                    messageTop: 'Documentos Para Revisión',
+                    title: 'Documentos Por Revisión',
+                    titleAttr: 'Documentos Por Revisión',
+                    messageTop: 'Documentos Por Revisión',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -171,7 +171,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Documentos Para Revisión',
+                    title: 'Documentos Por Revisión',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -196,7 +196,7 @@ $(document).ready(function () {
         })
     }
 
-    ///asignar funcioanrio Para revisar///
+    ///asignar funcioanrio Por revisar///
     function buscarFuncionarios1() {
         $.ajax({
             url: '../controladorAdministrador/usuario.read.php',
@@ -205,7 +205,7 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             var tipoDocumento = 0;
-            tipoDocumento += '<option disabled selected> - Seleccione un funcionario-</option>';
+            tipoDocumento += '<option disabled selected> - Seleccione Un Funcionario -</option>';
             $.each(json, function (key, value) {
                 tipoDocumento += '<option value=' + value.usuario + '>' + value.usuario + '</option>';
             })
@@ -215,7 +215,7 @@ $(document).ready(function () {
         })
     }
 
-    /// REVISION DE VERSION REALZIADA///
+    /// REVISIÓN  DE VERSIÓN  REALIZADA ///
     $(document).on('click', '#btnRevisionTarea', function (event) {
         event.preventDefault();
         $.ajax({
@@ -226,7 +226,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Revision Registrada con Exito',
+                title: 'Revisión Registrada con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -237,7 +237,7 @@ $(document).ready(function () {
         })
     })
 
-    /// DEVOLVER REVISION DE VERSION REALZIADA///
+    /// DEVOLVER REVISIÓN  DE VERSIÓN  REALIZADA ///
     $(document).on('click', '#btnDevolverTarea', function (event) {
         event.preventDefault();
         $.ajax({
@@ -248,7 +248,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Devolucion de Documento Registrada con Exito',
+                title: 'Devolución de Documento Registrada con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -268,23 +268,23 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasApr'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO VERSIONAMIENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">VERSIÓN </th>';
             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
             datos += '</tr>';
             datos += '</thead>';
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 if (value.estado = "R") {
-                    estado = "REVISION";
+                    estado = "REVISIÓN ";
                 }
                 datos += '<tr class="align-middle" >';
                 datos += '<td class=" border border-primary text-wrap align-middle" >' + value.id_versionamiento + ' </td>';
@@ -327,9 +327,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Documentos  Para Aprobación',
-                    titleAttr: 'Documentos  Para Aprobación',
-                    messageTop: 'Documentos  Para Aprobación',
+                    title: 'Documentos  Por Aprobación',
+                    titleAttr: 'Documentos  Por Aprobación',
+                    messageTop: 'Documentos  Por Aprobación',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -337,9 +337,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Documentos  Para Aprobación',
-                    titleAttr: 'Documentos  Para Aprobación',
-                    messageTop: 'Documentos  Para Aprobación',
+                    title: 'Documentos  Por Aprobación',
+                    titleAttr: 'Documentos  Por Aprobación',
+                    messageTop: 'Documentos  Por Aprobación',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -349,7 +349,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Documentos  Para Aprobación',
+                    title: 'Documentos Por Aprobación',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -374,7 +374,7 @@ $(document).ready(function () {
         })
     }
 
-    /// REVISION DE VERSION REALZIADA///
+    /// REVISIÓN  DE VERSIÓN REALIZADA ///
     $(document).on('click', '#btnAprobacionTarea', function (event) {
         event.preventDefault();
         $.ajax({
@@ -385,7 +385,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Revision Registrada con Exito',
+                title: 'Revisión Registrada con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -396,7 +396,7 @@ $(document).ready(function () {
         })
     })
 
-    ///INACTIVAR VERSION ANTERIOR DE VERSION REALZIADA///
+    ///INACTIVAR VERSIÓN ANTERIOR DE VERSIÓN REALIZADA///
     $(document).on('click', '#btnAprobacionTarea', function (event) {
         event.preventDefault();
         $.ajax({
@@ -411,7 +411,7 @@ $(document).ready(function () {
         })
     })
 
-    /// DEVOLVER REVISION DE VERSION REALZIADA///
+    /// DEVOLVER REVISIÓN  DE VERSIÓN REALIZADA ///
     $(document).on('click', '#btnDevolverTareaApr', function (event) {
         event.preventDefault();
         $.ajax({
@@ -422,7 +422,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Devolucion de Documento Registrada con Exito',
+                title: 'Devolución de Documento Registrada con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {

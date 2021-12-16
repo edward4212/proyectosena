@@ -36,10 +36,10 @@
                                         required>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12">
-                                    <h5>Correo Electronico</h5>
+                                    <h5>Correo Electrónico </h5>
                                     <input class="form-control" type="email" name="txtCorreoEmpleado"
                                         id="txtCorreoEmpleado" placeholder="name@example.com"
-                                        title="Introduzca una direccion de corrreo valido" aria-label="E"
+                                        title="Introduzca una direccion de correo valido" aria-label="E"
                                         aria-describedby="basic-addon1" style="text-transform:lowercase;" required>
                                 </div>
                                 <div class="col-md-3 col-xs-12 col-sm-12">
@@ -53,7 +53,7 @@
                                         aria-describedby="basic-addon1" required></select>
                                 </div>
                                 <div class="col-md-3 col-xs-12 col-sm-12">
-                                    <h5>Nombre de Usuario</h5>
+                                    <h5>Usuario</h5>
                                     <input class="form-control" type="text" name="txtUsuario" id="txtUsuario"
                                         aria-label="E" aria-describedby="basic-addon1" required>
                                 </div>
@@ -133,7 +133,7 @@
                                                         id="txtNombreMod"  >
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
-                                                    <h5>Correo Electronico</h5>
+                                                    <h5>Correo Electrónico </h5>
                                                     <input class="form-control" type="text" name="txtCorreoMod"
                                                         id="txtCorreoMod" onkeyup="javascript:this.value=this.value.toLowerCase();" >
                                                 </div>

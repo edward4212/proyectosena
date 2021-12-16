@@ -12,7 +12,7 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active " id="nav-solicitudes-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-solicitudes" type="button" role="tab" aria-controls="nav-solicitudes"
-                        aria-selected="false">Revision</button>
+                        aria-selected="false">Revisión</button>
                     <button class="nav-link " id="nav-aprobacion-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-aprobacion" type="button" role="tab" aria-controls="nav-aprobacion"
                         aria-selected="true">Aprobación</button>
@@ -61,17 +61,17 @@
 
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
-                                                    <h5>Version </h5>
+                                                    <h5>Versión </h5>
                                                     <input class="form-control" type="text" name="versionDoc1"
                                                         id="versionDoc1" readonly>
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
-                                                    <h5>Descripción de la Version</h5>
+                                                    <h5>Descripción de la Versión</h5>
                                                     <textarea type="text" class="form-control redondeado" rows="1"
                                                         id="descriVersion" name="descriVersion" readonly></textarea>
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
-                                                    <h5>Descripción de la Revision</h5>
+                                                    <h5>Descripción de la Revisión</h5>
                                                     <textarea type="text" class="form-control redondeado" rows="2"
                                                         id="descriCambioRev" name="descriCambioRev" required></textarea>
                                                 </div>
@@ -79,10 +79,10 @@
                                                     <br>
                                                     <a type="button" class="btn btn-primary form-control" href=""
                                                         target="_blank" name="fileDocumentoDes" id="fileDocumentoDes"><i
-                                                            class="fas fa-download"></i>Descagar Documento</a>
+                                                            class="fas fa-download"></i>Descargar Documento</a>
                                                 </div>
                                                 <div class="col-md-6 col-xs-12 col-sm-12">
-                                                    <h5>Selecionar Usuario para Aprobación</h5>
+                                                    <h5>Seleccionar Usuario para Aprobación</h5>
                                                     <select class="form-control" id="empleado1" name="empleado1"
                                                         aria-label="E" aria-describedby="basic-addon1"
                                                         required></select>
@@ -119,7 +119,7 @@
                                             <input type="number" name="numIdVerDevol" id="numIdVerDevol" hidden>
                                             <input type="number" name="idTareDEvl" id="idTareDEvl" hidden >
                                             <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <h5>Descripción de la Devolucion</h5>
+                                                <h5>Descripción de la Devolución</h5>
                                                 <textarea type="text" class="form-control redondeado" rows="1"
                                                     id="descriDevolu" name="descriDevolu"></textarea>
                                             </div>
@@ -182,12 +182,12 @@
 
                                                 </div>
                                                 <div class="col-md-2 col-xs-12 col-sm-12">
-                                                    <h5>Version </h5>
+                                                    <h5>Versión </h5>
                                                     <input class="form-control" type="text" name="versionDocAp"
                                                         id="versionDocAp" readonly>
                                                 </div>
                                                 <div class="col-md-12 col-xs-12 col-sm-12">
-                                                    <h5>Descripción de la Version</h5>
+                                                    <h5>Descripción de la Versión</h5>
                                                     <textarea type="text" class="form-control redondeado" rows="1"
                                                         id="descriVersionAp" name="descriVersionAp" readonly></textarea>
                                                 </div>
@@ -200,7 +200,7 @@
                                                     <br>
                                                     <a type="button" class="btn btn-primary form-control" href=""
                                                         target="_blank" name="fileDocumentoDesAp" id="fileDocumentoDesAp"><i
-                                                            class="fas fa-download"></i>Descagar Documento</a>
+                                                            class="fas fa-download"></i>Descargar Documento</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,7 +234,7 @@
                                         <input type="number" name="id_tareaDEvAp" id="id_tareaDEvAp" hidden >
                                             <input type="number" name="numIdVerDevolApr" id="numIdVerDevolApr" hidden>
                                             <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <h5>Descripción de la Devolucion</h5>
+                                                <h5>Descripción de la Devolución</h5>
                                                 <textarea type="text" class="form-control redondeado" rows="1"
                                                     id="descriDevoluApro" name="descriDevoluApro"></textarea>
                                             </div>

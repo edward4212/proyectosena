@@ -57,7 +57,7 @@ echo '
         jQuery(function(){
             Swal.fire({
                 icon: "success",
-                title: "Versionamiento Creado con Exito",
+                title: "Versionamiento Creado con Éxito",
                 showConfirmButton: false,
                 timer: 3000
                 }).then(function() {

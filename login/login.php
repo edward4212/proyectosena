@@ -92,7 +92,7 @@
                         </div>
                         <div class="col-md-10">
                             <div class="card-body ">
-                                <h5 class="card-title text-center">INICIAR SESION</h5>
+                                <h5 class="card-title text-center">INICIAR SESIÓN</h5>
                                 <form class="form-group" id="LoginF">
                                     <h4 for="formFile" class="form-label ">Usuario</h4>
                                     <input class="form-control form-control-lg bg-light" type="text"
@@ -110,14 +110,14 @@
                                     </div>
                                     <div class="text-center gap-2 col-12 mx-auto">
                                         <button class="btn  btn-primary " type="button" id="btnLogin">Iniciar
-                                            Sesion</button>
+                                            Sesión</button>
                                         <button class="btn  btn-primary " type="button" id="" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">Activar Usuario</button>
                                     </div>
                                 </form>
                             </div>
                             <div class="text-muted  text-center">
-                                En caso de Olvido de la Constraseña Comuniquese con el Administrador del Sitio
+                                En caso de Olvido de la Contraseña Comuníquese con el Administrador del Sitio
                             </div>
                         </div>
                     </div>

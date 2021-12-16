@@ -50,7 +50,7 @@ echo '
     jQuery(function(){
         Swal.fire({
             icon: "success",
-            title: "Organigrama Actualizado con Exito",
+            title: "Organigrama Actualizado con Éxito",
             showConfirmButton: false,
             timer: 3000
             }).then(function() {

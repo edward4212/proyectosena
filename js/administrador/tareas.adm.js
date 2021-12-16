@@ -167,19 +167,19 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tableSolicitudes'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO SOLICITUD</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE LA SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
             datos += '<th  class="border border-primary text-wrap align-middle ">PRIORIDAD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE DOCUMENTO </th>';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO </th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  DOCUMENTO </th>';
             datos += '<th  class="border border-primary text-center align-middle ">CREADO POR </th>';
             datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCIÓN DE LA SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">DOCUMENTO SOPORTE </th>';
@@ -509,13 +509,13 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareas'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO TAREA</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  TAREA</th>';
             datos += '<th  class="border border-primary text-center align-middle ">SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
             datos += '<th  class="border border-primary text-center align-middle ">ESTADO</th>';
@@ -567,9 +567,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Documentos Para Creación',
-                    titleAttr: 'Documentos Para Creación',
-                    messageTop: 'Documentos Para Creación',
+                    title: 'Documentos Por Creación',
+                    titleAttr: 'Documentos Por Creación',
+                    messageTop: 'Documentos Por Creación',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -577,9 +577,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Documentos Para Creación',
-                    titleAttr: 'Documentos Para Creación',
-                    messageTop: 'Documentos Para Creación',
+                    title: 'Documentos Por Creación',
+                    titleAttr: 'Documentos Por Creación',
+                    messageTop: 'Documentos Por Creación',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -589,7 +589,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Documentos Para Creación',
+                    title: 'Documentos Por Creación',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -662,14 +662,14 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasAct'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  VERSIONAMIENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
@@ -678,7 +678,7 @@ $(document).ready(function () {
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 if (value.estado = "R") {
-                    estado = "REVISION";
+                    estado = "REVISIÓN ";
                 }
                 datos += '<tr class="align-middle" >';
                 datos += '<td class=" border border-primary text-wrap align-middle" >' + value.id_versionamiento + ' </td>';
@@ -721,9 +721,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Documentos Para Revisión',
-                    titleAttr: 'Documentos Para Revisión',
-                    messageTop: 'Documentos Para Revisión',
+                    title: 'Documentos Por Revisión',
+                    titleAttr: 'Documentos Por Revisión',
+                    messageTop: 'Documentos Por Revisión',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -731,9 +731,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Documentos Para Revisión',
-                    titleAttr: 'Documentos Para Revisión',
-                    messageTop: 'Documentos Para Revisión',
+                    title: 'Documentos Por Revisión',
+                    titleAttr: 'Documentos Por Revisión',
+                    messageTop: 'Documentos Por Revisión',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -743,7 +743,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Documentos Para Revisión',
+                    title: 'Documentos Por Revisión',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -768,7 +768,7 @@ $(document).ready(function () {
         })
     }
 
-    ///asignar funcioanrio Para revisar///
+    ///asignar funcioanrio Por revisar///
     function buscarFuncionarios1() {
         $.ajax({
             url: '../controladorAdministrador/usuario.read.php',
@@ -787,7 +787,7 @@ $(document).ready(function () {
         })
     }
 
-    /// REVISION DE VERSION REALZIADA///
+    /// REVISIÓN  DE VERSION REALZIADA///
     $(document).on('click', '#btnRevisionTarea', function (event) {
         event.preventDefault();
         $.ajax({
@@ -809,7 +809,7 @@ $(document).ready(function () {
         })
     })
 
-    /// DEVOLVER REVISION DE VERSION REALZIADA///
+    /// DEVOLVER REVISIÓN  DE VERSION REALZIADA///
     $(document).on('click', '#btnDevolverTarea', function (event) {
         event.preventDefault();
         $.ajax({
@@ -840,14 +840,14 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasApr'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  VERSIONAMIENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
@@ -856,7 +856,7 @@ $(document).ready(function () {
             datos += '<tbody>';
             $.each(json, function (key, value) {
                 if (value.estado = "R") {
-                    estado = "REVISION";
+                    estado = "REVISIÓN ";
                 }
                 datos += '<tr class="align-middle" >';
                 datos += '<td class=" border border-primary text-wrap align-middle" >' + value.id_versionamiento + ' </td>';
@@ -899,9 +899,9 @@ $(document).ready(function () {
                     orientation: 'landscape',
                     pageSize: 'A4',
                     download: 'open',
-                    title: 'Documentos  Para Aprobación',
-                    titleAttr: 'Documentos  Para Aprobación',
-                    messageTop: 'Documentos  Para Aprobación',
+                    title: 'Documentos  Por Aprobación',
+                    titleAttr: 'Documentos  Por Aprobación',
+                    messageTop: 'Documentos  Por Aprobación',
                     text: '<i class="far fa-file-pdf"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -909,9 +909,9 @@ $(document).ready(function () {
                 },
                 {
                     extend: 'print',
-                    title: 'Documentos  Para Aprobación',
-                    titleAttr: 'Documentos  Para Aprobación',
-                    messageTop: 'Documentos  Para Aprobación',
+                    title: 'Documentos  Por Aprobación',
+                    titleAttr: 'Documentos  Por Aprobación',
+                    messageTop: 'Documentos  Por Aprobación',
                     text: '<i class="fas fa-print"></i>',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
@@ -921,7 +921,7 @@ $(document).ready(function () {
                     extend: 'excelHtml5',
                     text: '<i class="fas fa-file-excel"></i>',
                     autoFiltre: true,
-                    title: 'Documentos  Para Aprobación',
+                    title: 'Documentos  Por Aprobación',
                     exportOptions: {
                         columns: [0, 1, 2, 3]
                     }
@@ -946,7 +946,7 @@ $(document).ready(function () {
         })
     }
 
-    /// REVISION DE VERSION REALZIADA///
+    /// REVISIÓN  DE VERSION REALZIADA///
     $(document).on('click', '#btnAprobacionTarea', function (event) {
         event.preventDefault();
         $.ajax({
@@ -983,7 +983,7 @@ $(document).ready(function () {
         })
     })
 
-    /// DEVOLVER REVISION DE VERSION REALZIADA///
+    /// DEVOLVER REVISIÓN  DE VERSION REALZIADA///
     $(document).on('click', '#btnDevolverTareaApr', function (event) {
         event.preventDefault();
         $.ajax({
@@ -1013,14 +1013,14 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasDev'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO VERSIONAMIENTO</th>';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  VERSIONAMIENTO</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="border border-primary text-center align-middle "> VERSION</th>';
             datos += '<th  class="border border-primary text-center align-middle ">ADMINISTRAR TAREA</th>';
@@ -1120,7 +1120,7 @@ $(document).ready(function () {
         })
     }
 
-    ///asignar funcioanrio Para revisar///
+    ///asignar funcioanrio Por revisar///
     function buscarFuncionarios2() {
         $.ajax({
             url: '../controladorAdministrador/usuario.read.php',
@@ -1253,13 +1253,13 @@ $(document).ready(function () {
             data: null,
         }).done(function (json) {
             /**
-             * Se crea la tabla Para mostrar los datos consultados
+             * Se crea la tabla Por mostrar los datos consultados
              */
             var datos = '';
             datos += "<table id='tabletareasTotal'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO TAREA</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  TAREA</th>';
             datos += '<th  class="border border-primary text-center align-middle ">SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
             datos += '<th  class="border border-primary text-center align-middle ">ESTADO</th>';

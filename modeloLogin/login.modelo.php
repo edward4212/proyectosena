@@ -5,7 +5,6 @@ namespace modelo;
 include_once "../entidadLogin/login.entidad.php";
 include_once "../entorno/conexionSingleton.php";
 
-
 use PDO;
 
 class login{
@@ -39,7 +38,7 @@ class login{
             us.`estado` as estadoUsuario,
             rol.`id_rol`,
             rol.`rol`,
-            rol.`estado`,
+            rol.`estado` as rolEstado,
             emp.`id_empleado`,
             emp.`nombre_completo`,
             emp.`correo_empleado`,

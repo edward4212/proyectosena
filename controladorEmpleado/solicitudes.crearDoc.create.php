@@ -63,7 +63,7 @@ echo '
     jQuery(function(){
         Swal.fire({
             icon: "success",
-            title: "Solcitud de Creacion de Documento Creada con Exito",
+            title: "Solicitud  de Creación de Documento Creada con Éxito",
             showConfirmButton: false,
             timer: 2000
             }).then(function() {

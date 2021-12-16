@@ -47,7 +47,7 @@ echo '
     jQuery(function(){
         Swal.fire({
             icon: "success",
-            title: "Imagen Actualizada con Exito ...! Inicie Sesión Nuevamente",
+            title: "¡Imagen Actualizada con Éxito ...! Inicie Sesión Nuevamente ",
             showConfirmButton: false,
             timer: 3000
             }).then(function() {

@@ -63,7 +63,7 @@ echo '
     jQuery(function(){
         Swal.fire({
             icon: "success",
-            title: "Solcitud de Actualización de Documento creada con Exito",
+            title: "Solicitud de Actualización de Documento creada con Éxito ",
             showConfirmButton: false,
             timer: 2000
             }).then(function() {

@@ -68,7 +68,7 @@ $(document).ready(function () {
             datos += "<table id='tablaRol'  class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-wrap align-middle border border-primary ">CODIGO ROL</th>';
+            datos += '<th  class="text-wrap align-middle border border-primary " hidden>CÓDIGO  ROL</th>';
             datos += '<th  class="text-wrap align-middle border border-primary ">ROL</th>';
             datos += '<th  class="text-wrap align-middle border border-primary ">ESTADO ROL</th>';
             datos += '<th  class="text-wrap align-middle border border-primary ">ACTUALIZAR ROL</th>';
@@ -85,7 +85,7 @@ $(document).ready(function () {
                     }
                 }
                 datos += '<tr class="align-middle" >';
-                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud">' + value.id_rol + ' </td>';
+                datos += '<td class=" border border-primary text-wrap" hidden id="numIdSolicitud">' + value.id_rol + ' </td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.rol + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle">' + value.estado + '</td>';
                 datos += '<td class=" border border-primary text-center align-middle"><button type="button" onclick="modificarRol(' + value.id_rol + ',\'' + value.rol + '\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-edit"></i></button></td>';
@@ -177,7 +177,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Rol Creado con Exito',
+                title: 'Rol Creado Con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -199,7 +199,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Rol Actualizado con Exito',
+                title: 'Rol Actualizado Con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -221,7 +221,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Estado Actualizado con Exito',
+                title: 'Estado Actualizado Con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -248,7 +248,7 @@ $(document).ready(function () {
             datos += "<table id='tablaCargos'  class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-center align-middle border border-primary ">CODIGO CARGO</th>';
+            datos += '<th  class="text-center align-middle border border-primary " hidden>CÓDIGO  CARGO</th>';
             datos += '<th  class="text-wrap align-middle border border-primary ">CARGO</th>';
             datos += '<th  class="text-wrap align-middle border border-primary " >MANUAL DE FUNCIONES</th>';
             datos += '<th  class="text-center align-middle border border-primary ">ESTADO CARGO</th>';
@@ -266,9 +266,9 @@ $(document).ready(function () {
                     }
                 }
                 datos += '<tr class="align-middle" >';
-                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud">' + value.id_cargo + ' </td>';
+                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud" hidden   >' + value.id_cargo + ' </td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.cargo + '</td>';
-                if (value.manual_funciones == "null") {
+                if (value.manual_funciones == null ) {
                     datos += '<td class=" border border-primary text-wrap align-middle">No ha cargado manual de funciones</td>';
                 } else {
                     datos += '<td class=" border border-primary text-center align-middle"><a class="btn btn-primary" href="../documentos/cargos/' + value.cargo + '/' + value.manual_funciones + '"><i class="fas fa-download"></i></a></td>';
@@ -362,7 +362,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Estado Actualizado con Exito',
+                title: 'Estado Actualizado Con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -427,7 +427,7 @@ $(document).ready(function () {
             if (json[0].proceso == "OK") {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Usuario Creado con Exito',
+                    title: 'Usuario Creado Con Éxito',
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
@@ -438,7 +438,7 @@ $(document).ready(function () {
 
                 Swal.fire({
                     icon: 'error',
-                    title: 'No se pudo crear el usuario!.. Favor Verifique los datos ingresado!',
+                    title: ' ¡No se pudo crear el usuario!.. Favor Verifique los datos ingresado! ',
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
@@ -481,7 +481,7 @@ $(document).ready(function () {
             datos += "<table id='tablaUsuarios'   class='table  table-striped table-bordered table-responsive '  >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-wrap  align-middle border border-primary ">CODIGO USUARIO</th>';
+            datos += '<th  class="text-wrap  align-middle border border-primary " hidden>CÓDIGO  USUARIO</th>';
             datos += '<th  class="text-wrap align-middle border border-primary ">NOMBRE EMPLEADO</th>';
             datos += '<th  class="text-wrap align-middle border border-primary " >CORREO EMPLEADO</th>';
             datos += '<th  class="text-wrap  align-middle border border-primary ">ROL</th>';
@@ -503,7 +503,7 @@ $(document).ready(function () {
                     value.estado = "CREADO";
                 }
                 datos += '<tr class="align-middle" >';
-                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud">' + value.id_usuario + ' </td>';
+                datos += '<td class=" border border-primary text-wrap" id="numIdSolicitud" hidden>' + value.id_usuario + ' </td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.nombre_completo + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.correo_empleado + '</td>';
                 datos += '<td class=" border border-primary text-wrap align-middle">' + value.rol + '</td>';
@@ -599,7 +599,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Contraseña Actualizada con Exito',
+                title: 'Contraseña Actualizada Con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -663,7 +663,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Usuario Actualizado con Exito',
+                title: 'Usuario Actualizado Con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
@@ -685,7 +685,7 @@ $(document).ready(function () {
         }).done(function (json) {
             Swal.fire({
                 icon: 'success',
-                title: 'Estado Actualizado con Exito',
+                title: 'Estado Actualizado Con Éxito',
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {

@@ -273,7 +273,7 @@ CREATE TABLE `comentarios_versionamiento` (
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `createDocumento`(iN id_documento int, id_tipo_documento tinyint,
+/*!50003 CREATE DEFINER=CURRENT_USER PROCEDURE `createDocumento`(iN id_documento int, id_tipo_documento tinyint,
  id_proceso tinyint, codigo varchar(10),nombre_documento varchar(500))
 BEGIN
  INSERT INTO documento VALUES (NULL, id_tipo_documento,id_proceso ,codigo,nombre_documento);
@@ -284,7 +284,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `createVersionamiento`(in id_documento INT, id_tipo_documento tinyint,
+/*!50003 CREATE DEFINER=CURRENT_USER PROCEDURE `createVersionamiento`(in id_documento INT, id_tipo_documento tinyint,
  id_proceso tinyint, codigo VARCHAR(10), nombre_documento VARCHAR(500),
   id_versionamiento int, numero_version int,
  descripcion_version text, usuario_creacion varchar(200), fecha_creacion timestamp,
@@ -318,7 +318,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `create_empleado`( IN id_empleado INT, nombre_completo VARCHAR(200),
+/*!50003 CREATE DEFINER=CURRENT_USER PROCEDURE `create_empleado`( IN id_empleado INT, nombre_completo VARCHAR(200),
 img_empleado VARCHAR(200), correo_empleado VARCHAR(200), id_cargo INT, id_empresa INT, estado_empleado  ENUM('A','I'))
 BEGIN
 INSERT INTO empleado VALUES (NULL, nombre_completo,'usuario.png',correo_empleado,id_cargo,'1','A');
@@ -329,7 +329,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `create_usuario`(IN id_usuario INT, usuario VARCHAR(50), clave VARCHAR(50),
+/*!50003 CREATE DEFINER=CURRENT_USER PROCEDURE `create_usuario`(IN id_usuario INT, usuario VARCHAR(50), clave VARCHAR(50),
     id_rol INT,  estado ENUM('A','I','C'),id_empleado INT, nombre_completo VARCHAR(200),
 img_empleado VARCHAR(200), correo_empleado VARCHAR(200), id_cargo INT, id_empresa INT, estadoEmpl  ENUM('A','I'))
 BEGIN

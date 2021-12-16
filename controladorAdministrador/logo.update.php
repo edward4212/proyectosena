@@ -49,7 +49,7 @@ echo '
     jQuery(function(){
         Swal.fire({
             icon: "success",
-            title: "Logo Actualizado con Exito",
+            title: "Logo Actualizado con Éxito",
             showConfirmButton: false,
             timer: 3000
             }).then(function() {

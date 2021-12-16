@@ -13,9 +13,9 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active " id="nav-inicio-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-inicio" type="button" role="tab" aria-controls="nav-inicio"
-                        aria-selected="false">Mision y Vision</button>
+                        aria-selected="false">Misión y Visión</button>
                     <button class="nav-link " id="nav-politica-tab" data-bs-toggle="tab" data-bs-target="#nav-politica"
-                        type="button" role="tab" aria-controls="nav-politica" aria-selected="true">Politica y Objetivos
+                        type="button" role="tab" aria-controls="nav-politica" aria-selected="true">Política y Objetivos
                         de Calidad</button>
                     <button class="nav-link " id="nav-organigrama-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-organigrama" type="button" role="tab" aria-controls="nav-organigrama"
@@ -35,7 +35,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Mision</h5>
+                                    <h5 class="card-title text-center">Misión</h5>
                                     <h5 class="card-text" id="mision"></h5>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Vision</h5>
+                                    <h5 class="card-title text-center">Visión</h5>
                                     <h5 class="card-text" id="vision"></h5>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Politica de Calidad</h5>
+                                    <h5 class="card-title text-center">Política de Calidad</h5>
                                     <h5 class="card-text" id="politica"></h5>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Objtivo de Calidad</h5>
+                                    <h5 class="card-title text-center">Objetivo de Calidad</h5>
                                     <h5 class="card-text" id="objetivo"></h5>
                                 </div>
                             </div>

@@ -53,10 +53,10 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaDoc'  class='table  table-striped table-bordered table-responsive '   >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NÚMERO  </th>' ;
             datos += '<th  class="text-center align-middle border border-primary " >PROCESO</th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-            datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
             datos += '<th  class="text-center align-middle border border-primary ">FECHA DE VIGENCIA</th>';
@@ -253,10 +253,10 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaDocR'  class='table  table-striped table-bordered table-responsive '   >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NÚMERO  </th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-            datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
             datos += '<th  class="text-center align-middle border border-primary ">ESTADO D</th>';
@@ -381,10 +381,10 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaAdm'  class='table  table-striped table-bordered table-responsive    '   >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NÚMERO  </th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-            datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
             datos += '<th  class="text-center align-middle border border-primary ">INACTIVAR</th>';
@@ -503,10 +503,10 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaObso'  class='table  table-striped table-bordered table-responsive '    >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NÚMERO  </th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-            datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VER DOCUMENTO</th>';
@@ -624,10 +624,10 @@ $(document).ready(function () {
             datos += "<table id='tableConsultaTram'  class='table  table-striped table-bordered table-responsive '    >";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary ">';
-            datos += '<th  class="text-center align-middle border border-primary " hidden>NUMERO</th>' ;
+            datos += '<th  class="text-center align-middle border border-primary " hidden>NÚMERO  </th>' ;
             datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-            datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+            datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
             datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
             datos += '<th  class="text-center align-middle border border-primary ">VER DOCUMENTO</th>';
@@ -728,7 +728,7 @@ $(document).ready(function () {
         })
     }
 
-    /// CREAR NUMERO DE CODIGO///
+    /// CREAR NÚMERO   DE CÓDIGO ///
     $(document).on('click', '#btnAsignarCod', function (event) {
         event.preventDefault();
         $.ajax({

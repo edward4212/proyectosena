@@ -15,10 +15,10 @@
                         data-bs-target="#nav-empresa" type="button" role="tab" aria-controls="nav-empresa"
                         aria-selected="false">Empresa</button>
                     <button class="nav-link " id="nav-inicio-tab" data-bs-toggle="tab" data-bs-target="#nav-inicio"
-                        type="button" role="tab" aria-controls="nav-inicio" aria-selected="true">Mision y
-                        Vision</button>
+                        type="button" role="tab" aria-controls="nav-inicio" aria-selected="true">Misión y
+                        Visión</button>
                     <button class="nav-link " id="nav-politica-tab" data-bs-toggle="tab" data-bs-target="#nav-politica"
-                        type="button" role="tab" aria-controls="nav-politica" aria-selected="true">Politica y Objetivos
+                        type="button" role="tab" aria-controls="nav-politica" aria-selected="true">Política y Objetivo
                         de Calidad</button>
                     <button class="nav-link " id="nav-organigrama-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-organigrama" type="button" role="tab" aria-controls="nav-organigrama"
@@ -52,7 +52,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Logo</h5>
-                                    <img id="logo" class="rounded d-block zoom1"  alt="...">
+                                   
                                 </div>
                                 <h5 class="card-title text-center" id="btnModificarLogo"></h5>
                             </div>
@@ -126,7 +126,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Mision</h5>
+                                    <h5 class="card-title text-center">Misión</h5>
                                     <h5 class="card-text" id="mision"></h5>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Vision</h5>
+                                    <h5 class="card-title text-center">Visión</h5>
                                     <h5 class="card-text" id="vision"></h5>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Mision de la Empresa</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Misión de la Empresa</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -161,7 +161,7 @@
                                     <div class="modal-body">
                                         <input type="number" class="card-text" id="numEmpresaModMis"
                                             name="numEmpresaModMis" hidden>
-                                        <h5 class="card-title">Mision Empresa</h5>
+                                        <h5 class="card-title">Misión Empresa</h5>
                                         <div class="text-wrap">
                                             <textarea class="card-text form-group" id="txtMisionMod" name="txtMisionMod"
                                                 style="width:450px; height:100px; "></textarea>
@@ -183,7 +183,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Vision de la Empresa</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Visión de la Empresa</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -192,7 +192,7 @@
                                     <div class="modal-body">
                                         <input type="number" class="card-text" id="numEmpresaModvis"
                                             name="numEmpresaModvis" hidden>
-                                        <h5 class="card-title">Vision Empresa</h5>
+                                        <h5 class="card-title">Visión Empresa</h5>
                                         <textarea class="card-text form-group" id="txtVisiomMod" name="txtVisiomMod"
                                             style="width:450px; height:100px; "></textarea>
                                     </div>
@@ -217,7 +217,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Politica de Calidad</h5>
+                                    <h5 class="card-title text-center">Política de Calidad</h5>
                                     <h5 class="card-text" id="politica"></h5>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Objtivo de Calidad</h5>
+                                    <h5 class="card-title text-center">Objetivo de Calidad</h5>
                                     <h5 class="card-text" id="objetivo"></h5>
                                 </div>
                             </div>
@@ -242,7 +242,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Plitica de Calidad de la
+                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Política de Calidad de la
                                         Empresa</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
@@ -252,7 +252,7 @@
                                     <div class="modal-body">
                                         <input type="number" class="card-text" id="numEmpresaModPol"
                                             name="numEmpresaModPol" hidden>
-                                        <h5 class="card-title">Politica Calidad de la Empresa</h5>
+                                        <h5 class="card-title">Política Calidad de la Empresa</h5>
                                         <div class="text-wrap">
                                             <textarea class="card-text form-group" id="txtPoliMod" name="txtPoliMod"
                                                 style="width:450px; height:100px; "></textarea>
@@ -274,7 +274,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Vision de la Empresa</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Objetivo de Calidad de la Empresa</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -283,7 +283,7 @@
                                     <div class="modal-body">
                                         <input type="number" class="card-text" id="numEmpresaModObj"
                                             name="numEmpresaModObj" hidden>
-                                        <h5 class="card-title">Vision Empresa</h5>
+                                        <h5 class="card-title"> Objetivo de Calidad</h5>
                                         <textarea class="card-text form-group" id="txtObjMod" name="txtObjMod"
                                             style="width:450px; height:100px; "></textarea>
                                     </div>
@@ -308,7 +308,6 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Organigrama</h5>
-                                    <img id="organigrama" class="rounded mx-auto d-block zoom" alt="...">
                                 </div>
                                 <h5 class="card-title text-center" id="btnModificarOrganigrama"></h5>
                             </div>

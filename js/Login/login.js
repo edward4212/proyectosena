@@ -11,24 +11,25 @@ $(document).ready(function () {
                 Swal.fire({
                     type: 'error',
                     title: 'Error',
-                    text: '¡Campo usuario y contraseña vacio!',
+                    text: '¡Campo usuario y contraseña vacío!',
                 });
             }else{
             if (document.getElementById('txtUsuario').value == "") {
                 Swal.fire({
                     type: 'error',
                     title: 'Error',
-                    text: '¡Campo usuario vacio!',
+                    text: '¡Campo usuario vacío!',
                 });
             }else{
             if (document.getElementById('txtClave').value == "") {
                 Swal.fire({
                     type: 'error',
                     title: 'Error',
-                    text: '¡Campo contraseña vacio!',
+                    text: '¡Campo contraseña vacío!',
                 });
-            }else {
-                if (obj == false) {
+            }
+            }
+            if (obj == null) {
                     Swal.fire({
                         type: 'error',
                         title: 'Error',
@@ -87,16 +88,15 @@ $(document).ready(function () {
                           })
                     }   
                 }
-                }
             }
-        }
         }).fail(function (xhr, status, error) {
             Swal.fire({
                 icon: 'error',
                 title: '¡Usuario o Contraseña Incorrecto!',
                 showConfirmButton: false,
                 timer: 3000
-            })
+            }),
+              console.log(error)
         })
 
     })
@@ -138,7 +138,7 @@ $(document).ready(function () {
                 showConfirmButton: false,
                 timer: 3000
             }).then((result) => {
-                window.location.href = "../empleado/perfil.php";
+                window.location.href = "../login/login.php";
             })
         })
     })

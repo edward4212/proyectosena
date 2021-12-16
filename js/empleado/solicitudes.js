@@ -44,13 +44,13 @@ $(document).ready(function(){
                 datos += "<table id='tableSolicitudes' class='table  table-striped table-bordered table-responsive '  >"; 
                 datos += '<thead >';
                         datos += '<tr class="table-light border-primary text-center align-middle ">';
-                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO SOLICITUD</th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE LA SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">PRIORIDAD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ESTADO DE LA SOLICITUD</th>'; 
                             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE DOCUMENTO </th>';
-                            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DE DOCUMENTO </th>';
+                            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO DE DOCUMENTO </th>';
                             datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCIÓN DE LA SOLICITUD</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">ASIGNADO A</th>';
                             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE ASIGNACIÓN</th>';
@@ -264,7 +264,7 @@ $(document).ready(function(){
             data : null,
         }).done(function(json){
             var prioridad  =0;
-            prioridad+='<option disabled selected> - Seleccione una Prioridad -</option>';
+            prioridad+='<option disabled selected> - Seleccione Una Prioridad -</option>';
             $.each(json, function (key,value) {    
                 prioridad+='<option value='+value.id_prioridad+'>'+value.prioridad+'</option>';   
             })
@@ -283,7 +283,7 @@ $(document).ready(function(){
             data : null,
         }).done(function(json){
             var tipoDocumento  =0;
-            tipoDocumento+='<option disabled selected> - Seleccione un Tipo de Documento -</option>';
+            tipoDocumento+='<option disabled selected> - Seleccione Un Tipo De Documento -</option>';
             $.each(json, function (key,value) {    
                 tipoDocumento+='<option value='+value.id_tipo_documento+'>'+value.tipo_documento+'</option>';   
             })            
@@ -309,7 +309,7 @@ $(document).ready(function(){
                     datos += '<tr class="table-light border-primary ">';
                         datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-                        datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+                        datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
                         datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">FECHA DE VIGENCIA</th>';
@@ -370,7 +370,7 @@ $(document).ready(function(){
             data : null,
         }).done(function(json){
             var prioridad  =0;
-            prioridad+='<option disabled selected> - Seleccione una Prioridad -</option>';
+            prioridad+='<option disabled selected> - Seleccione Una Prioridad -</option>';
             $.each(json, function (key,value) {    
                 prioridad+='<option value='+value.id_prioridad+'>'+value.prioridad+'</option>';   
             })
@@ -397,7 +397,7 @@ $(document).ready(function(){
                     datos += '<tr class="table-light border-primary ">';
                         datos += '<th  class="text-center align-middle border border-primary ">PROCESO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">TIPO DOCUMENTO</th>';
-                        datos += '<th  class="text-center align-middle border border-primary ">CODIGO</th>';
+                        datos += '<th  class="text-center align-middle border border-primary ">CÓDIGO </th>';
                         datos += '<th  class="text-center align-middle border border-primary ">NOMBRE DOCUMENTO</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">VERSIÓN</th>';
                         datos += '<th  class="text-center align-middle border border-primary ">FECHA DE VIGENCIA</th>';
@@ -457,7 +457,7 @@ $(document).ready(function(){
             data : null,
         }).done(function(json){
             var prioridad  =0;
-            prioridad+='<option disabled selected> - Seleccione una Prioridad -</option>';
+            prioridad+='<option disabled selected> - Seleccione Una Prioridad -</option>';
             $.each(json, function (key,value) {    
                 prioridad+='<option value='+value.id_prioridad+'>'+value.prioridad+'</option>';   
             })

@@ -35,7 +35,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Mision</h5>
+                                    <h5 class="card-title text-center">Misión</h5>
                                     <h5 class="card-text" id="mision"></h5>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Vision</h5>
+                                    <h5 class="card-title text-center">Visión</h5>
                                     <h5 class="card-text" id="vision"></h5>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Politica de Calidad</h5>
+                                    <h5 class="card-title text-center">Política de Calidad</h5>
                                     <h5 class="card-text" id="politica"></h5>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                             <br>
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Objtivo de Calidad</h5>
+                                    <h5 class="card-title text-center">Objetivo de Calidad</h5>
                                     <h5 class="card-text" id="objetivo"></h5>
                                 </div>
                             </div>

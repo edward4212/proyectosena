@@ -56,7 +56,7 @@ echo '
     jQuery(function(){
         Swal.fire({
             icon: "success",
-            title: "Solcitud de Eliminación de Documento creada con Exito",
+            title: "Solicitud de Eliminación de Documento creada con Éxito",
             showConfirmButton: false,
             timer: 2000
             }).then(function() {

@@ -31,12 +31,12 @@ $(document).ready(function () {
             datos += "<table id='tableSolicitudesRea'   class='table  table-striped table-bordered table-responsive'>";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO SOLICITUD</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE LA SOLICITUD</th>';
             datos += '<th  class="border border-primary text-wrap align-middle ">PRIORIDAD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">TIPO DE DOCUMENTO </th>';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO DOCUMENTO </th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  DOCUMENTO </th>';
             datos += '<th  class="border border-primary text-center align-middle ">CREADO POR </th>';
             datos += '<th  class="border border-primary text-center align-middle ">DESCRIPCIÓN DE LA SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">DOCUMENTO SOPORTE </th>';
@@ -337,7 +337,7 @@ $(document).ready(function () {
             datos += "<table id='tableSolicitudesTotla'   class='table  table-striped table-bordered table-responsive'>";
             datos += '<thead >';
             datos += '<tr class="table-light border-primary text-center align-middle ">';
-            datos += '<th  class="border border-primary text-center align-middle ">CODIGO SOLICITUD</th>';
+            datos += '<th  class="border border-primary text-center align-middle ">CÓDIGO  SOLICITUD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">FECHA DE LA SOLICITUD</th>';
             datos += '<th  class="border border-primary text-wrap align-middle ">PRIORIDAD</th>';
             datos += '<th  class="border border-primary text-center align-middle ">CREADO POR </th>';

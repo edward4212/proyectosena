@@ -55,9 +55,11 @@
                             <div class="card text-center">
                                 <div class="card-body">
                                     <h5 class="card-title">Manual de Funciones</h5>
-                                    <a class="btn btn-primary"
-                                        href="../documentos/cargos/<?php $cargo= $_SESSION['cargo']; echo $cargo;?>/<?php $manual_funciones= $_SESSION['manual_funciones']; echo $manual_funciones;?>">Descargar
-                                        Manual de Funciones <i class="fas fa-download"></i></a>
+                                    <?php if ($_SESSION['manual_funciones'] != null): ?>
+                                            <a class="btn btn-primary" href="../documentos/cargos/<?php $cargo= $_SESSION['cargo']; echo $cargo;?>/<?php $manual_funciones= $_SESSION['manual_funciones']; echo $manual_funciones;?>">Descargar Manual de Funciones <i class="fas fa-download"></i></a>
+                                        <?php else: ?>   
+                                            <h5>No se ha cargado el manual de Funciones</h5>
+                                        <?php endif ?>
                                 </div>
                                 <br>
                             </div>
