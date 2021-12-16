@@ -13,9 +13,9 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active " id="nav-inicio-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-inicio" type="button" role="tab" aria-controls="nav-inicio"
-                        aria-selected="false">Mision y Vision</button>
+                        aria-selected="false">Misión y Visión</button>
                     <button class="nav-link " id="nav-politica-tab" data-bs-toggle="tab" data-bs-target="#nav-politica"
-                        type="button" role="tab" aria-controls="nav-politica" aria-selected="true">Politica y Objetivos
+                        type="button" role="tab" aria-controls="nav-politica" aria-selected="true">Política y Objetivos
                         de Calidad</button>
                     <button class="nav-link " id="nav-organigrama-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-organigrama" type="button" role="tab" aria-controls="nav-organigrama"
